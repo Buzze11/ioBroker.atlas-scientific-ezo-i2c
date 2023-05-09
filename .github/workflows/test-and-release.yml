@@ -33,7 +33,7 @@ jobs:
                   # install-command: 'npm install'
                   # type-checking: true
                   type-checking: false
-                  lint: false
+                  lint: true
                   # lint: true
 
     # Runs adapter tests on all supported node versions and OSes
@@ -43,8 +43,8 @@ jobs:
         runs-on: ${{ matrix.os }}
         strategy:
             matrix:
-                node-version: [16.x]
-                os: [ubuntu-latest]
+                node-version: [14.x, 16.x, 18.x]
+                os: [ubuntu-latest, windows-latest, macos-latest]
 
         steps:
             - uses: ioBroker/testing-action-adapter@v1
