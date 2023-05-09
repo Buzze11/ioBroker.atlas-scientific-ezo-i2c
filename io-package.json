@@ -1,9 +1,9 @@
 {
     "common": {
         "name": "atlas-scientific-ezo-i2c",
-        "version": "0.0.7",
+        "version": "0.0.1",
         "news": {
-            "0.0.7": {
+            "0.0.1": {
                 "en": "initial release",
                 "de": "Erstveröffentlichung",
                 "ru": "Начальная версия",
@@ -50,7 +50,7 @@
         "enabled": true,
         "extIcon": "https://raw.githubusercontent.com/Buzze11/ioBroker.atlas-scientific-ezo-i2c/master/admin/atlas-scientific-ezo-i2c.png",
         "readme": "https://github.com/Buzze11/ioBroker.atlas-scientific-ezo-i2c/blob/master/README.md",
-        "loglevel": "silly",
+        "loglevel": "info",
         "messagebox": true,
         "mode": "daemon",
         "type": "hardware",
