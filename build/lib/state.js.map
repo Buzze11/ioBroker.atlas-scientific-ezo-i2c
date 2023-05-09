@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/lib/state.ts"],
+  "sourcesContent": ["export type StateValue = string | number | boolean | null;\nexport type StateChangeListener<T extends StateValue> = (oldValue: T, newValue: T) => Promise<void>;\nexport type ForeignStateChangeListener<T extends StateValue> = (value: T) => Promise<void>;"],
+  "mappings": ";;;;;;;;;;;;;AAAA;AAAA;",
+  "names": []
+}

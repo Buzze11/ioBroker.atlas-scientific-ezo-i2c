@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/lib/shared.ts"],
+  "sourcesContent": ["export function toHexString(value: number, length?: number): string {\r\n    length = length || 2;\r\n    // Convert a number to a hex string \"0xXX\"\r\n    let str = value.toString(16).toUpperCase();\r\n    while (str.length < length) {\r\n        str = '0' + str;\r\n    }\r\n    return '0x' + str;\r\n}\r\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAO,SAAS,YAAY,OAAe,QAAyB;AAChE,WAAS,UAAU;AAEnB,MAAI,MAAM,MAAM,SAAS,EAAE,EAAE,YAAY;AACzC,SAAO,IAAI,SAAS,QAAQ;AACxB,UAAM,MAAM;AAAA,EAChB;AACA,SAAO,OAAO;AAClB;",
+  "names": []
+}

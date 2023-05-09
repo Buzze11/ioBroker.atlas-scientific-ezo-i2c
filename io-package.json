@@ -1,0 +1,103 @@
+{
+    "common": {
+        "name": "atlas-scientific-ezo-i2c",
+        "version": "0.0.7",
+        "news": {
+            "0.0.7": {
+                "en": "initial release",
+                "de": "Erstveröffentlichung",
+                "ru": "Начальная версия",
+                "pt": "lançamento inicial",
+                "nl": "Eerste uitgave",
+                "fr": "Première version",
+                "it": "Versione iniziale",
+                "es": "Versión inicial",
+                "pl": "Pierwsze wydanie",
+                "zh-cn": "首次出版"
+            }
+        },
+        "title": "Atlas Scientific EZO",
+        "titleLang": {
+            "en": "Atlas Scientific EZO",
+            "de": "Atlas Scientific EZO",
+            "ru": "Атлас Научная ЭЗО",
+            "pt": "Atlas Científico EZO",
+            "nl": "Atlas Wetenschappelijke EZO",
+            "fr": "Atlas Scientifique EZO",
+            "it": "Atlante scientifico EZO",
+            "es": "EZO científico de Atlas",
+            "pl": "Atlas Scientific EZO",
+            "zh-cn": "阿特拉斯科学 EZO"
+        },
+        "desc": {
+            "en": "atlas-scientific-ezo-i2c",
+            "de": "atlas-scientific-ezo-i2c",
+            "ru": "атлас-научный-ezo-i2c",
+            "pt": "atlas-científico-ezo-i2c",
+            "nl": "atlas-wetenschappelijk-ezo-i2c",
+            "fr": "atlas-scientifique-ezo-i2c",
+            "it": "atlas-scientifico-ezo-i2c",
+            "es": "atlas-cientifico-ezo-i2c",
+            "pl": "atlas-naukowy-ezo-i2c",
+            "zh-cn": "地图集-科学-ezo-i2c"
+        },
+        "authors": ["Buzze11 <github@buchholz.cloud>"],
+        "keywords": ["ioBroker", "template", "Smart Home", "home automation"],
+        "license": "Apache-2.0",
+        "platform": "Javascript/Node.js",
+        "main": "build/main.js",
+        "icon": "atlas-scientific-ezo-i2c.png",
+        "enabled": true,
+        "extIcon": "https://raw.githubusercontent.com/Buzze11/ioBroker.atlas-scientific-ezo-i2c/master/admin/atlas-scientific-ezo-i2c.png",
+        "readme": "https://github.com/Buzze11/ioBroker.atlas-scientific-ezo-i2c/blob/master/README.md",
+        "loglevel": "silly",
+        "messagebox": true,
+        "mode": "daemon",
+        "type": "hardware",
+        "compact": true,
+        "connectionType": "local",
+        "dataSource": "poll",
+        "adminUI": {
+            "config": "materialize"
+        },
+        "eraseOnUpload": true,
+        "dependencies": [
+            {
+                "js-controller": ">=3.3.22"
+            }
+        ],
+        "globalDependencies": [
+            {
+                "admin": ">=5.0.0"
+            }
+        ]
+    },
+    "native": {
+        "busNumber": 1,
+        "devices":[]
+    },
+    "objects": [],
+    "instanceObjects": [
+        {
+            "_id": "info",
+            "type": "channel",
+            "common": {
+                "name": "Information"
+            },
+            "native": {}
+        },
+        {
+            "_id": "info.connection",
+            "type": "state",
+            "common": {
+                "role": "indicator.connected",
+                "name": "Device or service connected",
+                "type": "boolean",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        }
+    ]
+}
