@@ -25,6 +25,4 @@ export interface EzoDeviceConfig {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface ImplementationConfigBase {
-
-}
+export interface ImplementationConfigBase {}
