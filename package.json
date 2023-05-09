@@ -26,9 +26,6 @@
     "type": "git",
     "url": "git@github.com:Buzze11/ioBroker.atlas-scientific-ezo-i2c.git"
   },
-  "os": [
-    "linux"
-  ],
   "engines": {
     "node": ">= 16"
   },
