@@ -7,7 +7,7 @@
 ![Number of Installations](https://iobroker.live/badges/atlas-scientific-ezo-i2c-installed.svg)
 ![Current version in stable repository](https://iobroker.live/badges/atlas-scientific-ezo-i2c-stable.svg)
 
-[![NPM](https://nodei.co/npm/iobroker.atlas-scientific-ezo.png?downloads=true)](https://nodei.co/npm/iobroker.atlas-scientific-ezo/)
+[![NPM](https://nodei.co/npm/iobroker.atlas-scientific-ezo-i2c.png?downloads=true)](https://nodei.co/npm/iobroker.atlas-scientific-ezo-i2c/)
 
 **Tests:** ![Test and Release](https://github.com/Buzze11/ioBroker.atlas-scientific-ezo/workflows/Test%20and%20Release/badge.svg)
 
