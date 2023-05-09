@@ -11,6 +11,9 @@
         "declaration": true,
         "checkJs": true,
 
+        // enable jsx
+        "jsx": "react",
+        
         "skipLibCheck": true, // Don't report errors in 3rd party definitions
         "noEmitOnError": true,
         "outDir": "./build/",
