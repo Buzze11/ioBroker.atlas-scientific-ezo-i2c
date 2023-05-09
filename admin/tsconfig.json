@@ -1,50 +1,16 @@
-// Specialized tsconfig for the admin directory,
-// includes DOM typings and configures the admin build
-// {
-//     "extends": "../tsconfig.json",
-//     "compilerOptions": {
-//         "noEmit": false,
-//         "outDir": "./build",
-//         "sourceMap": true,
-//         "sourceRoot": "./src",
-//         "noImplicitAny": false,
-//         "lib": ["es2018", "DOM"],
-//         "jsx": "react"
-//     },
-//     "include": ["./**/*.ts", "./**/*.tsx", "../src/lib/adapter-config.d.ts"],
-//     "exclude": ["./**/*.test.ts", "./**/*.test.tsx"]
-// }
-
-// Specialized tsconfig for the admin directory,
+//Specialized tsconfig for the admin directory,
+//includes DOM typings and configures the admin build
 {
-    "compileOnSave": true,
+    "extends": "../tsconfig.json",
     "compilerOptions": {
-        "esModuleInterop": true,
-        // check JS files, but do not compile them => tsconfig.build.json
-        "allowJs": true,
-        "declaration": true,
-        "checkJs": true,
-
-        "skipLibCheck": true, // Don't report errors in 3rd party definitions
-        "noEmitOnError": true,
-        "removeComments": false,
-        "module": "commonjs",
-        "moduleResolution": "node",
-        "resolveJsonModule": true,
-
-        "noEmit": true,
+        "noEmit": false,
         "outDir": "./build",
         "sourceMap": true,
         "sourceRoot": "./src",
         "noImplicitAny": false,
+        "esModuleInterop": true,
         "lib": ["es2018", "DOM"],
-        "jsx": "react",
-        "target": "ES6",
-
-        "inlineSourceMap": false,
-        "watch": false,
-
-        "experimentalDecorators": true
+        "jsx": "react"
     },
     "include": ["./**/*.ts", "./**/*.tsx", "../src/lib/adapter-config.d.ts"],
     "exclude": ["./**/*.test.ts", "./**/*.test.tsx"]
