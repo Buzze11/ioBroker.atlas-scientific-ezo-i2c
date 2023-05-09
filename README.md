@@ -171,13 +171,13 @@ It is recommended that you add your own tests into the mix.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.0.3 (2023-05-09)
+bugfixes
+
 ### 0.0.2 (2023-05-09)
 -   (Buzze11) initial release
 
 ### 0.0.1 (2023-05-09)
-
-### **WORK IN PROGRESS**
-bugfixes
 
 ### DISCLAIMER
 
