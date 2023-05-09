@@ -1,4 +1,4 @@
-![Logo](admin/atlas-scientific-ezo.png)
+![Logo](admin/atlas-scientific-ezo-i2c.png)
 
 # ioBroker.atlas-scientific-ezo-i2c
 
