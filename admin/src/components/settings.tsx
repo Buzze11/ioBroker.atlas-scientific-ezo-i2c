@@ -30,7 +30,7 @@ const styles = (theme: Theme): Record<string, CreateCSSProperties> => ({
 
 interface SettingsProps {
     classes: Record<string, string>;
-    native: ioBroker.AdapterConfig;
+    native: any//;ioBroker.AdapterConfig;
     context: AppContext;
 
     onChange: (attr: string, value: any) => void;
