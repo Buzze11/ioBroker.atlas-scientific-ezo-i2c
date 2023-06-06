@@ -171,7 +171,7 @@ It is recommended that you add your own tests into the mix.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 2.0.0 (2023-06-06)
 - further bugfixes
 - patched release yml file
 - added  releaseconfig.json
