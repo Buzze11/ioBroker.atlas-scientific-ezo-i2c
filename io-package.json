@@ -3,19 +3,6 @@
     "name": "atlas-scientific-ezo-i2c",
     "version": "1.0.0",
     "news": {
-      "1.0.0": {
-        "en": "further bugfixes\npatched release yml file\nadded  releaseconfig.json",
-        "de": "weitere bugfixes\ngepatchte release-yml-datei\nzusätzlich releaseconfig.json",
-        "ru": "дальнейшие исправления\nзапатчованный релиз yml файл\nдобавлено releaseconfig.json",
-        "pt": "mais correções de bugs\narquivo yml versão corrigida\nadicionado releaseconfig.json",
-        "nl": "verder insecten\nvertaling:\nvertaling:",
-        "fr": "autres bugfixes\nfichier patched release yml\najouté releaseconfig.json",
-        "it": "ulteriori bugfix\nfile yml di rilascio patchato\naggiunto releaseconfig.json",
-        "es": "más bugfixes\narchivo yml de liberación parche\nañadido releaseconfig.json",
-        "pl": "pluszak\npatch release yml file\ndodał również konfig.json",
-        "uk": "подальші виправлення\nпатчований реліз yml файл\njavascript licenses api веб-сайт go1.13.8",
-        "zh-cn": "进一步固定\n附录\n增加释放。"
-      },
       "0.0.3": {
         "en": "further bugfixes\npatched release yml file\nadded  releaseconfig.json",
         "de": "weitere bugfixes\ngepatchte release-yml-datei\nzusätzlich releaseconfig.json",
