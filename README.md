@@ -174,6 +174,7 @@ It is recommended that you add your own tests into the mix.
 ### **WORK IN PROGRESS**
 - further bugfixes
 - patched release yml file
+- added  releaseconfig.json
 ### 0.0.3 (2023-05-09)
 bugfixes
 
