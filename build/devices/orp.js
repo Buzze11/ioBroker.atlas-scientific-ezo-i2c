@@ -47,7 +47,7 @@ class ORP extends import_ezo_handler_base.EzoHandlerBase {
       native: this.config
     });
     await this.CreateObjects();
-    let deviceName = await this.sensor.GetName();
+    const deviceName = await this.sensor.GetName();
     if (!this.config.name) {
       this.info("Devicename is not clear. Clearing Devicename");
       await this.sensor.SetName("");
@@ -64,7 +64,7 @@ class ORP extends import_ezo_handler_base.EzoHandlerBase {
   async CreateStateChangeListeners() {
   }
   async CreateObjects() {
-    await this.adapter.extendObjectAsync(this.hexAddress + ".Device Status", {
+    await this.adapter.extendObjectAsync(this.hexAddress + ".Device_Status", {
       type: "state",
       common: {
         name: this.hexAddress + " " + (this.config.name || "ORP"),
@@ -72,7 +72,7 @@ class ORP extends import_ezo_handler_base.EzoHandlerBase {
         role: "value"
       }
     });
-    await this.adapter.extendObjectAsync(this.hexAddress + ".ORP Value", {
+    await this.adapter.extendObjectAsync(this.hexAddress + ".ORP_Value", {
       type: "state",
       common: {
         name: this.hexAddress + " " + (this.config.name || "ORP"),
@@ -88,7 +88,7 @@ class ORP extends import_ezo_handler_base.EzoHandlerBase {
         role: "value"
       }
     });
-    await this.adapter.extendObjectAsync(this.hexAddress + ".Led on", {
+    await this.adapter.extendObjectAsync(this.hexAddress + ".Led_on", {
       type: "state",
       common: {
         name: this.hexAddress + " " + (this.config.name || "ORP"),
@@ -120,17 +120,17 @@ class ORP extends import_ezo_handler_base.EzoHandlerBase {
   async GetAllReadings() {
     try {
       if (this.sensor != null) {
-        var ds = await this.sensor.GetDeviceStatus();
-        await this.setStateAckAsync("Device Status", ds);
-        var orp = await this.sensor.GetReading();
-        await this.setStateAckAsync("ORP Value", orp);
-        var info = await this.sensor.GetInfo();
+        const ds = await this.sensor.GetDeviceStatus();
+        await this.setStateAckAsync("Device_Status", ds);
+        const orp = await this.sensor.GetReading();
+        await this.setStateAckAsync("ORP_Value", orp);
+        const info = await this.sensor.GetInfo();
         await this.setStateAckAsync("Info", info);
-        var useLed = await this.sensor.GetLED();
-        await this.setStateAckAsync("Led on", useLed);
-        var name = await this.sensor.GetName();
+        const useLed = await this.sensor.GetLED();
+        await this.setStateAckAsync("Led_on", useLed);
+        const name = await this.sensor.GetName();
         await this.setStateAckAsync("Devicename", name);
-        var ic = await this.sensor.IsCalibrated();
+        const ic = await this.sensor.IsCalibrated();
         await this.setStateAckAsync("IsCalibrated", ic);
       }
     } catch {

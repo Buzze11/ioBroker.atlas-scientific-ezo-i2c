@@ -47,7 +47,7 @@ class RTD extends import_ezo_handler_base.EzoHandlerBase {
       native: this.config
     });
     await this.CreateObjects();
-    let deviceName = await this.sensor.GetName();
+    const deviceName = await this.sensor.GetName();
     if (!this.config.name) {
       this.info("Devicename is not clear. Clearing Devicename");
       await this.sensor.SetName("");
@@ -64,7 +64,7 @@ class RTD extends import_ezo_handler_base.EzoHandlerBase {
   async CreateStateChangeListeners() {
   }
   async CreateObjects() {
-    await this.adapter.extendObjectAsync(this.hexAddress + ".Device Status", {
+    await this.adapter.extendObjectAsync(this.hexAddress + ".Device_Status", {
       type: "state",
       common: {
         name: this.hexAddress + " " + (this.config.name || "RTD"),
@@ -96,7 +96,7 @@ class RTD extends import_ezo_handler_base.EzoHandlerBase {
         role: "value"
       }
     });
-    await this.adapter.extendObjectAsync(this.hexAddress + ".Led on", {
+    await this.adapter.extendObjectAsync(this.hexAddress + ".Led_on", {
       type: "state",
       common: {
         name: this.hexAddress + " " + (this.config.name || "RTD"),
@@ -128,19 +128,19 @@ class RTD extends import_ezo_handler_base.EzoHandlerBase {
   async GetAllReadings() {
     try {
       if (this.sensor != null) {
-        var ds = await this.sensor.GetDeviceStatus();
-        await this.setStateAckAsync("Device Status", ds);
-        var ox = await this.sensor.GetReading();
+        const ds = await this.sensor.GetDeviceStatus();
+        await this.setStateAckAsync("Device_Status", ds);
+        const ox = await this.sensor.GetReading();
         await this.setStateAckAsync("Temperature", ox);
-        var info = await this.sensor.GetInfo();
+        const info = await this.sensor.GetInfo();
         await this.setStateAckAsync("Info", info);
-        var useLed = await this.sensor.GetLED();
-        await this.setStateAckAsync("Led on", useLed);
-        var name = await this.sensor.GetName();
+        const useLed = await this.sensor.GetLED();
+        await this.setStateAckAsync("Led_on", useLed);
+        const name = await this.sensor.GetName();
         await this.setStateAckAsync("Devicename", name);
-        var ic = await this.sensor.IsCalibrated();
+        const ic = await this.sensor.IsCalibrated();
         await this.setStateAckAsync("IsCalibrated", ic);
-        var sc = await this.sensor.GetTemperatureScale();
+        const sc = await this.sensor.GetTemperatureScale();
         await this.setStateAckAsync("Scale", sc);
       }
     } catch {

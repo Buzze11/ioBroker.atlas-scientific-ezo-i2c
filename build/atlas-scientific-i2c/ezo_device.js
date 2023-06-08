@@ -85,7 +85,7 @@ class EZODevice {
   async GetLED() {
     const cmd = "L,?";
     this.waitTime = 300;
-    let resp = (await this.SendCommand(cmd)).toString().replace(/\0/g, "");
+    const resp = (await this.SendCommand(cmd)).toString().replace(/\0/g, "");
     return resp[cmd.length + 1] == "1";
   }
   async SetLED(isOn) {
