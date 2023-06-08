@@ -30,7 +30,7 @@ export default class PH extends EzoHandlerBase<PHConfig> {
         await this.CreateObjects();
 
         // Read current setup from sensor
-         let deviceName: string = await this.sensor.GetName();
+         const deviceName: string = await this.sensor.GetName();
         
         // Set Name if not set already
         if(!this.config.name){
@@ -163,28 +163,28 @@ export default class PH extends EzoHandlerBase<PHConfig> {
     async GetAllReadings(): Promise<void>{
         try{
             if(this.sensor != null){
-                var ds = await this.sensor.GetDeviceStatus();
+                const ds = await this.sensor.GetDeviceStatus();
                 await this.setStateAckAsync('Device Status', ds);
 
-                var ph = await this.sensor.GetReading();
+                const ph = await this.sensor.GetReading();
                 await this.setStateAckAsync('PH Value', ph);
 
-                var tc = await this.sensor.GetTemperatureCompensation();
+                const tc = await this.sensor.GetTemperatureCompensation();
                 await this.setStateAckAsync('Temperature compensation (Celsius)', parseFloat(tc));
 
-                var info = await this.sensor.GetInfo();
+                const info = await this.sensor.GetInfo();
                 await this.setStateAckAsync('Info', info);
 
-                var useLed = await this.sensor.GetLED();
+                const useLed = await this.sensor.GetLED();
                 await this.setStateAckAsync('Led on', useLed);
 
-                var name = await this.sensor.GetName();
+                const name = await this.sensor.GetName();
                 await this.setStateAckAsync('Devicename', name);
 
-                var ic = await this.sensor.IsCalibrated();
+                const ic = await this.sensor.IsCalibrated();
                 await this.setStateAckAsync('IsCalibrated', ic);
                                 
-                var slope = await this.sensor.GetSlope();
+                const slope = await this.sensor.GetSlope();
                 if(slope[0] != null)
                     await this.setStateAckAsync('Slope Acid', slope[0]);
                 if(slope[1] != null)
@@ -194,7 +194,6 @@ export default class PH extends EzoHandlerBase<PHConfig> {
             }
         }
         catch{
-            
         }
     }
 
