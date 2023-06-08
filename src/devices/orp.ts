@@ -60,7 +60,7 @@ export default class ORP extends EzoHandlerBase<ORPConfig> {
     }
 
     async CreateObjects(): Promise<void>{
-        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Device Status', {
+        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Device_Status', {
             type: 'state',
             common: {
                 name: this.hexAddress + ' ' + (this.config.name || 'ORP'),
@@ -69,7 +69,7 @@ export default class ORP extends EzoHandlerBase<ORPConfig> {
             },
             //native: any
         });
-        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'ORP Value', {
+        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'ORP_Value', {
             type: 'state',
             common: {
                 name: this.hexAddress + ' ' + (this.config.name || 'ORP'),
@@ -87,7 +87,7 @@ export default class ORP extends EzoHandlerBase<ORPConfig> {
             },
             //native: any
         });
-        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Led on', {
+        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Led_on', {
             type: 'state',
             common: {
                 name: this.hexAddress + ' ' + (this.config.name || 'ORP'),
@@ -126,16 +126,16 @@ export default class ORP extends EzoHandlerBase<ORPConfig> {
         try{
             if(this.sensor != null){
                 const ds = await this.sensor.GetDeviceStatus();
-                await this.setStateAckAsync('Device Status', ds);
+                await this.setStateAckAsync('Device_Status', ds);
 
                 const orp = await this.sensor.GetReading();
-                await this.setStateAckAsync('ORP Value', orp);
+                await this.setStateAckAsync('ORP_Value', orp);
 
                 const info = await this.sensor.GetInfo();
                 await this.setStateAckAsync('Info', info);
 
                 const useLed = await this.sensor.GetLED();
-                await this.setStateAckAsync('Led on', useLed);
+                await this.setStateAckAsync('Led_on', useLed);
 
                 const name = await this.sensor.GetName();
                 await this.setStateAckAsync('Devicename', name);
