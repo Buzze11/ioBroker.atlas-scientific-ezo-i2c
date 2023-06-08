@@ -33,8 +33,8 @@ export default class DO extends EzoHandlerBase<DOConfig> {
         await this.CreateObjects();
         
         // Read current setup from sensor
-        let deviceParameters = await this.sensor.GetParametersEnabled();
-        let deviceName: string = await this.sensor.GetName();
+        const deviceParameters = await this.sensor.GetParametersEnabled();
+        const deviceName: string = await this.sensor.GetName();
         
         // Set Name if not set already
         if(!this.config.name){
@@ -77,12 +77,12 @@ export default class DO extends EzoHandlerBase<DOConfig> {
 
     async CreateStateChangeListeners(): Promise<void>{
 
-        this.adapter.addStateChangeListener(this.hexAddress + '.Temperature compensation (Celsius)', async (_oldValue, _newValue) => {
+        this.adapter.addStateChangeListener(this.hexAddress + '.Temperature_compensation(Celsius)', async (_oldValue, _newValue) => {
             this.SetTemperatureCompensation(_newValue.toString());
         });
 
-        this.adapter.addStateChangeListener(this.hexAddress + '.Salinity compensation', async (_oldValue, _newValue) => {
-            var sc = await this.sensor.GetSalinityCompensation();
+        this.adapter.addStateChangeListener(this.hexAddress + '.Salinity_compensation', async (_oldValue, _newValue) => {
+            const sc = await this.sensor.GetSalinityCompensation();
             if(sc[1]== 'ppt'){
                 this.SetSalinityCompensation(_newValue.toString(), 'true');
             }
@@ -91,7 +91,7 @@ export default class DO extends EzoHandlerBase<DOConfig> {
             }
         });
 
-        this.adapter.addStateChangeListener(this.hexAddress + '.Pressure compensation (kPa)', async (_oldValue, _newValue) => {
+        this.adapter.addStateChangeListener(this.hexAddress + '.Pressure_compensation(kPa)', async (_oldValue, _newValue) => {
             this.SetPressureCompensation(_newValue.toString());
         });
 
@@ -99,7 +99,7 @@ export default class DO extends EzoHandlerBase<DOConfig> {
 
 
     async CreateObjects(): Promise<void>{
-        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Device Status', {
+        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Device_Status', {
             type: 'state',
             common: {
                 name: this.hexAddress + ' ' + (this.config.name || 'DO'),
@@ -108,7 +108,7 @@ export default class DO extends EzoHandlerBase<DOConfig> {
             },
             //native: any
         });
-        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Dissolved Oxygen (related parameters enabled)', {
+        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Dissolved_Oxygen(related_parameters_enabled)', {
             type: 'state',
             common: {
                 name: this.hexAddress + ' ' + (this.config.name || 'DO'),
@@ -117,7 +117,7 @@ export default class DO extends EzoHandlerBase<DOConfig> {
             },
             //native: any
         });
-        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Temperature compensation (Celsius)', {
+        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Temperature_compensation(Celsius)', {
             type: 'state',
             common: {
                 name: this.hexAddress + ' ' + (this.config.name || 'DO'),
@@ -126,7 +126,7 @@ export default class DO extends EzoHandlerBase<DOConfig> {
             },
             //native: any
         });
-        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Salinity compensation', {
+        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Salinity_compensation', {
             type: 'state',
             common: {
                 name: this.hexAddress + ' ' + (this.config.name || 'DO'),
@@ -135,7 +135,7 @@ export default class DO extends EzoHandlerBase<DOConfig> {
             },
             //native: any
         });
-        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Salinity compensation ispPt', {
+        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Salinity_compensation_ispPt', {
             type: 'state',
             common: {
                 name: this.hexAddress + ' ' + (this.config.name),
@@ -144,7 +144,7 @@ export default class DO extends EzoHandlerBase<DOConfig> {
             },
             //native: any
         });
-        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Pressure compensation (kPa)', {
+        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Pressure_compensation(kPa)', {
             type: 'state',
             common: {
                 name: this.hexAddress + ' ' + (this.config.name || 'DO'),
@@ -153,7 +153,7 @@ export default class DO extends EzoHandlerBase<DOConfig> {
             },
             //native: any
         });
-        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Parameters enabled', {
+        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Parameters_enabled', {
             type: 'state',
             common: {
                 name: this.hexAddress + ' ' + (this.config.name || 'DO'),
@@ -171,7 +171,7 @@ export default class DO extends EzoHandlerBase<DOConfig> {
             },
             //native: any
         });
-        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Led on', {
+        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Led_on', {
             type: 'state',
             common: {
                 name: this.hexAddress + ' ' + (this.config.name || 'DO'),
@@ -209,35 +209,35 @@ export default class DO extends EzoHandlerBase<DOConfig> {
     async GetAllReadings(): Promise<void>{
         try{
             if(this.sensor != null){
-                var ds = await this.sensor.GetDeviceStatus();
-                await this.setStateAckAsync('Device Status', ds);
+                const ds = await this.sensor.GetDeviceStatus();
+                await this.setStateAckAsync('Device_Status', ds);
 
-                var ox = await this.sensor.GetReading();
-                await this.setStateAckAsync('Dissolved Oxygen (related parameters enabled)', ox);
+                const ox = await this.sensor.GetReading();
+                await this.setStateAckAsync('Dissolved_Oxygen(related_parameters_enabled)', ox);
 
-                var tc = await this.sensor.GetTemperatureCompensation();
-                await this.setStateAckAsync('Temperature compensation (Celsius)', parseFloat(tc));
+                const tc = await this.sensor.GetTemperatureCompensation();
+                await this.setStateAckAsync('Temperature_compensation(Celsius)', parseFloat(tc));
 
-                var sc = await this.sensor.GetSalinityCompensation();
-                await this.setStateAckAsync('Salinity compensation', parseFloat(sc[0]));
-                await this.setStateAckAsync('Salinity compensation ispPt', sc[1] == 'ppt');
+                const sc = await this.sensor.GetSalinityCompensation();
+                await this.setStateAckAsync('Salinity_compensation', parseFloat(sc[0]));
+                await this.setStateAckAsync('Salinity_compensation_ispPt', sc[1] == 'ppt');
                 
-                var pc = await this.sensor.GetPressureCompensation();
-                await this.setStateAckAsync('Pressure compensation (kPa)', parseFloat(pc));
+                const pc = await this.sensor.GetPressureCompensation();
+                await this.setStateAckAsync('Pressure_compensation(kPa)', parseFloat(pc));
 
-                var pe = await this.sensor.GetParametersEnabled();
-                await this.setStateAckAsync('Parameters enabled', pe);
+                const pe = await this.sensor.GetParametersEnabled();
+                await this.setStateAckAsync('Parameters_enabled', pe);
 
-                var info = await this.sensor.GetInfo();
+                const info = await this.sensor.GetInfo();
                 await this.setStateAckAsync('Info', info);
 
-                var useLed = await this.sensor.GetLED();
-                await this.setStateAckAsync('Led on', useLed);
+                const useLed = await this.sensor.GetLED();
+                await this.setStateAckAsync('Led_on', useLed);
 
-                var name = await this.sensor.GetName();
+                const name = await this.sensor.GetName();
                 await this.setStateAckAsync('Devicename', name);
 
-                var ic = await this.sensor.IsCalibrated();
+                const ic = await this.sensor.IsCalibrated();
                 await this.setStateAckAsync('IsCalibrated', ic);
             }
         }
@@ -299,7 +299,7 @@ export default class DO extends EzoHandlerBase<DOConfig> {
             }
         }
         catch{
-            return 'Error occured on setting salinity compensation';
+            return 'Error occured on setting Salinity_compensation';
         }
     }
 }
