@@ -133,7 +133,9 @@ You can check other adapters for examples or ask in the developer community. Usi
 ### **WORK IN PROGRESS**
 
 - Removed Developer Info
-
+- Extended Test Matrix to [16.x, 18.x, 20.x]
+- Patched Translations
+- Removed Whitespaces for all States from Sensors and exchanged with underscores
 
 ### 1.0.0 (2023-06-06)
 - further bugfixes
