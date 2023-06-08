@@ -61,7 +61,7 @@ export default class RTD extends EzoHandlerBase<RTDConfig> {
     }
     
     async CreateObjects(): Promise<void>{
-        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Device Status', {
+        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Device_Status', {
             type: 'state',
             common: {
                 name: this.hexAddress + ' ' + (this.config.name || 'RTD'),
@@ -97,7 +97,7 @@ export default class RTD extends EzoHandlerBase<RTDConfig> {
             },
             //native: any
         });
-        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Led on', {
+        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Led_on', {
             type: 'state',
             common: {
                 name: this.hexAddress + ' ' + (this.config.name || 'RTD'),
@@ -136,7 +136,7 @@ export default class RTD extends EzoHandlerBase<RTDConfig> {
         try{
             if(this.sensor != null){
                 const ds = await this.sensor.GetDeviceStatus();
-                await this.setStateAckAsync('Device Status', ds);
+                await this.setStateAckAsync('Device_Status', ds);
 
                 const ox = await this.sensor.GetReading();
                 await this.setStateAckAsync('Temperature', ox);
@@ -145,7 +145,7 @@ export default class RTD extends EzoHandlerBase<RTDConfig> {
                 await this.setStateAckAsync('Info', info);
 
                 const useLed = await this.sensor.GetLED();
-                await this.setStateAckAsync('Led on', useLed);
+                await this.setStateAckAsync('Led_on', useLed);
 
                 const name = await this.sensor.GetName();
                 await this.setStateAckAsync('Devicename', name);
