@@ -56,13 +56,13 @@ export default class PH extends EzoHandlerBase<PHConfig> {
     
     async CreateStateChangeListeners(): Promise<void>{
 
-        this.adapter.addStateChangeListener(this.hexAddress + '.Temperature compensation (Celsius)', async (_oldValue, _newValue) => {
+        this.adapter.addStateChangeListener(this.hexAddress + '.Temperature_compensation(Celsius)', async (_oldValue, _newValue) => {
             this.SetTemperatureCompensation(_newValue.toString());
         });
     }
 
     async CreateObjects(): Promise<void>{
-        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Device Status', {
+        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Device_Status', {
             type: 'state',
             common: {
                 name: this.hexAddress + ' ' + (this.config.name || 'PH'),
@@ -71,7 +71,7 @@ export default class PH extends EzoHandlerBase<PHConfig> {
             },
             //native: any
         });
-        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'PH Value', {
+        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'PH_Value', {
             type: 'state',
             common: {
                 name: this.hexAddress + ' ' + (this.config.name || 'PH'),
@@ -80,7 +80,7 @@ export default class PH extends EzoHandlerBase<PHConfig> {
             },
             //native: any
         });
-        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Temperature compensation (Celsius)', {
+        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Temperature_compensation(Celsius)', {
             type: 'state',
             common: {
                 name: this.hexAddress + ' ' + (this.config.name || 'PH'),
@@ -89,7 +89,7 @@ export default class PH extends EzoHandlerBase<PHConfig> {
             },
             //native: any
         });
-        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Slope Acid', {
+        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Slope_Acid', {
             type: 'state',
             common: {
                 name: this.hexAddress + ' ' + (this.config.name || 'PH'),
@@ -98,7 +98,7 @@ export default class PH extends EzoHandlerBase<PHConfig> {
             },
             //native: any
         });
-        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Slope Base', {
+        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Slope_Base', {
             type: 'state',
             common: {
                 name: this.hexAddress + ' ' + (this.config.name || 'PH'),
@@ -107,7 +107,7 @@ export default class PH extends EzoHandlerBase<PHConfig> {
             },
             //native: any
         });
-        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Slope Zero Point', {
+        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Slope_Zero_Point', {
             type: 'state',
             common: {
                 name: this.hexAddress + ' ' + (this.config.name || 'PH'),
@@ -125,7 +125,7 @@ export default class PH extends EzoHandlerBase<PHConfig> {
             },
             //native: any
         });
-        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Led on', {
+        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Led_on', {
             type: 'state',
             common: {
                 name: this.hexAddress + ' ' + (this.config.name || 'PH'),
@@ -164,19 +164,19 @@ export default class PH extends EzoHandlerBase<PHConfig> {
         try{
             if(this.sensor != null){
                 const ds = await this.sensor.GetDeviceStatus();
-                await this.setStateAckAsync('Device Status', ds);
+                await this.setStateAckAsync('Device_Status', ds);
 
                 const ph = await this.sensor.GetReading();
-                await this.setStateAckAsync('PH Value', ph);
+                await this.setStateAckAsync('PH_Value', ph);
 
                 const tc = await this.sensor.GetTemperatureCompensation();
-                await this.setStateAckAsync('Temperature compensation (Celsius)', parseFloat(tc));
+                await this.setStateAckAsync('Temperature_compensation(Celsius)', parseFloat(tc));
 
                 const info = await this.sensor.GetInfo();
                 await this.setStateAckAsync('Info', info);
 
                 const useLed = await this.sensor.GetLED();
-                await this.setStateAckAsync('Led on', useLed);
+                await this.setStateAckAsync('Led_on', useLed);
 
                 const name = await this.sensor.GetName();
                 await this.setStateAckAsync('Devicename', name);
@@ -186,11 +186,11 @@ export default class PH extends EzoHandlerBase<PHConfig> {
                                 
                 const slope = await this.sensor.GetSlope();
                 if(slope[0] != null)
-                    await this.setStateAckAsync('Slope Acid', slope[0]);
+                    await this.setStateAckAsync('Slope_Acid', slope[0]);
                 if(slope[1] != null)
-                    await this.setStateAckAsync('Slope Base', slope[1]);
+                    await this.setStateAckAsync('Slope_Base', slope[1]);
                 if(slope[2] != null)
-                    await this.setStateAckAsync('Slope Zero Point', slope[2]);
+                    await this.setStateAckAsync('Slope_Zero_Point', slope[2]);
             }
         }
         catch{
