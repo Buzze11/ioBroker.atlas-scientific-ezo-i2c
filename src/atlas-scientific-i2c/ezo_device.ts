@@ -31,7 +31,7 @@ export class EZODevice {
 	/**
 	 * Sends a command to the device, waits 300ms, and then reads back the response.
 	 */
-	async SendCommand(command: String):Promise<Buffer>{
+	async SendCommand(command: string):Promise<Buffer>{
 		const wbuf = Buffer.from(command);
 		const rbuf = Buffer.alloc(this.readBufferSize);
 		return new Promise((resolve,reject)=>{
@@ -106,7 +106,7 @@ export class EZODevice {
 		const cmd='L,?';
 		this.waitTime = 300;
 		//respose: _?L,n
-		let resp = (await this.SendCommand(cmd)).toString().replace(/\0/g, '');
+		const resp = (await this.SendCommand(cmd)).toString().replace(/\0/g, '');
 		return resp[cmd.length+1] == '1';
 	}
 
@@ -122,7 +122,7 @@ export class EZODevice {
 	 * Stores a name string on the device.
 	 * Whitespace will be removed. If longer than 16 characters, only the first 16 will be sent. 
 	 */
-	async SetName(name: String):Promise<void>{
+	async SetName(name: string):Promise<void>{
 		this.waitTime = 300;
         let n=name.replace(' ','');
         if(n.length>16)
@@ -144,7 +144,7 @@ export class EZODevice {
 	/**
      * Enters sleep/low-power mode. Send any character or command to awaken.
      */
-	 async Sleep():Promise<void>{
+	async Sleep():Promise<void>{
 		this.waitTime = 300;
 		const wbuf=Buffer.from('Sleep');
 		await this.i2c_bus.i2cWrite(this.address,wbuf.length,wbuf);
