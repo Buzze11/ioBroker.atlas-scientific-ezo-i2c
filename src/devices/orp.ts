@@ -28,7 +28,7 @@ export default class ORP extends EzoHandlerBase<ORPConfig> {
         await this.CreateObjects();
 
         // Read current setup from sensor
-        let deviceName: string = await this.sensor.GetName();
+        const deviceName: string = await this.sensor.GetName();
         
         // Set Name if not set already
         if(!this.config.name){
@@ -125,27 +125,26 @@ export default class ORP extends EzoHandlerBase<ORPConfig> {
     async GetAllReadings(): Promise<void>{
         try{
             if(this.sensor != null){
-                var ds = await this.sensor.GetDeviceStatus();
+                const ds = await this.sensor.GetDeviceStatus();
                 await this.setStateAckAsync('Device Status', ds);
 
-                var orp = await this.sensor.GetReading();
+                const orp = await this.sensor.GetReading();
                 await this.setStateAckAsync('ORP Value', orp);
 
-                var info = await this.sensor.GetInfo();
+                const info = await this.sensor.GetInfo();
                 await this.setStateAckAsync('Info', info);
 
-                var useLed = await this.sensor.GetLED();
+                const useLed = await this.sensor.GetLED();
                 await this.setStateAckAsync('Led on', useLed);
 
-                var name = await this.sensor.GetName();
+                const name = await this.sensor.GetName();
                 await this.setStateAckAsync('Devicename', name);
 
-                var ic = await this.sensor.IsCalibrated();
+                const ic = await this.sensor.IsCalibrated();
                 await this.setStateAckAsync('IsCalibrated', ic);
             }
         }
         catch{
-            
         }
     }
 
