@@ -1,6 +1,4 @@
-import { EZODevice } from '../atlas-scientific-i2c';
-import { EzoDeviceConfig, ImplementationConfigBase } from '../lib/adapter-config';
-import { Polling } from '../lib/async';
+import { EzoDeviceConfig } from '../lib/adapter-config';
 import { EzoHandlerBase } from './ezo-handler-base';
 import * as ezo from '../atlas-scientific-i2c';
 
@@ -41,9 +39,6 @@ export default class RTD extends EzoHandlerBase<RTDConfig> {
             await this.sensor.SetName(this.config.name);
         }
 
-        // Set all State change listeners
-        await this.CreateStateChangeListeners();
-
         // Set Led usage
         await this.SetLed(this.config.isLedOn);
 
@@ -51,13 +46,6 @@ export default class RTD extends EzoHandlerBase<RTDConfig> {
         if (!!this.config.pollingInterval && this.config.pollingInterval > 0) {
             this.startPolling(async () => await this.GetAllReadings(), this.config.pollingInterval, 5000);
         }
-    }
-    
-    async CreateStateChangeListeners(): Promise<void>{
-
-        // this.adapter.addStateChangeListener(this.hexAddress + '.Temperature compensation (Celsius)', async (_oldValue, _newValue) => {
-        //     this.SetTemperatureCompensation(_newValue.toString());
-        // });
     }
     
     async CreateObjects(): Promise<void>{

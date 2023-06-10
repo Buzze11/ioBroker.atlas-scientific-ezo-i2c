@@ -40,9 +40,6 @@ export default class ORP extends EzoHandlerBase<ORPConfig> {
             await this.sensor.SetName(this.config.name);
         }
 
-        // Set all State change listeners
-        await this.CreateStateChangeListeners();
-
         // Set Led usage
         await this.SetLed(this.config.isLedOn);
 
@@ -52,13 +49,6 @@ export default class ORP extends EzoHandlerBase<ORPConfig> {
         }
     }
     
-    async CreateStateChangeListeners(): Promise<void>{
-
-        // this.adapter.addStateChangeListener(this.hexAddress + '.Temperature compensation (Celsius)', async (_oldValue, _newValue) => {
-        //     this.SetTemperatureCompensation(_newValue.toString());
-        // });
-    }
-
     async CreateObjects(): Promise<void>{
         await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Device_Status', {
             type: 'state',

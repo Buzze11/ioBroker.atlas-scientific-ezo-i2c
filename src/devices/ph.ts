@@ -4,8 +4,6 @@ import { EzoHandlerBase } from './ezo-handler-base';
 import * as ezo from '../atlas-scientific-i2c';
 
 export interface PHConfig extends EzoDeviceConfig {
-    // mgParamActive?:boolean;
-    // percentParamActive?:boolean;
 }
 
 export default class PH extends EzoHandlerBase<PHConfig> {
@@ -193,8 +191,7 @@ export default class PH extends EzoHandlerBase<PHConfig> {
                     await this.setStateAckAsync('Slope_Zero_Point', slope[2]);
             }
         }
-        catch{
-        }
+        catch{}
     }
 
     public async DoCalibration(calibrationtype:string, phValue:string):Promise<string>{

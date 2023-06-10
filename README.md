@@ -129,6 +129,10 @@ You can check other adapters for examples or ask in the developer community. Usi
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- Code cleanup
+
 ### 1.1.0 (2023-06-08)
 
 - Removed Developer Info

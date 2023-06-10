@@ -41,7 +41,6 @@ class AtlasScientificEzoI2cAdapter extends utils.Adapter {
     this.foreignStateChangeListeners = {};
     this.deviceHandlers = [];
     this.wait = false;
-    this.hexAddressString = "";
     this.on("ready", this.onReady.bind(this));
     this.on("stateChange", this.onStateChange.bind(this));
     this.on("message", this.onMessage.bind(this));
@@ -214,7 +213,7 @@ class AtlasScientificEzoI2cAdapter extends utils.Adapter {
             break;
           case "TemperatureCompensation":
             if (this.dev = await this.GetDeviceHandler(obj)) {
-              let deviceType = obj.message["deviceType"];
+              const deviceType = obj.message["deviceType"];
               switch (deviceType) {
                 case "DO":
                   this.result = await ((_e = this.dev) == null ? void 0 : _e.SetTemperatureCompensation(obj.message["tcValue"]));
@@ -259,10 +258,10 @@ class AtlasScientificEzoI2cAdapter extends utils.Adapter {
   }
   async GetDeviceHandler(obj) {
     try {
-      let addressString = await this.GetParameterStringFromMessage(obj, "address");
-      let addressStringHex = (0, import_shared.toHexString)(parseInt(addressString));
+      const addressString = await this.GetParameterStringFromMessage(obj, "address");
+      const addressStringHex = (0, import_shared.toHexString)(parseInt(addressString));
       if (addressStringHex) {
-        let handler = await this.GetDeviceHandlerByAddress(addressStringHex);
+        const handler = await this.GetDeviceHandlerByAddress(addressStringHex);
         return handler;
       } else {
         this.log.error("GetDeviceHandler(): Device with this address has not been found");
@@ -272,7 +271,7 @@ class AtlasScientificEzoI2cAdapter extends utils.Adapter {
     }
   }
   async GetDeviceHandlerByAddress(hexAddress) {
-    let handler = this.deviceHandlers.find((h) => h.hexAddress == hexAddress);
+    const handler = this.deviceHandlers.find((h) => h.hexAddress == hexAddress);
     return handler;
   }
   GetParameterStringFromMessage(obj, parameterName) {

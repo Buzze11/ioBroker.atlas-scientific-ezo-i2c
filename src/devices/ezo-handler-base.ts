@@ -3,7 +3,7 @@ import { EzoDeviceConfig, ImplementationConfigBase } from '../lib/adapter-config
 import { Polling, PollingCallback } from '../lib/async';
 import { toHexString } from '../lib/shared';
 import { AtlasScientificEzoI2cAdapter} from '../main';
-import { StateChangeListener, ForeignStateChangeListener, StateValue } from '../lib/state';
+import { StateValue } from '../lib/state';
 import { EZODevice } from '../atlas-scientific-i2c';
 
 export abstract class EzoHandlerBase<T extends EzoDeviceConfig> {

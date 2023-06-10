@@ -55,13 +55,10 @@ class RTD extends import_ezo_handler_base.EzoHandlerBase {
       this.info("Devicenamehas changed. Setting Devicename to: " + this.config.name);
       await this.sensor.SetName(this.config.name);
     }
-    await this.CreateStateChangeListeners();
     await this.SetLed(this.config.isLedOn);
     if (!!this.config.pollingInterval && this.config.pollingInterval > 0) {
       this.startPolling(async () => await this.GetAllReadings(), this.config.pollingInterval, 5e3);
     }
-  }
-  async CreateStateChangeListeners() {
   }
   async CreateObjects() {
     await this.adapter.extendObjectAsync(this.hexAddress + ".Device_Status", {

@@ -10,13 +10,11 @@ import { StateChangeListener, ForeignStateChangeListener, StateValue } from './l
 import { EzoHandlerBase } from './devices/ezo-handler-base';
 import { toHexString } from './lib/shared';
 import * as ezo from './atlas-scientific-i2c';
-import { EZODevice } from './atlas-scientific-i2c';
 import DO from './devices/do';
 import PH from './devices/ph';
 import ORP from './devices/orp';
 import RTD from './devices/rtd';
-// Load your modules here, e.g.:
-// import * as fs from "fs";
+
 
 export class AtlasScientificEzoI2cAdapter extends utils.Adapter {
     private bus!: i2c.PromisifiedBus;
@@ -28,7 +26,6 @@ export class AtlasScientificEzoI2cAdapter extends utils.Adapter {
 
     // used for message handling
     private wait = false;
-    private hexAddressString: string = '';
     private result: string;
     private dev: EzoHandlerBase<any>;
 
@@ -253,7 +250,7 @@ export class AtlasScientificEzoI2cAdapter extends utils.Adapter {
                         break;
                     case 'TemperatureCompensation':
                         if((this.dev = await this.GetDeviceHandler(obj))){
-                            let deviceType = obj.message['deviceType']
+                            const deviceType = obj.message['deviceType']
                             switch(deviceType){
                                 case 'DO':
                                     this.result = await (this.dev as DO)?.SetTemperatureCompensation(obj.message['tcValue']);
@@ -289,8 +286,7 @@ export class AtlasScientificEzoI2cAdapter extends utils.Adapter {
                 this.log.info('Answering with messageresult : ' + this.result);
             }
         }
-        catch{
-        }
+        catch{}
     }
 
     private async SendBackResult(obj: ioBroker.Message):Promise<void>{
@@ -302,10 +298,10 @@ export class AtlasScientificEzoI2cAdapter extends utils.Adapter {
 
     private async GetDeviceHandler(obj: ioBroker.Message):Promise<EzoHandlerBase<any>>{
         try{
-            let addressString = await this.GetParameterStringFromMessage(obj, "address");
-            let addressStringHex = toHexString(parseInt(addressString));
+            const addressString = await this.GetParameterStringFromMessage(obj, "address");
+            const addressStringHex = toHexString(parseInt(addressString));
             if(addressStringHex){
-                let handler = await this.GetDeviceHandlerByAddress(addressStringHex);
+                const handler = await this.GetDeviceHandlerByAddress(addressStringHex);
                 return handler
             }
             else{
@@ -318,7 +314,7 @@ export class AtlasScientificEzoI2cAdapter extends utils.Adapter {
     }
 
     private async GetDeviceHandlerByAddress(hexAddress: string):Promise<EzoHandlerBase<any>>{
-        let handler = this.deviceHandlers.find(h=>h.hexAddress == hexAddress);
+        const handler = this.deviceHandlers.find(h=>h.hexAddress == hexAddress);
         return handler;
     }
 
