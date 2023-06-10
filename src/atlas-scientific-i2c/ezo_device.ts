@@ -1,5 +1,4 @@
 import * as i2c from 'i2c-bus';
-
 const waitTime=300;
 
 /**
