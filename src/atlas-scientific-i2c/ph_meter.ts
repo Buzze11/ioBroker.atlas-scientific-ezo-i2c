@@ -1,11 +1,12 @@
+import { AtlasScientificEzoI2cAdapter } from "../main";
 import { EZODevice } from "./ezo_device";
 /**
  * Wrapper class for pH EZO circuit
  */
 export class pH extends EZODevice{ 
     
-    constructor(i2c_bus,address,info){
-        super(i2c_bus,address,info);
+    constructor(i2c_bus,address,info, protected readonly adapter: AtlasScientificEzoI2cAdapter){
+        super(i2c_bus,address,info, adapter);
     }
     
     /**

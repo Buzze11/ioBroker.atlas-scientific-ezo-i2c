@@ -31,7 +31,7 @@ var ezo = __toESM(require("../atlas-scientific-i2c"));
 class RTD extends import_ezo_handler_base.EzoHandlerBase {
   constructor() {
     super(...arguments);
-    this.sensor = new ezo.RTD(this.adapter.i2cBus, parseInt(this.hexAddress), "");
+    this.sensor = new ezo.RTD(this.adapter.i2cBus, parseInt(this.hexAddress), "", this.adapter);
   }
   async startAsync() {
     if (!this.config.isActive)

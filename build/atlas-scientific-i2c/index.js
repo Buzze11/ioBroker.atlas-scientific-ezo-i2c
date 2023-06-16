@@ -34,19 +34,15 @@ var import_orp_meter = require("./orp_meter");
 var import_ec_meter = require("./ec_meter");
 var import_do_meter = require("./do_meter");
 var import_rtd_meter = require("./rtd-meter");
-function later(delay) {
-  return new Promise(function(resolve) {
-    setTimeout(resolve, delay);
-  });
-}
-async function FindAllDevices(i2c_bus) {
+var import_async = require("../lib/async");
+async function FindAllDevices(i2c_bus, adapter) {
   const info = Buffer.from("I");
   const results = await i2c_bus.scan();
   const writesP = Promise.allSettled(results.map((addr) => {
     return i2c_bus.i2cWrite(addr, info.length, info);
   }));
   await writesP;
-  await later(300);
+  await new import_async.Delay(300, adapter);
   const readsP = await Promise.allSettled(results.map((addr) => {
     const rbuf = Buffer.alloc(16);
     return i2c_bus.i2cRead(addr, rbuf.length, rbuf);
@@ -58,19 +54,19 @@ async function FindAllDevices(i2c_bus) {
       if (info2.indexOf("?I,") > -1) {
         const devType = info2.split(",")[1];
         if (devType == "PMP") {
-          devices.push(new import_pump.Pump(i2c_bus, results[index], info2));
+          devices.push(new import_pump.Pump(i2c_bus, results[index], info2, adapter));
         } else if (devType == "pH") {
-          devices.push(new import_ph_meter.pH(i2c_bus, results[index], info2));
+          devices.push(new import_ph_meter.pH(i2c_bus, results[index], info2, adapter));
         } else if (devType == "DO") {
-          devices.push(new import_do_meter.DO(i2c_bus, results[index], info2));
+          devices.push(new import_do_meter.DO(i2c_bus, results[index], info2, adapter));
         } else if (devType == "EC") {
-          devices.push(new import_ec_meter.EC(i2c_bus, results[index], info2));
+          devices.push(new import_ec_meter.EC(i2c_bus, results[index], info2, adapter));
         } else if (devType == "ORP") {
-          devices.push(new import_orp_meter.ORP(i2c_bus, results[index], info2));
+          devices.push(new import_orp_meter.ORP(i2c_bus, results[index], info2, adapter));
         } else if (devType == "RTD") {
-          devices.push(new import_rtd_meter.RTD(i2c_bus, results[index], info2));
+          devices.push(new import_rtd_meter.RTD(i2c_bus, results[index], info2, adapter));
         } else {
-          devices.push(new import_ezo_device.EZODevice(i2c_bus, results[index], info2));
+          devices.push(new import_ezo_device.EZODevice(i2c_bus, results[index], info2, adapter));
         }
       }
     }

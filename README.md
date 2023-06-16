@@ -132,6 +132,8 @@ You can check other adapters for examples or ask in the developer community. Usi
 
 ### **WORK IN PROGRESS**
 - Code cleanup
+- Exchanged standard setTimeOut / clearTimeout calls with adapter wrapper methods
+- Removed "later" function in index.ts and used Delay Class instead
 
 ### 1.1.0 (2023-06-08)
 

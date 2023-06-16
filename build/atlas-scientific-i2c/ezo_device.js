@@ -23,7 +23,8 @@ __export(ezo_device_exports, {
 module.exports = __toCommonJS(ezo_device_exports);
 const waitTime = 300;
 class EZODevice {
-  constructor(i2c_bus, address, info) {
+  constructor(i2c_bus, address, info, adapter) {
+    this.adapter = adapter;
     this.i2c_bus = i2c_bus;
     this.address = address;
     this.info = info;
@@ -32,7 +33,7 @@ class EZODevice {
   }
   Delay() {
     return new Promise((resolve, reject) => {
-      setTimeout(resolve, this.waitTime);
+      this.adapter.setTimeout(resolve, this.waitTime);
     });
   }
   async SendCommand(command) {

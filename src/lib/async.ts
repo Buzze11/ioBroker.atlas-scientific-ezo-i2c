@@ -1,3 +1,5 @@
+import { AtlasScientificEzoI2cAdapter } from "../main";
+
 export class Delay {
     private started = false;
     private cancelled = false;
@@ -5,7 +7,7 @@ export class Delay {
 
     private reject?: (reason?: any) => void;
 
-    constructor(private ms: number) {}
+    constructor(private ms: number, protected readonly adapter: AtlasScientificEzoI2cAdapter) {}
 
     public runAsnyc(): Promise<void> {
         if (this.started) {
@@ -17,7 +19,7 @@ export class Delay {
                 return;
             }
             this.reject = reject;
-            this.timeout = setTimeout(resolve, this.ms);
+            this.timeout = this.adapter.setTimeout(resolve, this.ms);
         });
     }
 
@@ -28,7 +30,7 @@ export class Delay {
 
         this.cancelled = true;
         if (this.timeout) {
-            clearTimeout(this.timeout);
+            this.adapter.clearTimeout(this.timeout);
         }
         if (this.reject) {
             this.reject(new Error('Cancelled'));
@@ -42,7 +44,7 @@ export class Polling {
     private enabled = false;
     private delay?: Delay;
 
-    constructor(private callback: PollingCallback) {}
+    constructor(private callback: PollingCallback, protected readonly adapter: AtlasScientificEzoI2cAdapter) {}
 
     async runAsync(interval: number, minInterval?: number): Promise<void> {
         if (this.enabled) {
@@ -54,7 +56,7 @@ export class Polling {
         while (this.enabled) {
             await this.callback();
             try {
-                this.delay = new Delay(interval);
+                this.delay = new Delay(interval, this.adapter);
                 await this.delay.runAsnyc();
             } catch (error) {
                 // delay got cancelled, let's break out of the loop

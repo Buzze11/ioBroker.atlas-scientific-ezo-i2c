@@ -35,7 +35,7 @@ export abstract class EzoHandlerBase<T extends EzoDeviceConfig> {
     // polling related methods
     protected startPolling(callback: PollingCallback, interval: number, minInterval?: number): void {
         this.stopPolling();
-        this.polling = new Polling(callback);
+        this.polling = new Polling(callback, this.adapter);
         this.polling.runAsync(interval, minInterval).catch((error) => this.error('Polling error: ' + error));
     }
 

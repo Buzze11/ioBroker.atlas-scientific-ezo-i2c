@@ -10,7 +10,6 @@ import { AppContext } from '../common';
 import Dropdown, { DropdownOption } from './dropdown';
 import { EzoFactory, DeviceInfo } from '../devices/ezo-factory';
 import { EzoBase} from '../devices/ezo-base';
-import { EZODevice } from '../../../src/atlas-scientific-i2c';
 
 type OnConfigChangedCallback = (newConfig: EzoDeviceConfig) => void;
 

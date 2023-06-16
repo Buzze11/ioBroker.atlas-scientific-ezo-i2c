@@ -1,4 +1,5 @@
 import * as i2c from 'i2c-bus';
+import { AtlasScientificEzoI2cAdapter } from '../main';
 const waitTime=300;
 
 /**
@@ -12,7 +13,7 @@ export class EZODevice {
     readBufferSize: number;
     info: string;
 	
-	constructor(i2c_bus: i2c.PromisifiedBus, address: number, info: string) {
+	constructor(i2c_bus: i2c.PromisifiedBus, address: number, info: string, protected readonly adapter: AtlasScientificEzoI2cAdapter) {
 		this.i2c_bus = i2c_bus;
 		this.address = address;
 		this.info = info;
@@ -23,7 +24,7 @@ export class EZODevice {
 	
 	Delay():Promise<void>{
 		return new Promise((resolve,reject)=>{
-			setTimeout(resolve,this.waitTime);
+			this.adapter.setTimeout(resolve,this.waitTime);
 		});
 	}
 

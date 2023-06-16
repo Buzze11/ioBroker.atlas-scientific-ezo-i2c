@@ -7,7 +7,7 @@ export interface PHConfig extends EzoDeviceConfig {
 }
 
 export default class PH extends EzoHandlerBase<PHConfig> {
-    sensor = new ezo.pH(this.adapter.i2cBus, parseInt(this.hexAddress), '');
+    sensor = new ezo.pH(this.adapter.i2cBus, parseInt(this.hexAddress), '', this.adapter);
 
     async startAsync(): Promise<void> {
         // Don`t start when Sensor is inactive

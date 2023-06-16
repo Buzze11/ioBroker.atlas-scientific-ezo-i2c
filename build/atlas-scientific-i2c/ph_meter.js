@@ -23,8 +23,9 @@ __export(ph_meter_exports, {
 module.exports = __toCommonJS(ph_meter_exports);
 var import_ezo_device = require("./ezo_device");
 class pH extends import_ezo_device.EZODevice {
-  constructor(i2c_bus, address, info) {
-    super(i2c_bus, address, info);
+  constructor(i2c_bus, address, info, adapter) {
+    super(i2c_bus, address, info, adapter);
+    this.adapter = adapter;
   }
   async Read() {
     this.waitTime = 900;

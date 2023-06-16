@@ -6,7 +6,7 @@ export interface RTDConfig extends EzoDeviceConfig {
 }
 
 export default class RTD extends EzoHandlerBase<RTDConfig> {
-    sensor = new ezo.RTD(this.adapter.i2cBus, parseInt(this.hexAddress), '');
+    sensor = new ezo.RTD(this.adapter.i2cBus, parseInt(this.hexAddress), '', this.adapter);
 
     async startAsync(): Promise<void> {
         // Don`t start when Sensor is inactive

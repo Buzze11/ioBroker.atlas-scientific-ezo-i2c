@@ -36,7 +36,7 @@ class EzoHandlerBase {
   }
   startPolling(callback, interval, minInterval) {
     this.stopPolling();
-    this.polling = new import_async.Polling(callback);
+    this.polling = new import_async.Polling(callback, this.adapter);
     this.polling.runAsync(interval, minInterval).catch((error) => this.error("Polling error: " + error));
   }
   stopPolling() {

@@ -23,8 +23,9 @@ __export(ec_meter_exports, {
 module.exports = __toCommonJS(ec_meter_exports);
 var import_ezo_device = require("./ezo_device");
 class EC extends import_ezo_device.EZODevice {
-  constructor(i2c_bus, address, info) {
-    super(i2c_bus, address, info);
+  constructor(i2c_bus, address, info, adapter) {
+    super(i2c_bus, address, info, adapter);
+    this.adapter = adapter;
     this.readBufferSize = 40;
   }
   async SetProbeType(value) {

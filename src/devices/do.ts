@@ -12,7 +12,7 @@ export interface DOConfig extends EzoDeviceConfig {
 }
 
 export default class DO extends EzoHandlerBase<DOConfig> {
-    sensor = new ezo.DO(this.adapter.i2cBus, parseInt(this.hexAddress), '');
+    sensor = new ezo.DO(this.adapter.i2cBus, parseInt(this.hexAddress), '', this.adapter);
 
     async startAsync(): Promise<void> {
         // Don`t start when Sensor is inactive

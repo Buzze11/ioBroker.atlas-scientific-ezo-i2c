@@ -331,7 +331,7 @@ export class AtlasScientificEzoI2cAdapter extends utils.Adapter {
             this.log.debug('Searching on new bus ' + busNumber);
         }
         const searchBus = await this.openBusAsync(busNumber);
-        const res = await ezo.FindAllDevices(searchBus);
+        const res = await ezo.FindAllDevices(searchBus, this);
         const devices = [];
 
         res.forEach(async item=>{

@@ -7,7 +7,7 @@ export interface ORPConfig extends EzoDeviceConfig {
 }
 
 export default class ORP extends EzoHandlerBase<ORPConfig> {
-    sensor = new ezo.ORP(this.adapter.i2cBus, parseInt(this.hexAddress), '');
+    sensor = new ezo.ORP(this.adapter.i2cBus, parseInt(this.hexAddress), '', this.adapter);
 
     async startAsync(): Promise<void> {
         // Don`t start when Sensor is inactive

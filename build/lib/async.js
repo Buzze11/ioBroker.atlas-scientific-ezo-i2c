@@ -22,8 +22,9 @@ __export(async_exports, {
 });
 module.exports = __toCommonJS(async_exports);
 class Delay {
-  constructor(ms) {
+  constructor(ms, adapter) {
     this.ms = ms;
+    this.adapter = adapter;
     this.started = false;
     this.cancelled = false;
   }
@@ -37,7 +38,7 @@ class Delay {
         return;
       }
       this.reject = reject;
-      this.timeout = setTimeout(resolve, this.ms);
+      this.timeout = this.adapter.setTimeout(resolve, this.ms);
     });
   }
   cancel() {
@@ -46,7 +47,7 @@ class Delay {
     }
     this.cancelled = true;
     if (this.timeout) {
-      clearTimeout(this.timeout);
+      this.adapter.clearTimeout(this.timeout);
     }
     if (this.reject) {
       this.reject(new Error("Cancelled"));
@@ -54,8 +55,9 @@ class Delay {
   }
 }
 class Polling {
-  constructor(callback) {
+  constructor(callback, adapter) {
     this.callback = callback;
+    this.adapter = adapter;
     this.enabled = false;
   }
   async runAsync(interval, minInterval) {
@@ -67,7 +69,7 @@ class Polling {
     while (this.enabled) {
       await this.callback();
       try {
-        this.delay = new Delay(interval);
+        this.delay = new Delay(interval, this.adapter);
         await this.delay.runAsnyc();
       } catch (error) {
         break;

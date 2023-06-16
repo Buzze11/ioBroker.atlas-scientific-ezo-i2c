@@ -23,8 +23,9 @@ __export(pump_exports, {
 module.exports = __toCommonJS(pump_exports);
 var import_ezo_device = require("./ezo_device");
 class Pump extends import_ezo_device.EZODevice {
-  constructor(i2c_bus, address, info) {
-    super(i2c_bus, address, info);
+  constructor(i2c_bus, address, info, adapter) {
+    super(i2c_bus, address, info, adapter);
+    this.adapter = adapter;
     this.readBufferSize = 16;
   }
   async StartDispensing(reverse) {

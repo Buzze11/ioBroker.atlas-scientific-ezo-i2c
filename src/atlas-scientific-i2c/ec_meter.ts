@@ -1,11 +1,12 @@
+import { AtlasScientificEzoI2cAdapter } from "../main";
 import { EZODevice } from "./ezo_device";
 /**
  * Wrapper class for EC EZO circuit
  */
 export class EC extends EZODevice{
     
-    constructor(i2c_bus,address,info){
-        super(i2c_bus,address,info);
+    constructor(i2c_bus,address,info, protected readonly adapter: AtlasScientificEzoI2cAdapter){
+        super(i2c_bus,address,info,adapter);
         this.readBufferSize=40;
     }
 
@@ -15,7 +16,7 @@ export class EC extends EZODevice{
      * Current known probe types:  '0.1','1.0', and '10' 
      * value floating point in ASCII 
      */
-    async SetProbeType(value: String): Promise<void>{
+    async SetProbeType(value: string): Promise<void>{
         await this.SendCommand('K,'+value);
     }
 
