@@ -144,9 +144,8 @@ You can check other adapters for examples or ask in the developer community. Usi
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
-- Extended Help with Statechangelisteners 
+### 1.2.1 (2023-06-16)
+- Extended Help with Statechangelisteners
 
 ### 1.2.0 (2023-06-16)
 - Code cleanup

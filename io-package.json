@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "atlas-scientific-ezo-i2c",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "news": {
+      "1.2.1": {
+        "en": "Extended Help with Statechangelisteners",
+        "de": "Erweiterte Hilfe bei Statechangelisteners",
+        "ru": "Расширенная помощь с помощью Statechangelisteners",
+        "pt": "Ajuda alargada com os Estados-Membros",
+        "nl": "Verlengde hulp met Statechangelisten",
+        "fr": "Aide étendue aux interlocuteurs",
+        "it": "Aiuto esteso con i cambiavalute",
+        "es": "Extended Help with Statechangelisteners",
+        "pl": "Wspomagać się z remisjonistą",
+        "uk": "Розширена допомога з Держзареєстраторами",
+        "zh-cn": "往往与国家交流会领导人的帮助"
+      },
       "1.2.0": {
         "en": "Code cleanup\nExchanged standard setTimeOut / clearTimeout calls with adapter wrapper methods\nRemoved \"later\" function in index.ts and used Delay Class instead",
         "de": "Code-Reinigung\nGetauschter Standard-SetTime Out / clearTimeout Anrufe mit Adapter-Wrapper Methoden\nEntfernt spätere Funktion in index.ts und verwendet Delay Class statt",
