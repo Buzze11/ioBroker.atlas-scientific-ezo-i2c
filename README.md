@@ -94,6 +94,14 @@ After you`ve selected the type of device the settings for the desired device app
 **"Set Salinity Compensation"-Button** -> set the salinity compensation with the desired value inside the textfield e.g. 50000 us  
 **"isPpt"-Switch** -> Switch to define if Salinity value read/set in ppt instead of us
 
+**States with includes State change detection**
+Some states have an state change detection mechanism running which gives the possibility that some compensation values can be set not only by the UI but additionally with changes directly to the states value from outside. This can be useful for example if you want to use comepsation values from a sensor like temperature to adjust the temperature compensation value on the PH Sensor.
+
+For DO Sensor following states are listening for changes: 
+"Temperature_compensation(Celsius)"
+"Salinity_compensation"
+"Pressure_compensation(kPa)"
+
 ### pH-Related funtionalities & Settings
 
 ![Image](pictures/ph_config.png)
@@ -103,6 +111,13 @@ After you`ve selected the type of device the settings for the desired device app
 **"Calibrate Mid"-Button** -> execute the mid value calibration (usually 7.0 )  
 **"Calibrate High"-Button** -> execute the high value calibration (usually 10.0 )  
 **"Set Temp. Compensation"-Button** -> set the temperature compensation with the desired value inside the textfield e.g. 20.4
+
+**States with includes State change detection**
+Some states have an state change detection mechanism running which gives the possibility that some compensation values can be set not only by the UI but additionally with changes directly to the states value from outside. This can be useful for example if you want to use comepsation values from a sensor like temperature to adjust the temperature compensation value on the PH Sensor.
+
+For pH Sensor following states are listening for changes: 
+"Temperature_compensation(Celsius)"
+
 
 ### ORP-Related funtionalities & Settings
 
@@ -129,6 +144,10 @@ You can check other adapters for examples or ask in the developer community. Usi
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- Extended Help with Statechangelisteners 
+
 ### 1.2.0 (2023-06-16)
 - Code cleanup
 - Exchanged standard setTimeOut / clearTimeout calls with adapter wrapper methods
