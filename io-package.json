@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "atlas-scientific-ezo-i2c",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "news": {
+      "1.2.0": {
+        "en": "Code cleanup\nExchanged standard setTimeOut / clearTimeout calls with adapter wrapper methods\nRemoved \"later\" function in index.ts and used Delay Class instead",
+        "de": "Code-Reinigung\nGetauschter Standard-SetTime Out / clearTimeout Anrufe mit Adapter-Wrapper Methoden\nEntfernt spätere Funktion in index.ts und verwendet Delay Class statt",
+        "ru": "Очистка кода\nОбменный стандарт setTime Out / ClearTimeout звонки с методами адаптера\nУдалены позже функции в index.ts и используется Delay Class вместо",
+        "pt": "Limpeza de código\nConjunto padrão trocadoTime Chamadas fora / clearTimeout com métodos de wrapper do adaptador\nRemovido função posterior em index.ts e usado Classe Delay em vez",
+        "nl": "Code schoonmaakmiddel\nQuality over Quantity (QoQ) Releases Vertaling: Vertaling:\nVerwijder later de functie in de index en gebruikte Delay Class in plaats daarvan",
+        "fr": "Nettoyage du code\nExchange standard setTime Appels Out / clearTimeout avec méthodes d'emballage adaptateur\nFonction supprimée plus tard dans index.ts et classe de retard utilisée à la place",
+        "it": "Pulizia del codice\nSet standard scambiatoTime Out / ClearTimeout chiamate con i metodi di wrapper adattatore\nRimossa la funzione successiva in index.ts e usata Delay Class",
+        "es": "Limpieza del código\nTiempo estándar intercambiado Out / clearTimeout llamadas con métodos de envoltura adaptador\nRetirada función posterior en index.ts y usado Clase Delay",
+        "pl": "Kod\nStandardowa giełda Wykorzystuje się w programach / czystego czasu z adapterowymi metodami  wrapperowymi\nZamienił później funkcję w indeksach i używał Delay Class",
+        "uk": "Чистка коду\nСтатус на сервери Out / clearTimeout виклики з методами обгортання адаптера\nВидалити пізніше функцію в index.ts і використовувати Delay Class замість",
+        "zh-cn": "守则 清洁\n汇率标准制度 在/明确制度中,要求采用更完善的武断方法\n删除后来在指数中的功能,用Delay类取代"
+      },
       "1.1.0": {
         "en": "Removed Developer Info\nExtended Test Matrix to [16.x, 18.x, 20.x]\nPatched Translations\nRemoved Whitespaces for all States from Sensors and exchanged with underscores",
         "de": "Entfernen von Entwickler-Info\nErweiterte Testmatrix auf [16.x, 18.x, 20.x]\nAufgepasste Übersetzungen\nEntfernt Whitespaces für alle Staaten von Sensors und ausgetauscht mit underscores",

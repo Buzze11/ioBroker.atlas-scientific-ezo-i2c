@@ -129,8 +129,7 @@ You can check other adapters for examples or ask in the developer community. Usi
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 1.2.0 (2023-06-16)
 - Code cleanup
 - Exchanged standard setTimeOut / clearTimeout calls with adapter wrapper methods
 - Removed "later" function in index.ts and used Delay Class instead
