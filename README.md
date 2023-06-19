@@ -144,8 +144,7 @@ You can check other adapters for examples or ask in the developer community. Usi
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 1.2.2 (2023-06-19)
 - Removed forbidden characters from sensor state objects
 - added state roles where possible 
 - added state units where senseful

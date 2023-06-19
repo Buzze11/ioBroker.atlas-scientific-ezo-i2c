@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "atlas-scientific-ezo-i2c",
-    "version": "1.2.1",
+    "version": "1.2.2",
     "news": {
+      "1.2.2": {
+        "en": "Removed forbidden characters from sensor state objects\nadded state roles where possible \nadded state units where senseful\nadjusted Readme according changes",
+        "de": "Entfernte verbotene Zeichen von Sensorzustandsobjekten\nzusätzliche staatliche rollen, soweit möglich\nzustandseinheiten hinzugefügt, wo sinnvoll\nangepasste Readme nach Änderungen",
+        "ru": "Удалены запрещенные символы от объектов состояния датчика\nдобавлены государственные роли, где это возможно\nдобавлены государственные подразделения, где чувствительные\nотрегулированный Readme в соответствии с изменениями",
+        "pt": "Personagens proibidos removidos de objetos do estado do sensor\npapéis estaduais adicionados quando possível\nacrescentou unidades de estado onde sensível\najustada de acordo com as alterações",
+        "nl": "Verboden personages van zintuiglijke objecten\nvertaling:\nvertaling:\nveranderde Readme volgens veranderingen",
+        "fr": "Supprimer les caractères interdits des objets de l'état du capteur\nles rôles de l'état ajoutés\ndes unités d'état où logique\najusté Readme selon les changements",
+        "it": "Caratteri vietati rimossi da oggetti di stato del sensore\nruoli di stato aggiunti dove possibile\nunità di stato aggiunte dove sensato\nleggime regolato secondo le modifiche",
+        "es": "Eliminar caracteres prohibidos de objetos del estado sensor\nañadir funciones estatales cuando sea posible\nunidades estatales agregadas donde sensible\najustado Leerme según cambios",
+        "pl": "Zabronione postaci z obiektów stanowych\npełnić funkcje państwowe, w których możliwe jest możliwa jest rola państwowa\ndostarczałe jednostki państwowe, gdzie rozsądny\nczytanie czytania zgodnie z zmianami",
+        "uk": "Вилучені заборонені символи з сенсорних об'єктів\nдодані державні ролі, де можливо\nдодані державні блоки, де сенс\nрегульований контроль за змінами",
+        "zh-cn": "驱离传传感器的易燃性\n尽可能增加国家的作用\n增加国家单位,有感知\n根据变化调整的阅读摘要"
+      },
       "1.2.1": {
         "en": "Extended Help with Statechangelisteners",
         "de": "Erweiterte Hilfe bei Statechangelisteners",
@@ -80,19 +93,6 @@
         "pl": "pluszak\npatch release yml file\ndodał również konfig.json",
         "uk": "подальші виправлення\nпатчований реліз yml файл\njavascript licenses api веб-сайт go1.13.8",
         "zh-cn": "进一步固定\n附录\n增加释放。"
-      },
-      "0.0.1": {
-        "en": "initial release",
-        "de": "Erstveröffentlichung",
-        "ru": "Начальная версия",
-        "pt": "lançamento inicial",
-        "nl": "Eerste uitgave",
-        "fr": "Première version",
-        "it": "Versione iniziale",
-        "es": "Versión inicial",
-        "pl": "Pierwsze wydanie",
-        "zh-cn": "首次出版",
-        "uk": "початковий випуск"
       }
     },
     "title": "Atlas Scientific EZO",
