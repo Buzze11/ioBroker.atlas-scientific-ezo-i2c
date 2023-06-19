@@ -50,12 +50,13 @@ export default class ORP extends EzoHandlerBase<ORPConfig> {
     }
     
     async CreateObjects(): Promise<void>{
-        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Device_Status', {
+        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Devicestatus', {
             type: 'state',
             common: {
                 name: this.hexAddress + ' ' + (this.config.name || 'ORP'),
                 type: 'string',
-                role: 'value',
+                role: 'info.status',
+                write: false,
             },
             //native: any
         });
@@ -65,6 +66,8 @@ export default class ORP extends EzoHandlerBase<ORPConfig> {
                 name: this.hexAddress + ' ' + (this.config.name || 'ORP'),
                 type: 'string',
                 role: 'value',
+                unit: 'mV',
+                write: false,
             },
             //native: any
         });
@@ -73,7 +76,8 @@ export default class ORP extends EzoHandlerBase<ORPConfig> {
             common: {
                 name: this.hexAddress + ' ' + (this.config.name || 'ORP'),
                 type: 'string',
-                role: 'value',
+                role: 'info.sensor',
+                write: false,
             },
             //native: any
         });
@@ -83,6 +87,7 @@ export default class ORP extends EzoHandlerBase<ORPConfig> {
                 name: this.hexAddress + ' ' + (this.config.name || 'ORP'),
                 type: 'boolean',
                 role: 'value',
+                write: false,
             },
             //native: any
         });
@@ -91,7 +96,8 @@ export default class ORP extends EzoHandlerBase<ORPConfig> {
             common: {
                 name: this.hexAddress + ' ' + (this.config.name || 'ORP'),
                 type: 'string',
-                role: 'value',
+                role: 'info.name',
+                write: false,
             },
             //native: any
         });
@@ -101,6 +107,7 @@ export default class ORP extends EzoHandlerBase<ORPConfig> {
                 name: this.hexAddress + ' ' + (this.config.name || 'ORP'),
                 type: 'string',
                 role: 'value',
+                write: false,
             },
             //native: any
         });
@@ -116,7 +123,7 @@ export default class ORP extends EzoHandlerBase<ORPConfig> {
         try{
             if(this.sensor != null){
                 const ds = await this.sensor.GetDeviceStatus();
-                await this.setStateAckAsync('Device_Status', ds);
+                await this.setStateAckAsync('Devicestatus', ds);
 
                 const orp = await this.sensor.GetReading();
                 await this.setStateAckAsync('ORP_Value', orp);

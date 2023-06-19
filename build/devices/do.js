@@ -73,7 +73,7 @@ class DO extends import_ezo_handler_base.EzoHandlerBase {
     }
   }
   async CreateStateChangeListeners() {
-    this.adapter.addStateChangeListener(this.hexAddress + ".Temperature_compensation(Celsius)", async (_oldValue, _newValue) => {
+    this.adapter.addStateChangeListener(this.hexAddress + ".Temperature_compensation", async (_oldValue, _newValue) => {
       this.SetTemperatureCompensation(_newValue.toString());
     });
     this.adapter.addStateChangeListener(this.hexAddress + ".Salinity_compensation", async (_oldValue, _newValue) => {
@@ -84,33 +84,38 @@ class DO extends import_ezo_handler_base.EzoHandlerBase {
         this.SetSalinityCompensation(_newValue.toString(), "false");
       }
     });
-    this.adapter.addStateChangeListener(this.hexAddress + ".Pressure_compensation(kPa)", async (_oldValue, _newValue) => {
+    this.adapter.addStateChangeListener(this.hexAddress + ".Pressure_compensation", async (_oldValue, _newValue) => {
       this.SetPressureCompensation(_newValue.toString());
     });
   }
   async CreateObjects() {
-    await this.adapter.extendObjectAsync(this.hexAddress + ".Device_Status", {
+    await this.adapter.extendObjectAsync(this.hexAddress + ".Devicestatus", {
       type: "state",
       common: {
         name: this.hexAddress + " " + (this.config.name || "DO"),
         type: "string",
-        role: "value"
+        role: "info.status",
+        write: false
       }
     });
-    await this.adapter.extendObjectAsync(this.hexAddress + ".Dissolved_Oxygen(related_parameters_enabled)", {
+    await this.adapter.extendObjectAsync(this.hexAddress + ".Dissolved_Oxygen", {
       type: "state",
       common: {
         name: this.hexAddress + " " + (this.config.name || "DO"),
         type: "string",
-        role: "value"
+        role: "value",
+        unit: "mg/L, Saturation %",
+        write: false
       }
     });
-    await this.adapter.extendObjectAsync(this.hexAddress + ".Temperature_compensation(Celsius)", {
+    await this.adapter.extendObjectAsync(this.hexAddress + ".Temperature_compensation", {
       type: "state",
       common: {
         name: this.hexAddress + " " + (this.config.name || "DO"),
         type: "number",
-        role: "value"
+        role: "value.temperature",
+        unit: "\xB0C",
+        write: true
       }
     });
     await this.adapter.extendObjectAsync(this.hexAddress + ".Salinity_compensation", {
@@ -118,7 +123,9 @@ class DO extends import_ezo_handler_base.EzoHandlerBase {
       common: {
         name: this.hexAddress + " " + (this.config.name || "DO"),
         type: "number",
-        role: "value"
+        role: "value",
+        unit: "uS / ppt",
+        write: true
       }
     });
     await this.adapter.extendObjectAsync(this.hexAddress + ".Salinity_compensation_ispPt", {
@@ -126,15 +133,18 @@ class DO extends import_ezo_handler_base.EzoHandlerBase {
       common: {
         name: this.hexAddress + " " + this.config.name,
         type: "boolean",
-        role: "value"
+        role: "value",
+        write: false
       }
     });
-    await this.adapter.extendObjectAsync(this.hexAddress + ".Pressure_compensation(kPa)", {
+    await this.adapter.extendObjectAsync(this.hexAddress + ".Pressure_compensation", {
       type: "state",
       common: {
         name: this.hexAddress + " " + (this.config.name || "DO"),
         type: "number",
-        role: "value"
+        role: "value.pressure",
+        unit: "kPa",
+        write: true
       }
     });
     await this.adapter.extendObjectAsync(this.hexAddress + ".Parameters_enabled", {
@@ -142,7 +152,8 @@ class DO extends import_ezo_handler_base.EzoHandlerBase {
       common: {
         name: this.hexAddress + " " + (this.config.name || "DO"),
         type: "string",
-        role: "value"
+        role: "value",
+        write: false
       }
     });
     await this.adapter.extendObjectAsync(this.hexAddress + ".Info", {
@@ -150,7 +161,8 @@ class DO extends import_ezo_handler_base.EzoHandlerBase {
       common: {
         name: this.hexAddress + " " + (this.config.name || "DO"),
         type: "string",
-        role: "value"
+        role: "info.sensor",
+        write: false
       }
     });
     await this.adapter.extendObjectAsync(this.hexAddress + ".Led_on", {
@@ -158,7 +170,8 @@ class DO extends import_ezo_handler_base.EzoHandlerBase {
       common: {
         name: this.hexAddress + " " + (this.config.name || "DO"),
         type: "boolean",
-        role: "value"
+        role: "value",
+        write: false
       }
     });
     await this.adapter.extendObjectAsync(this.hexAddress + ".Devicename", {
@@ -166,7 +179,8 @@ class DO extends import_ezo_handler_base.EzoHandlerBase {
       common: {
         name: this.hexAddress + " " + (this.config.name || "DO"),
         type: "string",
-        role: "value"
+        role: "info.name",
+        write: false
       }
     });
     await this.adapter.extendObjectAsync(this.hexAddress + ".IsCalibrated", {
@@ -174,7 +188,8 @@ class DO extends import_ezo_handler_base.EzoHandlerBase {
       common: {
         name: this.hexAddress + " " + (this.config.name || "DO"),
         type: "string",
-        role: "value"
+        role: "value",
+        write: false
       }
     });
   }
@@ -186,16 +201,16 @@ class DO extends import_ezo_handler_base.EzoHandlerBase {
     try {
       if (this.sensor != null) {
         const ds = await this.sensor.GetDeviceStatus();
-        await this.setStateAckAsync("Device_Status", ds);
+        await this.setStateAckAsync("Devicestatus", ds);
         const ox = await this.sensor.GetReading();
-        await this.setStateAckAsync("Dissolved_Oxygen(related_parameters_enabled)", ox);
+        await this.setStateAckAsync("Dissolved_Oxygen", ox);
         const tc = await this.sensor.GetTemperatureCompensation();
-        await this.setStateAckAsync("Temperature_compensation(Celsius)", parseFloat(tc));
+        await this.setStateAckAsync("Temperature_compensation", parseFloat(tc));
         const sc = await this.sensor.GetSalinityCompensation();
         await this.setStateAckAsync("Salinity_compensation", parseFloat(sc[0]));
         await this.setStateAckAsync("Salinity_compensation_ispPt", sc[1] == "ppt");
         const pc = await this.sensor.GetPressureCompensation();
-        await this.setStateAckAsync("Pressure_compensation(kPa)", parseFloat(pc));
+        await this.setStateAckAsync("Pressure_compensation", parseFloat(pc));
         const pe = await this.sensor.GetParametersEnabled();
         await this.setStateAckAsync("Parameters_enabled", pe);
         const info = await this.sensor.GetInfo();

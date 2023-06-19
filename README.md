@@ -98,9 +98,9 @@ After you`ve selected the type of device the settings for the desired device app
 Some states have an state change detection mechanism running which gives the possibility that some compensation values can be set not only by the UI but additionally with changes directly to the states value from outside. This can be useful for example if you want to use comepsation values from a sensor like temperature to adjust the temperature compensation value on the PH Sensor.
 
 For DO Sensor following states are listening for changes: 
-"Temperature_compensation(Celsius)"
+"Temperature_compensation"
 "Salinity_compensation"
-"Pressure_compensation(kPa)"
+"Pressure_compensation"
 
 ### pH-Related funtionalities & Settings
 
@@ -116,7 +116,7 @@ For DO Sensor following states are listening for changes:
 Some states have an state change detection mechanism running which gives the possibility that some compensation values can be set not only by the UI but additionally with changes directly to the states value from outside. This can be useful for example if you want to use comepsation values from a sensor like temperature to adjust the temperature compensation value on the PH Sensor.
 
 For pH Sensor following states are listening for changes: 
-"Temperature_compensation(Celsius)"
+"Temperature_compensation"
 
 
 ### ORP-Related funtionalities & Settings
@@ -144,6 +144,13 @@ You can check other adapters for examples or ask in the developer community. Usi
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- Removed forbidden characters from sensor state objects
+- added state roles where possible 
+- added state units where senseful
+- adjusted Readme according changes
+
 ### 1.2.1 (2023-06-16)
 - Extended Help with Statechangelisteners
 

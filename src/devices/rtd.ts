@@ -49,12 +49,13 @@ export default class RTD extends EzoHandlerBase<RTDConfig> {
     }
     
     async CreateObjects(): Promise<void>{
-        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Device_Status', {
+        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Devicestatus', {
             type: 'state',
             common: {
                 name: this.hexAddress + ' ' + (this.config.name || 'RTD'),
                 type: 'string',
-                role: 'value',
+                role: 'info.status',
+                write: false,
             },
             //native: any
         });
@@ -63,7 +64,8 @@ export default class RTD extends EzoHandlerBase<RTDConfig> {
             common: {
                 name: this.hexAddress + ' ' + (this.config.name || 'RTD'),
                 type: 'string',
-                role: 'value',
+                role: 'value.temperature',
+                write: false,
             },
             //native: any
         });
@@ -73,6 +75,7 @@ export default class RTD extends EzoHandlerBase<RTDConfig> {
                 name: this.hexAddress + ' ' + (this.config.name || 'RTD'),
                 type: 'string',
                 role: 'value',
+                write: false,
             },
             //native: any
         });
@@ -81,7 +84,8 @@ export default class RTD extends EzoHandlerBase<RTDConfig> {
             common: {
                 name: this.hexAddress + ' ' + (this.config.name || 'RTD'),
                 type: 'string',
-                role: 'value',
+                role: 'info.sensor',
+                write: false,
             },
             //native: any
         });
@@ -91,6 +95,7 @@ export default class RTD extends EzoHandlerBase<RTDConfig> {
                 name: this.hexAddress + ' ' + (this.config.name || 'RTD'),
                 type: 'boolean',
                 role: 'value',
+                write: false,
             },
             //native: any
         });
@@ -99,7 +104,8 @@ export default class RTD extends EzoHandlerBase<RTDConfig> {
             common: {
                 name: this.hexAddress + ' ' + (this.config.name || 'RTD'),
                 type: 'string',
-                role: 'value',
+                role: 'info.name',
+                write: false,
             },
             //native: any
         });
@@ -109,6 +115,7 @@ export default class RTD extends EzoHandlerBase<RTDConfig> {
                 name: this.hexAddress + ' ' + (this.config.name || 'RTD'),
                 type: 'string',
                 role: 'value',
+                write: false,
             },
             //native: any
         });
@@ -124,7 +131,7 @@ export default class RTD extends EzoHandlerBase<RTDConfig> {
         try{
             if(this.sensor != null){
                 const ds = await this.sensor.GetDeviceStatus();
-                await this.setStateAckAsync('Device_Status', ds);
+                await this.setStateAckAsync('Devicestatus', ds);
 
                 const ox = await this.sensor.GetReading();
                 await this.setStateAckAsync('Temperature', ox);

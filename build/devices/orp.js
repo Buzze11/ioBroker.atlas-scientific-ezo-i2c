@@ -61,12 +61,13 @@ class ORP extends import_ezo_handler_base.EzoHandlerBase {
     }
   }
   async CreateObjects() {
-    await this.adapter.extendObjectAsync(this.hexAddress + ".Device_Status", {
+    await this.adapter.extendObjectAsync(this.hexAddress + ".Devicestatus", {
       type: "state",
       common: {
         name: this.hexAddress + " " + (this.config.name || "ORP"),
         type: "string",
-        role: "value"
+        role: "info.status",
+        write: false
       }
     });
     await this.adapter.extendObjectAsync(this.hexAddress + ".ORP_Value", {
@@ -74,7 +75,9 @@ class ORP extends import_ezo_handler_base.EzoHandlerBase {
       common: {
         name: this.hexAddress + " " + (this.config.name || "ORP"),
         type: "string",
-        role: "value"
+        role: "value",
+        unit: "mV",
+        write: false
       }
     });
     await this.adapter.extendObjectAsync(this.hexAddress + ".Info", {
@@ -82,7 +85,8 @@ class ORP extends import_ezo_handler_base.EzoHandlerBase {
       common: {
         name: this.hexAddress + " " + (this.config.name || "ORP"),
         type: "string",
-        role: "value"
+        role: "info.sensor",
+        write: false
       }
     });
     await this.adapter.extendObjectAsync(this.hexAddress + ".Led_on", {
@@ -90,7 +94,8 @@ class ORP extends import_ezo_handler_base.EzoHandlerBase {
       common: {
         name: this.hexAddress + " " + (this.config.name || "ORP"),
         type: "boolean",
-        role: "value"
+        role: "value",
+        write: false
       }
     });
     await this.adapter.extendObjectAsync(this.hexAddress + ".Devicename", {
@@ -98,7 +103,8 @@ class ORP extends import_ezo_handler_base.EzoHandlerBase {
       common: {
         name: this.hexAddress + " " + (this.config.name || "ORP"),
         type: "string",
-        role: "value"
+        role: "info.name",
+        write: false
       }
     });
     await this.adapter.extendObjectAsync(this.hexAddress + ".IsCalibrated", {
@@ -106,7 +112,8 @@ class ORP extends import_ezo_handler_base.EzoHandlerBase {
       common: {
         name: this.hexAddress + " " + (this.config.name || "ORP"),
         type: "string",
-        role: "value"
+        role: "value",
+        write: false
       }
     });
   }
@@ -118,7 +125,7 @@ class ORP extends import_ezo_handler_base.EzoHandlerBase {
     try {
       if (this.sensor != null) {
         const ds = await this.sensor.GetDeviceStatus();
-        await this.setStateAckAsync("Device_Status", ds);
+        await this.setStateAckAsync("Devicestatus", ds);
         const orp = await this.sensor.GetReading();
         await this.setStateAckAsync("ORP_Value", orp);
         const info = await this.sensor.GetInfo();

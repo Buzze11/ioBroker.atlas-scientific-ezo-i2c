@@ -54,18 +54,19 @@ export default class PH extends EzoHandlerBase<PHConfig> {
     
     async CreateStateChangeListeners(): Promise<void>{
 
-        this.adapter.addStateChangeListener(this.hexAddress + '.Temperature_compensation(Celsius)', async (_oldValue, _newValue) => {
+        this.adapter.addStateChangeListener(this.hexAddress + '.Temperature_compensation', async (_oldValue, _newValue) => {
             this.SetTemperatureCompensation(_newValue.toString());
         });
     }
 
     async CreateObjects(): Promise<void>{
-        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Device_Status', {
+        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Devicestatus', {
             type: 'state',
             common: {
                 name: this.hexAddress + ' ' + (this.config.name || 'PH'),
                 type: 'string',
-                role: 'value',
+                role: 'info.status',
+                write: false,
             },
             //native: any
         });
@@ -75,15 +76,19 @@ export default class PH extends EzoHandlerBase<PHConfig> {
                 name: this.hexAddress + ' ' + (this.config.name || 'PH'),
                 type: 'string',
                 role: 'value',
+                unit: 'pH',
+                write: false,
             },
             //native: any
         });
-        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Temperature_compensation(Celsius)', {
+        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Temperature_compensation', {
             type: 'state',
             common: {
                 name: this.hexAddress + ' ' + (this.config.name || 'PH'),
                 type: 'number',
-                role: 'value',
+                role: 'value.temperature',
+                unit: '°C',
+                write: true,
             },
             //native: any
         });
@@ -93,6 +98,8 @@ export default class PH extends EzoHandlerBase<PHConfig> {
                 name: this.hexAddress + ' ' + (this.config.name || 'PH'),
                 type: 'array',
                 role: 'value',
+                unit: '%',
+                write: false,
             },
             //native: any
         });
@@ -102,6 +109,8 @@ export default class PH extends EzoHandlerBase<PHConfig> {
                 name: this.hexAddress + ' ' + (this.config.name || 'PH'),
                 type: 'array',
                 role: 'value',
+                unit: '%',
+                write: false,
             },
             //native: any
         });
@@ -111,6 +120,8 @@ export default class PH extends EzoHandlerBase<PHConfig> {
                 name: this.hexAddress + ' ' + (this.config.name || 'PH'),
                 type: 'array',
                 role: 'value',
+                unit: 'mV',
+                write: false,
             },
             //native: any
         });
@@ -119,7 +130,8 @@ export default class PH extends EzoHandlerBase<PHConfig> {
             common: {
                 name: this.hexAddress + ' ' + (this.config.name || 'PH'),
                 type: 'string',
-                role: 'value',
+                role: 'info.sensor',
+                write: false,
             },
             //native: any
         });
@@ -129,6 +141,7 @@ export default class PH extends EzoHandlerBase<PHConfig> {
                 name: this.hexAddress + ' ' + (this.config.name || 'PH'),
                 type: 'boolean',
                 role: 'value',
+                write: false,
             },
             //native: any
         });
@@ -137,7 +150,8 @@ export default class PH extends EzoHandlerBase<PHConfig> {
             common: {
                 name: this.hexAddress + ' ' + (this.config.name || 'PH'),
                 type: 'string',
-                role: 'value',
+                role: 'info.name',
+                write: false,
             },
             //native: any
         });
@@ -147,6 +161,7 @@ export default class PH extends EzoHandlerBase<PHConfig> {
                 name: this.hexAddress + ' ' + (this.config.name || 'PH'),
                 type: 'string',
                 role: 'value',
+                write: false,
             },
             //native: any
         });
@@ -162,13 +177,13 @@ export default class PH extends EzoHandlerBase<PHConfig> {
         try{
             if(this.sensor != null){
                 const ds = await this.sensor.GetDeviceStatus();
-                await this.setStateAckAsync('Device_Status', ds);
+                await this.setStateAckAsync('Devicestatus', ds);
 
                 const ph = await this.sensor.GetReading();
                 await this.setStateAckAsync('PH_Value', ph);
 
                 const tc = await this.sensor.GetTemperatureCompensation();
-                await this.setStateAckAsync('Temperature_compensation(Celsius)', parseFloat(tc));
+                await this.setStateAckAsync('Temperature_compensation', parseFloat(tc));
 
                 const info = await this.sensor.GetInfo();
                 await this.setStateAckAsync('Info', info);

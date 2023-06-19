@@ -62,17 +62,18 @@ class PH extends import_ezo_handler_base.EzoHandlerBase {
     }
   }
   async CreateStateChangeListeners() {
-    this.adapter.addStateChangeListener(this.hexAddress + ".Temperature_compensation(Celsius)", async (_oldValue, _newValue) => {
+    this.adapter.addStateChangeListener(this.hexAddress + ".Temperature_compensation", async (_oldValue, _newValue) => {
       this.SetTemperatureCompensation(_newValue.toString());
     });
   }
   async CreateObjects() {
-    await this.adapter.extendObjectAsync(this.hexAddress + ".Device_Status", {
+    await this.adapter.extendObjectAsync(this.hexAddress + ".Devicestatus", {
       type: "state",
       common: {
         name: this.hexAddress + " " + (this.config.name || "PH"),
         type: "string",
-        role: "value"
+        role: "info.status",
+        write: false
       }
     });
     await this.adapter.extendObjectAsync(this.hexAddress + ".PH_Value", {
@@ -80,15 +81,19 @@ class PH extends import_ezo_handler_base.EzoHandlerBase {
       common: {
         name: this.hexAddress + " " + (this.config.name || "PH"),
         type: "string",
-        role: "value"
+        role: "value",
+        unit: "pH",
+        write: false
       }
     });
-    await this.adapter.extendObjectAsync(this.hexAddress + ".Temperature_compensation(Celsius)", {
+    await this.adapter.extendObjectAsync(this.hexAddress + ".Temperature_compensation", {
       type: "state",
       common: {
         name: this.hexAddress + " " + (this.config.name || "PH"),
         type: "number",
-        role: "value"
+        role: "value.temperature",
+        unit: "\xB0C",
+        write: true
       }
     });
     await this.adapter.extendObjectAsync(this.hexAddress + ".Slope_Acid", {
@@ -96,7 +101,9 @@ class PH extends import_ezo_handler_base.EzoHandlerBase {
       common: {
         name: this.hexAddress + " " + (this.config.name || "PH"),
         type: "array",
-        role: "value"
+        role: "value",
+        unit: "%",
+        write: false
       }
     });
     await this.adapter.extendObjectAsync(this.hexAddress + ".Slope_Base", {
@@ -104,7 +111,9 @@ class PH extends import_ezo_handler_base.EzoHandlerBase {
       common: {
         name: this.hexAddress + " " + (this.config.name || "PH"),
         type: "array",
-        role: "value"
+        role: "value",
+        unit: "%",
+        write: false
       }
     });
     await this.adapter.extendObjectAsync(this.hexAddress + ".Slope_Zero_Point", {
@@ -112,7 +121,9 @@ class PH extends import_ezo_handler_base.EzoHandlerBase {
       common: {
         name: this.hexAddress + " " + (this.config.name || "PH"),
         type: "array",
-        role: "value"
+        role: "value",
+        unit: "mV",
+        write: false
       }
     });
     await this.adapter.extendObjectAsync(this.hexAddress + ".Info", {
@@ -120,7 +131,8 @@ class PH extends import_ezo_handler_base.EzoHandlerBase {
       common: {
         name: this.hexAddress + " " + (this.config.name || "PH"),
         type: "string",
-        role: "value"
+        role: "info.sensor",
+        write: false
       }
     });
     await this.adapter.extendObjectAsync(this.hexAddress + ".Led_on", {
@@ -128,7 +140,8 @@ class PH extends import_ezo_handler_base.EzoHandlerBase {
       common: {
         name: this.hexAddress + " " + (this.config.name || "PH"),
         type: "boolean",
-        role: "value"
+        role: "value",
+        write: false
       }
     });
     await this.adapter.extendObjectAsync(this.hexAddress + ".Devicename", {
@@ -136,7 +149,8 @@ class PH extends import_ezo_handler_base.EzoHandlerBase {
       common: {
         name: this.hexAddress + " " + (this.config.name || "PH"),
         type: "string",
-        role: "value"
+        role: "info.name",
+        write: false
       }
     });
     await this.adapter.extendObjectAsync(this.hexAddress + ".IsCalibrated", {
@@ -144,7 +158,8 @@ class PH extends import_ezo_handler_base.EzoHandlerBase {
       common: {
         name: this.hexAddress + " " + (this.config.name || "PH"),
         type: "string",
-        role: "value"
+        role: "value",
+        write: false
       }
     });
   }
@@ -156,11 +171,11 @@ class PH extends import_ezo_handler_base.EzoHandlerBase {
     try {
       if (this.sensor != null) {
         const ds = await this.sensor.GetDeviceStatus();
-        await this.setStateAckAsync("Device_Status", ds);
+        await this.setStateAckAsync("Devicestatus", ds);
         const ph = await this.sensor.GetReading();
         await this.setStateAckAsync("PH_Value", ph);
         const tc = await this.sensor.GetTemperatureCompensation();
-        await this.setStateAckAsync("Temperature_compensation(Celsius)", parseFloat(tc));
+        await this.setStateAckAsync("Temperature_compensation", parseFloat(tc));
         const info = await this.sensor.GetInfo();
         await this.setStateAckAsync("Info", info);
         const useLed = await this.sensor.GetLED();
