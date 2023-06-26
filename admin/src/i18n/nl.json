@@ -40,5 +40,11 @@
     "RTD Sensor Calibration": "RTD-sensorkalibratie",
     "RTD value": "Temperatuur waarde",
     "Active": "Actief",
-    "IsLedActive": "LED actief"
+    "IsLedActive": "LED actief",
+    "Pump Parameters Configuration": "Configuratie pompparameters",
+    "Dispensed Volume": "Afgegeven volume",
+    "Total Dispensed Volume": "Totaal afgegeven volume",
+    "Absolute Dispensed Volume": "Absoluut afgegeven volume",
+    "Calibration Volume": "Kalibratievolume",
+    "Pump Calibration": "Pomp Kalibratie"
 }

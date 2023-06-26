@@ -34,8 +34,10 @@ class EzoHandlerBase {
     this.config = deviceConfig[deviceConfig.type];
     this.hexAddress = (0, import_shared.toHexString)(deviceConfig.address);
   }
-  startPolling(callback, interval, minInterval) {
+  async startPolling(callback, interval, minInterval) {
     this.stopPolling();
+    const delay = new import_async.Delay(1e3, this.adapter);
+    await delay.runAsnyc();
     this.polling = new import_async.Polling(callback, this.adapter);
     this.polling.runAsync(interval, minInterval).catch((error) => this.error("Polling error: " + error));
   }

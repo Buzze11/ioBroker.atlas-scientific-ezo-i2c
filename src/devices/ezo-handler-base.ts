@@ -1,6 +1,6 @@
 import * as i2c from 'i2c-bus';
 import { EzoDeviceConfig, ImplementationConfigBase } from '../lib/adapter-config';
-import { Polling, PollingCallback } from '../lib/async';
+import { Delay, Polling, PollingCallback } from '../lib/async';
 import { toHexString } from '../lib/shared';
 import { AtlasScientificEzoI2cAdapter} from '../main';
 import { StateValue } from '../lib/state';
@@ -33,8 +33,10 @@ export abstract class EzoHandlerBase<T extends EzoDeviceConfig> {
     abstract stopAsync(): Promise<void>;
 
     // polling related methods
-    protected startPolling(callback: PollingCallback, interval: number, minInterval?: number): void {
+    protected async startPolling(callback: PollingCallback, interval: number, minInterval?: number): Promise<void> {
         this.stopPolling();
+        const delay = new Delay(1000, this.adapter);
+        await delay.runAsnyc();
         this.polling = new Polling(callback, this.adapter);
         this.polling.runAsync(interval, minInterval).catch((error) => this.error('Polling error: ' + error));
     }

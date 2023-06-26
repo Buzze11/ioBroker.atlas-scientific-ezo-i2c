@@ -40,5 +40,11 @@
     "RTD Sensor Calibration": "Калибровка датчика RTD",
     "RTD value": "Значение температуры",
     "Active": "Активный",
-    "IsLedActive": "светодиод активен"
+    "IsLedActive": "светодиод активен",
+    "Pump Parameters Configuration": "Конфигурация параметров насоса",
+    "Dispensed Volume": "Выданный объем",
+    "Total Dispensed Volume": "Общий дозированный объем",
+    "Absolute Dispensed Volume": "Абсолютный дозированный объем",
+    "Calibration Volume": "Калибровочный объем",
+    "Pump Calibration": "Калибровка насоса"
 }

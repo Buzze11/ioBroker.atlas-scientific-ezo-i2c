@@ -40,5 +40,11 @@
     "RTD Sensor Calibration": "RTD 传感器校准",
     "RTD value": "温度值",
     "Active": "积极的",
-    "IsLedActive": "LED 有源"
+    "IsLedActive": "LED 有源",
+    "Pump Parameters Configuration": "泵参数配置",
+    "Dispensed Volume": "分配量",
+    "Total Dispensed Volume": "总分配量",
+    "Absolute Dispensed Volume": "绝对分配量",
+    "Calibration Volume": "校准体积",
+    "Pump Calibration": "泵校准"
 }

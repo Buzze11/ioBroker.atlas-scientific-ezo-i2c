@@ -40,5 +40,11 @@
     "RTD Sensor Calibration": "Calibrazione del sensore RTD",
     "RTD value": "Valore di temperatura",
     "Active": "Attivo",
-    "IsLedActive": "LED attivo"
+    "IsLedActive": "LED attivo",
+    "Pump Parameters Configuration": "Configurazione dei parametri della pompa",
+    "Dispensed Volume": "Volume erogato",
+    "Total Dispensed Volume": "Volume totale erogato",
+    "Absolute Dispensed Volume": "Volume erogato assoluto",
+    "Calibration Volume": "Volume di calibrazione",
+    "Pump Calibration": "Calibrazione della pompa"
 }
