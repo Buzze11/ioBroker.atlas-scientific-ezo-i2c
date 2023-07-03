@@ -142,8 +142,8 @@ For pH Sensor following states are listening for changes:
 
 ### Pump Control Section
 
-**"Reverse"-Switch** -> If set in the config all commands to the pump will be executed with the reverse Flag set so that the pump direction is inverted 
-**"Clear dispensed Volume"-Button** -> The total dispensed volume counter will be set to 0
+* **"Reverse"-Switch** -> If set in the config all commands to the pump will be executed with the reverse Flag set so that the pump direction is inverted 
+* **"Clear dispensed Volume"-Button** -> The total dispensed volume counter will be set to 0
 
 For EZO Pumps the following states are listening for changes: 
 * "Continous_dispense" -> If set to true the pump will jump into continous dispense mode with 105ml/min (reverse switch considered). If set to false the pump will stop dispensing.
