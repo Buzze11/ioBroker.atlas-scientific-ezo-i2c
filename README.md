@@ -133,11 +133,6 @@ For pH Sensor following states are listening for changes:
 **"Clear Calibration"-Button** -> Delete calibration Data  
 **"Calibrate"-Button** -> calibrate to desired value
 
-### RTD-Related funtionalities & Settings
-
-**"Clear Calibration"-Button** -> Delete calibration Data  
-**"Calibrate"-Button** -> calibrate to desired value
-
 ### Pump-Related funtionalities & Settings
 
 ![Image](pictures/rtd_config.png)
@@ -145,7 +140,7 @@ For pH Sensor following states are listening for changes:
 **"Clear Calibration"-Button** -> Delete calibration Data  
 **"Calibrate"-Button** -> calibrate to desired volume
 
-## Pump Control
+## Pump Control Section
 
 **"Reverse"-Switch** -> If set in the config all commands to the pump will be executed with the reverse Flag set so that the pump direction is inverted
 **"Clear dispensed Volume"-Button** -> The total dispensed volume counter will be set to 0
