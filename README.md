@@ -23,15 +23,15 @@ This ioBroker Adapter integrates several Atlas Scientific EZO Devices https://at
 
 Currently Supported Devices
 
--   EZO DO - Dissolved Oxygen -> https://atlas-scientific.com/dissolved-oxygen
--   EZO ORP - Oxidation-reduction potential -> https://atlas-scientific.com/orp
--   EZO pH - Potential of Hydrogen -> https://atlas-scientific.com/ph
--   EZO RTD - Resistance Temperature Detector -> https://atlas-scientific.com/temperature
+* EZO DO - Dissolved Oxygen -> https://atlas-scientific.com/dissolved-oxygen
+* EZO ORP - Oxidation-reduction potential -> https://atlas-scientific.com/orp
+* EZO pH - Potential of Hydrogen -> https://atlas-scientific.com/ph
+* EZO RTD - Resistance Temperature Detector -> https://atlas-scientific.com/temperature
+* EZO PMP - Embedded Peristaltic Dosing Pump -> https://atlas-scientific.com/peristaltic/ezo-pmp/ (untested)
 
 Future Support
 
--   EZO PMP - Embedded Peristaltic Dosing Pump -> https://atlas-scientific.com/peristaltic/ezo-pmp/
--   EZO EC - Electrical conductivity -> https://atlas-scientific.com/conductivity
+* EZO EC - Electrical conductivity -> https://atlas-scientific.com/conductivity
 
 ## Getting started
 
@@ -67,18 +67,18 @@ After you`ve selected the type of device the settings for the desired device app
 
 ## General Configuration (all devices)
 
--   **Address:** Non adjustable (except change of IP Address)
--   **Device Type:** Desired Device Type Dropdown
--   **Name:** Name of the Device stored on the device later on (Whitespace will be removed. If longer than 16 characters, only the first 16 will be sent.)
--   **Polling Interval:** Interval in milliseconds for the device value polling. If > 0 the device will be reading all values in this intervall. Please increase the intervall time when you will receive wrong readings. I suggest at least to start with 15000ms
--   **Active Switch:** Switch to enable or disable the use of that sensor
--   **LED Active Switch:** With this setting you can enable or disable the LED on the EZO Device
+* **Address:** Non adjustable (except change of IP Address)
+* **Device Type:** Desired Device Type Dropdown
+* **Name:** Name of the Device stored on the device later on (Whitespace will be removed. If longer than 16 characters, only the first 16 will be sent.)
+* **Polling Interval:** Interval in milliseconds for the device value polling. If > 0 the device will be reading all values in this intervall. Please increase the intervall time when you will receive wrong readings. I suggest at least to start with 15000ms
+* **Active Switch:** Switch to enable or disable the use of that sensor
+* **LED Active Switch:** With this setting you can enable or disable the LED on the EZO Device
 
 ## Common Functionalities (all devices)
 
--   **"Find EZO Board"-Button** -> With a click on this button the LED on the EZO Board starts flashing fast.
--   **"Factory Reset"-Button** -> Execute a factory reset for that device
--   **"Change I2C Address"-Button** -> Here you can program a new I2C Address for that adapter. Please make sure you save the config afterwards.
+* **"Find EZO Board"-Button** -> With a click on this button the LED on the EZO Board starts flashing fast.
+* **"Factory Reset"-Button** -> Execute a factory reset for that device
+* **"Change I2C Address"-Button** -> Here you can program a new I2C Address for that adapter. Please make sure you save the config afterwards.
 
 ## Device related settings & functionalities
 
@@ -86,59 +86,59 @@ After you`ve selected the type of device the settings for the desired device app
 
 ![Image](pictures/do_config.png)
 
-**"Clear Calibration"-Button** -> Delete calibration Data  
-**"Calibrate Atmospheric"-Button** -> calibrate to atmospheric oxygen levels  
-**"Calibrate 0DO"-Button** -> calibrate device to 0 dissolved oxygen  
-**"Set Temp. Compensation"-Button** -> set the temperature compensation with the desired value inside the textfield e.g. 20.4  
-**"Set Pressure Compensation"-Button** -> set the pressure compensation with the desired value in kPA inside the textfield e.g. 101.3  
-**"Set Salinity Compensation"-Button** -> set the salinity compensation with the desired value inside the textfield e.g. 50000 us  
-**"isPpt"-Switch** -> Switch to define if Salinity value read/set in ppt instead of us
+* **"Clear Calibration"-Button** -> Delete calibration Data  
+* **"Calibrate Atmospheric"-Button** -> calibrate to atmospheric oxygen levels  
+* **"Calibrate 0DO"-Button** -> calibrate device to 0 dissolved oxygen  
+* **"Set Temp. Compensation"-Button** -> set the temperature compensation with the desired value inside the textfield e.g. 20.4  
+* **"Set Pressure Compensation"-Button** -> set the pressure compensation with the desired value in kPA inside the textfield e.g. 101.3  
+* **"Set Salinity Compensation"-Button** -> set the salinity compensation with the desired value inside the textfield e.g. 50000 us  
+* **"isPpt"-Switch** -> Switch to define if Salinity value read/set in ppt instead of us
 
 **States with includes State change detection**
 Some states have an state change detection mechanism running which gives the possibility that some compensation values can be set not only by the UI but additionally with changes directly to the states value from outside. This can be useful for example if you want to use comepsation values from a sensor like temperature to adjust the temperature compensation value on the PH Sensor.
 
 For DO Sensor following states are listening for changes: 
-"Temperature_compensation"
-"Salinity_compensation"
-"Pressure_compensation"
+* "Temperature_compensation" -> Sets the temperature compensation
+* "Salinity_compensation" -> Sets the salinity compensation
+* "Pressure_compensation" -> Sets the pressure compensation
 
 ### pH-Related funtionalities & Settings
 
 ![Image](pictures/ph_config.png)
 
-**"Clear Calibration"-Button** -> Delete calibration Data  
-**"Calibrate Low"-Button** -> execute the low value calibration (usually 4.0 )  
-**"Calibrate Mid"-Button** -> execute the mid value calibration (usually 7.0 )  
-**"Calibrate High"-Button** -> execute the high value calibration (usually 10.0 )  
-**"Set Temp. Compensation"-Button** -> set the temperature compensation with the desired value inside the textfield e.g. 20.4
+* **"Clear Calibration"-Button** -> Delete calibration Data  
+* **"Calibrate Low"-Button** -> execute the low value calibration (usually 4.0 )  
+* **"Calibrate Mid"-Button** -> execute the mid value calibration (usually 7.0 )  
+* **"Calibrate High"-Button** -> execute the high value calibration (usually 10.0 )  
+* **"Set Temp. Compensation"-Button** -> set the temperature compensation with the desired value inside the textfield e.g. 20.4
 
 **States with includes State change detection**
 Some states have an state change detection mechanism running which gives the possibility that some compensation values can be set not only by the UI but additionally with changes directly to the states value from outside. This can be useful for example if you want to use comepsation values from a sensor like temperature to adjust the temperature compensation value on the PH Sensor.
 
 For pH Sensor following states are listening for changes: 
-"Temperature_compensation"
+* "Temperature_compensation" -> Sets the temperature compensation
 
 
 ### ORP-Related funtionalities & Settings
 
 ![Image](pictures/orp_config.png)
 
-**"Clear Calibration"-Button** -> Delete calibration Data  
-**"Calibrate"-Button** -> calibrate to desired value
+* **"Clear Calibration"-Button** -> Delete calibration Data  
+* **"Calibrate"-Button** -> calibrate to desired value
 
 ### RTD-Related funtionalities & Settings
 
 ![Image](pictures/rtd_config.png)
 
-**"Clear Calibration"-Button** -> Delete calibration Data  
-**"Calibrate"-Button** -> calibrate to desired value
+* **"Clear Calibration"-Button** -> Delete calibration Data  
+* **"Calibrate"-Button** -> calibrate to desired value
 
 ### Pump-Related funtionalities & Settings
 
 ![Image](pictures/rtd_config.png)
 
-**"Clear Calibration"-Button** -> Delete calibration Data  
-**"Calibrate"-Button** -> calibrate to desired volume
+* **"Clear Calibration"-Button** -> Delete calibration Data  
+* **"Calibrate"-Button** -> calibrate to desired volume
 
 ### Pump Control Section
 
