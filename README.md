@@ -162,12 +162,10 @@ You can check other adapters for examples or ask in the developer community. Usi
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 1.2.3 (2023-07-03)
 - implemented delay after each polling cycle to decouple memory race conditions on device for I2C
 - First steps in base implementation for peristaltic pump
 - added translations for new values
-
 
 ### 1.2.2 (2023-06-19)
 - Removed forbidden characters from sensor state objects

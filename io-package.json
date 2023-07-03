@@ -1,191 +1,191 @@
 {
-    "common": {
-        "name": "atlas-scientific-ezo-i2c",
-        "version": "1.2.2",
-        "news": {
-            "1.2.2": {
-                "en": "Removed forbidden characters from sensor state objects\nadded state roles where possible \nadded state units where senseful\nadjusted Readme according changes",
-                "de": "Entfernte verbotene Zeichen von Sensorzustandsobjekten\nzusätzliche staatliche rollen, soweit möglich\nzustandseinheiten hinzugefügt, wo sinnvoll\nangepasste Readme nach Änderungen",
-                "ru": "Удалены запрещенные символы от объектов состояния датчика\nдобавлены государственные роли, где это возможно\nдобавлены государственные подразделения, где чувствительные\nотрегулированный Readme в соответствии с изменениями",
-                "pt": "Personagens proibidos removidos de objetos do estado do sensor\npapéis estaduais adicionados quando possível\nacrescentou unidades de estado onde sensível\najustada de acordo com as alterações",
-                "nl": "Verboden personages van zintuiglijke objecten\nvertaling:\nvertaling:\nveranderde Readme volgens veranderingen",
-                "fr": "Supprimer les caractères interdits des objets de l'état du capteur\nles rôles de l'état ajoutés\ndes unités d'état où logique\najusté Readme selon les changements",
-                "it": "Caratteri vietati rimossi da oggetti di stato del sensore\nruoli di stato aggiunti dove possibile\nunità di stato aggiunte dove sensato\nleggime regolato secondo le modifiche",
-                "es": "Eliminar caracteres prohibidos de objetos del estado sensor\nañadir funciones estatales cuando sea posible\nunidades estatales agregadas donde sensible\najustado Leerme según cambios",
-                "pl": "Zabronione postaci z obiektów stanowych\npełnić funkcje państwowe, w których możliwe jest możliwa jest rola państwowa\ndostarczałe jednostki państwowe, gdzie rozsądny\nczytanie czytania zgodnie z zmianami",
-                "uk": "Вилучені заборонені символи з сенсорних об'єктів\nдодані державні ролі, де можливо\nдодані державні блоки, де сенс\nрегульований контроль за змінами",
-                "zh-cn": "驱离传传感器的易燃性\n尽可能增加国家的作用\n增加国家单位,有感知\n根据变化调整的阅读摘要"
-            },
-            "1.2.1": {
-                "en": "Extended Help with Statechangelisteners",
-                "de": "Erweiterte Hilfe bei Statechangelisteners",
-                "ru": "Расширенная помощь с помощью Statechangelisteners",
-                "pt": "Ajuda alargada com os Estados-Membros",
-                "nl": "Verlengde hulp met Statechangelisten",
-                "fr": "Aide étendue aux interlocuteurs",
-                "it": "Aiuto esteso con i cambiavalute",
-                "es": "Extended Help with Statechangelisteners",
-                "pl": "Wspomagać się z remisjonistą",
-                "uk": "Розширена допомога з Держзареєстраторами",
-                "zh-cn": "往往与国家交流会领导人的帮助"
-            },
-            "1.2.0": {
-                "en": "Code cleanup\nExchanged standard setTimeOut / clearTimeout calls with adapter wrapper methods\nRemoved \"later\" function in index.ts and used Delay Class instead",
-                "de": "Code-Reinigung\nGetauschter Standard-SetTime Out / clearTimeout Anrufe mit Adapter-Wrapper Methoden\nEntfernt spätere Funktion in index.ts und verwendet Delay Class statt",
-                "ru": "Очистка кода\nОбменный стандарт setTime Out / ClearTimeout звонки с методами адаптера\nУдалены позже функции в index.ts и используется Delay Class вместо",
-                "pt": "Limpeza de código\nConjunto padrão trocadoTime Chamadas fora / clearTimeout com métodos de wrapper do adaptador\nRemovido função posterior em index.ts e usado Classe Delay em vez",
-                "nl": "Code schoonmaakmiddel\nQuality over Quantity (QoQ) Releases Vertaling: Vertaling:\nVerwijder later de functie in de index en gebruikte Delay Class in plaats daarvan",
-                "fr": "Nettoyage du code\nExchange standard setTime Appels Out / clearTimeout avec méthodes d'emballage adaptateur\nFonction supprimée plus tard dans index.ts et classe de retard utilisée à la place",
-                "it": "Pulizia del codice\nSet standard scambiatoTime Out / ClearTimeout chiamate con i metodi di wrapper adattatore\nRimossa la funzione successiva in index.ts e usata Delay Class",
-                "es": "Limpieza del código\nTiempo estándar intercambiado Out / clearTimeout llamadas con métodos de envoltura adaptador\nRetirada función posterior en index.ts y usado Clase Delay",
-                "pl": "Kod\nStandardowa giełda Wykorzystuje się w programach / czystego czasu z adapterowymi metodami  wrapperowymi\nZamienił później funkcję w indeksach i używał Delay Class",
-                "uk": "Чистка коду\nСтатус на сервери Out / clearTimeout виклики з методами обгортання адаптера\nВидалити пізніше функцію в index.ts і використовувати Delay Class замість",
-                "zh-cn": "守则 清洁\n汇率标准制度 在/明确制度中,要求采用更完善的武断方法\n删除后来在指数中的功能,用Delay类取代"
-            },
-            "1.1.0": {
-                "en": "Removed Developer Info\nExtended Test Matrix to [16.x, 18.x, 20.x]\nPatched Translations\nRemoved Whitespaces for all States from Sensors and exchanged with underscores",
-                "de": "Entfernen von Entwickler-Info\nErweiterte Testmatrix auf [16.x, 18.x, 20.x]\nAufgepasste Übersetzungen\nEntfernt Whitespaces für alle Staaten von Sensors und ausgetauscht mit underscores",
-                "ru": "Удалена информация о разработчике\nРасширенная тестовая матрица до [16.x, 18.x, 20.x]\nЗапатчованные переводы\nУдаленные белые пространства для всех государств от датчиков и обмениваются с подчеркиваниями",
-                "pt": "Remover informação do desenvolvedor\nMatriz de teste estendida para [16.x, 18.x, 20.x]\nTraduções corrigidas\nEspaços brancos removidos para todos os Estados de Sensores e trocados com underscores",
-                "nl": "Verwijder Developer Info\nVerlengde Test Matrix tot [16.x, 18.x, 20\nVertaling:\nVerwijderde Whitespace voor alle staten van Sensors en wisselde met onderscores",
-                "fr": "Informations sur les développeurs supprimés\nMatrice d'essai étendue à [16.x, 18.x, 20.x]\nPatched Translations\nEnlevés blancs pour tous les États de Senseurs et échangés avec des accents",
-                "it": "Removed Sviluppatore Info\nMatrice di test estesa a [16.x, 18.x, 20.x]\nTraduzioni Patched\nSpazi bianchi rimossi per tutti gli Stati dai sensori e scambiati con underscores",
-                "es": "Removed Developer Info\nMatriz de prueba extendida a [16.x, 18.x, 20.x]\nTraducciones programadas\nEspacios blancos eliminados para todos los Estados de Sensores e intercambiados con subrayados",
-                "pl": "Przełożył program Info\nRozszerzenia macierzy testowych (16.x, 18.x, 20.x)\nPrzekład pasterski\nZamienił Whitespace dla wszystkich państw z Sensorów i wymienił się z podkreśleniami",
-                "uk": "Вилучена інформація розробника\nРозширений тест матриці [16.x, 18.x, 20.x]\nПереклади\nВилучені білі простори для всіх держав від датчиків і обмінів з низами",
-                "zh-cn": "驱离发展者信息\n[16.x、18.x、20.x]\n波 鲁\n取消对所有国家的白天空间,并交换强调"
-            },
-            "1.0.0": {
-                "en": "further bugfixes\npatched release yml file\nadded  releaseconfig.json",
-                "de": "weitere bugfixes\ngepatchte release-yml-datei\nzusätzlich releaseconfig.json",
-                "ru": "дальнейшие исправления\nзапатчованный релиз yml файл\nдобавлено releaseconfig.json",
-                "pt": "mais correções de bugs\narquivo yml versão corrigida\nadicionado releaseconfig.json",
-                "nl": "verder insecten\nvertaling:\nvertaling:",
-                "fr": "autres bugfixes\nfichier patched release yml\najouté releaseconfig.json",
-                "it": "ulteriori bugfix\nfile yml di rilascio patchato\naggiunto releaseconfig.json",
-                "es": "más bugfixes\narchivo yml de liberación parche\nañadido releaseconfig.json",
-                "pl": "pluszak\npatch release yml file\ndodał również konfig.json",
-                "uk": "подальші виправлення\nпатчований реліз yml файл\njavascript licenses api веб-сайт go1.13.8",
-                "zh-cn": "进一步固定\n附录\n增加释放。"
-            },
-            "0.0.3": {
-                "en": "further bugfixes\npatched release yml file\nadded  releaseconfig.json",
-                "de": "weitere bugfixes\ngepatchte release-yml-datei\nzusätzlich releaseconfig.json",
-                "ru": "дальнейшие исправления\nзапатчованный релиз yml файл\nдобавлено releaseconfig.json",
-                "pt": "mais correções de bugs\narquivo yml versão corrigida\nadicionado releaseconfig.json",
-                "nl": "verder insecten\nvertaling:\nvertaling:",
-                "fr": "autres bugfixes\nfichier patched release yml\najouté releaseconfig.json",
-                "it": "ulteriori bugfix\nfile yml di rilascio patchato\naggiunto releaseconfig.json",
-                "es": "más bugfixes\narchivo yml de liberación parche\nañadido releaseconfig.json",
-                "pl": "pluszak\npatch release yml file\ndodał również konfig.json",
-                "uk": "подальші виправлення\nпатчований реліз yml файл\njavascript licenses api веб-сайт go1.13.8",
-                "zh-cn": "进一步固定\n附录\n增加释放。"
-            },
-            "0.0.2": {
-                "en": "further bugfixes\npatched release yml file\nadded  releaseconfig.json",
-                "de": "weitere bugfixes\ngepatchte release-yml-datei\nzusätzlich releaseconfig.json",
-                "ru": "дальнейшие исправления\nзапатчованный релиз yml файл\nдобавлено releaseconfig.json",
-                "pt": "mais correções de bugs\narquivo yml versão corrigida\nadicionado releaseconfig.json",
-                "nl": "verder insecten\nvertaling:\nvertaling:",
-                "fr": "autres bugfixes\nfichier patched release yml\najouté releaseconfig.json",
-                "it": "ulteriori bugfix\nfile yml di rilascio patchato\naggiunto releaseconfig.json",
-                "es": "más bugfixes\narchivo yml de liberación parche\nañadido releaseconfig.json",
-                "pl": "pluszak\npatch release yml file\ndodał również konfig.json",
-                "uk": "подальші виправлення\nпатчований реліз yml файл\njavascript licenses api веб-сайт go1.13.8",
-                "zh-cn": "进一步固定\n附录\n增加释放。"
-            }
-        },
-        "title": "Atlas Scientific EZO",
-        "titleLang": {
-            "en": "Atlas Scientific EZO",
-            "de": "Atlas Scientific EZO",
-            "ru": "Атлас Научная ЭЗО",
-            "pt": "Atlas Científico EZO",
-            "nl": "Atlas Wetenschappelijke EZO",
-            "fr": "Atlas Scientifique EZO",
-            "it": "Atlante scientifico EZO",
-            "es": "EZO científico de Atlas",
-            "pl": "Atlas Scientific EZO",
-            "zh-cn": "阿特拉斯科学 EZO",
-            "uk": "Atlas Scientific EZO"
-        },
-        "desc": {
-            "en": "atlas-scientific-ezo-i2c",
-            "de": "atlas-scientific-ezo-i2c",
-            "ru": "атлас-научный-ezo-i2c",
-            "pt": "atlas-científico-ezo-i2c",
-            "nl": "atlas-wetenschappelijk-ezo-i2c",
-            "fr": "atlas-scientifique-ezo-i2c",
-            "it": "atlas-scientifico-ezo-i2c",
-            "es": "atlas-cientifico-ezo-i2c",
-            "pl": "atlas-naukowy-ezo-i2c",
-            "zh-cn": "地图集-科学-ezo-i2c",
-            "uk": "atlas-scientific-ezo-i2c"
-        },
-        "authors": [
-            "Buzze11 <github@buchholz.cloud>"
-        ],
-        "keywords": [
-            "ioBroker",
-            "template",
-            "Smart Home",
-            "home automation"
-        ],
-        "license": "Apache-2.0",
-        "platform": "Javascript/Node.js",
-        "main": "build/main.js",
-        "icon": "atlas-scientific-ezo-i2c.png",
-        "enabled": true,
-        "extIcon": "https://raw.githubusercontent.com/Buzze11/ioBroker.atlas-scientific-ezo-i2c/master/admin/atlas-scientific-ezo-i2c.png",
-        "readme": "https://github.com/Buzze11/ioBroker.atlas-scientific-ezo-i2c/blob/master/README.md",
-        "loglevel": "info",
-        "messagebox": true,
-        "mode": "daemon",
-        "type": "hardware",
-        "compact": true,
-        "connectionType": "local",
-        "dataSource": "poll",
-        "adminUI": {
-            "config": "materialize"
-        },
-        "eraseOnUpload": true,
-        "dependencies": [
-            {
-                "js-controller": ">=3.3.22"
-            }
-        ],
-        "globalDependencies": [
-            {
-                "admin": ">=5.0.0"
-            }
-        ]
+  "common": {
+    "name": "atlas-scientific-ezo-i2c",
+    "version": "1.2.3",
+    "news": {
+      "1.2.3": {
+        "en": "implemented delay after each polling cycle to decouple memory race conditions on device for I2C\nFirst steps in base implementation for peristaltic pump\nadded translations for new values",
+        "de": "implementierte Verzögerung nach jedem Abfragezyklus zum Entkoppeln von Speicherlaufbedingungen auf Gerät für I2C\nErste Schritte in der Basis-Umsetzung für peristaltische Pumpe\nübersetzungen für neue werte hinzugefügt",
+        "ru": "внедрили задержку после каждого цикла загрязнения для того чтобы decouple условия гонки памяти на приборе для I2C\nПервые шаги в базовой реализации для перистальического насоса\nдобавлены переводы для новых ценностей",
+        "pt": "atraso implementado após cada ciclo de votação para desconectar as condições de corrida de memória no dispositivo para I2C\nPrimeiros passos na implementação de base para bomba peristáltica\ntraduções adicionadas para novos valores",
+        "nl": "vertraging na elke cyclus om geheugen racecondities te ontcijferen voor I2C\nEerste stap in de basis voor peristalische pomp\nvertaling:",
+        "fr": "retard mis en œuvre après chaque cycle de scrutin pour découpler les conditions de course de mémoire sur le dispositif I2C\nPremiers pas dans la mise en œuvre de base pour la pompe péristaltique\ntraductions ajoutées pour les nouvelles valeurs",
+        "it": "ritardo implementato dopo ogni ciclo di inquinamento per decouple condizioni di gara di memoria su dispositivo per I2C\nPrimi passi nell'implementazione base per pompa peristaltica\ntraduzioni aggiunte per nuovi valori",
+        "es": "retraso implementado después de cada ciclo de encuestas para decodificar las condiciones de la carrera de memoria en el dispositivo para I2C\nPrimeros pasos en la implementación base para bomba peristáltica\ntraducciones adicionales para nuevos valores",
+        "pl": "zaimplementowane opóźnienie po każdym cyklu zanieczyszczeń dotyczących typów pamięci dla I2C\nPierwsze kroki w implementacji pompy perystalicznej\ndodano tłumaczenia dla nowych wartości",
+        "uk": "впроваджено затримку після кожного циклу опитування для декупації умов забігу пам'яті на пристрої I2C\nПерші кроки в базовій реалізації перистальтичного насоса\nдодано переклади для нових значень",
+        "zh-cn": "在每个投票周期之后立即执行,以纪念I2C设施的种族状况。\n三. 用于静止水泵的地下执行的第一步\n增加新价值观的翻译"
+      },
+      "1.2.2": {
+        "en": "Removed forbidden characters from sensor state objects\nadded state roles where possible \nadded state units where senseful\nadjusted Readme according changes",
+        "de": "Entfernte verbotene Zeichen von Sensorzustandsobjekten\nzusätzliche staatliche rollen, soweit möglich\nzustandseinheiten hinzugefügt, wo sinnvoll\nangepasste Readme nach Änderungen",
+        "ru": "Удалены запрещенные символы от объектов состояния датчика\nдобавлены государственные роли, где это возможно\nдобавлены государственные подразделения, где чувствительные\nотрегулированный Readme в соответствии с изменениями",
+        "pt": "Personagens proibidos removidos de objetos do estado do sensor\npapéis estaduais adicionados quando possível\nacrescentou unidades de estado onde sensível\najustada de acordo com as alterações",
+        "nl": "Verboden personages van zintuiglijke objecten\nvertaling:\nvertaling:\nveranderde Readme volgens veranderingen",
+        "fr": "Supprimer les caractères interdits des objets de l'état du capteur\nles rôles de l'état ajoutés\ndes unités d'état où logique\najusté Readme selon les changements",
+        "it": "Caratteri vietati rimossi da oggetti di stato del sensore\nruoli di stato aggiunti dove possibile\nunità di stato aggiunte dove sensato\nleggime regolato secondo le modifiche",
+        "es": "Eliminar caracteres prohibidos de objetos del estado sensor\nañadir funciones estatales cuando sea posible\nunidades estatales agregadas donde sensible\najustado Leerme según cambios",
+        "pl": "Zabronione postaci z obiektów stanowych\npełnić funkcje państwowe, w których możliwe jest możliwa jest rola państwowa\ndostarczałe jednostki państwowe, gdzie rozsądny\nczytanie czytania zgodnie z zmianami",
+        "uk": "Вилучені заборонені символи з сенсорних об'єктів\nдодані державні ролі, де можливо\nдодані державні блоки, де сенс\nрегульований контроль за змінами",
+        "zh-cn": "驱离传传感器的易燃性\n尽可能增加国家的作用\n增加国家单位,有感知\n根据变化调整的阅读摘要"
+      },
+      "1.2.1": {
+        "en": "Extended Help with Statechangelisteners",
+        "de": "Erweiterte Hilfe bei Statechangelisteners",
+        "ru": "Расширенная помощь с помощью Statechangelisteners",
+        "pt": "Ajuda alargada com os Estados-Membros",
+        "nl": "Verlengde hulp met Statechangelisten",
+        "fr": "Aide étendue aux interlocuteurs",
+        "it": "Aiuto esteso con i cambiavalute",
+        "es": "Extended Help with Statechangelisteners",
+        "pl": "Wspomagać się z remisjonistą",
+        "uk": "Розширена допомога з Держзареєстраторами",
+        "zh-cn": "往往与国家交流会领导人的帮助"
+      },
+      "1.2.0": {
+        "en": "Code cleanup\nExchanged standard setTimeOut / clearTimeout calls with adapter wrapper methods\nRemoved \"later\" function in index.ts and used Delay Class instead",
+        "de": "Code-Reinigung\nGetauschter Standard-SetTime Out / clearTimeout Anrufe mit Adapter-Wrapper Methoden\nEntfernt spätere Funktion in index.ts und verwendet Delay Class statt",
+        "ru": "Очистка кода\nОбменный стандарт setTime Out / ClearTimeout звонки с методами адаптера\nУдалены позже функции в index.ts и используется Delay Class вместо",
+        "pt": "Limpeza de código\nConjunto padrão trocadoTime Chamadas fora / clearTimeout com métodos de wrapper do adaptador\nRemovido função posterior em index.ts e usado Classe Delay em vez",
+        "nl": "Code schoonmaakmiddel\nQuality over Quantity (QoQ) Releases Vertaling: Vertaling:\nVerwijder later de functie in de index en gebruikte Delay Class in plaats daarvan",
+        "fr": "Nettoyage du code\nExchange standard setTime Appels Out / clearTimeout avec méthodes d'emballage adaptateur\nFonction supprimée plus tard dans index.ts et classe de retard utilisée à la place",
+        "it": "Pulizia del codice\nSet standard scambiatoTime Out / ClearTimeout chiamate con i metodi di wrapper adattatore\nRimossa la funzione successiva in index.ts e usata Delay Class",
+        "es": "Limpieza del código\nTiempo estándar intercambiado Out / clearTimeout llamadas con métodos de envoltura adaptador\nRetirada función posterior en index.ts y usado Clase Delay",
+        "pl": "Kod\nStandardowa giełda Wykorzystuje się w programach / czystego czasu z adapterowymi metodami  wrapperowymi\nZamienił później funkcję w indeksach i używał Delay Class",
+        "uk": "Чистка коду\nСтатус на сервери Out / clearTimeout виклики з методами обгортання адаптера\nВидалити пізніше функцію в index.ts і використовувати Delay Class замість",
+        "zh-cn": "守则 清洁\n汇率标准制度 在/明确制度中,要求采用更完善的武断方法\n删除后来在指数中的功能,用Delay类取代"
+      },
+      "1.1.0": {
+        "en": "Removed Developer Info\nExtended Test Matrix to [16.x, 18.x, 20.x]\nPatched Translations\nRemoved Whitespaces for all States from Sensors and exchanged with underscores",
+        "de": "Entfernen von Entwickler-Info\nErweiterte Testmatrix auf [16.x, 18.x, 20.x]\nAufgepasste Übersetzungen\nEntfernt Whitespaces für alle Staaten von Sensors und ausgetauscht mit underscores",
+        "ru": "Удалена информация о разработчике\nРасширенная тестовая матрица до [16.x, 18.x, 20.x]\nЗапатчованные переводы\nУдаленные белые пространства для всех государств от датчиков и обмениваются с подчеркиваниями",
+        "pt": "Remover informação do desenvolvedor\nMatriz de teste estendida para [16.x, 18.x, 20.x]\nTraduções corrigidas\nEspaços brancos removidos para todos os Estados de Sensores e trocados com underscores",
+        "nl": "Verwijder Developer Info\nVerlengde Test Matrix tot [16.x, 18.x, 20\nVertaling:\nVerwijderde Whitespace voor alle staten van Sensors en wisselde met onderscores",
+        "fr": "Informations sur les développeurs supprimés\nMatrice d'essai étendue à [16.x, 18.x, 20.x]\nPatched Translations\nEnlevés blancs pour tous les États de Senseurs et échangés avec des accents",
+        "it": "Removed Sviluppatore Info\nMatrice di test estesa a [16.x, 18.x, 20.x]\nTraduzioni Patched\nSpazi bianchi rimossi per tutti gli Stati dai sensori e scambiati con underscores",
+        "es": "Removed Developer Info\nMatriz de prueba extendida a [16.x, 18.x, 20.x]\nTraducciones programadas\nEspacios blancos eliminados para todos los Estados de Sensores e intercambiados con subrayados",
+        "pl": "Przełożył program Info\nRozszerzenia macierzy testowych (16.x, 18.x, 20.x)\nPrzekład pasterski\nZamienił Whitespace dla wszystkich państw z Sensorów i wymienił się z podkreśleniami",
+        "uk": "Вилучена інформація розробника\nРозширений тест матриці [16.x, 18.x, 20.x]\nПереклади\nВилучені білі простори для всіх держав від датчиків і обмінів з низами",
+        "zh-cn": "驱离发展者信息\n[16.x、18.x、20.x]\n波 鲁\n取消对所有国家的白天空间,并交换强调"
+      },
+      "1.0.0": {
+        "en": "further bugfixes\npatched release yml file\nadded  releaseconfig.json",
+        "de": "weitere bugfixes\ngepatchte release-yml-datei\nzusätzlich releaseconfig.json",
+        "ru": "дальнейшие исправления\nзапатчованный релиз yml файл\nдобавлено releaseconfig.json",
+        "pt": "mais correções de bugs\narquivo yml versão corrigida\nadicionado releaseconfig.json",
+        "nl": "verder insecten\nvertaling:\nvertaling:",
+        "fr": "autres bugfixes\nfichier patched release yml\najouté releaseconfig.json",
+        "it": "ulteriori bugfix\nfile yml di rilascio patchato\naggiunto releaseconfig.json",
+        "es": "más bugfixes\narchivo yml de liberación parche\nañadido releaseconfig.json",
+        "pl": "pluszak\npatch release yml file\ndodał również konfig.json",
+        "uk": "подальші виправлення\nпатчований реліз yml файл\njavascript licenses api веб-сайт go1.13.8",
+        "zh-cn": "进一步固定\n附录\n增加释放。"
+      },
+      "0.0.3": {
+        "en": "further bugfixes\npatched release yml file\nadded  releaseconfig.json",
+        "de": "weitere bugfixes\ngepatchte release-yml-datei\nzusätzlich releaseconfig.json",
+        "ru": "дальнейшие исправления\nзапатчованный релиз yml файл\nдобавлено releaseconfig.json",
+        "pt": "mais correções de bugs\narquivo yml versão corrigida\nadicionado releaseconfig.json",
+        "nl": "verder insecten\nvertaling:\nvertaling:",
+        "fr": "autres bugfixes\nfichier patched release yml\najouté releaseconfig.json",
+        "it": "ulteriori bugfix\nfile yml di rilascio patchato\naggiunto releaseconfig.json",
+        "es": "más bugfixes\narchivo yml de liberación parche\nañadido releaseconfig.json",
+        "pl": "pluszak\npatch release yml file\ndodał również konfig.json",
+        "uk": "подальші виправлення\nпатчований реліз yml файл\njavascript licenses api веб-сайт go1.13.8",
+        "zh-cn": "进一步固定\n附录\n增加释放。"
+      }
     },
-    "native": {
-        "busNumber": 1,
-        "devices": []
+    "title": "Atlas Scientific EZO",
+    "titleLang": {
+      "en": "Atlas Scientific EZO",
+      "de": "Atlas Scientific EZO",
+      "ru": "Атлас Научная ЭЗО",
+      "pt": "Atlas Científico EZO",
+      "nl": "Atlas Wetenschappelijke EZO",
+      "fr": "Atlas Scientifique EZO",
+      "it": "Atlante scientifico EZO",
+      "es": "EZO científico de Atlas",
+      "pl": "Atlas Scientific EZO",
+      "zh-cn": "阿特拉斯科学 EZO",
+      "uk": "Atlas Scientific EZO"
     },
-    "objects": [],
-    "instanceObjects": [
-        {
-            "_id": "info",
-            "type": "channel",
-            "common": {
-                "name": "Information"
-            },
-            "native": {}
-        },
-        {
-            "_id": "info.connection",
-            "type": "state",
-            "common": {
-                "role": "indicator.connected",
-                "name": "Device or service connected",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        }
+    "desc": {
+      "en": "atlas-scientific-ezo-i2c",
+      "de": "atlas-scientific-ezo-i2c",
+      "ru": "атлас-научный-ezo-i2c",
+      "pt": "atlas-científico-ezo-i2c",
+      "nl": "atlas-wetenschappelijk-ezo-i2c",
+      "fr": "atlas-scientifique-ezo-i2c",
+      "it": "atlas-scientifico-ezo-i2c",
+      "es": "atlas-cientifico-ezo-i2c",
+      "pl": "atlas-naukowy-ezo-i2c",
+      "zh-cn": "地图集-科学-ezo-i2c",
+      "uk": "atlas-scientific-ezo-i2c"
+    },
+    "authors": [
+      "Buzze11 <github@buchholz.cloud>"
+    ],
+    "keywords": [
+      "ioBroker",
+      "template",
+      "Smart Home",
+      "home automation"
+    ],
+    "license": "Apache-2.0",
+    "platform": "Javascript/Node.js",
+    "main": "build/main.js",
+    "icon": "atlas-scientific-ezo-i2c.png",
+    "enabled": true,
+    "extIcon": "https://raw.githubusercontent.com/Buzze11/ioBroker.atlas-scientific-ezo-i2c/master/admin/atlas-scientific-ezo-i2c.png",
+    "readme": "https://github.com/Buzze11/ioBroker.atlas-scientific-ezo-i2c/blob/master/README.md",
+    "loglevel": "info",
+    "messagebox": true,
+    "mode": "daemon",
+    "type": "hardware",
+    "compact": true,
+    "connectionType": "local",
+    "dataSource": "poll",
+    "adminUI": {
+      "config": "materialize"
+    },
+    "eraseOnUpload": true,
+    "dependencies": [
+      {
+        "js-controller": ">=3.3.22"
+      }
+    ],
+    "globalDependencies": [
+      {
+        "admin": ">=5.0.0"
+      }
     ]
+  },
+  "native": {
+    "busNumber": 1,
+    "devices": []
+  },
+  "objects": [],
+  "instanceObjects": [
+    {
+      "_id": "info",
+      "type": "channel",
+      "common": {
+        "name": "Information"
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.connection",
+      "type": "state",
+      "common": {
+        "role": "indicator.connected",
+        "name": "Device or service connected",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    }
+  ]
 }
