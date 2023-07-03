@@ -27,6 +27,7 @@ class Pump extends EzoBase<PeristalticPumpConfig> {
                 V_ParamActive: true,
                 TV_ParamActive: true,
                 ATV_ParamActive: true,
+                reverse: false,
             };
             props.onChange(config);
         } else {
@@ -71,6 +72,27 @@ class Pump extends EzoBase<PeristalticPumpConfig> {
     }
 
     @boundMethod
+    protected doClearDispensedVolume(_event: React.FormEvent<HTMLElement>): boolean {
+        console.log('Clear dispensed volume Button pressed');
+        this.handleClearDispensedVolume();
+        return false;
+    }
+
+    protected handleClearDispensedVolume() : boolean {
+        try{
+            const txPayload : Record<string, any> = {
+                "address": this.address.toString(),
+            };
+            this.sendCommand("ClearDispensedVolume", txPayload );
+            return true;
+        }
+        catch{
+            console.log('Error on "Clear dispensed Volume"');
+            return false;
+        }
+    }
+
+    @boundMethod
     protected doCalibration(_event: React.FormEvent<HTMLElement>): boolean {
         console.log('Calibration Button pressed');
         this.handleCalibration("Standard", this.calibrateValue);
@@ -88,10 +110,12 @@ class Pump extends EzoBase<PeristalticPumpConfig> {
             return true;
         }
         catch{
-            console.log('Error on "PH Calibration"');
+            console.log('Error on "Pump Calibration"');
             return false;
         }
     }
+
+
 
     // ***************************************************
 
@@ -254,6 +278,29 @@ class Pump extends EzoBase<PeristalticPumpConfig> {
                                 fullWidth
                             />
                         </Grid>
+                    </Grid>
+                    <Grid item xs={12} sm={12} md={12}>
+                        <label >{I18n.t('Pump Control')}</label>
+                    </Grid>
+                    <Grid item xs={10} sm={7} md={7}>
+                        <label>
+                            <Switch
+                                checked={this.state.config.reverse}
+                                onChange={this.handleChange}
+                                name="reverse"
+                            />
+                            {I18n.t('pump reverse')}
+                        </label>
+                    </Grid>
+                    <Grid item xs={12} sm={5} md={2}>
+                        <Button 
+                            variant="contained"
+                            disabled={false}
+                            onClick={this.doClearDispensedVolume}
+                            fullWidth
+                        >
+                            {I18n.t('ClearDispensedVolume')}
+                        </Button>
                     </Grid>
                 </Grid>
             </>

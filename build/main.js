@@ -151,7 +151,7 @@ class AtlasScientificEzoI2cAdapter extends utils.Adapter {
     await Promise.all(listeners.map((listener) => listener(oldValue, state.val)));
   }
   async onMessage(obj) {
-    var _a, _b, _c, _d, _e, _f, _g, _h;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _i, _j;
     this.log.info("onMessage: " + JSON.stringify(obj));
     try {
       if (typeof obj === "object" && obj.message) {
@@ -236,6 +236,18 @@ class AtlasScientificEzoI2cAdapter extends utils.Adapter {
               this.result = await ((_h = this.dev) == null ? void 0 : _h.DoCalibration(obj.message["calibrationtype"], obj.message["tempValue"]));
             }
             this.log.error("Error occured on RTD Calibration: " + res);
+            break;
+          case "PumpCalibration":
+            if (this.dev = await this.GetDeviceHandler(obj)) {
+              this.result = await ((_i = this.dev) == null ? void 0 : _i.DoCalibration(obj.message["calibrationtype"], obj.message["VolumeValue"]));
+            }
+            this.log.error("Error occured on Pump Calibration: " + res);
+            break;
+          case "ClearDispensedVolume":
+            if (this.dev = await this.GetDeviceHandler(obj)) {
+              this.result = await ((_j = this.dev) == null ? void 0 : _j.ClearTotalDispensedVolume());
+            }
+            this.log.error("Error occured on clearing total dispensed volume: " + res);
             break;
           default:
             this.result = "Unknown command";

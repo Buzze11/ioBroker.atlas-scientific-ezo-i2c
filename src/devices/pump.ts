@@ -7,6 +7,7 @@ export interface PeristalticPumpConfig extends EzoDeviceConfig {
     V_ParamActive?: boolean;
     TV_ParamActive?: boolean;
     ATV_ParamActive?: boolean;
+    reverse?: boolean;
 }
 
 export default class PeristalticPump extends EzoHandlerBase<PeristalticPumpConfig> {
@@ -78,9 +79,11 @@ export default class PeristalticPump extends EzoHandlerBase<PeristalticPumpConfi
     
     async CreateStateChangeListeners(): Promise<void>{
 
-        // this.adapter.addStateChangeListener(this.hexAddress + '.Temperature_compensation', async (_oldValue, _newValue) => {
-        //     this.SetTemperatureCompensation(_newValue.toString());
-        // });
+        this.adapter.addStateChangeListener(this.hexAddress + '.Continous_dispense', async (_oldValue, _newValue) => {
+            if(_newValue === true){
+                this.SetContinousDispenseMode(_newValue);
+            }
+        });
     }
 
     async CreateObjects(): Promise<void>{
@@ -198,6 +201,17 @@ export default class PeristalticPump extends EzoHandlerBase<PeristalticPumpConfi
             },
             //native: any
         });
+        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Continous_dispense', {
+            type: 'state',
+            common: {
+                name: this.hexAddress + ' ' + (this.config.name || 'Pump'),
+                type: 'boolean',
+                role: 'switch',
+                write: true,
+            },
+            //native: any
+        });
+
     }
 
     async stopAsync(): Promise<void> {
@@ -246,6 +260,7 @@ export default class PeristalticPump extends EzoHandlerBase<PeristalticPumpConfi
         catch{}
     }
 
+    /// Executes a pump calibration
     public async DoCalibration(calibrationtype:string, Volume:string):Promise<string>{
         try{
             this.info('Calibrationtype: ' + calibrationtype);
@@ -259,22 +274,36 @@ export default class PeristalticPump extends EzoHandlerBase<PeristalticPumpConfi
                     return 'Pump Calibration was done successfully';
                     break;
             }
-           
         }
         catch{
             return 'Error occured on Pump Calibration. Calibration Task failed';
         }
     }
 
-    // public async SetTemperatureCompensation(compensationValue:string):Promise<string>{
-    //     try{
-    //         this.info('Temperaturecompensation: ' + compensationValue);
-    //         await this.sensor.SetTemperatureCompensation(parseFloat(compensationValue));
-    //     }
-    //     catch{
-    //         return 'Error occured on setting temperature compensation';
-    //     }
-    // }
+    /// Sets the continous dispense mode if it was activated
+    public async SetContinousDispenseMode(on_off:boolean):Promise<string>{
+        try{
+            this.info('Continous_dispense: ' + on_off);
+            if(on_off){
+                await this.sensor.StartDispensing(this.config.reverse);
+            }
+            else{
+                await this.sensor.StopDispensing();
+            }
+        }
+        catch{
+            return 'Error occured on starting continous dispense';
+        }
+    }
 
-    
+    /// Clears the total dispensed volume counter
+    public async ClearTotalDispensedVolume():Promise<string>{
+        try{
+            this.info('Clearing total dispensed Volume ');
+            await this.sensor.ClearTotalDispensedVolume();
+        }
+        catch{
+            return 'Error occured on starting continous dispense';
+        }
+    }
 }

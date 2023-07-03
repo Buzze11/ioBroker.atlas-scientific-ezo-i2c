@@ -78,6 +78,11 @@ class PeristalticPump extends import_ezo_handler_base.EzoHandlerBase {
     }
   }
   async CreateStateChangeListeners() {
+    this.adapter.addStateChangeListener(this.hexAddress + ".Continous_dispense", async (_oldValue, _newValue) => {
+      if (_newValue === true) {
+        this.SetContinousDispenseMode(_newValue);
+      }
+    });
   }
   async CreateObjects() {
     await this.adapter.extendObjectAsync(this.hexAddress + ".Devicestatus", {
@@ -183,6 +188,15 @@ class PeristalticPump extends import_ezo_handler_base.EzoHandlerBase {
         write: false
       }
     });
+    await this.adapter.extendObjectAsync(this.hexAddress + ".Continous_dispense", {
+      type: "state",
+      common: {
+        name: this.hexAddress + " " + (this.config.name || "Pump"),
+        type: "boolean",
+        role: "switch",
+        write: true
+      }
+    });
   }
   async stopAsync() {
     this.debug("Stopping");
@@ -232,6 +246,26 @@ class PeristalticPump extends import_ezo_handler_base.EzoHandlerBase {
       }
     } catch {
       return "Error occured on Pump Calibration. Calibration Task failed";
+    }
+  }
+  async SetContinousDispenseMode(on_off) {
+    try {
+      this.info("Continous_dispense: " + on_off);
+      if (on_off) {
+        await this.sensor.StartDispensing(this.config.reverse);
+      } else {
+        await this.sensor.StopDispensing();
+      }
+    } catch {
+      return "Error occured on starting continous dispense";
+    }
+  }
+  async ClearTotalDispensedVolume() {
+    try {
+      this.info("Clearing total dispensed Volume ");
+      await this.sensor.ClearTotalDispensedVolume();
+    } catch {
+      return "Error occured on starting continous dispense";
     }
   }
 }

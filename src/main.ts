@@ -14,6 +14,7 @@ import DO from './devices/do';
 import PH from './devices/ph';
 import ORP from './devices/orp';
 import RTD from './devices/rtd';
+import PeristalticPump from './devices/pump';
 
 
 export class AtlasScientificEzoI2cAdapter extends utils.Adapter {
@@ -274,6 +275,19 @@ export class AtlasScientificEzoI2cAdapter extends utils.Adapter {
                         }
                         this.log.error('Error occured on RTD Calibration: ' + res);
                         break;
+                    case 'PumpCalibration':
+                        if((this.dev = await this.GetDeviceHandler(obj))){
+                            this.result = await (this.dev as PeristalticPump)?.DoCalibration(obj.message['calibrationtype'], obj.message['VolumeValue']);
+                        }
+                        this.log.error('Error occured on Pump Calibration: ' + res);
+                        break;
+                    case 'ClearDispensedVolume':
+                            if((this.dev = await this.GetDeviceHandler(obj))){
+                                this.result = await (this.dev as PeristalticPump)?.ClearTotalDispensedVolume();
+                            }
+                            this.log.error('Error occured on clearing total dispensed volume: ' + res);
+                            break;
+                        
                     default:
                         this.result =  'Unknown command';
                         this.log.warn('Unknown command: ' + obj.command);

@@ -53125,7 +53125,10 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         "RTD Sensor Calibration": "RTD Sensor Calibration",
         "RTD value": "Temperature value",
         Active: "Active",
-        IsLedActive: "LED active"
+        IsLedActive: "LED active",
+        "Pump Control": "Pump Control",
+        "pump reverse": "Reverse",
+        ClearDispensedVolume: "Clear dispensed Volume"
       };
     }
   });
@@ -53175,7 +53178,13 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         "RTD Sensor Calibration": "Kalibrierung des RTD-Sensors",
         "RTD value": "Temperaturwert",
         Active: "Aktiv",
-        IsLedActive: "LED aktiv"
+        IsLedActive: "LED aktiv",
+        "Pump Parameters Configuration": "Konfiguration der Pumpenparameter",
+        "Dispensed Volume": "Abgabevolumen",
+        "Total Dispensed Volume": "Gesamtes abgegebenes Volumen",
+        "Absolute Dispensed Volume": "Absolut abgegebenes Volumen",
+        "Calibration Volume": "Kalibrierungsvolumen",
+        "Pump Calibration": "Pumpenkalibrierung"
       };
     }
   });
@@ -53225,7 +53234,13 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         "RTD Sensor Calibration": "\u041A\u0430\u043B\u0438\u0431\u0440\u043E\u0432\u043A\u0430 \u0434\u0430\u0442\u0447\u0438\u043A\u0430 RTD",
         "RTD value": "\u0417\u043D\u0430\u0447\u0435\u043D\u0438\u0435 \u0442\u0435\u043C\u043F\u0435\u0440\u0430\u0442\u0443\u0440\u044B",
         Active: "\u0410\u043A\u0442\u0438\u0432\u043D\u044B\u0439",
-        IsLedActive: "\u0441\u0432\u0435\u0442\u043E\u0434\u0438\u043E\u0434 \u0430\u043A\u0442\u0438\u0432\u0435\u043D"
+        IsLedActive: "\u0441\u0432\u0435\u0442\u043E\u0434\u0438\u043E\u0434 \u0430\u043A\u0442\u0438\u0432\u0435\u043D",
+        "Pump Parameters Configuration": "\u041A\u043E\u043D\u0444\u0438\u0433\u0443\u0440\u0430\u0446\u0438\u044F \u043F\u0430\u0440\u0430\u043C\u0435\u0442\u0440\u043E\u0432 \u043D\u0430\u0441\u043E\u0441\u0430",
+        "Dispensed Volume": "\u0412\u044B\u0434\u0430\u043D\u043D\u044B\u0439 \u043E\u0431\u044A\u0435\u043C",
+        "Total Dispensed Volume": "\u041E\u0431\u0449\u0438\u0439 \u0434\u043E\u0437\u0438\u0440\u043E\u0432\u0430\u043D\u043D\u044B\u0439 \u043E\u0431\u044A\u0435\u043C",
+        "Absolute Dispensed Volume": "\u0410\u0431\u0441\u043E\u043B\u044E\u0442\u043D\u044B\u0439 \u0434\u043E\u0437\u0438\u0440\u043E\u0432\u0430\u043D\u043D\u044B\u0439 \u043E\u0431\u044A\u0435\u043C",
+        "Calibration Volume": "\u041A\u0430\u043B\u0438\u0431\u0440\u043E\u0432\u043E\u0447\u043D\u044B\u0439 \u043E\u0431\u044A\u0435\u043C",
+        "Pump Calibration": "\u041A\u0430\u043B\u0438\u0431\u0440\u043E\u0432\u043A\u0430 \u043D\u0430\u0441\u043E\u0441\u0430"
       };
     }
   });
@@ -53275,7 +53290,13 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         "RTD Sensor Calibration": "Calibra\xE7\xE3o do Sensor RTD",
         "RTD value": "Valor da temperatura",
         Active: "Ativo",
-        IsLedActive: "LED ativo"
+        IsLedActive: "LED ativo",
+        "Pump Parameters Configuration": "Configura\xE7\xE3o dos Par\xE2metros da Bomba",
+        "Dispensed Volume": "Volume Dispensado",
+        "Total Dispensed Volume": "Volume total dispensado",
+        "Absolute Dispensed Volume": "Volume Dispensado Absoluto",
+        "Calibration Volume": "Volume de calibra\xE7\xE3o",
+        "Pump Calibration": "Calibra\xE7\xE3o da bomba"
       };
     }
   });
@@ -53325,7 +53346,13 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         "RTD Sensor Calibration": "RTD-sensorkalibratie",
         "RTD value": "Temperatuur waarde",
         Active: "Actief",
-        IsLedActive: "LED actief"
+        IsLedActive: "LED actief",
+        "Pump Parameters Configuration": "Configuratie pompparameters",
+        "Dispensed Volume": "Afgegeven volume",
+        "Total Dispensed Volume": "Totaal afgegeven volume",
+        "Absolute Dispensed Volume": "Absoluut afgegeven volume",
+        "Calibration Volume": "Kalibratievolume",
+        "Pump Calibration": "Pomp Kalibratie"
       };
     }
   });
@@ -53375,7 +53402,13 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         "RTD Sensor Calibration": "\xC9talonnage du capteur RTD",
         "RTD value": "Valeur de temp\xE9rature",
         Active: "Actif",
-        IsLedActive: "DEL active"
+        IsLedActive: "DEL active",
+        "Pump Parameters Configuration": "Configuration des param\xE8tres de la pompe",
+        "Dispensed Volume": "Volume distribu\xE9",
+        "Total Dispensed Volume": "Volume distribu\xE9 total",
+        "Absolute Dispensed Volume": "Volume distribu\xE9 absolu",
+        "Calibration Volume": "Volume d'\xE9talonnage",
+        "Pump Calibration": "\xC9talonnage de la pompe"
       };
     }
   });
@@ -53425,7 +53458,13 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         "RTD Sensor Calibration": "Calibrazione del sensore RTD",
         "RTD value": "Valore di temperatura",
         Active: "Attivo",
-        IsLedActive: "LED attivo"
+        IsLedActive: "LED attivo",
+        "Pump Parameters Configuration": "Configurazione dei parametri della pompa",
+        "Dispensed Volume": "Volume erogato",
+        "Total Dispensed Volume": "Volume totale erogato",
+        "Absolute Dispensed Volume": "Volume erogato assoluto",
+        "Calibration Volume": "Volume di calibrazione",
+        "Pump Calibration": "Calibrazione della pompa"
       };
     }
   });
@@ -53475,7 +53514,13 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         "RTD Sensor Calibration": "Calibraci\xF3n del sensor RTD",
         "RTD value": "Valor de temperatura",
         Active: "Activo",
-        IsLedActive: "LED activo"
+        IsLedActive: "LED activo",
+        "Pump Parameters Configuration": "Configuraci\xF3n de los par\xE1metros de la bomba",
+        "Dispensed Volume": "Volumen dispensado",
+        "Total Dispensed Volume": "Volumen total dispensado",
+        "Absolute Dispensed Volume": "Volumen Dispensado Absoluto",
+        "Calibration Volume": "Volumen de calibraci\xF3n",
+        "Pump Calibration": "Calibraci\xF3n de la bomba"
       };
     }
   });
@@ -53525,7 +53570,13 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         "RTD Sensor Calibration": "Kalibracja czujnika RTD",
         "RTD value": "Warto\u015B\u0107 temperatury",
         Active: "Aktywny",
-        IsLedActive: "LED aktywny"
+        IsLedActive: "LED aktywny",
+        "Pump Parameters Configuration": "Konfiguracja parametr\xF3w pompy",
+        "Dispensed Volume": "Dozowana obj\u0119to\u015B\u0107",
+        "Total Dispensed Volume": "Ca\u0142kowita dozowana obj\u0119to\u015B\u0107",
+        "Absolute Dispensed Volume": "Absolutna dozowana obj\u0119to\u015B\u0107",
+        "Calibration Volume": "Obj\u0119to\u015B\u0107 kalibracji",
+        "Pump Calibration": "Kalibracja pompy"
       };
     }
   });
@@ -53575,7 +53626,13 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         "RTD Sensor Calibration": "RTD \u4F20\u611F\u5668\u6821\u51C6",
         "RTD value": "\u6E29\u5EA6\u503C",
         Active: "\u79EF\u6781\u7684",
-        IsLedActive: "LED \u6709\u6E90"
+        IsLedActive: "LED \u6709\u6E90",
+        "Pump Parameters Configuration": "\u6CF5\u53C2\u6570\u914D\u7F6E",
+        "Dispensed Volume": "\u5206\u914D\u91CF",
+        "Total Dispensed Volume": "\u603B\u5206\u914D\u91CF",
+        "Absolute Dispensed Volume": "\u7EDD\u5BF9\u5206\u914D\u91CF",
+        "Calibration Volume": "\u6821\u51C6\u4F53\u79EF",
+        "Pump Calibration": "\u6CF5\u6821\u51C6"
       };
     }
   });
@@ -62229,7 +62286,8 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
           isActive: true,
           V_ParamActive: true,
           TV_ParamActive: true,
-          ATV_ParamActive: true
+          ATV_ParamActive: true,
+          reverse: false
         };
         props.onChange(config);
       } else {
@@ -62261,6 +62319,23 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
       this.handleCalibration("Clear", 0);
       return false;
     }
+    doClearDispensedVolume(_event) {
+      console.log("Clear dispensed volume Button pressed");
+      this.handleClearDispensedVolume();
+      return false;
+    }
+    handleClearDispensedVolume() {
+      try {
+        const txPayload = {
+          "address": this.address.toString()
+        };
+        this.sendCommand("ClearDispensedVolume", txPayload);
+        return true;
+      } catch (e) {
+        console.log('Error on "Clear dispensed Volume"');
+        return false;
+      }
+    }
     doCalibration(_event) {
       console.log("Calibration Button pressed");
       this.handleCalibration("Standard", this.calibrateValue);
@@ -62276,7 +62351,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         this.sendCommand("PumpCalibration", txPayload);
         return true;
       } catch (e) {
-        console.log('Error on "PH Calibration"');
+        console.log('Error on "Pump Calibration"');
         return false;
       }
     }
@@ -62407,7 +62482,23 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
           disabled: false,
           fullWidth: true
         }
-      )))));
+      ))), /* @__PURE__ */ import_react9.default.createElement(Grid_default, { item: true, xs: 12, sm: 12, md: 12 }, /* @__PURE__ */ import_react9.default.createElement("label", null, import_i18n6.default.t("Pump Control"))), /* @__PURE__ */ import_react9.default.createElement(Grid_default, { item: true, xs: 10, sm: 7, md: 7 }, /* @__PURE__ */ import_react9.default.createElement("label", null, /* @__PURE__ */ import_react9.default.createElement(
+        Switch_default,
+        {
+          checked: this.state.config.reverse,
+          onChange: this.handleChange,
+          name: "reverse"
+        }
+      ), import_i18n6.default.t("pump reverse"))), /* @__PURE__ */ import_react9.default.createElement(Grid_default, { item: true, xs: 12, sm: 5, md: 2 }, /* @__PURE__ */ import_react9.default.createElement(
+        import_Button5.default,
+        {
+          variant: "contained",
+          disabled: false,
+          onClick: this.doClearDispensedVolume,
+          fullWidth: true
+        },
+        import_i18n6.default.t("ClearDispensedVolume")
+      ))));
     }
   };
   __decorateClass([
@@ -62416,6 +62507,9 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
   __decorateClass([
     boundMethod
   ], Pump.prototype, "doClearCalibration", 1);
+  __decorateClass([
+    boundMethod
+  ], Pump.prototype, "doClearDispensedVolume", 1);
   __decorateClass([
     boundMethod
   ], Pump.prototype, "doCalibration", 1);
