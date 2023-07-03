@@ -53184,7 +53184,10 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         "Total Dispensed Volume": "Gesamtes abgegebenes Volumen",
         "Absolute Dispensed Volume": "Absolut abgegebenes Volumen",
         "Calibration Volume": "Kalibrierungsvolumen",
-        "Pump Calibration": "Pumpenkalibrierung"
+        "Pump Calibration": "Pumpenkalibrierung",
+        "Pump Control": "Pumpensteuerung",
+        "pump reverse": "Umkehren",
+        ClearDispensedVolume: "Klares ausgegebenes Volumen"
       };
     }
   });
@@ -53240,7 +53243,10 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         "Total Dispensed Volume": "\u041E\u0431\u0449\u0438\u0439 \u0434\u043E\u0437\u0438\u0440\u043E\u0432\u0430\u043D\u043D\u044B\u0439 \u043E\u0431\u044A\u0435\u043C",
         "Absolute Dispensed Volume": "\u0410\u0431\u0441\u043E\u043B\u044E\u0442\u043D\u044B\u0439 \u0434\u043E\u0437\u0438\u0440\u043E\u0432\u0430\u043D\u043D\u044B\u0439 \u043E\u0431\u044A\u0435\u043C",
         "Calibration Volume": "\u041A\u0430\u043B\u0438\u0431\u0440\u043E\u0432\u043E\u0447\u043D\u044B\u0439 \u043E\u0431\u044A\u0435\u043C",
-        "Pump Calibration": "\u041A\u0430\u043B\u0438\u0431\u0440\u043E\u0432\u043A\u0430 \u043D\u0430\u0441\u043E\u0441\u0430"
+        "Pump Calibration": "\u041A\u0430\u043B\u0438\u0431\u0440\u043E\u0432\u043A\u0430 \u043D\u0430\u0441\u043E\u0441\u0430",
+        "Pump Control": "\u0423\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u043D\u0430\u0441\u043E\u0441\u043E\u043C",
+        "pump reverse": "\u041E\u0431\u0435\u0441\u043F\u0435\u0447\u0438\u0442\u044C \u0440\u0435\u0433\u0440\u0435\u0441\u0441",
+        ClearDispensedVolume: "\u041E\u0447\u0438\u0441\u0442\u0438\u0442\u044C \u0434\u043E\u0437\u0438\u0440\u043E\u0432\u0430\u043D\u043D\u044B\u0439 \u043E\u0431\u044A\u0435\u043C"
       };
     }
   });
@@ -53296,7 +53302,10 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         "Total Dispensed Volume": "Volume total dispensado",
         "Absolute Dispensed Volume": "Volume Dispensado Absoluto",
         "Calibration Volume": "Volume de calibra\xE7\xE3o",
-        "Pump Calibration": "Calibra\xE7\xE3o da bomba"
+        "Pump Calibration": "Calibra\xE7\xE3o da bomba",
+        "Pump Control": "Controle da bomba",
+        "pump reverse": "Reverter",
+        ClearDispensedVolume: "Limpar volume dispensado"
       };
     }
   });
@@ -53352,7 +53361,10 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         "Total Dispensed Volume": "Totaal afgegeven volume",
         "Absolute Dispensed Volume": "Absoluut afgegeven volume",
         "Calibration Volume": "Kalibratievolume",
-        "Pump Calibration": "Pomp Kalibratie"
+        "Pump Calibration": "Pomp Kalibratie",
+        "Pump Control": "Pomp controle",
+        "pump reverse": "Achteruit",
+        ClearDispensedVolume: "Wis afgegeven volume"
       };
     }
   });
@@ -53408,7 +53420,10 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         "Total Dispensed Volume": "Volume distribu\xE9 total",
         "Absolute Dispensed Volume": "Volume distribu\xE9 absolu",
         "Calibration Volume": "Volume d'\xE9talonnage",
-        "Pump Calibration": "\xC9talonnage de la pompe"
+        "Pump Calibration": "\xC9talonnage de la pompe",
+        "Pump Control": "Contr\xF4le de la pompe",
+        "pump reverse": "Inverse",
+        ClearDispensedVolume: "Effacer le volume distribu\xE9"
       };
     }
   });
@@ -53464,7 +53479,10 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         "Total Dispensed Volume": "Volume totale erogato",
         "Absolute Dispensed Volume": "Volume erogato assoluto",
         "Calibration Volume": "Volume di calibrazione",
-        "Pump Calibration": "Calibrazione della pompa"
+        "Pump Calibration": "Calibrazione della pompa",
+        "Pump Control": "Controllo della pompa",
+        "pump reverse": "Inversione",
+        ClearDispensedVolume: "Cancella volume erogato"
       };
     }
   });
@@ -53520,7 +53538,10 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         "Total Dispensed Volume": "Volumen total dispensado",
         "Absolute Dispensed Volume": "Volumen Dispensado Absoluto",
         "Calibration Volume": "Volumen de calibraci\xF3n",
-        "Pump Calibration": "Calibraci\xF3n de la bomba"
+        "Pump Calibration": "Calibraci\xF3n de la bomba",
+        "Pump Control": "control de bomba",
+        "pump reverse": "Contrarrestar",
+        ClearDispensedVolume: "Borrar volumen dispensado"
       };
     }
   });
@@ -53576,7 +53597,10 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         "Total Dispensed Volume": "Ca\u0142kowita dozowana obj\u0119to\u015B\u0107",
         "Absolute Dispensed Volume": "Absolutna dozowana obj\u0119to\u015B\u0107",
         "Calibration Volume": "Obj\u0119to\u015B\u0107 kalibracji",
-        "Pump Calibration": "Kalibracja pompy"
+        "Pump Calibration": "Kalibracja pompy",
+        "Pump Control": "Sterowanie pomp\u0105",
+        "pump reverse": "Odwraca\u0107",
+        ClearDispensedVolume: "Wyczy\u015B\u0107 dozowan\u0105 obj\u0119to\u015B\u0107"
       };
     }
   });
@@ -53632,7 +53656,10 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         "Total Dispensed Volume": "\u603B\u5206\u914D\u91CF",
         "Absolute Dispensed Volume": "\u7EDD\u5BF9\u5206\u914D\u91CF",
         "Calibration Volume": "\u6821\u51C6\u4F53\u79EF",
-        "Pump Calibration": "\u6CF5\u6821\u51C6"
+        "Pump Calibration": "\u6CF5\u6821\u51C6",
+        "Pump Control": "\u6CF5\u63A7\u5236",
+        "pump reverse": "\u64A4\u9500",
+        ClearDispensedVolume: "\u6E05\u9664\u5206\u914D\u91CF"
       };
     }
   });
