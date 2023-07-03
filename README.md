@@ -142,14 +142,14 @@ For pH Sensor following states are listening for changes:
 
 ### Pump Control Section
 
->**"Reverse"-Switch** -> If set in the config all commands to the pump will be executed with the reverse Flag set so that the pump direction is inverted 
->**"Clear dispensed Volume"-Button** -> The total dispensed volume counter will be set to 0
+**"Reverse"-Switch** -> If set in the config all commands to the pump will be executed with the reverse Flag set so that the pump direction is inverted 
+**"Clear dispensed Volume"-Button** -> The total dispensed volume counter will be set to 0
 
 For EZO Pumps the following states are listening for changes: 
->"Continous_dispense" -> If set to true the pump will jump into continous dispense mode with 105ml/min (reverse switch considered). If set to false the pump will stop dispensing.
->"Dose_over_time" -> Format: commaseparated values ml,duration in min -> Dispenses the given volume over the given minutes. ml for volume and duration in minutes. Negative amounts will run the pump in reverse
->"Dispense_volume" -> Dispenses the given volume(ml). Negative amounts will run the pump in reverse
->"Constant_flow_rate" -> Format: commaseparated values ml per min,duration -> Dispenses constantly the given volume/min over the given duration in minutes. ml for volume/min and duration in minutes. Negative amounts will run the pump in reverse
+*"Continous_dispense" -> If set to true the pump will jump into continous dispense mode with 105ml/min (reverse switch considered). If set to false the pump will stop dispensing.
+*"Dose_over_time" -> Format: commaseparated values ml,duration in min -> Dispenses the given volume over the given minutes. ml for volume and duration in minutes. Negative amounts will run the pump in reverse
+*"Dispense_volume" -> Dispenses the given volume(ml). Negative amounts will run the pump in reverse
+*"Constant_flow_rate" -> Format: commaseparated values ml per min,duration -> Dispenses constantly the given volume/min over the given duration in minutes. ml for volume/min and duration in minutes. Negative amounts will run the pump in reverse
 
 ### DISCLAIMER
 
