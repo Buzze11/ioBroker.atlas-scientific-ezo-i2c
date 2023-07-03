@@ -46,5 +46,8 @@
     "Total Dispensed Volume": "Volume distribué total",
     "Absolute Dispensed Volume": "Volume distribué absolu",
     "Calibration Volume": "Volume d'étalonnage",
-    "Pump Calibration": "Étalonnage de la pompe"
+    "Pump Calibration": "Étalonnage de la pompe",
+    "Pump Control": "Contrôle de la pompe",
+    "pump reverse": "Inverse",
+    "ClearDispensedVolume": "Effacer le volume distribué"
 }

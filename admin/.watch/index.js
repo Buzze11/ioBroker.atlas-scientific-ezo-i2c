@@ -62329,7 +62329,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         const txPayload = {
           "address": this.address.toString()
         };
-        this.sendCommand("ClearDispensedVolume", txPayload);
+        this.sendCommand("PumpClearDispensedVolume", txPayload);
         return true;
       } catch (e) {
         console.log('Error on "Clear dispensed Volume"');

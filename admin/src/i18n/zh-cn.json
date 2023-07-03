@@ -46,5 +46,8 @@
     "Total Dispensed Volume": "总分配量",
     "Absolute Dispensed Volume": "绝对分配量",
     "Calibration Volume": "校准体积",
-    "Pump Calibration": "泵校准"
+    "Pump Calibration": "泵校准",
+    "Pump Control": "泵控制",
+    "pump reverse": "撤销",
+    "ClearDispensedVolume": "清除分配量"
 }

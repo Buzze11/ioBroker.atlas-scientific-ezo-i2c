@@ -46,5 +46,8 @@
     "Total Dispensed Volume": "Całkowita dozowana objętość",
     "Absolute Dispensed Volume": "Absolutna dozowana objętość",
     "Calibration Volume": "Objętość kalibracji",
-    "Pump Calibration": "Kalibracja pompy"
+    "Pump Calibration": "Kalibracja pompy",
+    "Pump Control": "Sterowanie pompą",
+    "pump reverse": "Odwracać",
+    "ClearDispensedVolume": "Wyczyść dozowaną objętość"
 }

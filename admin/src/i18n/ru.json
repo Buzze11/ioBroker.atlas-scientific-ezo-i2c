@@ -46,5 +46,8 @@
     "Total Dispensed Volume": "Общий дозированный объем",
     "Absolute Dispensed Volume": "Абсолютный дозированный объем",
     "Calibration Volume": "Калибровочный объем",
-    "Pump Calibration": "Калибровка насоса"
+    "Pump Calibration": "Калибровка насоса",
+    "Pump Control": "Управление насосом",
+    "pump reverse": "Обеспечить регресс",
+    "ClearDispensedVolume": "Очистить дозированный объем"
 }

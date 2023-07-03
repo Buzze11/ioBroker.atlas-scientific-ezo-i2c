@@ -46,5 +46,8 @@
     "Total Dispensed Volume": "Totaal afgegeven volume",
     "Absolute Dispensed Volume": "Absoluut afgegeven volume",
     "Calibration Volume": "Kalibratievolume",
-    "Pump Calibration": "Pomp Kalibratie"
+    "Pump Calibration": "Pomp Kalibratie",
+    "Pump Control": "Pomp controle",
+    "pump reverse": "Achteruit",
+    "ClearDispensedVolume": "Wis afgegeven volume"
 }

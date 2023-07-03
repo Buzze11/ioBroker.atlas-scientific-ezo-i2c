@@ -46,5 +46,8 @@
     "Total Dispensed Volume": "Volumen total dispensado",
     "Absolute Dispensed Volume": "Volumen Dispensado Absoluto",
     "Calibration Volume": "Volumen de calibración",
-    "Pump Calibration": "Calibración de la bomba"
+    "Pump Calibration": "Calibración de la bomba",
+    "Pump Control": "control de bomba",
+    "pump reverse": "Contrarrestar",
+    "ClearDispensedVolume": "Borrar volumen dispensado"
 }

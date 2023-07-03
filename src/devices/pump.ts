@@ -84,6 +84,24 @@ export default class PeristalticPump extends EzoHandlerBase<PeristalticPumpConfi
                 this.SetContinousDispenseMode(_newValue);
             }
         });
+        this.adapter.addStateChangeListener(this.hexAddress + '.Dose_over_time', async (_oldValue, _newValue) => {
+            if(_newValue === "string"){
+                this.DoseOverTime(_newValue);
+            }
+        });
+        this.adapter.addStateChangeListener(this.hexAddress + '.Dispense_volume', async (_oldValue, _newValue) => {
+            if(_newValue === "string"){
+                this.DispenseVolume(_newValue);
+            }
+        });
+        this.adapter.addStateChangeListener(this.hexAddress + '.Constant_flow_rate', async (_oldValue, _newValue) => {
+            if(_newValue === "string"){
+                this.SetConstantFlowRate(_newValue);
+            }
+        });
+        
+
+        
     }
 
     async CreateObjects(): Promise<void>{
@@ -211,6 +229,37 @@ export default class PeristalticPump extends EzoHandlerBase<PeristalticPumpConfi
             },
             //native: any
         });
+        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Dose_over_time', {
+            type: 'state',
+            common: {
+                name: this.hexAddress + ' ' + (this.config.name || 'Pump'),
+                type: 'string',
+                role: 'value',
+                write: true,
+            },
+            //native: any
+        });
+        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Dispense_volume', {
+            type: 'state',
+            common: {
+                name: this.hexAddress + ' ' + (this.config.name || 'Pump'),
+                type: 'string',
+                role: 'value',
+                write: true,
+            },
+            //native: any
+        });
+        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Constant_flow_rate', {
+            type: 'state',
+            common: {
+                name: this.hexAddress + ' ' + (this.config.name || 'Pump'),
+                type: 'string',
+                role: 'value',
+                write: true,
+            },
+            //native: any
+        });
+        
 
     }
 
@@ -293,6 +342,54 @@ export default class PeristalticPump extends EzoHandlerBase<PeristalticPumpConfi
         }
         catch{
             return 'Error occured on starting continous dispense';
+        }
+    }
+
+    /// Dispenses the given volume over the given minutes. ml Amount min Minutes
+    // value -> comma separated string ml,minutes. negative ml value for reverse
+    public async DoseOverTime(value:string):Promise<string>{
+        try{
+            const separator = ",";
+            const substrings: string[] = value.trim().split(separator);
+            if(substrings.length > 1){
+                const volume = parseInt(substrings[0]);
+                const duration = parseInt(substrings[1]);
+                this.info('Dose_over_time - Volume: ' + volume +' Duration: ' + duration);
+                await this.sensor.Dose(volume, duration);
+            }
+        }
+        catch{
+            return 'Error occured on executing dose over time';
+        }
+    }
+
+    /// Dispenses desired volume 
+    // value -> string ml. negative ml value for reverse
+    public async DispenseVolume(value:string):Promise<string>{
+        try{
+            this.info('Dispense - Volume: ' + value );
+            await this.sensor.Dispense(value);
+        }
+        catch{
+            return 'Error occured on dispensing volume';
+        }
+    }
+
+    /// Maintains a constant flow rate.
+    // value -> comma separated string ml/per minute & duration in minutes. negative ml value for reverse
+    public async SetConstantFlowRate(value:string):Promise<string>{
+        try{
+            const separator = ",";
+            const substrings: string[] = value.trim().split(separator);
+            if(substrings.length > 1){
+                const volume_per_min = parseInt(substrings[0]);
+                const duration = substrings[1];
+                this.info('Dose_over_time - Volume/minute: ' + volume_per_min +' Duration: ' + duration);
+                await this.sensor.DispenseConstantRate(volume_per_min, duration);
+            }
+        }
+        catch{
+            return 'Error occured on maintaining constant flow rate';
         }
     }
 

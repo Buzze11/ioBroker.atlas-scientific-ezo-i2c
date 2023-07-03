@@ -83,7 +83,7 @@ class Pump extends EzoBase<PeristalticPumpConfig> {
             const txPayload : Record<string, any> = {
                 "address": this.address.toString(),
             };
-            this.sendCommand("ClearDispensedVolume", txPayload );
+            this.sendCommand("PumpClearDispensedVolume", txPayload );
             return true;
         }
         catch{

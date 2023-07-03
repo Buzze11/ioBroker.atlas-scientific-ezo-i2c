@@ -140,12 +140,16 @@ For pH Sensor following states are listening for changes:
 **"Clear Calibration"-Button** -> Delete calibration Data  
 **"Calibrate"-Button** -> calibrate to desired volume
 
-## Pump Control Section
+### Pump Control Section
 
-**"Reverse"-Switch** -> If set in the config all commands to the pump will be executed with the reverse Flag set so that the pump direction is inverted
+**"Reverse"-Switch** -> If set in the config all commands to the pump will be executed with the reverse Flag set so that the pump direction is inverted 
 **"Clear dispensed Volume"-Button** -> The total dispensed volume counter will be set to 0
 
-
+For EZO Pumps the following states are listening for changes: 
+"Continous_dispense" -> If set to true the pump will jump into continous dispense mode with 105ml/min (reverse switch considered). If set to false the pump will stop dispensing.
+"Dose_over_time" -> Format: commaseparated values ml,duration in min -> Dispenses the given volume over the given minutes. ml for volume and duration in minutes. Negative amounts will run the pump in reverse 
+"Dispense_volume" -> Dispenses the given volume(ml). Negative amounts will run the pump in reverse
+"Constant_flow_rate" -> Format: commaseparated values ml per min,duration -> Dispenses constantly the given volume/min over the given duration in minutes. ml for volume/min and duration in minutes. Negative amounts will run the pump in reverse
 
 ### DISCLAIMER
 
@@ -163,6 +167,7 @@ You can check other adapters for examples or ask in the developer community. Usi
 - implemented delay after each polling cycle to decouple memory race conditions on device for I2C
 - First steps in base implementation for peristaltic pump
 - added translations for new values
+
 
 ### 1.2.2 (2023-06-19)
 - Removed forbidden characters from sensor state objects

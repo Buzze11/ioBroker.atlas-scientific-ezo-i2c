@@ -243,7 +243,7 @@ class AtlasScientificEzoI2cAdapter extends utils.Adapter {
             }
             this.log.error("Error occured on Pump Calibration: " + res);
             break;
-          case "ClearDispensedVolume":
+          case "PumpClearDispensedVolume":
             if (this.dev = await this.GetDeviceHandler(obj)) {
               this.result = await ((_j = this.dev) == null ? void 0 : _j.ClearTotalDispensedVolume());
             }

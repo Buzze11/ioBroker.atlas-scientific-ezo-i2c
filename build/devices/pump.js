@@ -83,6 +83,21 @@ class PeristalticPump extends import_ezo_handler_base.EzoHandlerBase {
         this.SetContinousDispenseMode(_newValue);
       }
     });
+    this.adapter.addStateChangeListener(this.hexAddress + ".Dose_over_time", async (_oldValue, _newValue) => {
+      if (_newValue === "string") {
+        this.DoseOverTime(_newValue);
+      }
+    });
+    this.adapter.addStateChangeListener(this.hexAddress + ".Dispense_volume", async (_oldValue, _newValue) => {
+      if (_newValue === "string") {
+        this.DispenseVolume(_newValue);
+      }
+    });
+    this.adapter.addStateChangeListener(this.hexAddress + ".Constant_flow_rate", async (_oldValue, _newValue) => {
+      if (_newValue === "string") {
+        this.SetConstantFlowRate(_newValue);
+      }
+    });
   }
   async CreateObjects() {
     await this.adapter.extendObjectAsync(this.hexAddress + ".Devicestatus", {
@@ -197,6 +212,33 @@ class PeristalticPump extends import_ezo_handler_base.EzoHandlerBase {
         write: true
       }
     });
+    await this.adapter.extendObjectAsync(this.hexAddress + ".Dose_over_time", {
+      type: "state",
+      common: {
+        name: this.hexAddress + " " + (this.config.name || "Pump"),
+        type: "string",
+        role: "value",
+        write: true
+      }
+    });
+    await this.adapter.extendObjectAsync(this.hexAddress + ".Dispense_volume", {
+      type: "state",
+      common: {
+        name: this.hexAddress + " " + (this.config.name || "Pump"),
+        type: "string",
+        role: "value",
+        write: true
+      }
+    });
+    await this.adapter.extendObjectAsync(this.hexAddress + ".Constant_flow_rate", {
+      type: "state",
+      common: {
+        name: this.hexAddress + " " + (this.config.name || "Pump"),
+        type: "string",
+        role: "value",
+        write: true
+      }
+    });
   }
   async stopAsync() {
     this.debug("Stopping");
@@ -258,6 +300,42 @@ class PeristalticPump extends import_ezo_handler_base.EzoHandlerBase {
       }
     } catch {
       return "Error occured on starting continous dispense";
+    }
+  }
+  async DoseOverTime(value) {
+    try {
+      const separator = ",";
+      const substrings = value.trim().split(separator);
+      if (substrings.length > 1) {
+        const volume = parseInt(substrings[0]);
+        const duration = parseInt(substrings[1]);
+        this.info("Dose_over_time - Volume: " + volume + " Duration: " + duration);
+        await this.sensor.Dose(volume, duration);
+      }
+    } catch {
+      return "Error occured on executing dose over time";
+    }
+  }
+  async DispenseVolume(value) {
+    try {
+      this.info("Dispense - Volume: " + value);
+      await this.sensor.Dispense(value);
+    } catch {
+      return "Error occured on dispensing volume";
+    }
+  }
+  async SetConstantFlowRate(value) {
+    try {
+      const separator = ",";
+      const substrings = value.trim().split(separator);
+      if (substrings.length > 1) {
+        const volume_per_min = parseInt(substrings[0]);
+        const duration = substrings[1];
+        this.info("Dose_over_time - Volume/minute: " + volume_per_min + " Duration: " + duration);
+        await this.sensor.DispenseConstantRate(volume_per_min, duration);
+      }
+    } catch {
+      return "Error occured on maintaining constant flow rate";
     }
   }
   async ClearTotalDispensedVolume() {
