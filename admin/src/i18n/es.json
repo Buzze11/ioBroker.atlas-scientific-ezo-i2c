@@ -49,5 +49,14 @@
     "Pump Calibration": "Calibración de la bomba",
     "Pump Control": "control de bomba",
     "pump reverse": "Contrarrestar",
-    "ClearDispensedVolume": "Borrar volumen dispensado"
+    "ClearDispensedVolume": "Borrar volumen dispensado",
+    "Set Dose over Time": "Establecer dosis a lo largo del tiempo",
+    "Dose over time value": "Formato: 85,10 -> ej. 85 ml durante 10 minutos",
+    "Dispense Volume": "Volumen de dispensación",
+    "Dispense volume value": "Formato: 15 -> ej. 15ml",
+    "Set constant flow rate": "Establecer caudal constante",
+    "Constant flow rate value": "Formato: 25,40 -> ej. 25 ml/min durante 40 minutos",
+    "Pause Pump": "bomba de pausa",
+    "Stop Dispense": "Detener dosificación",
+    "Find Pump": "encontrar bomba"
 }

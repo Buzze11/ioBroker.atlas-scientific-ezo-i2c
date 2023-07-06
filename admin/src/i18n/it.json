@@ -49,5 +49,14 @@
     "Pump Calibration": "Calibrazione della pompa",
     "Pump Control": "Controllo della pompa",
     "pump reverse": "Inversione",
-    "ClearDispensedVolume": "Cancella volume erogato"
+    "ClearDispensedVolume": "Cancella volume erogato",
+    "Set Dose over Time": "Imposta la dose nel tempo",
+    "Dose over time value": "Formato: 85,10 -> es. 85 ml in 10 minuti",
+    "Dispense Volume": "Volume di erogazione",
+    "Dispense volume value": "Formato: 15 -> ad es. 15 millilitri",
+    "Set constant flow rate": "Impostare la portata costante",
+    "Constant flow rate value": "Formato: 25,40 -> es. 25ml/min per 40 minuti",
+    "Pause Pump": "Pompa in pausa",
+    "Stop Dispense": "Interrompere l'erogazione",
+    "Find Pump": "Trova Pompa"
 }

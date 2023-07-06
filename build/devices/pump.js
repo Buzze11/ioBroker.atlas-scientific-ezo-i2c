@@ -302,6 +302,14 @@ class PeristalticPump extends import_ezo_handler_base.EzoHandlerBase {
       return "Error occured on starting continous dispense";
     }
   }
+  async DoPauseDispense() {
+    try {
+      this.info("Pause Pump");
+      await this.sensor.PauseDispensing();
+    } catch {
+      return "Error occured on pausing pump";
+    }
+  }
   async DoseOverTime(value) {
     try {
       const separator = ",";

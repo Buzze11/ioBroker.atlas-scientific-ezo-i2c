@@ -49,5 +49,14 @@
     "Pump Calibration": "Étalonnage de la pompe",
     "Pump Control": "Contrôle de la pompe",
     "pump reverse": "Inverse",
-    "ClearDispensedVolume": "Effacer le volume distribué"
+    "ClearDispensedVolume": "Effacer le volume distribué",
+    "Set Dose over Time": "Définir la dose au fil du temps",
+    "Dose over time value": "Format : 85,10 -> par ex. 85 ml en 10 minutes",
+    "Dispense Volume": "Volume de distribution",
+    "Dispense volume value": "Format : 15 -> par ex. 15ml",
+    "Set constant flow rate": "Régler le débit constant",
+    "Constant flow rate value": "Format : 25,40 -> par ex. 25 ml/min pendant 40 minutes",
+    "Pause Pump": "Mettre la pompe en pause",
+    "Stop Dispense": "Arrêter la distribution",
+    "Find Pump": "Trouver la pompe"
 }

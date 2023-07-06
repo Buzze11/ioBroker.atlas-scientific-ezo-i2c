@@ -287,7 +287,42 @@ export class AtlasScientificEzoI2cAdapter extends utils.Adapter {
                             }
                             this.log.error('Error occured on clearing total dispensed volume: ' + res);
                             break;
-                        
+                    case 'PumpSetContinousDispense': //******* */
+                        if((this.dev = await this.GetDeviceHandler(obj))){
+                            this.result = await (this.dev as PeristalticPump)?.SetContinousDispenseMode(true);
+                        }
+                        this.log.error('Error occured on staring continous dispense: ' + res);
+                        break;
+                    case 'PumpStopDispense': 
+                        if((this.dev = await this.GetDeviceHandler(obj))){
+                            this.result = await (this.dev as PeristalticPump)?.SetContinousDispenseMode(false);
+                        }
+                        this.log.error('Error occured on stopping dispense: ' + res);
+                        break;
+                    case 'PumpPause': 
+                        if((this.dev = await this.GetDeviceHandler(obj))){
+                            this.result = await (this.dev as PeristalticPump)?.DoPauseDispense();
+                        }
+                        this.log.error('Error occured on pausing dispense: ' + res);
+                        break;
+                    case 'PumpSetDoseOverTime': 
+                        if((this.dev = await this.GetDeviceHandler(obj))){
+                            this.result = await (this.dev as PeristalticPump)?.DoseOverTime(obj.message['doseOverTimeValue']);
+                        }
+                        this.log.error('Error occured on starting dose over time: ' + res);
+                        break;
+                    case 'PumpSetDispenseVolume': 
+                        if((this.dev = await this.GetDeviceHandler(obj))){
+                            this.result = await (this.dev as PeristalticPump)?.DispenseVolume(obj.message['dispenseValue']);
+                        }
+                        this.log.error('Error occured on starting dispense volume: ' + res);
+                        break;
+                    case 'PumpSetConstantFlowRate': 
+                        if((this.dev = await this.GetDeviceHandler(obj))){
+                            this.result = await (this.dev as PeristalticPump)?.SetConstantFlowRate(obj.message['constantFlowRateValue']);
+                        }
+                        this.log.error('Error occured on starting dispense volume: ' + res);
+                        break;
                     default:
                         this.result =  'Unknown command';
                         this.log.warn('Unknown command: ' + obj.command);

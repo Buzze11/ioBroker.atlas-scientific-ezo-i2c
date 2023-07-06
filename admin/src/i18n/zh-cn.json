@@ -49,5 +49,14 @@
     "Pump Calibration": "泵校准",
     "Pump Control": "泵控制",
     "pump reverse": "撤销",
-    "ClearDispensedVolume": "清除分配量"
+    "ClearDispensedVolume": "清除分配量",
+    "Set Dose over Time": "随着时间的推移设定剂量",
+    "Dose over time value": "格式：85,10 -> 例如10 分钟内 85 毫升",
+    "Dispense Volume": "分配量",
+    "Dispense volume value": "格式：15 -> 例如15毫升",
+    "Set constant flow rate": "设置恒定流量",
+    "Constant flow rate value": "格式：25,40 -> 例如25毫升/分钟 40分钟",
+    "Pause Pump": "暂停泵",
+    "Stop Dispense": "停止分配",
+    "Find Pump": "查找泵"
 }

@@ -10,10 +10,14 @@ import { boundMethod } from 'autobind-decorator';
 import Switch from '@material-ui/core/Switch';
 import { PeristalticPumpConfig } from '../../../src/devices/pump';
 
+
 class Pump extends EzoBase<PeristalticPumpConfig> {
     
     private calibrateVal: number;
-    private tempCompensationVal: number;
+    private doseOverTimeVal: string;
+    private dispenseVal: string;
+    private constantFlowRateVal: string;
+
 
     constructor(props: DeviceProps<PeristalticPumpConfig>) {
         super(props); 
@@ -47,9 +51,28 @@ class Pump extends EzoBase<PeristalticPumpConfig> {
         this.calibrateVal = value;
     }
 
-    protected doSomething(): boolean {
-        // Do Something
-        return true;
+    public get doseOverTimeValue():string{
+        return this.doseOverTimeVal;
+    }
+    
+    public set doseOverTimeValue(value: string){
+        this.doseOverTimeVal = value;
+    }
+
+    public get dispenseValue():string{
+        return this.dispenseVal;
+    }
+    
+    public set dispenseValue(value: string){
+        this.dispenseVal = value;
+    }
+
+    public get constantFlowRateValue():string{
+        return this.constantFlowRateVal;
+    }
+    
+    public set constantFlowRateValue(value: string){
+        this.constantFlowRateVal = value;
     }
 
     // ******* Calibration *******
@@ -78,20 +101,6 @@ class Pump extends EzoBase<PeristalticPumpConfig> {
         return false;
     }
 
-    protected handleClearDispensedVolume() : boolean {
-        try{
-            const txPayload : Record<string, any> = {
-                "address": this.address.toString(),
-            };
-            this.sendCommand("PumpClearDispensedVolume", txPayload );
-            return true;
-        }
-        catch{
-            console.log('Error on "Clear dispensed Volume"');
-            return false;
-        }
-    }
-
     @boundMethod
     protected doCalibration(_event: React.FormEvent<HTMLElement>): boolean {
         console.log('Calibration Button pressed');
@@ -115,7 +124,169 @@ class Pump extends EzoBase<PeristalticPumpConfig> {
         }
     }
 
+    // ******* Clear total dispensed Volume *******
 
+    protected handleClearDispensedVolume() : boolean {
+        try{
+            const txPayload : Record<string, any> = {
+                "address": this.address.toString(),
+            };
+            this.sendCommand("PumpClearDispensedVolume", txPayload );
+            return true;
+        }
+        catch{
+            console.log('Error on "Clear dispensed Volume"');
+            return false;
+        }
+    }
+
+    // ******* Continous Dispense *******
+
+    protected handleContinousDispense() : boolean {
+        try{
+            const txPayload : Record<string, any> = {
+                "address": this.address.toString(),
+                "reverse": this.state.config.reverse?.toString()
+            };
+            this.sendCommand("PumpSetContinousDispense", txPayload );
+            return true;
+        }
+        catch{
+            console.log('Error on "setting continous Dispense Mode"');
+            return false;
+        }
+    }
+
+    // ******* Continous Dispense *******
+
+    protected handleStop() : boolean {
+        try{
+            const txPayload : Record<string, any> = {
+                "address": this.address.toString(),
+            };
+            this.sendCommand("PumpStopDispense", txPayload );
+            return true;
+        }
+        catch{
+            console.log('Error on "stopping dispense"');
+            return false;
+        }
+    }
+
+    // ******* Continous Dispense *******
+
+    protected handlePause() : boolean {
+        try{
+            const txPayload : Record<string, any> = {
+                "address": this.address.toString(),
+            };
+            this.sendCommand("PumpPause", txPayload );
+            return true;
+        }
+        catch{
+            console.log('Error on "pausing Pump"');
+            return false;
+        }
+    }
+ 
+    // ******* Dose over time *******
+
+    @boundMethod
+    protected onDoseOverTimeValueChange(_event: React.FormEvent<HTMLElement>): boolean {
+        const target = event.target as HTMLInputElement | HTMLSelectElement;
+        const value = this.parseChangedSetting(target);
+        this.doseOverTimeValue = value.toString();
+        console.log('new Dose over Time Value: ' + this.doseOverTimeValue);
+        return false;
+    }
+
+    @boundMethod
+    protected setDoseOverTime(_event: React.FormEvent<HTMLElement>): boolean {
+        console.log('Set Dose over Time Button pressed');
+        this.handleDoseOverTime(this.doseOverTimeValue);
+        return false;
+    }
+
+    protected handleDoseOverTime( dotValue: string) : boolean {
+        try{
+            const txPayload : Record<string, any> = {
+                "address": this.address.toString(),
+                "doseOverTimeValue":dotValue
+            };
+            this.sendCommand("PumpSetDoseOverTime", txPayload );
+            return true;
+        }
+        catch{
+            console.log('Error on "Setting dose over time"');
+            return false;
+        }
+    }
+
+    // ******* Dispense volume *******
+
+    @boundMethod
+    protected onDispenseValueChange(_event: React.FormEvent<HTMLElement>): boolean {
+        const target = event.target as HTMLInputElement | HTMLSelectElement;
+        const value = this.parseChangedSetting(target);
+        this.dispenseValue = value.toString();
+        console.log('new Dispense Value: ' + this.dispenseValue);
+        return false;
+    }
+
+    @boundMethod
+    protected setDispenseVolume(_event: React.FormEvent<HTMLElement>): boolean {
+        console.log('Dispense Volume Button pressed');
+        this.handleDispenseVolume(this.dispenseValue);
+        return false;
+    }
+
+    protected handleDispenseVolume( dispValue: string) : boolean {
+        try{
+            const txPayload : Record<string, any> = {
+                "address": this.address.toString(),
+                "dispenseValue":dispValue
+            };
+            this.sendCommand("PumpSetDispenseVolume", txPayload );
+            return true;
+        }
+        catch{
+            console.log('Error on "Setting dispense Volume"');
+            return false;
+        }
+    }
+
+    // ******* Constant Flow rate *******
+
+    @boundMethod
+    protected onConstantFlowRateValueChange(_event: React.FormEvent<HTMLElement>): boolean {
+        const target = event.target as HTMLInputElement | HTMLSelectElement;
+        const value = this.parseChangedSetting(target);
+        this.constantFlowRateValue = value.toString();
+        console.log('new constant Flow Rate Value: ' + this.constantFlowRateValue);
+        return false;
+    }
+
+    @boundMethod
+    protected setConstantFlowRate(_event: React.FormEvent<HTMLElement>): boolean {
+        console.log('Set constant flow rate Button pressed');
+        this.handleConstantFlowRate(this.constantFlowRateValue);
+        return false;
+    }
+
+    protected handleConstantFlowRate( cfrValue: string) : boolean {
+        try{
+            const txPayload : Record<string, any> = {
+                "address": this.address.toString(),
+                "constantFlowRateValue":cfrValue
+            };
+            this.sendCommand("PumpSetConstantFlowRate", txPayload );
+            return true;
+        }
+        catch{
+            console.log('Error on "Setting Constant Flow Rate"');
+            return false;
+        }
+    }
 
     // ***************************************************
 
@@ -177,7 +348,7 @@ class Pump extends EzoBase<PeristalticPumpConfig> {
                             onClick={this.findEzoBoard}
                             fullWidth
                         >
-                            {I18n.t('Find EZO Board')}
+                            {I18n.t('Find Pump')}
                         </Button>
                     </Grid>
                     <Grid item xs={7} sm={5} md={2}>
@@ -268,12 +439,11 @@ class Pump extends EzoBase<PeristalticPumpConfig> {
                         </Grid>
                         <Grid>
                             <TextField
-                                name="newCalLowValue"
+                                name="newCalValue"
                                 label={I18n.t('Calibration Volume')}
                                 value={this.calibrateValue}
                                 type="number"
                                 onChange={this.onCalibrateValueChange}
-                                InputProps={{ inputProps: { min: 0.0, max: 10.0 } }}
                                 disabled={false}
                                 fullWidth
                             />
@@ -282,7 +452,7 @@ class Pump extends EzoBase<PeristalticPumpConfig> {
                     <Grid item xs={12} sm={12} md={12}>
                         <label >{I18n.t('Pump Control')}</label>
                     </Grid>
-                    <Grid item xs={10} sm={7} md={7}>
+                    <Grid item xs={5} sm={3} md={1}>
                         <label>
                             <Switch
                                 checked={this.state.config.reverse}
@@ -301,6 +471,108 @@ class Pump extends EzoBase<PeristalticPumpConfig> {
                         >
                             {I18n.t('ClearDispensedVolume')}
                         </Button>
+                    </Grid>
+                    
+                    <Grid item xs={7} sm={5} md={3}>
+                        <Grid>
+                            <Button
+                                variant="contained"
+                                onClick={this.handleContinousDispense}
+                                fullWidth
+                            >
+                                {I18n.t('Continous Dispense')}
+                            </Button>
+                        </Grid>
+                    </Grid>
+                    <Grid item xs={7} sm={5} md={3}>
+                        <Grid>
+                            <Button
+                                variant="contained"
+                                onClick={this.handleStop}
+                                fullWidth
+                            >
+                                {I18n.t('Stop Dispense')}
+                            </Button>
+                        </Grid>
+                    </Grid>
+                    <Grid item xs={7} sm={5} md={3}>
+                        <Grid>
+                            <Button
+                                variant="contained"
+                                onClick={this.handlePause}
+                                fullWidth
+                            >
+                                {I18n.t('Pause Pump')}
+                            </Button>
+                        </Grid>
+                    </Grid>
+                     <Grid item xs={12} sm={12} md={12}>
+                    </Grid>
+                    <Grid item xs={7} sm={5} md={3}>
+                        <Grid>
+                            <Button
+                                variant="contained"
+                                onClick={this.setDoseOverTime}
+                                fullWidth
+                            >
+                                {I18n.t('Set Dose over Time')}
+                            </Button>
+                        </Grid>
+                        <Grid>
+                            <TextField
+                                name="doseOverTimeVal"
+                                label={I18n.t('Dose over time value')}
+                                value={this.doseOverTimeValue}
+                                type="string"
+                                onChange={this.onDoseOverTimeValueChange}
+                                disabled={false}
+                                fullWidth
+                            />
+                        </Grid>
+                    </Grid>
+                    <Grid item xs={7} sm={5} md={3}>
+                        <Grid>
+                            <Button
+                                variant="contained"
+                                onClick={this.setDispenseVolume}
+                                fullWidth
+                            >
+                                {I18n.t('Dispense Volume')}
+                            </Button>
+                        </Grid>
+                        <Grid>
+                            <TextField
+                                name="dispenseVolumeVal"
+                                label={I18n.t('Dispense volume value')}
+                                value={this.dispenseValue}
+                                type="string"
+                                onChange={this.onDispenseValueChange}
+                                disabled={false}
+                                fullWidth
+                            />
+                        </Grid>
+                    </Grid>
+                    <Grid item xs={7} sm={5} md={3}>
+                        <Grid>
+                            <Button
+                                variant="contained"
+                                onClick={this.setConstantFlowRate}
+                                fullWidth
+                            >
+                                {I18n.t('Set constant flow rate')}
+                            </Button>
+                        </Grid>
+                        <Grid>
+                            <TextField
+                                name="constantFlowRateVal"
+                                label={I18n.t('Constant flow rate value')}
+                                value={this.constantFlowRateValue}
+                                type="string"
+                                onChange={this.onConstantFlowRateValueChange}
+                                disabled={false}
+                                fullWidth
+                            />
+                        </Grid>
                     </Grid>
                 </Grid>
             </>

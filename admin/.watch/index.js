@@ -53128,7 +53128,16 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         IsLedActive: "LED active",
         "Pump Control": "Pump Control",
         "pump reverse": "Reverse",
-        ClearDispensedVolume: "Clear dispensed Volume"
+        ClearDispensedVolume: "Clear dispensed Volume",
+        "Set Dose over Time": "Set Dose over Time",
+        "Dose over time value": "Format: 85,10 -> e.g. 85ml over 10 minutes",
+        "Dispense Volume": "Dispense Volume",
+        "Dispense volume value": "Format: 15 -> e.g. 15 ml",
+        "Set constant flow rate": "Set constant flow rate",
+        "Constant flow rate value": "Format: 25,40 -> e.g. 25ml/min for 40 minutes ",
+        "Pause Pump": "Pause Pump",
+        "Stop Dispense": "Stop Dispense",
+        "Find Pump": "Find Pump"
       };
     }
   });
@@ -53140,7 +53149,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         "atlas-scientific-ezo-i2c adapter settings": "Adaptereinstellungen f\xFCr atlas-scientific-ezo-i2c",
         "Bus number": "I2C-Busnummer",
         "Search Devices": "Ger\xE4tesuche",
-        Unused: "Ungebraucht",
+        Unused: "Ungenutzt",
         Address: "Adresse",
         Name: "Name",
         Command: "Befehl",
@@ -53152,12 +53161,12 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         "DO Calibration": "Kalibrierung des DO-Sensors",
         "Start Calibration": "Kalibrierung starten",
         Functionalities: "Gemeinsame Funktionalit\xE4ten",
-        "Find EZO Board": "Finden Sie das EZO-Board",
+        "Find EZO Board": "EZO-Board finden",
         "General Configuration": "Allgemeine Konfiguration",
-        "Clear Calibration": "Klare Kalibrierung",
+        "Clear Calibration": "Kalibrierung l\xF6schen",
         "Atmospheric Calibration": "Atmosph\xE4risch kalibrieren",
         "0 DO Calibration": "0DO kalibrieren",
-        "Factory Reset": "Werkseinstellungen zur\xFCckgesetzt",
+        "Factory Reset": "Werkseinstellungen",
         "Change I2C Address": "I2C-Adresse \xE4ndern",
         "New Address": "Adresse (97-127)",
         Calibrate: "Kalibrieren",
@@ -53187,7 +53196,16 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         "Pump Calibration": "Pumpenkalibrierung",
         "Pump Control": "Pumpensteuerung",
         "pump reverse": "Umkehren",
-        ClearDispensedVolume: "Klares ausgegebenes Volumen"
+        ClearDispensedVolume: "Gesamtvolumen l\xF6schen",
+        "Set Dose over Time": "Dosis \xFCber Zeit",
+        "Dose over time value": "Format: 85,10 -> z.B. 85 ml \xFCber 10 Minuten",
+        "Dispense Volume": "Dosis abgeben",
+        "Dispense volume value": "Format: 15 -> z.B. 15 ml",
+        "Set constant flow rate": "Konstante Flussrate",
+        "Constant flow rate value": "Format: 25,40 -> z.B. 25 ml/min f\xFCr 40 Minuten",
+        "Pause Pump": "Pumpe anhalten",
+        "Stop Dispense": "Abgabe stoppen",
+        "Find Pump": "Pumpe finden"
       };
     }
   });
@@ -53246,7 +53264,16 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         "Pump Calibration": "\u041A\u0430\u043B\u0438\u0431\u0440\u043E\u0432\u043A\u0430 \u043D\u0430\u0441\u043E\u0441\u0430",
         "Pump Control": "\u0423\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u043D\u0430\u0441\u043E\u0441\u043E\u043C",
         "pump reverse": "\u041E\u0431\u0435\u0441\u043F\u0435\u0447\u0438\u0442\u044C \u0440\u0435\u0433\u0440\u0435\u0441\u0441",
-        ClearDispensedVolume: "\u041E\u0447\u0438\u0441\u0442\u0438\u0442\u044C \u0434\u043E\u0437\u0438\u0440\u043E\u0432\u0430\u043D\u043D\u044B\u0439 \u043E\u0431\u044A\u0435\u043C"
+        ClearDispensedVolume: "\u041E\u0447\u0438\u0441\u0442\u0438\u0442\u044C \u0434\u043E\u0437\u0438\u0440\u043E\u0432\u0430\u043D\u043D\u044B\u0439 \u043E\u0431\u044A\u0435\u043C",
+        "Set Dose over Time": "\u0423\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C \u0434\u043E\u0437\u0443 \u043F\u043E \u0432\u0440\u0435\u043C\u0435\u043D\u0438",
+        "Dose over time value": "\u0424\u043E\u0440\u043C\u0430\u0442: 85,10 -> \u043D\u0430\u043F\u0440\u0438\u043C\u0435\u0440. 85 \u043C\u043B \u0437\u0430 10 \u043C\u0438\u043D\u0443\u0442",
+        "Dispense Volume": "\u041E\u0431\u044A\u0435\u043C \u0434\u043E\u0437\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u044F",
+        "Dispense volume value": "\u0424\u043E\u0440\u043C\u0430\u0442: 15 -> \u043D\u0430\u043F\u0440\u0438\u043C\u0435\u0440. 15 \u043C\u043B",
+        "Set constant flow rate": "\u0423\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u0435 \u043F\u043E\u0441\u0442\u043E\u044F\u043D\u043D\u044B\u0439 \u0440\u0430\u0441\u0445\u043E\u0434",
+        "Constant flow rate value": "\u0424\u043E\u0440\u043C\u0430\u0442: 25,40 -> \u043D\u0430\u043F\u0440\u0438\u043C\u0435\u0440. 25 \u043C\u043B/\u043C\u0438\u043D \u0432 \u0442\u0435\u0447\u0435\u043D\u0438\u0435 40 \u043C\u0438\u043D\u0443\u0442",
+        "Pause Pump": "\u041F\u0430\u0443\u0437\u0430 \u043D\u0430\u0441\u043E\u0441\u0430",
+        "Stop Dispense": "\u041E\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C \u0434\u043E\u0437\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435",
+        "Find Pump": "\u041D\u0430\u0439\u0442\u0438 \u043D\u0430\u0441\u043E\u0441"
       };
     }
   });
@@ -53305,7 +53332,16 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         "Pump Calibration": "Calibra\xE7\xE3o da bomba",
         "Pump Control": "Controle da bomba",
         "pump reverse": "Reverter",
-        ClearDispensedVolume: "Limpar volume dispensado"
+        ClearDispensedVolume: "Limpar volume dispensado",
+        "Set Dose over Time": "Definir dose ao longo do tempo",
+        "Dose over time value": "Formato: 85,10 -> e. 85ml em 10 minutos",
+        "Dispense Volume": "Dispensar Volume",
+        "Dispense volume value": "Formato: 15 -> e. 15ml",
+        "Set constant flow rate": "Definir taxa de fluxo constante",
+        "Constant flow rate value": "Formato: 25,40 -> e. 25ml/min durante 40 minutos",
+        "Pause Pump": "Pausar bomba",
+        "Stop Dispense": "Parar distribui\xE7\xE3o",
+        "Find Pump": "Localizar bomba"
       };
     }
   });
@@ -53364,7 +53400,16 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         "Pump Calibration": "Pomp Kalibratie",
         "Pump Control": "Pomp controle",
         "pump reverse": "Achteruit",
-        ClearDispensedVolume: "Wis afgegeven volume"
+        ClearDispensedVolume: "Wis afgegeven volume",
+        "Set Dose over Time": "Stel dosis over tijd in",
+        "Dose over time value": "Formaat: 85,10 -> b.v. 85 ml gedurende 10 minuten",
+        "Dispense Volume": "Doseer volume",
+        "Dispense volume value": "Formaat: 15 -> b.v. 15ml",
+        "Set constant flow rate": "Stel constant debiet in",
+        "Constant flow rate value": "Formaat: 25,40 -> b.v. 25 ml/min gedurende 40 minuten",
+        "Pause Pump": "Pomp pauzeren",
+        "Stop Dispense": "Stop met doseren",
+        "Find Pump": "Zoek pomp"
       };
     }
   });
@@ -53423,7 +53468,16 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         "Pump Calibration": "\xC9talonnage de la pompe",
         "Pump Control": "Contr\xF4le de la pompe",
         "pump reverse": "Inverse",
-        ClearDispensedVolume: "Effacer le volume distribu\xE9"
+        ClearDispensedVolume: "Effacer le volume distribu\xE9",
+        "Set Dose over Time": "D\xE9finir la dose au fil du temps",
+        "Dose over time value": "Format : 85,10 -> par ex. 85 ml en 10 minutes",
+        "Dispense Volume": "Volume de distribution",
+        "Dispense volume value": "Format : 15 -> par ex. 15ml",
+        "Set constant flow rate": "R\xE9gler le d\xE9bit constant",
+        "Constant flow rate value": "Format : 25,40 -> par ex. 25 ml/min pendant 40 minutes",
+        "Pause Pump": "Mettre la pompe en pause",
+        "Stop Dispense": "Arr\xEAter la distribution",
+        "Find Pump": "Trouver la pompe"
       };
     }
   });
@@ -53482,7 +53536,16 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         "Pump Calibration": "Calibrazione della pompa",
         "Pump Control": "Controllo della pompa",
         "pump reverse": "Inversione",
-        ClearDispensedVolume: "Cancella volume erogato"
+        ClearDispensedVolume: "Cancella volume erogato",
+        "Set Dose over Time": "Imposta la dose nel tempo",
+        "Dose over time value": "Formato: 85,10 -> es. 85 ml in 10 minuti",
+        "Dispense Volume": "Volume di erogazione",
+        "Dispense volume value": "Formato: 15 -> ad es. 15 millilitri",
+        "Set constant flow rate": "Impostare la portata costante",
+        "Constant flow rate value": "Formato: 25,40 -> es. 25ml/min per 40 minuti",
+        "Pause Pump": "Pompa in pausa",
+        "Stop Dispense": "Interrompere l'erogazione",
+        "Find Pump": "Trova Pompa"
       };
     }
   });
@@ -53541,7 +53604,16 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         "Pump Calibration": "Calibraci\xF3n de la bomba",
         "Pump Control": "control de bomba",
         "pump reverse": "Contrarrestar",
-        ClearDispensedVolume: "Borrar volumen dispensado"
+        ClearDispensedVolume: "Borrar volumen dispensado",
+        "Set Dose over Time": "Establecer dosis a lo largo del tiempo",
+        "Dose over time value": "Formato: 85,10 -> ej. 85 ml durante 10 minutos",
+        "Dispense Volume": "Volumen de dispensaci\xF3n",
+        "Dispense volume value": "Formato: 15 -> ej. 15ml",
+        "Set constant flow rate": "Establecer caudal constante",
+        "Constant flow rate value": "Formato: 25,40 -> ej. 25 ml/min durante 40 minutos",
+        "Pause Pump": "bomba de pausa",
+        "Stop Dispense": "Detener dosificaci\xF3n",
+        "Find Pump": "encontrar bomba"
       };
     }
   });
@@ -53600,7 +53672,16 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         "Pump Calibration": "Kalibracja pompy",
         "Pump Control": "Sterowanie pomp\u0105",
         "pump reverse": "Odwraca\u0107",
-        ClearDispensedVolume: "Wyczy\u015B\u0107 dozowan\u0105 obj\u0119to\u015B\u0107"
+        ClearDispensedVolume: "Wyczy\u015B\u0107 dozowan\u0105 obj\u0119to\u015B\u0107",
+        "Set Dose over Time": "Ustaw dawk\u0119 w czasie",
+        "Dose over time value": "Format: 85,10 -> np. 85 ml w ci\u0105gu 10 minut",
+        "Dispense Volume": "Dozuj obj\u0119to\u015B\u0107",
+        "Dispense volume value": "Format: 15 -> np. 15 ml",
+        "Set constant flow rate": "Ustaw sta\u0142\u0105 szybko\u015B\u0107 przep\u0142ywu",
+        "Constant flow rate value": "Format: 25,40 -> np. 25 ml/min przez 40 minut",
+        "Pause Pump": "Wstrzymaj pomp\u0119",
+        "Stop Dispense": "Zatrzymaj dozowanie",
+        "Find Pump": "Znajd\u017A pomp\u0119"
       };
     }
   });
@@ -53659,7 +53740,16 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         "Pump Calibration": "\u6CF5\u6821\u51C6",
         "Pump Control": "\u6CF5\u63A7\u5236",
         "pump reverse": "\u64A4\u9500",
-        ClearDispensedVolume: "\u6E05\u9664\u5206\u914D\u91CF"
+        ClearDispensedVolume: "\u6E05\u9664\u5206\u914D\u91CF",
+        "Set Dose over Time": "\u968F\u7740\u65F6\u95F4\u7684\u63A8\u79FB\u8BBE\u5B9A\u5242\u91CF",
+        "Dose over time value": "\u683C\u5F0F\uFF1A85,10 -> \u4F8B\u598210 \u5206\u949F\u5185 85 \u6BEB\u5347",
+        "Dispense Volume": "\u5206\u914D\u91CF",
+        "Dispense volume value": "\u683C\u5F0F\uFF1A15 -> \u4F8B\u598215\u6BEB\u5347",
+        "Set constant flow rate": "\u8BBE\u7F6E\u6052\u5B9A\u6D41\u91CF",
+        "Constant flow rate value": "\u683C\u5F0F\uFF1A25,40 -> \u4F8B\u598225\u6BEB\u5347/\u5206\u949F 40\u5206\u949F",
+        "Pause Pump": "\u6682\u505C\u6CF5",
+        "Stop Dispense": "\u505C\u6B62\u5206\u914D",
+        "Find Pump": "\u67E5\u627E\u6CF5"
       };
     }
   });
@@ -62331,8 +62421,23 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     set calibrateValue(value) {
       this.calibrateVal = value;
     }
-    doSomething() {
-      return true;
+    get doseOverTimeValue() {
+      return this.doseOverTimeVal;
+    }
+    set doseOverTimeValue(value) {
+      this.doseOverTimeVal = value;
+    }
+    get dispenseValue() {
+      return this.dispenseVal;
+    }
+    set dispenseValue(value) {
+      this.dispenseVal = value;
+    }
+    get constantFlowRateValue() {
+      return this.constantFlowRateVal;
+    }
+    set constantFlowRateValue(value) {
+      this.constantFlowRateVal = value;
     }
     onCalibrateValueChange(_event) {
       const target = event.target;
@@ -62351,18 +62456,6 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
       this.handleClearDispensedVolume();
       return false;
     }
-    handleClearDispensedVolume() {
-      try {
-        const txPayload = {
-          "address": this.address.toString()
-        };
-        this.sendCommand("PumpClearDispensedVolume", txPayload);
-        return true;
-      } catch (e) {
-        console.log('Error on "Clear dispensed Volume"');
-        return false;
-      }
-    }
     doCalibration(_event) {
       console.log("Calibration Button pressed");
       this.handleCalibration("Standard", this.calibrateValue);
@@ -62379,6 +62472,131 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         return true;
       } catch (e) {
         console.log('Error on "Pump Calibration"');
+        return false;
+      }
+    }
+    handleClearDispensedVolume() {
+      try {
+        const txPayload = {
+          "address": this.address.toString()
+        };
+        this.sendCommand("PumpClearDispensedVolume", txPayload);
+        return true;
+      } catch (e) {
+        console.log('Error on "Clear dispensed Volume"');
+        return false;
+      }
+    }
+    handleContinousDispense() {
+      var _a;
+      try {
+        const txPayload = {
+          "address": this.address.toString(),
+          "reverse": (_a = this.state.config.reverse) == null ? void 0 : _a.toString()
+        };
+        this.sendCommand("PumpSetContinousDispense", txPayload);
+        return true;
+      } catch (e) {
+        console.log('Error on "setting continous Dispense Mode"');
+        return false;
+      }
+    }
+    handleStop() {
+      try {
+        const txPayload = {
+          "address": this.address.toString()
+        };
+        this.sendCommand("PumpStopDispense", txPayload);
+        return true;
+      } catch (e) {
+        console.log('Error on "stopping dispense"');
+        return false;
+      }
+    }
+    handlePause() {
+      try {
+        const txPayload = {
+          "address": this.address.toString()
+        };
+        this.sendCommand("PumpPause", txPayload);
+        return true;
+      } catch (e) {
+        console.log('Error on "pausing Pump"');
+        return false;
+      }
+    }
+    onDoseOverTimeValueChange(_event) {
+      const target = event.target;
+      const value = this.parseChangedSetting(target);
+      this.doseOverTimeValue = value.toString();
+      console.log("new Dose over Time Value: " + this.doseOverTimeValue);
+      return false;
+    }
+    setDoseOverTime(_event) {
+      console.log("Set Dose over Time Button pressed");
+      this.handleDoseOverTime(this.doseOverTimeValue);
+      return false;
+    }
+    handleDoseOverTime(dotValue) {
+      try {
+        const txPayload = {
+          "address": this.address.toString(),
+          "doseOverTimeValue": dotValue
+        };
+        this.sendCommand("PumpSetDoseOverTime", txPayload);
+        return true;
+      } catch (e) {
+        console.log('Error on "Setting dose over time"');
+        return false;
+      }
+    }
+    onDispenseValueChange(_event) {
+      const target = event.target;
+      const value = this.parseChangedSetting(target);
+      this.dispenseValue = value.toString();
+      console.log("new Dispense Value: " + this.dispenseValue);
+      return false;
+    }
+    setDispenseVolume(_event) {
+      console.log("Dispense Volume Button pressed");
+      this.handleDispenseVolume(this.dispenseValue);
+      return false;
+    }
+    handleDispenseVolume(dispValue) {
+      try {
+        const txPayload = {
+          "address": this.address.toString(),
+          "dispenseValue": dispValue
+        };
+        this.sendCommand("PumpSetDispenseVolume", txPayload);
+        return true;
+      } catch (e) {
+        console.log('Error on "Setting dispense Volume"');
+        return false;
+      }
+    }
+    onConstantFlowRateValueChange(_event) {
+      const target = event.target;
+      const value = this.parseChangedSetting(target);
+      this.constantFlowRateValue = value.toString();
+      console.log("new constant Flow Rate Value: " + this.constantFlowRateValue);
+      return false;
+    }
+    setConstantFlowRate(_event) {
+      console.log("Set constant flow rate Button pressed");
+      this.handleConstantFlowRate(this.constantFlowRateValue);
+      return false;
+    }
+    handleConstantFlowRate(cfrValue) {
+      try {
+        const txPayload = {
+          "address": this.address.toString(),
+          "constantFlowRateValue": cfrValue
+        };
+        this.sendCommand("PumpSetConstantFlowRate", txPayload);
+        return true;
+      } catch (e) {
+        console.log('Error on "Setting Constant Flow Rate"');
         return false;
       }
     }
@@ -62429,7 +62647,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
           onClick: this.findEzoBoard,
           fullWidth: true
         },
-        import_i18n6.default.t("Find EZO Board")
+        import_i18n6.default.t("Find Pump")
       )), /* @__PURE__ */ import_react9.default.createElement(Grid_default, { item: true, xs: 7, sm: 5, md: 2 }, /* @__PURE__ */ import_react9.default.createElement(
         import_Button5.default,
         {
@@ -62500,16 +62718,15 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
       )), /* @__PURE__ */ import_react9.default.createElement(Grid_default, null, /* @__PURE__ */ import_react9.default.createElement(
         TextField_default,
         {
-          name: "newCalLowValue",
+          name: "newCalValue",
           label: import_i18n6.default.t("Calibration Volume"),
           value: this.calibrateValue,
           type: "number",
           onChange: this.onCalibrateValueChange,
-          InputProps: { inputProps: { min: 0, max: 10 } },
           disabled: false,
           fullWidth: true
         }
-      ))), /* @__PURE__ */ import_react9.default.createElement(Grid_default, { item: true, xs: 12, sm: 12, md: 12 }, /* @__PURE__ */ import_react9.default.createElement("label", null, import_i18n6.default.t("Pump Control"))), /* @__PURE__ */ import_react9.default.createElement(Grid_default, { item: true, xs: 10, sm: 7, md: 7 }, /* @__PURE__ */ import_react9.default.createElement("label", null, /* @__PURE__ */ import_react9.default.createElement(
+      ))), /* @__PURE__ */ import_react9.default.createElement(Grid_default, { item: true, xs: 12, sm: 12, md: 12 }, /* @__PURE__ */ import_react9.default.createElement("label", null, import_i18n6.default.t("Pump Control"))), /* @__PURE__ */ import_react9.default.createElement(Grid_default, { item: true, xs: 5, sm: 3, md: 1 }, /* @__PURE__ */ import_react9.default.createElement("label", null, /* @__PURE__ */ import_react9.default.createElement(
         Switch_default,
         {
           checked: this.state.config.reverse,
@@ -62525,7 +62742,88 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
           fullWidth: true
         },
         import_i18n6.default.t("ClearDispensedVolume")
-      ))));
+      )), /* @__PURE__ */ import_react9.default.createElement(Grid_default, { item: true, xs: 7, sm: 5, md: 3 }, /* @__PURE__ */ import_react9.default.createElement(Grid_default, null, /* @__PURE__ */ import_react9.default.createElement(
+        import_Button5.default,
+        {
+          variant: "contained",
+          onClick: this.handleContinousDispense,
+          fullWidth: true
+        },
+        import_i18n6.default.t("Continous Dispense")
+      ))), /* @__PURE__ */ import_react9.default.createElement(Grid_default, { item: true, xs: 7, sm: 5, md: 3 }, /* @__PURE__ */ import_react9.default.createElement(Grid_default, null, /* @__PURE__ */ import_react9.default.createElement(
+        import_Button5.default,
+        {
+          variant: "contained",
+          onClick: this.handleStop,
+          fullWidth: true
+        },
+        import_i18n6.default.t("Stop Dispense")
+      ))), /* @__PURE__ */ import_react9.default.createElement(Grid_default, { item: true, xs: 7, sm: 5, md: 3 }, /* @__PURE__ */ import_react9.default.createElement(Grid_default, null, /* @__PURE__ */ import_react9.default.createElement(
+        import_Button5.default,
+        {
+          variant: "contained",
+          onClick: this.handlePause,
+          fullWidth: true
+        },
+        import_i18n6.default.t("Pause Pump")
+      ))), /* @__PURE__ */ import_react9.default.createElement(Grid_default, { item: true, xs: 12, sm: 12, md: 12 }), /* @__PURE__ */ import_react9.default.createElement(Grid_default, { item: true, xs: 7, sm: 5, md: 3 }, /* @__PURE__ */ import_react9.default.createElement(Grid_default, null, /* @__PURE__ */ import_react9.default.createElement(
+        import_Button5.default,
+        {
+          variant: "contained",
+          onClick: this.setDoseOverTime,
+          fullWidth: true
+        },
+        import_i18n6.default.t("Set Dose over Time")
+      )), /* @__PURE__ */ import_react9.default.createElement(Grid_default, null, /* @__PURE__ */ import_react9.default.createElement(
+        TextField_default,
+        {
+          name: "doseOverTimeVal",
+          label: import_i18n6.default.t("Dose over time value"),
+          value: this.doseOverTimeValue,
+          type: "string",
+          onChange: this.onDoseOverTimeValueChange,
+          disabled: false,
+          fullWidth: true
+        }
+      ))), /* @__PURE__ */ import_react9.default.createElement(Grid_default, { item: true, xs: 7, sm: 5, md: 3 }, /* @__PURE__ */ import_react9.default.createElement(Grid_default, null, /* @__PURE__ */ import_react9.default.createElement(
+        import_Button5.default,
+        {
+          variant: "contained",
+          onClick: this.setDispenseVolume,
+          fullWidth: true
+        },
+        import_i18n6.default.t("Dispense Volume")
+      )), /* @__PURE__ */ import_react9.default.createElement(Grid_default, null, /* @__PURE__ */ import_react9.default.createElement(
+        TextField_default,
+        {
+          name: "dispenseVolumeVal",
+          label: import_i18n6.default.t("Dispense volume value"),
+          value: this.dispenseValue,
+          type: "string",
+          onChange: this.onDispenseValueChange,
+          disabled: false,
+          fullWidth: true
+        }
+      ))), /* @__PURE__ */ import_react9.default.createElement(Grid_default, { item: true, xs: 7, sm: 5, md: 3 }, /* @__PURE__ */ import_react9.default.createElement(Grid_default, null, /* @__PURE__ */ import_react9.default.createElement(
+        import_Button5.default,
+        {
+          variant: "contained",
+          onClick: this.setConstantFlowRate,
+          fullWidth: true
+        },
+        import_i18n6.default.t("Set constant flow rate")
+      )), /* @__PURE__ */ import_react9.default.createElement(Grid_default, null, /* @__PURE__ */ import_react9.default.createElement(
+        TextField_default,
+        {
+          name: "constantFlowRateVal",
+          label: import_i18n6.default.t("Constant flow rate value"),
+          value: this.constantFlowRateValue,
+          type: "string",
+          onChange: this.onConstantFlowRateValueChange,
+          disabled: false,
+          fullWidth: true
+        }
+      )))));
     }
   };
   __decorateClass([
@@ -62540,6 +62838,24 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
   __decorateClass([
     boundMethod
   ], Pump.prototype, "doCalibration", 1);
+  __decorateClass([
+    boundMethod
+  ], Pump.prototype, "onDoseOverTimeValueChange", 1);
+  __decorateClass([
+    boundMethod
+  ], Pump.prototype, "setDoseOverTime", 1);
+  __decorateClass([
+    boundMethod
+  ], Pump.prototype, "onDispenseValueChange", 1);
+  __decorateClass([
+    boundMethod
+  ], Pump.prototype, "setDispenseVolume", 1);
+  __decorateClass([
+    boundMethod
+  ], Pump.prototype, "onConstantFlowRateValueChange", 1);
+  __decorateClass([
+    boundMethod
+  ], Pump.prototype, "setConstantFlowRate", 1);
   var Infos5 = [
     {
       name: "Atlas EZO Pump",

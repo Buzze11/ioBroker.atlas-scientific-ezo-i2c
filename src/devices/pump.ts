@@ -345,6 +345,17 @@ export default class PeristalticPump extends EzoHandlerBase<PeristalticPumpConfi
         }
     }
 
+        /// Sets the continous dispense mode if it was activated
+        public async DoPauseDispense():Promise<string>{
+            try{
+                this.info('Pause Pump');
+                await this.sensor.PauseDispensing();
+            }
+            catch{
+                return 'Error occured on pausing pump';
+            }
+        }
+
     /// Dispenses the given volume over the given minutes. ml Amount min Minutes
     // value -> comma separated string ml,minutes. negative ml value for reverse
     public async DoseOverTime(value:string):Promise<string>{

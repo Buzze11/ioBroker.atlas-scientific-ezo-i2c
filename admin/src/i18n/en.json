@@ -48,7 +48,16 @@
     "Active":"Active",
     "IsLedActive": "LED active",
     "Pump Control": "Pump Control",
-    "pump reverse":"Reverse",
-    "ClearDispensedVolume": "Clear dispensed Volume"
+    "pump reverse": "Reverse",
+    "ClearDispensedVolume": "Clear dispensed Volume",
+    "Set Dose over Time": "Set Dose over Time",
+    "Dose over time value":"Format: 85,10 -> e.g. 85ml over 10 minutes",
+    "Dispense Volume": "Dispense Volume",
+    "Dispense volume value": "Format: 15 -> e.g. 15 ml",
+    "Set constant flow rate": "Set constant flow rate",
+    "Constant flow rate value": "Format: 25,40 -> e.g. 25ml/min for 40 minutes ",
+    "Pause Pump": "Pause Pump",
+    "Stop Dispense": "Stop Dispense",
+    "Find Pump": "Find Pump"
 
 }

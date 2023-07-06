@@ -49,5 +49,14 @@
     "Pump Calibration": "Pomp Kalibratie",
     "Pump Control": "Pomp controle",
     "pump reverse": "Achteruit",
-    "ClearDispensedVolume": "Wis afgegeven volume"
+    "ClearDispensedVolume": "Wis afgegeven volume",
+    "Set Dose over Time": "Stel dosis over tijd in",
+    "Dose over time value": "Formaat: 85,10 -> b.v. 85 ml gedurende 10 minuten",
+    "Dispense Volume": "Doseer volume",
+    "Dispense volume value": "Formaat: 15 -> b.v. 15ml",
+    "Set constant flow rate": "Stel constant debiet in",
+    "Constant flow rate value": "Formaat: 25,40 -> b.v. 25 ml/min gedurende 40 minuten",
+    "Pause Pump": "Pomp pauzeren",
+    "Stop Dispense": "Stop met doseren",
+    "Find Pump": "Zoek pomp"
 }

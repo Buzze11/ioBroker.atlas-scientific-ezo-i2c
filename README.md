@@ -27,7 +27,7 @@ Currently Supported Devices
 * EZO ORP - Oxidation-reduction potential -> https://atlas-scientific.com/orp
 * EZO pH - Potential of Hydrogen -> https://atlas-scientific.com/ph
 * EZO RTD - Resistance Temperature Detector -> https://atlas-scientific.com/temperature
-* EZO PMP - Embedded Peristaltic Dosing Pump -> https://atlas-scientific.com/peristaltic/ezo-pmp/ (untested)
+* EZO PMP - Embedded Peristaltic Dosing Pump -> https://atlas-scientific.com/peristaltic/ezo-pmp/ (untested due to missing hardware)
 
 Future Support
 
@@ -135,7 +135,7 @@ For pH Sensor following states are listening for changes:
 
 ### Pump-Related funtionalities & Settings
 
-![Image](pictures/rtd_config.png)
+![Image](pictures/pump_config.png)
 
 * **"Clear Calibration"-Button** -> Delete calibration Data  
 * **"Calibrate"-Button** -> calibrate to desired volume
@@ -144,6 +144,12 @@ For pH Sensor following states are listening for changes:
 
 * **"Reverse"-Switch** -> If set in the config all commands to the pump will be executed with the reverse Flag set so that the pump direction is inverted 
 * **"Clear dispensed Volume"-Button** -> The total dispensed volume counter will be set to 0
+* **"Continous Dispense"-Button** -> Pump will continuously run at ~105ml/min (with supplied tubing)
+* **"Stop Dispense"-Button** -> Pump will immediately stop dispensing 
+* **"Pause Pump"-Button** -> Pump will immediately pause dispensing 
+* **"Set Dose over Time"-Button** -> Pump will dispense the given amount of ml within the given duration in minutes
+* **"Dispense Volume"-Button** -> Pump will dispense the given amount of ml 
+* **"Set constant Flow Rate"-Button** -> Pump will dispense the given amount of ml per minute "ml/min" for the given duration in minutes
 
 For EZO Pumps the following states are listening for changes: 
 * "Continous_dispense" -> If set to true the pump will jump into continous dispense mode with 105ml/min (reverse switch considered). If set to false the pump will stop dispensing.
@@ -162,6 +168,12 @@ You can check other adapters for examples or ask in the developer community. Usi
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- Finished first Pump implementation (UI and Pump control) untested due to missing device
+- extended README.md
+- Further translations
+
 ### 1.2.3 (2023-07-03)
 - implemented delay after each polling cycle to decouple memory race conditions on device for I2C
 - First steps in base implementation for peristaltic pump

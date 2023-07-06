@@ -49,5 +49,14 @@
     "Pump Calibration": "Калібрування насоса",
     "Pump Control": "Контроль насоса",
     "pump reverse": "Зворотний",
-    "ClearDispensedVolume": "Очистити дозований об’єм"
+    "ClearDispensedVolume": "Очистити дозований об’єм",
+    "Set Dose over Time": "Встановити дозу за часом",
+    "Dose over time value": "Формат: 85,10 -> напр. 85 мл протягом 10 хвилин",
+    "Dispense Volume": "Об'єм дозування",
+    "Dispense volume value": "Формат: 15 -> напр. 15 мл",
+    "Set constant flow rate": "Встановіть постійну швидкість потоку",
+    "Constant flow rate value": "Формат: 25,40 -> напр. 25 мл/хв протягом 40 хвилин",
+    "Pause Pump": "Призупинити насос",
+    "Stop Dispense": "Зупиніть дозування",
+    "Find Pump": "Знайдіть насос"
 }
