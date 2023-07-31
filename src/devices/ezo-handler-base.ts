@@ -11,6 +11,7 @@ export abstract class EzoHandlerBase<T extends EzoDeviceConfig> {
     public readonly name: string;
     public readonly hexAddress: string;
     public sensor; 
+    protected pausedState: boolean;
 
     protected readonly config: T;
     
@@ -26,6 +27,7 @@ export abstract class EzoHandlerBase<T extends EzoDeviceConfig> {
         this.name = deviceConfig.name;
         this.config = deviceConfig[deviceConfig.type] as T;
         this.hexAddress = toHexString(deviceConfig.address);
+        this.pausedState = false;
     }
 
     // methods to override
@@ -124,6 +126,21 @@ export abstract class EzoHandlerBase<T extends EzoDeviceConfig> {
         }
         catch{
             return 'Error occured on setting led usage';
+        }
+    }
+
+    public async SetPausedFlag(pausedState:string):Promise<string>{
+        try{
+            this.info('Adapter paused state changed to: ' + pausedState.toString());
+            if(pausedState==='true'){
+                this.pausedState = true;
+            }
+            else{
+                this.pausedState = false;
+            }
+        }
+        catch{
+            return 'Error occured on setting paused state';
         }
     }
 }

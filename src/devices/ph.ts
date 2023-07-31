@@ -26,6 +26,7 @@ export default class PH extends EzoHandlerBase<PHConfig> {
         });
 
         await this.CreateObjects();
+        await this.setStateAckAsync('IsPaused', this.pausedState);
 
         // Read current setup from sensor
          const deviceName: string = await this.sensor.GetName();
@@ -57,6 +58,9 @@ export default class PH extends EzoHandlerBase<PHConfig> {
         this.adapter.addStateChangeListener(this.hexAddress + '.Temperature_compensation', async (_oldValue, _newValue) => {
             this.SetTemperatureCompensation(_newValue.toString());
         });
+        this.adapter.addStateChangeListener(this.hexAddress + '.IsPaused', async (_oldValue, _newValue) => {
+            this.SetPausedFlag(_newValue.toString());
+        });
     }
 
     async CreateObjects(): Promise<void>{
@@ -67,6 +71,16 @@ export default class PH extends EzoHandlerBase<PHConfig> {
                 type: 'string',
                 role: 'info.status',
                 write: false,
+            },
+            //native: any
+        });
+        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'IsPaused', {
+            type: 'state',
+            common: {
+                name: this.hexAddress + ' ' + (this.config.name || 'PH'),
+                type: 'boolean',
+                role: 'switch',
+                write: true,
             },
             //native: any
         });
@@ -175,7 +189,7 @@ export default class PH extends EzoHandlerBase<PHConfig> {
 
     async GetAllReadings(): Promise<void>{
         try{
-            if(this.sensor != null){
+            if(this.sensor != null && this.pausedState === false){
                 const ds = await this.sensor.GetDeviceStatus();
                 await this.setStateAckAsync('Devicestatus', ds);
 
@@ -206,7 +220,9 @@ export default class PH extends EzoHandlerBase<PHConfig> {
                     await this.setStateAckAsync('Slope_Zero_Point', slope[2]);
             }
         }
-        catch{}
+        catch{
+            this.error('Error occured on getting Device readings');
+        }
     }
 
     public async DoCalibration(calibrationtype:string, phValue:string):Promise<string>{
@@ -247,5 +263,4 @@ export default class PH extends EzoHandlerBase<PHConfig> {
         }
     }
 
-    
 }

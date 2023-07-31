@@ -47,6 +47,7 @@ class DO extends import_ezo_handler_base.EzoHandlerBase {
       native: this.config
     });
     await this.CreateObjects();
+    await this.setStateAckAsync("IsPaused", this.pausedState);
     const deviceParameters = await this.sensor.GetParametersEnabled();
     const deviceName = await this.sensor.GetName();
     if (!this.config.name) {
@@ -87,6 +88,9 @@ class DO extends import_ezo_handler_base.EzoHandlerBase {
     this.adapter.addStateChangeListener(this.hexAddress + ".Pressure_compensation", async (_oldValue, _newValue) => {
       this.SetPressureCompensation(_newValue.toString());
     });
+    this.adapter.addStateChangeListener(this.hexAddress + ".IsPaused", async (_oldValue, _newValue) => {
+      this.SetPausedFlag(_newValue.toString());
+    });
   }
   async CreateObjects() {
     await this.adapter.extendObjectAsync(this.hexAddress + ".Devicestatus", {
@@ -96,6 +100,15 @@ class DO extends import_ezo_handler_base.EzoHandlerBase {
         type: "string",
         role: "info.status",
         write: false
+      }
+    });
+    await this.adapter.extendObjectAsync(this.hexAddress + ".IsPaused", {
+      type: "state",
+      common: {
+        name: this.hexAddress + " " + (this.config.name || "PH"),
+        type: "boolean",
+        role: "switch",
+        write: true
       }
     });
     await this.adapter.extendObjectAsync(this.hexAddress + ".Dissolved_Oxygen", {
@@ -199,7 +212,7 @@ class DO extends import_ezo_handler_base.EzoHandlerBase {
   }
   async GetAllReadings() {
     try {
-      if (this.sensor != null) {
+      if (this.sensor != null && this.pausedState === false) {
         const ds = await this.sensor.GetDeviceStatus();
         await this.setStateAckAsync("Devicestatus", ds);
         const ox = await this.sensor.GetReading();
@@ -223,6 +236,7 @@ class DO extends import_ezo_handler_base.EzoHandlerBase {
         await this.setStateAckAsync("IsCalibrated", ic);
       }
     } catch {
+      this.error("Error occured on getting Device readings");
     }
   }
   async DoCalibration(calibrationtype) {

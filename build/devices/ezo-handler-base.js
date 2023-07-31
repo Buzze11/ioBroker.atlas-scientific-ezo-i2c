@@ -33,6 +33,7 @@ class EzoHandlerBase {
     this.name = deviceConfig.name;
     this.config = deviceConfig[deviceConfig.type];
     this.hexAddress = (0, import_shared.toHexString)(deviceConfig.address);
+    this.pausedState = false;
   }
   async startPolling(callback, interval, minInterval) {
     this.stopPolling();
@@ -105,6 +106,18 @@ class EzoHandlerBase {
       await this.sensor.SetLED(ledOn);
     } catch {
       return "Error occured on setting led usage";
+    }
+  }
+  async SetPausedFlag(pausedState) {
+    try {
+      this.info("Adapter paused state changed to: " + pausedState.toString());
+      if (pausedState === "true") {
+        this.pausedState = true;
+      } else {
+        this.pausedState = false;
+      }
+    } catch {
+      return "Error occured on setting paused state";
     }
   }
 }

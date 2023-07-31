@@ -47,6 +47,7 @@ class RTD extends import_ezo_handler_base.EzoHandlerBase {
       native: this.config
     });
     await this.CreateObjects();
+    await this.setStateAckAsync("IsPaused", this.pausedState);
     const deviceName = await this.sensor.GetName();
     if (!this.config.name) {
       this.info("Devicename is not clear. Clearing Devicename");
@@ -55,6 +56,7 @@ class RTD extends import_ezo_handler_base.EzoHandlerBase {
       this.info("Devicenamehas changed. Setting Devicename to: " + this.config.name);
       await this.sensor.SetName(this.config.name);
     }
+    await this.CreateStateChangeListeners();
     await this.SetLed(this.config.isLedOn);
     if (!!this.config.pollingInterval && this.config.pollingInterval > 0) {
       this.startPolling(async () => await this.GetAllReadings(), this.config.pollingInterval, 5e3);
@@ -68,6 +70,15 @@ class RTD extends import_ezo_handler_base.EzoHandlerBase {
         type: "string",
         role: "info.status",
         write: false
+      }
+    });
+    await this.adapter.extendObjectAsync(this.hexAddress + ".IsPaused", {
+      type: "state",
+      common: {
+        name: this.hexAddress + " " + (this.config.name || "PH"),
+        type: "boolean",
+        role: "switch",
+        write: true
       }
     });
     await this.adapter.extendObjectAsync(this.hexAddress + ".Temperature", {
@@ -125,13 +136,18 @@ class RTD extends import_ezo_handler_base.EzoHandlerBase {
       }
     });
   }
+  async CreateStateChangeListeners() {
+    this.adapter.addStateChangeListener(this.hexAddress + ".IsPaused", async (_oldValue, _newValue) => {
+      this.SetPausedFlag(_newValue.toString());
+    });
+  }
   async stopAsync() {
     this.debug("Stopping");
     this.stopPolling();
   }
   async GetAllReadings() {
     try {
-      if (this.sensor != null) {
+      if (this.sensor != null && this.pausedState === false) {
         const ds = await this.sensor.GetDeviceStatus();
         await this.setStateAckAsync("Devicestatus", ds);
         const ox = await this.sensor.GetReading();
@@ -148,6 +164,7 @@ class RTD extends import_ezo_handler_base.EzoHandlerBase {
         await this.setStateAckAsync("Scale", sc);
       }
     } catch {
+      this.error("Error occured on getting Device readings");
     }
   }
   async DoCalibration(calibrationtype, tempValue) {

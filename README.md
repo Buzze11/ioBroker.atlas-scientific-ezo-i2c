@@ -80,6 +80,12 @@ After you`ve selected the type of device the settings for the desired device app
 * **"Factory Reset"-Button** -> Execute a factory reset for that device
 * **"Change I2C Address"-Button** -> Here you can program a new I2C Address for that adapter. Please make sure you save the config afterwards.
 
+## Common States / Objects (all devices)
+Some states have a state change detection mechanism running which gives the possibility that some values can be set not only by the Admin UI but additionally with changes directly to the state value from outside. (e.g. via Script or manually) This can be useful for example if you want to use comepsation values from a sensor like temperature to adjust the temperature compensation value on the PH Sensor.
+
+* "IsPaused" -> Switch to temporarely pause all measure readings from Device unless it is "Actice" during runtime. true = paused, false = measurements active. Value is defaultet to false (measure active) on Adapter Start/Restart.
+
+
 ## Device related settings & functionalities
 
 ### DO-Related funtionalities & Settings
@@ -95,7 +101,6 @@ After you`ve selected the type of device the settings for the desired device app
 * **"isPpt"-Switch** -> Switch to define if Salinity value read/set in ppt instead of us
 
 **States with includes State change detection**
-Some states have an state change detection mechanism running which gives the possibility that some compensation values can be set not only by the UI but additionally with changes directly to the states value from outside. This can be useful for example if you want to use comepsation values from a sensor like temperature to adjust the temperature compensation value on the PH Sensor.
 
 For DO Sensor following states are listening for changes: 
 * "Temperature_compensation" -> Sets the temperature compensation
@@ -113,7 +118,6 @@ For DO Sensor following states are listening for changes:
 * **"Set Temp. Compensation"-Button** -> set the temperature compensation with the desired value inside the textfield e.g. 20.4
 
 **States with includes State change detection**
-Some states have an state change detection mechanism running which gives the possibility that some compensation values can be set not only by the UI but additionally with changes directly to the states value from outside. This can be useful for example if you want to use comepsation values from a sensor like temperature to adjust the temperature compensation value on the PH Sensor.
 
 For pH Sensor following states are listening for changes: 
 * "Temperature_compensation" -> Sets the temperature compensation
@@ -168,6 +172,11 @@ You can check other adapters for examples or ask in the developer community. Usi
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- Added State including state change listeners "IsPaused" to pause measure per sensor during runtime
+
+
 ### 1.2.4 (2023-07-06)
 - Finished first Pump implementation (UI and Pump control) untested due to missing device
 - extended README.md

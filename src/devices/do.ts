@@ -31,6 +31,7 @@ export default class DO extends EzoHandlerBase<DOConfig> {
         });
 
         await this.CreateObjects();
+        await this.setStateAckAsync('IsPaused', this.pausedState);
         
         // Read current setup from sensor
         const deviceParameters = await this.sensor.GetParametersEnabled();
@@ -94,6 +95,9 @@ export default class DO extends EzoHandlerBase<DOConfig> {
         this.adapter.addStateChangeListener(this.hexAddress + '.Pressure_compensation', async (_oldValue, _newValue) => {
             this.SetPressureCompensation(_newValue.toString());
         });
+        this.adapter.addStateChangeListener(this.hexAddress + '.IsPaused', async (_oldValue, _newValue) => {
+            this.SetPausedFlag(_newValue.toString());
+        });
 
     }
 
@@ -106,6 +110,16 @@ export default class DO extends EzoHandlerBase<DOConfig> {
                 type: 'string',
                 role: 'info.status',
                 write: false,
+            },
+            //native: any
+        });
+        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'IsPaused', {
+            type: 'state',
+            common: {
+                name: this.hexAddress + ' ' + (this.config.name || 'PH'),
+                type: 'boolean',
+                role: 'switch',
+                write: true,
             },
             //native: any
         });
@@ -223,7 +237,7 @@ export default class DO extends EzoHandlerBase<DOConfig> {
 
     async GetAllReadings(): Promise<void>{
         try{
-            if(this.sensor != null){
+            if(this.sensor != null && this.pausedState === false){
                 const ds = await this.sensor.GetDeviceStatus();
                 await this.setStateAckAsync('Devicestatus', ds);
 
@@ -257,6 +271,7 @@ export default class DO extends EzoHandlerBase<DOConfig> {
             }
         }
         catch{
+            this.error('Error occured on getting Device readings');
         }
     }
 

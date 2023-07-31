@@ -26,6 +26,7 @@ export default class ORP extends EzoHandlerBase<ORPConfig> {
         });
 
         await this.CreateObjects();
+        await this.setStateAckAsync('IsPaused', this.pausedState);
 
         // Read current setup from sensor
         const deviceName: string = await this.sensor.GetName();
@@ -40,6 +41,9 @@ export default class ORP extends EzoHandlerBase<ORPConfig> {
             await this.sensor.SetName(this.config.name);
         }
 
+        // Set all State change listeners
+        await this.CreateStateChangeListeners();
+
         // Set Led usage
         await this.SetLed(this.config.isLedOn);
 
@@ -47,6 +51,12 @@ export default class ORP extends EzoHandlerBase<ORPConfig> {
         if (!!this.config.pollingInterval && this.config.pollingInterval > 0) {
             this.startPolling(async () => await this.GetAllReadings(), this.config.pollingInterval, 5000);
         }
+    }
+
+    async CreateStateChangeListeners(): Promise<void>{
+        this.adapter.addStateChangeListener(this.hexAddress + '.IsPaused', async (_oldValue, _newValue) => {
+            this.SetPausedFlag(_newValue.toString());
+        });
     }
     
     async CreateObjects(): Promise<void>{
@@ -57,6 +67,16 @@ export default class ORP extends EzoHandlerBase<ORPConfig> {
                 type: 'string',
                 role: 'info.status',
                 write: false,
+            },
+            //native: any
+        });
+        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'IsPaused', {
+            type: 'state',
+            common: {
+                name: this.hexAddress + ' ' + (this.config.name || 'PH'),
+                type: 'boolean',
+                role: 'switch',
+                write: true,
             },
             //native: any
         });
@@ -121,7 +141,7 @@ export default class ORP extends EzoHandlerBase<ORPConfig> {
 
     async GetAllReadings(): Promise<void>{
         try{
-            if(this.sensor != null){
+            if(this.sensor != null && this.pausedState === false){
                 const ds = await this.sensor.GetDeviceStatus();
                 await this.setStateAckAsync('Devicestatus', ds);
 
@@ -142,6 +162,7 @@ export default class ORP extends EzoHandlerBase<ORPConfig> {
             }
         }
         catch{
+            this.error('Error occured on getting Device readings');
         }
     }
 
