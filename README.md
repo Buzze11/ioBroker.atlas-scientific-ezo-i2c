@@ -83,7 +83,7 @@ After you`ve selected the type of device the settings for the desired device app
 ## Common States / Objects (all devices)
 Some states have a state change detection mechanism running which gives the possibility that some values can be set not only by the Admin UI but additionally with changes directly to the state value from outside. (e.g. via Script or manually) This can be useful for example if you want to use comepsation values from a sensor like temperature to adjust the temperature compensation value on the PH Sensor.
 
-* "IsPaused" -> Switch to temporarely pause all measure readings from Device unless it is "Actice" during runtime. true = paused, false = measurements active. Value is defaultet to false (measure active) on Adapter Start/Restart.
+* **"IsPaused"** -> Switch to temporarely pause all measure readings from Device unless it is "Actice" during runtime. true = paused, false = measurements active. Value is defaultet to false (measure active) on Adapter Start/Restart.
 
 ## Device related settings & functionalities
 
@@ -102,12 +102,12 @@ Some states have a state change detection mechanism running which gives the poss
 **DO States with includes State change detection**
 
 For DO Sensor following states are listening for changes: 
-* "Temperature_compensation" -> Sets the temperature compensation
-* "Salinity_compensation" -> Sets the salinity compensation
-* "Pressure_compensation" -> Sets the pressure compensation
-* "Calibrate_Clear" -> Set to true to clear sensor calibration. Will be set to false calibration was cleared.
-* "Calibrate_Atmospheric" -> Set to true to run an atmospheric sensor calibration. Will be set to false after calibration run.
-* "Calibrate_Zero_DO" -> Set to true to to run a zero dissolved oxygen sensor calibration. Will be set to false after calibration run.
+* **"Temperature_compensation"** -> Sets the temperature compensation
+* **"Salinity_compensation"** -> Sets the salinity compensation
+* **"Pressure_compensation"** -> Sets the pressure compensation
+* **"Calibrate_Clear"** -> Set to true to clear sensor calibration. Will be set to false calibration was cleared.
+* **"Calibrate_Atmospheric"** -> Set to true to run an atmospheric sensor calibration. Will be set to false after calibration run.
+* **"Calibrate_Zero_DO"** -> Set to true to to run a zero dissolved oxygen sensor calibration. Will be set to false after calibration run.
 
 
 ### pH-Related funtionalities & Settings
@@ -123,11 +123,11 @@ For DO Sensor following states are listening for changes:
 **pH States with includes State change detection**
 
 For pH Sensor following states are listening for changes: 
-* "Temperature_compensation" -> Sets the temperature compensation
-* "Calibrate_Clear" -> Set to true to clear sensor calibration. Will be set to false automatically after calibration was cleared.
-* "Calibrate_Low" -> Set a dot separated value e.g. 4.0 to run the low calibration with desired value. Will be cleared after calibration automatically
-* "Calibrate_Mid" -> Set a dot separated value e.g. 7.0 to run the low calibration with desired value. Will be cleared after calibration automatically
-* "Calibrate_High" -> Set a a dot separated value e.g. 10.0 to run the low calibration with desired value. Will be cleared after calibration automatically
+* **"Temperature_compensation"** -> Sets the temperature compensation
+* **"Calibrate_Clear"** -> Set to true to clear sensor calibration. Will be set to false automatically after calibration was cleared.
+* **"Calibrate_Low"** -> Set a dot separated value e.g. 4.0 to run the low calibration with desired value. Will be cleared after calibration automatically
+* **"Calibrate_Mid"** -> Set a dot separated value e.g. 7.0 to run the low calibration with desired value. Will be cleared after calibration automatically
+* **"Calibrate_High"** -> Set a a dot separated value e.g. 10.0 to run the low calibration with desired value. Will be cleared after calibration automatically
 
 ### ORP-Related funtionalities & Settings
 
@@ -139,9 +139,9 @@ For pH Sensor following states are listening for changes:
 **ORP States with includes State change detection**
 
 For ORP Sensor following states are listening for changes: 
-* "Temperature_compensation" -> Sets the temperature compensation
-* "Calibrate_Clear" -> Set to true to clear sensor calibration. Will be set to false automatically after calibration was cleared.
-* "Calibrate" -> Set a dot separated value e.g. xx.x mV to run the calibration with desired value. Will be cleared after calibration automatically
+* **"Temperature_compensation"**"-> Sets the temperature compensation
+* **"Calibrate_Clear"** -> Set to true to clear sensor calibration. Will be set to false automatically after calibration was cleared.
+* **"Calibrate"** -> Set a dot separated value e.g. xx.x mV to run the calibration with desired value. Will be cleared after calibration automatically
 
 
 ### RTD-Related funtionalities & Settings
@@ -153,8 +153,8 @@ For ORP Sensor following states are listening for changes:
 
 **RTD States with includes State change detection**
 For RTD Sensor following states are listening for changes: 
-* "Calibrate_Clear" -> Set to true to clear sensor calibration. Will be set to false automatically after calibration was cleared.
-* "Calibrate" -> Set a dot separated value e.g. xx.x mV to run the calibration with desired value. Will be cleared after calibration automatically
+* **"Calibrate_Clear"** -> Set to true to clear sensor calibration. Will be set to false automatically after calibration was cleared.
+* **"Calibrate"** -> Set a dot separated value e.g. xx.x mV to run the calibration with desired value. Will be cleared after calibration automatically
 
 ### Pump-Related funtionalities & Settings
 
@@ -175,10 +175,10 @@ For RTD Sensor following states are listening for changes:
 * **"Set constant Flow Rate"-Button** -> Pump will dispense the given amount of ml per minute "ml/min" for the given duration in minutes
 
 For EZO Pumps the following states are listening for changes: 
-* "Continous_dispense" -> If set to true the pump will jump into continous dispense mode with 105ml/min (reverse switch considered). If set to false the pump will stop dispensing.
-* "Dose_over_time" -> Format: commaseparated values ml,duration in min -> Dispenses the given volume over the given minutes. ml for volume and duration in minutes. Negative amounts will run the pump in reverse
-* "Dispense_volume" -> Dispenses the given volume(ml). Negative amounts will run the pump in reverse
-* "Constant_flow_rate" -> Format: commaseparated values ml per min,duration -> Dispenses constantly the given volume/min over the given duration in minutes. ml for volume/min and duration in minutes. Negative amounts will run the pump in reverse
+* **"Continous_dispense"** -> If set to true the pump will jump into continous dispense mode with 105ml/min (reverse switch considered). If set to false the pump will stop dispensing.
+* **"Dose_over_time"** -> Format: commaseparated values ml,duration in min -> Dispenses the given volume over the given minutes. ml for volume and duration in minutes. Negative amounts will run the pump in reverse
+* **"Dispense_volume"** -> Dispenses the given volume(ml). Negative amounts will run the pump in reverse
+* **"Constant_flow_rate"** -> Format: commaseparated values ml per min,duration -> Dispenses constantly the given volume/min over the given duration in minutes. ml for volume/min and duration in minutes. Negative amounts will run the pump in reverse
 
 ### DISCLAIMER
 
