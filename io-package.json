@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "atlas-scientific-ezo-i2c",
-    "version": "1.2.4",
+    "version": "2.0.0",
     "news": {
+      "2.0.0": {
+        "en": "Feature request: add the \"active\" Switch to objects #10 Part I -> Added State including state change listeners \"IsPaused\" to pause measure per sensor during runtime\nFeature request: add the \"calibration\" switches to objects #10 Part II -> Added calibration state objects\nAdjusted Readme with Help for new Features\nAdded state translations for alphanumeric and boolean states to clear text",
+        "de": "Featureanfrage: Fügen Sie den aktiven Switch zu Objekten #10 Teil I -> Zusätzlicher Staat einschließlich Zustandsänderungshörer IsPaused, um Maß pro Sensor während der Laufzeit zu halten\nFeatureanfrage: Fügen Sie die Kalibrierschalter zu Objekten #10 Teil II -> Hinzufügen von Kalibrierzustandsobjekten\nJusted Readme mit Hilfe für neue Features\nStaatliche Übersetzungen für alphanumerische und boolesche Staaten hinzugefügt, um Text zu löschen",
+        "ru": "Запрос функции: добавьте активный Switch в объекты #10 Part I -> Добавили государство, включая слушатели изменения штата, предназначено для паузы измерения в течение датчика во время рабочего времени\nЗапрос функции: добавьте калибровочные переключатели на объекты #10 Part II -> Добавлены калибровочные государственные объекты\nНастройка Readme с помощью для новых функций\nДобавлены государственные переводы для альфаномерных и болевых государств для ясного текста",
+        "pt": "Requisito de recurso: adicione o interruptor ativo aos objetos #10 Parte I -> Estado adicionado incluindo os ouvintes de mudança de estado IsPaused para pausar medida por sensor durante o tempo de execução\nPedido do recurso: adicione os interruptores de calibração aos objetos #10 Parte II -> Objetos de estado de calibração adicionados\nReadme ajustado com ajuda para novos recursos\nAdicionadas traduções estaduais para estados alfanuméricos e booleanos para texto claro",
+        "nl": "Feature verzoek: voeg de actieve Switch toe aan objecten Inclusief staatswijziging luisteraars isPaus om de sensor te pauzeren tijdens de looptijd\nFeature verzoek: voeg de kalibratie aan objecten toe. Toegevoegd kalibratie voorwerpen\nAangepaste Readme voor nieuwe Features\nVertaling:",
+        "fr": "Demande de caractéristique: ajouter l'interrupteur actif aux objets #10 Partie I - Cancer État ajouté, y compris les auditeurs de changement d'état IsPaused pour faire une pause mesure par capteur pendant la course\nDemande de caractéristique: ajouter les interrupteurs d'étalonnage aux objets #10 Partie II - Cancer Ajout d ' objets d ' état d ' étalonnage\nAjusté Readme avec Aide pour les nouvelles fonctionnalités\nAjout de traductions d'état pour les États alphanumériques et booléens au texte clair",
+        "it": "Richiesta caratteristica: aggiungere l'interruttore attivo agli oggetti #10 Parte I -> Aggiunto Stato compresi gli ascoltatori di cambiamento di stato IsPaused a pausa misura per sensore durante il runtime\nRichiesta caratteristica: aggiungere gli interruttori di calibrazione agli oggetti #10 Parte II -> Oggetti di stato di calibrazione aggiunti\nReadme regolato con aiuto per nuove funzionalità\nAggiunte traduzioni di stato per gli stati alfanumerici e booleani a testo chiaro",
+        "es": "Solicitud de alimentación: añadir el interruptor activo a los objetos #10 Part I - Conf Estado añadido incluyendo los oyentes del cambio de estado sePausa para detener la medida por sensor durante el tiempo de funcionamiento\nSolicitud de alimentación: agregue los interruptores de calibración a los objetos #10 Parte II - título Objetos del estado de calibración\nReadme ajustado con ayuda para nuevas características\nTraducciones estatales agregadas para estados alfanuméricos y booleanos a texto claro",
+        "pl": "Wykorzystywanie: dodanie aktywnego Switch do obiektów #10 części I ->>. Dodany stan, włączając słuchaczy IsPauseda do przerwania pomiaru na czujnik w czasie wykonywania programu\nZapytanie: dodanie kalibracji przełącza się do obiektów #10 części II ->>. Zamknięta kalibracja obiektów państwowych\nAdjusted Readme with Help for New Features (ang.)\nTłumaczenia państwowe dla państw alfanumerycznych i booleańskich w celu oczyszczania tekstu",
+        "uk": "Запит на функцію: додати активний перемикач на об'єкти #10 Частина I -> Додано стан, в тому числі слухачі змінного стану, які використовуються для вимірювання пауза в режимі runtime\nЗапит на використання: додати перемикачі калібрування на об'єкти #10 Частина II -> Додано калібрувальні об'єкти\nРегульований Readme з доповіддю для нових функцій\nДодано державні переклади для альфа-нумерних і булевих держав для чіткого тексту",
+        "zh-cn": "资格要求:将积极的巫术添加到第10部分第一部分—— > 加入国,包括国家变化倾听者IPaus在经营期间对每个传感器采取零用措施\n资格要求:增加对编号为II- 的物体的校舍。 增加国家目标\nA. 改正读书,帮助新名称\n添加国邮寄和声音州的翻译,以明确案文"
+      },
       "1.2.4": {
         "en": "Finished first Pump implementation (UI and Pump control) untested due to missing device\nextended README.md\nFurther translations",
         "de": "Fertige erste Pumpen-Implementierung (UI und Pumpensteuerung) durch fehlendes Gerät nicht getestet\nerweiterte README.md\nWeitere Übersetzungen",
@@ -80,19 +93,6 @@
         "pl": "Przełożył program Info\nRozszerzenia macierzy testowych (16.x, 18.x, 20.x)\nPrzekład pasterski\nZamienił Whitespace dla wszystkich państw z Sensorów i wymienił się z podkreśleniami",
         "uk": "Вилучена інформація розробника\nРозширений тест матриці [16.x, 18.x, 20.x]\nПереклади\nВилучені білі простори для всіх держав від датчиків і обмінів з низами",
         "zh-cn": "驱离发展者信息\n[16.x、18.x、20.x]\n波 鲁\n取消对所有国家的白天空间,并交换强调"
-      },
-      "1.0.0": {
-        "en": "further bugfixes\npatched release yml file\nadded  releaseconfig.json",
-        "de": "weitere bugfixes\ngepatchte release-yml-datei\nzusätzlich releaseconfig.json",
-        "ru": "дальнейшие исправления\nзапатчованный релиз yml файл\nдобавлено releaseconfig.json",
-        "pt": "mais correções de bugs\narquivo yml versão corrigida\nadicionado releaseconfig.json",
-        "nl": "verder insecten\nvertaling:\nvertaling:",
-        "fr": "autres bugfixes\nfichier patched release yml\najouté releaseconfig.json",
-        "it": "ulteriori bugfix\nfile yml di rilascio patchato\naggiunto releaseconfig.json",
-        "es": "más bugfixes\narchivo yml de liberación parche\nañadido releaseconfig.json",
-        "pl": "pluszak\npatch release yml file\ndodał również konfig.json",
-        "uk": "подальші виправлення\nпатчований реліз yml файл\njavascript licenses api веб-сайт go1.13.8",
-        "zh-cn": "进一步固定\n附录\n增加释放。"
       }
     },
     "title": "Atlas Scientific EZO",
