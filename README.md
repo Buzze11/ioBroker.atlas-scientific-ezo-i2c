@@ -124,10 +124,10 @@ For DO Sensor following states are listening for changes:
 
 For pH Sensor following states are listening for changes: 
 * "Temperature_compensation" -> Sets the temperature compensation
-* Calibrate_Clear -> Set to true to clear sensor calibration. Will be set to false automatically after calibration was cleared.
-* Calibrate_Low -> Set a dot separated value e.g. 4.0 to run the low calibration with desired value. Will be cleared after calibration automatically
-* Calibrate_Mid -> Set a dot separated value e.g. 7.0 to run the low calibration with desired value. Will be cleared after calibration automatically
-* Calibrate_High -> Set a a dot separated value e.g. 10.0 to run the low calibration with desired value. Will be cleared after calibration automatically
+* "Calibrate_Clear" -> Set to true to clear sensor calibration. Will be set to false automatically after calibration was cleared.
+* "Calibrate_Low" -> Set a dot separated value e.g. 4.0 to run the low calibration with desired value. Will be cleared after calibration automatically
+* "Calibrate_Mid" -> Set a dot separated value e.g. 7.0 to run the low calibration with desired value. Will be cleared after calibration automatically
+* "Calibrate_High" -> Set a a dot separated value e.g. 10.0 to run the low calibration with desired value. Will be cleared after calibration automatically
 
 ### ORP-Related funtionalities & Settings
 
@@ -140,8 +140,8 @@ For pH Sensor following states are listening for changes:
 
 For ORP Sensor following states are listening for changes: 
 * "Temperature_compensation" -> Sets the temperature compensation
-* Calibrate_Clear -> Set to true to clear sensor calibration. Will be set to false automatically after calibration was cleared.
-* Calibrate -> Set a dot separated value e.g. xx.x mV to run the calibration with desired value. Will be cleared after calibration automatically
+* "Calibrate_Clear" -> Set to true to clear sensor calibration. Will be set to false automatically after calibration was cleared.
+* "Calibrate" -> Set a dot separated value e.g. xx.x mV to run the calibration with desired value. Will be cleared after calibration automatically
 
 
 ### RTD-Related funtionalities & Settings
@@ -153,8 +153,8 @@ For ORP Sensor following states are listening for changes:
 
 **RTD States with includes State change detection**
 For RTD Sensor following states are listening for changes: 
-* Calibrate_Clear -> Set to true to clear sensor calibration. Will be set to false automatically after calibration was cleared.
-* Calibrate -> Set a dot separated value e.g. xx.x mV to run the calibration with desired value. Will be cleared after calibration automatically
+* "Calibrate_Clear" -> Set to true to clear sensor calibration. Will be set to false automatically after calibration was cleared.
+* "Calibrate" -> Set a dot separated value e.g. xx.x mV to run the calibration with desired value. Will be cleared after calibration automatically
 
 ### Pump-Related funtionalities & Settings
 
@@ -193,8 +193,8 @@ You can check other adapters for examples or ask in the developer community. Usi
 -->
 
 ### **WORK IN PROGRESS**
-- Feature request Feature request: add the "active" Switch to objects #10 Part I -> Added State including state change listeners "IsPaused" to pause measure per sensor during runtime
-- Feature request Feature request: add the "calibration" switches to objects #10 Part II -> Added calibration state objects
+- Feature request: add the "active" Switch to objects #10 Part I -> Added State including state change listeners "IsPaused" to pause measure per sensor during runtime
+- Feature request: add the "calibration" switches to objects #10 Part II -> Added calibration state objects
 - Adjusted Readme with Help for new Features
 - Added state translations for alphanumeric and boolean states to clear text
 
