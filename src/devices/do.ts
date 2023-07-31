@@ -31,8 +31,7 @@ export default class DO extends EzoHandlerBase<DOConfig> {
         });
 
         await this.CreateObjects();
-        await this.setStateAckAsync('IsPaused', this.pausedState);
-        
+
         // Read current setup from sensor
         const deviceParameters = await this.sensor.GetParametersEnabled();
         const deviceName: string = await this.sensor.GetName();
@@ -68,13 +67,15 @@ export default class DO extends EzoHandlerBase<DOConfig> {
         // Set all State change listeners
         await this.CreateStateChangeListeners();
 
+        // Init state objects which are not read from sensor (config objects)
+        await this.InitNonReadStateValues();
+
         // If active and polling interval was set, initialize polling
         if (this.config.isActive && !!this.config.pollingInterval && this.config.pollingInterval > 0) {
             this.startPolling(async () => await this.GetAllReadings(), this.config.pollingInterval, 5000);
         }
         
     }
-    
 
     async CreateStateChangeListeners(): Promise<void>{
 
@@ -98,7 +99,34 @@ export default class DO extends EzoHandlerBase<DOConfig> {
         this.adapter.addStateChangeListener(this.hexAddress + '.IsPaused', async (_oldValue, _newValue) => {
             this.SetPausedFlag(_newValue.toString());
         });
+        this.adapter.addStateChangeListener(this.hexAddress + '.Calibrate_Clear', async (_oldValue, _newValue) => {
+            if(_newValue === true){
+                this.DoCalibration('Clear');
+            }
+        });
+        this.adapter.addStateChangeListener(this.hexAddress + '.Calibrate_Atmospheric', async (_oldValue, _newValue) => {
+            if(_newValue === true){
+                this.DoCalibration('Atmospheric');
+            }
+        });
+        this.adapter.addStateChangeListener(this.hexAddress + '.Calibrate_Zero_DO', async (_oldValue, _newValue) => {
+            if(_newValue === true){
+                this.DoCalibration('0DO');
+            }
+        });
+    }
 
+    async InitNonReadStateValues():Promise<string>{
+        try{
+            await this.setStateAckAsync('IsPaused', this.pausedState);
+            await this.setStateAckAsync('Calibrate_Clear', false);
+            await this.setStateAckAsync('Calibrate_Atmospheric', false);
+            await this.setStateAckAsync('Calibrate_Zero_DO', false);
+            return "State objects initialized successfully";
+        }
+        catch{
+            this.error('Error occured on initializing state objects');
+        }
     }
 
 
@@ -116,10 +144,13 @@ export default class DO extends EzoHandlerBase<DOConfig> {
         await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'IsPaused', {
             type: 'state',
             common: {
-                name: this.hexAddress + ' ' + (this.config.name || 'PH'),
+                name: this.hexAddress + ' ' + (this.config.name || 'DO'),
                 type: 'boolean',
                 role: 'switch',
                 write: true,
+                states: {   true: "paused", 
+                            false: "unpaused", 
+                },
             },
             //native: any
         });
@@ -204,6 +235,9 @@ export default class DO extends EzoHandlerBase<DOConfig> {
                 type: 'boolean',
                 role: 'value',
                 write: false,
+                states: {   true: "on", 
+                            false: "off", 
+                },
             },
             //native: any
         });
@@ -224,20 +258,57 @@ export default class DO extends EzoHandlerBase<DOConfig> {
                 type: 'string',
                 role: 'value',
                 write: false,
+                states: {   "0": "uncalibrated", 
+                            "1": "Atmospheric", 
+                            "2": "Atmospheric & 0DO", 
+                },
             },
             //native: any
         });
-        
+        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Calibrate_Clear', {
+            type: 'state',
+            common: {
+                name: this.hexAddress + ' ' + (this.config.name || 'DO'),
+                type: 'boolean',
+                role: 'switch',
+                write: true,
+            },
+            //native: any
+        });
+        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Calibrate_Atmospheric', {
+            type: 'state',
+            common: {
+                name: this.hexAddress + ' ' + (this.config.name || 'DO'),
+                type: 'boolean',
+                role: 'switch',
+                write: true,
+            },
+            //native: any
+        });
+        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Calibrate_Zero_DO', {
+            type: 'state',
+            common: {
+                name: this.hexAddress + ' ' + (this.config.name || 'DO'),
+                type: 'boolean',
+                role: 'switch',
+                write: true,
+            },
+            //native: any
+        });
     }
 
     async stopAsync(): Promise<void> {
         this.debug('Stopping');
+        this.readingActive = false;
         this.stopPolling();
     }
 
     async GetAllReadings(): Promise<void>{
         try{
             if(this.sensor != null && this.pausedState === false){
+
+                this.readingActive = true;
+
                 const ds = await this.sensor.GetDeviceStatus();
                 await this.setStateAckAsync('Devicestatus', ds);
 
@@ -268,27 +339,37 @@ export default class DO extends EzoHandlerBase<DOConfig> {
 
                 const ic = await this.sensor.IsCalibrated();
                 await this.setStateAckAsync('IsCalibrated', ic);
+
+                this.readingActive = false;
+
             }
         }
         catch{
             this.error('Error occured on getting Device readings');
+            this.readingActive = false;
         }
     }
 
     public async DoCalibration(calibrationtype:string):Promise<string>{
         try{
+
+            await this.WaitForFinishedReading();
+
             this.info('Calibrationtype: ' + calibrationtype);
             switch(calibrationtype){
                 case 'Clear':
                     await this.sensor.ClearCalibration();
+                    await this.setStateAckAsync('Calibrate_Clear', false);
                     return 'DO Calibration was cleared successfully';
                     break;
                 case 'Atmospheric':
                     await this.sensor.CalibrateAtmosphericOxygen();
+                    await this.setStateAckAsync('Calibrate_Atmospheric', false);
                     return 'Atmospheric DO Calibration was done successfully';
                     break;
                 case '0DO':
                     await this.sensor.Calibrate0DissolvedOxygen();
+                    await this.setStateAckAsync('Calibrate_Zero_DO', false);
                     return '0DO Calibration was done successfully';
                     break;
             }

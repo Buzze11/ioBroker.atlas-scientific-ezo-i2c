@@ -34,6 +34,7 @@ class EzoHandlerBase {
     this.config = deviceConfig[deviceConfig.type];
     this.hexAddress = (0, import_shared.toHexString)(deviceConfig.address);
     this.pausedState = false;
+    this.readingActive = false;
   }
   async startPolling(callback, interval, minInterval) {
     this.stopPolling();
@@ -118,6 +119,14 @@ class EzoHandlerBase {
       }
     } catch {
       return "Error occured on setting paused state";
+    }
+  }
+  async WaitForFinishedReading() {
+    while (this.readingActive) {
+      const delay = new import_async.Delay(500, this.adapter);
+      await delay.runAsnyc();
+      if (!this.readingActive)
+        break;
     }
   }
 }

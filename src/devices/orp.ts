@@ -26,7 +26,6 @@ export default class ORP extends EzoHandlerBase<ORPConfig> {
         });
 
         await this.CreateObjects();
-        await this.setStateAckAsync('IsPaused', this.pausedState);
 
         // Read current setup from sensor
         const deviceName: string = await this.sensor.GetName();
@@ -44,6 +43,9 @@ export default class ORP extends EzoHandlerBase<ORPConfig> {
         // Set all State change listeners
         await this.CreateStateChangeListeners();
 
+        // Init state objects which are not read from sensor (config objects)
+        await this.InitNonReadStateValues();
+
         // Set Led usage
         await this.SetLed(this.config.isLedOn);
 
@@ -57,6 +59,27 @@ export default class ORP extends EzoHandlerBase<ORPConfig> {
         this.adapter.addStateChangeListener(this.hexAddress + '.IsPaused', async (_oldValue, _newValue) => {
             this.SetPausedFlag(_newValue.toString());
         });
+        this.adapter.addStateChangeListener(this.hexAddress + '.Calibrate_Clear', async (_oldValue, _newValue) => {
+            if(_newValue === true){
+                this.DoCalibration('Clear', '0');
+            }
+        });
+        this.adapter.addStateChangeListener(this.hexAddress + '.Calibrate', async (_oldValue, _newValue) => {
+            if(_newValue.toString() != '')
+                this.DoCalibration('Standard',_newValue.toString());
+        });
+    }
+
+    async InitNonReadStateValues():Promise<string>{
+        try{
+            await this.setStateAckAsync('IsPaused', this.pausedState);
+            await this.setStateAckAsync('Calibrate_Clear', false);
+            await this.setStateAckAsync('Calibrate', '');
+            return "State objects initialized successfully";
+        }
+        catch{
+            this.error('Error occured on initializing state objects');
+        }
     }
     
     async CreateObjects(): Promise<void>{
@@ -73,10 +96,13 @@ export default class ORP extends EzoHandlerBase<ORPConfig> {
         await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'IsPaused', {
             type: 'state',
             common: {
-                name: this.hexAddress + ' ' + (this.config.name || 'PH'),
+                name: this.hexAddress + ' ' + (this.config.name || 'ORP'),
                 type: 'boolean',
                 role: 'switch',
                 write: true,
+                states: {   true: "paused", 
+                            false: "unpaused", 
+                },
             },
             //native: any
         });
@@ -108,6 +134,9 @@ export default class ORP extends EzoHandlerBase<ORPConfig> {
                 type: 'boolean',
                 role: 'value',
                 write: false,
+                states: {   true: "on", 
+                            false: "off", 
+                },
             },
             //native: any
         });
@@ -128,6 +157,29 @@ export default class ORP extends EzoHandlerBase<ORPConfig> {
                 type: 'string',
                 role: 'value',
                 write: false,
+                states: {   "0": "uncalibrated", 
+                            "1": "calibrated", 
+                },
+            },
+            //native: any
+        });
+        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Calibrate_Clear', {
+            type: 'state',
+            common: {
+                name: this.hexAddress + ' ' + (this.config.name || 'ORP'),
+                type: 'boolean',
+                role: 'switch',
+                write: true,
+            },
+            //native: any
+        });
+        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Calibrate', {
+            type: 'state',
+            common: {
+                name: this.hexAddress + ' ' + (this.config.name || 'ORP'),
+                type: 'string',
+                role: 'value',
+                write: true,
             },
             //native: any
         });
@@ -136,12 +188,16 @@ export default class ORP extends EzoHandlerBase<ORPConfig> {
 
     async stopAsync(): Promise<void> {
         this.debug('Stopping');
+        this.readingActive = false;
         this.stopPolling();
     }
 
     async GetAllReadings(): Promise<void>{
         try{
             if(this.sensor != null && this.pausedState === false){
+                
+                this.readingActive = true;
+
                 const ds = await this.sensor.GetDeviceStatus();
                 await this.setStateAckAsync('Devicestatus', ds);
 
@@ -159,23 +215,32 @@ export default class ORP extends EzoHandlerBase<ORPConfig> {
 
                 const ic = await this.sensor.IsCalibrated();
                 await this.setStateAckAsync('IsCalibrated', ic);
+
+                this.readingActive = false;
+
             }
         }
         catch{
             this.error('Error occured on getting Device readings');
+            this.readingActive = false;
         }
     }
 
     public async DoCalibration(calibrationtype:string, orpValue:string):Promise<string>{
         try{
+
+            await this.WaitForFinishedReading();
+
             this.info('Calibrationtype: ' + calibrationtype);
             switch(calibrationtype){
                 case 'Clear':
                     await this.sensor.ClearCalibration();
+                    await this.setStateAckAsync('Calibrate_Clear', false);
                     return 'ORP Calibration was cleared successfully';
                     break;
                 case 'Standard':
                     await this.sensor.Calibrate(parseFloat(orpValue));
+                    await this.setStateAckAsync('Calibrate', '');
                     return 'ORP Calibration was done successfully';
                     break;
             }

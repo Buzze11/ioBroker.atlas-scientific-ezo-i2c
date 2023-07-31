@@ -47,7 +47,6 @@ class ORP extends import_ezo_handler_base.EzoHandlerBase {
       native: this.config
     });
     await this.CreateObjects();
-    await this.setStateAckAsync("IsPaused", this.pausedState);
     const deviceName = await this.sensor.GetName();
     if (!this.config.name) {
       this.info("Devicename is not clear. Clearing Devicename");
@@ -57,6 +56,7 @@ class ORP extends import_ezo_handler_base.EzoHandlerBase {
       await this.sensor.SetName(this.config.name);
     }
     await this.CreateStateChangeListeners();
+    await this.InitNonReadStateValues();
     await this.SetLed(this.config.isLedOn);
     if (!!this.config.pollingInterval && this.config.pollingInterval > 0) {
       this.startPolling(async () => await this.GetAllReadings(), this.config.pollingInterval, 5e3);
@@ -66,6 +66,25 @@ class ORP extends import_ezo_handler_base.EzoHandlerBase {
     this.adapter.addStateChangeListener(this.hexAddress + ".IsPaused", async (_oldValue, _newValue) => {
       this.SetPausedFlag(_newValue.toString());
     });
+    this.adapter.addStateChangeListener(this.hexAddress + ".Calibrate_Clear", async (_oldValue, _newValue) => {
+      if (_newValue === true) {
+        this.DoCalibration("Clear", "0");
+      }
+    });
+    this.adapter.addStateChangeListener(this.hexAddress + ".Calibrate", async (_oldValue, _newValue) => {
+      if (_newValue.toString() != "")
+        this.DoCalibration("Standard", _newValue.toString());
+    });
+  }
+  async InitNonReadStateValues() {
+    try {
+      await this.setStateAckAsync("IsPaused", this.pausedState);
+      await this.setStateAckAsync("Calibrate_Clear", false);
+      await this.setStateAckAsync("Calibrate", "");
+      return "State objects initialized successfully";
+    } catch {
+      this.error("Error occured on initializing state objects");
+    }
   }
   async CreateObjects() {
     await this.adapter.extendObjectAsync(this.hexAddress + ".Devicestatus", {
@@ -80,10 +99,14 @@ class ORP extends import_ezo_handler_base.EzoHandlerBase {
     await this.adapter.extendObjectAsync(this.hexAddress + ".IsPaused", {
       type: "state",
       common: {
-        name: this.hexAddress + " " + (this.config.name || "PH"),
+        name: this.hexAddress + " " + (this.config.name || "ORP"),
         type: "boolean",
         role: "switch",
-        write: true
+        write: true,
+        states: {
+          true: "paused",
+          false: "unpaused"
+        }
       }
     });
     await this.adapter.extendObjectAsync(this.hexAddress + ".ORP_Value", {
@@ -111,7 +134,11 @@ class ORP extends import_ezo_handler_base.EzoHandlerBase {
         name: this.hexAddress + " " + (this.config.name || "ORP"),
         type: "boolean",
         role: "value",
-        write: false
+        write: false,
+        states: {
+          true: "on",
+          false: "off"
+        }
       }
     });
     await this.adapter.extendObjectAsync(this.hexAddress + ".Devicename", {
@@ -129,17 +156,41 @@ class ORP extends import_ezo_handler_base.EzoHandlerBase {
         name: this.hexAddress + " " + (this.config.name || "ORP"),
         type: "string",
         role: "value",
-        write: false
+        write: false,
+        states: {
+          "0": "uncalibrated",
+          "1": "calibrated"
+        }
+      }
+    });
+    await this.adapter.extendObjectAsync(this.hexAddress + ".Calibrate_Clear", {
+      type: "state",
+      common: {
+        name: this.hexAddress + " " + (this.config.name || "ORP"),
+        type: "boolean",
+        role: "switch",
+        write: true
+      }
+    });
+    await this.adapter.extendObjectAsync(this.hexAddress + ".Calibrate", {
+      type: "state",
+      common: {
+        name: this.hexAddress + " " + (this.config.name || "ORP"),
+        type: "string",
+        role: "value",
+        write: true
       }
     });
   }
   async stopAsync() {
     this.debug("Stopping");
+    this.readingActive = false;
     this.stopPolling();
   }
   async GetAllReadings() {
     try {
       if (this.sensor != null && this.pausedState === false) {
+        this.readingActive = true;
         const ds = await this.sensor.GetDeviceStatus();
         await this.setStateAckAsync("Devicestatus", ds);
         const orp = await this.sensor.GetReading();
@@ -152,21 +203,26 @@ class ORP extends import_ezo_handler_base.EzoHandlerBase {
         await this.setStateAckAsync("Devicename", name);
         const ic = await this.sensor.IsCalibrated();
         await this.setStateAckAsync("IsCalibrated", ic);
+        this.readingActive = false;
       }
     } catch {
       this.error("Error occured on getting Device readings");
+      this.readingActive = false;
     }
   }
   async DoCalibration(calibrationtype, orpValue) {
     try {
+      await this.WaitForFinishedReading();
       this.info("Calibrationtype: " + calibrationtype);
       switch (calibrationtype) {
         case "Clear":
           await this.sensor.ClearCalibration();
+          await this.setStateAckAsync("Calibrate_Clear", false);
           return "ORP Calibration was cleared successfully";
           break;
         case "Standard":
           await this.sensor.Calibrate(parseFloat(orpValue));
+          await this.setStateAckAsync("Calibrate", "");
           return "ORP Calibration was done successfully";
           break;
       }

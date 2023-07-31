@@ -1,5 +1,4 @@
 import { EzoDeviceConfig, ImplementationConfigBase } from '../lib/adapter-config';
-import { Polling } from '../lib/async';
 import { EzoHandlerBase } from './ezo-handler-base';
 import * as ezo from '../atlas-scientific-i2c';
 
@@ -26,7 +25,6 @@ export default class PH extends EzoHandlerBase<PHConfig> {
         });
 
         await this.CreateObjects();
-        await this.setStateAckAsync('IsPaused', this.pausedState);
 
         // Read current setup from sensor
          const deviceName: string = await this.sensor.GetName();
@@ -44,6 +42,9 @@ export default class PH extends EzoHandlerBase<PHConfig> {
         // Set all State change listeners
         await this.CreateStateChangeListeners();
 
+        // Init state objects which are not read from sensor (config objects)
+        await this.InitNonReadStateValues();
+
         // Set Led usage
         await this.SetLed(this.config.isLedOn);
 
@@ -60,6 +61,23 @@ export default class PH extends EzoHandlerBase<PHConfig> {
         });
         this.adapter.addStateChangeListener(this.hexAddress + '.IsPaused', async (_oldValue, _newValue) => {
             this.SetPausedFlag(_newValue.toString());
+        });
+        this.adapter.addStateChangeListener(this.hexAddress + '.Calibrate_Clear', async (_oldValue, _newValue) => {
+            if(_newValue === true){
+                this.DoCalibration('Clear', '0');
+            }
+        });
+        this.adapter.addStateChangeListener(this.hexAddress + '.Calibrate_Low', async (_oldValue, _newValue) => {
+            if(_newValue.toString() != '')
+                this.DoCalibration('Low',_newValue.toString());
+        });
+        this.adapter.addStateChangeListener(this.hexAddress + '.Calibrate_Mid', async (_oldValue, _newValue) => {
+            if(_newValue.toString() != '')
+                this.DoCalibration('Mid',_newValue.toString());
+        });
+        this.adapter.addStateChangeListener(this.hexAddress + '.Calibrate_High', async (_oldValue, _newValue) => {
+            if(_newValue.toString() != '')
+                this.DoCalibration('High',_newValue.toString());
         });
     }
 
@@ -81,6 +99,10 @@ export default class PH extends EzoHandlerBase<PHConfig> {
                 type: 'boolean',
                 role: 'switch',
                 write: true,
+                states: {   true: "paused", 
+                            false: "unpaused", 
+
+                },
             },
             //native: any
         });
@@ -156,6 +178,9 @@ export default class PH extends EzoHandlerBase<PHConfig> {
                 type: 'boolean',
                 role: 'value',
                 write: false,
+                states: {   true: "on", 
+                            false: "off", 
+                },
             },
             //native: any
         });
@@ -176,20 +201,86 @@ export default class PH extends EzoHandlerBase<PHConfig> {
                 type: 'string',
                 role: 'value',
                 write: false,
+                states: {   "0": "uncalibrated", 
+                            "1": "one point", 
+                            "2": "two point", 
+                            "3": "three point"
+                        },
             },
             //native: any
         });
-        
+        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Calibrate_Clear', {
+            type: 'state',
+            common: {
+                name: this.hexAddress + ' ' + (this.config.name || 'PH'),
+                type: 'boolean',
+                role: 'switch',
+                write: true,
+            },
+            //native: any
+        });
+        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Calibrate_Low', {
+            type: 'state',
+            common: {
+                name: this.hexAddress + ' ' + (this.config.name || 'PH'),
+                type: 'string',
+                role: 'value',
+                unit: 'pH',
+                write: true,
+            },
+            //native: any
+        });
+        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Calibrate_Mid', {
+            type: 'state',
+            common: {
+                name: this.hexAddress + ' ' + (this.config.name || 'PH'),
+                type: 'string',
+                role: 'value',
+                unit: 'pH',
+                write: true,
+            },
+            //native: any
+        });
+        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Calibrate_High', {
+            type: 'state',
+            common: {
+                name: this.hexAddress + ' ' + (this.config.name || 'PH'),
+                type: 'string',
+                role: 'value',
+                unit: 'pH',
+                write: true,
+            },
+            //native: any
+        });
     }
+
+    async InitNonReadStateValues():Promise<string>{
+        try{
+            await this.setStateAckAsync('IsPaused', this.pausedState);
+            await this.setStateAckAsync('Calibrate_Clear', false);
+            await this.setStateAckAsync('Calibrate_Low', '');
+            await this.setStateAckAsync('Calibrate_Mid', '');
+            await this.setStateAckAsync('Calibrate_High', '');
+            return "State objects initialized successfully";
+        }
+        catch{
+            this.error('Error occured on initializing state objects');
+        }
+    }
+
 
     async stopAsync(): Promise<void> {
         this.debug('Stopping');
+        this.readingActive = false;
         this.stopPolling();
     }
 
     async GetAllReadings(): Promise<void>{
         try{
             if(this.sensor != null && this.pausedState === false){
+
+                this.readingActive = true;
+
                 const ds = await this.sensor.GetDeviceStatus();
                 await this.setStateAckAsync('Devicestatus', ds);
 
@@ -218,33 +309,39 @@ export default class PH extends EzoHandlerBase<PHConfig> {
                     await this.setStateAckAsync('Slope_Base', slope[1]);
                 if(slope[2] != null)
                     await this.setStateAckAsync('Slope_Zero_Point', slope[2]);
+
+                this.readingActive = false;
             }
         }
         catch{
             this.error('Error occured on getting Device readings');
+            this.readingActive = false;
         }
     }
 
     public async DoCalibration(calibrationtype:string, phValue:string):Promise<string>{
         try{
             this.info('Calibrationtype: ' + calibrationtype);
+            
+            await this.WaitForFinishedReading();
+            
             switch(calibrationtype){
                 case 'Clear':
                     await this.sensor.ClearCalibration();
-                    return 'DO Calibration was cleared successfully';
-                    break;
+                    await this.setStateAckAsync('Calibrate_Clear', false);
+                    return 'PH Calibration was cleared successfully';
                 case 'Low':
                     await this.sensor.CalibrateLow(parseFloat(phValue));
+                    await this.setStateAckAsync('Calibrate_Low', '');
                     return 'Low Calibration was done successfully';
-                    break;
                 case 'Mid':
                     await this.sensor.CalibrateMid(parseFloat(phValue));
+                    await this.setStateAckAsync('Calibrate_Mid', '');
                     return 'Mid Calibration was done successfully';
-                    break;
                 case 'High':
                     await this.sensor.CalibrateHigh(parseFloat(phValue));
+                    await this.setStateAckAsync('Calibrate_High', '');
                     return 'High Calibration was done successfully';
-                    break;
             }
            
         }

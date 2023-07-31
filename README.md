@@ -85,7 +85,6 @@ Some states have a state change detection mechanism running which gives the poss
 
 * "IsPaused" -> Switch to temporarely pause all measure readings from Device unless it is "Actice" during runtime. true = paused, false = measurements active. Value is defaultet to false (measure active) on Adapter Start/Restart.
 
-
 ## Device related settings & functionalities
 
 ### DO-Related funtionalities & Settings
@@ -100,28 +99,35 @@ Some states have a state change detection mechanism running which gives the poss
 * **"Set Salinity Compensation"-Button** -> set the salinity compensation with the desired value inside the textfield e.g. 50000 us  
 * **"isPpt"-Switch** -> Switch to define if Salinity value read/set in ppt instead of us
 
-**States with includes State change detection**
+**DO States with includes State change detection**
 
 For DO Sensor following states are listening for changes: 
 * "Temperature_compensation" -> Sets the temperature compensation
 * "Salinity_compensation" -> Sets the salinity compensation
 * "Pressure_compensation" -> Sets the pressure compensation
+* "Calibrate_Clear" -> Set to true to clear sensor calibration. Will be set to false calibration was cleared.
+* "Calibrate_Atmospheric" -> Set to true to run an atmospheric sensor calibration. 
+* "Calibrate_Zero_DO" -> Set to true to to run a zero dissolved oxygen sensor calibration. 
+
 
 ### pH-Related funtionalities & Settings
 
 ![Image](pictures/ph_config.png)
 
 * **"Clear Calibration"-Button** -> Delete calibration Data  
-* **"Calibrate Low"-Button** -> execute the low value calibration (usually 4.0 )  
+* **"Calibrate Low"-Button** -> execute the low value calibration (usually 4.0 )
 * **"Calibrate Mid"-Button** -> execute the mid value calibration (usually 7.0 )  
 * **"Calibrate High"-Button** -> execute the high value calibration (usually 10.0 )  
 * **"Set Temp. Compensation"-Button** -> set the temperature compensation with the desired value inside the textfield e.g. 20.4
 
-**States with includes State change detection**
+**pH States with includes State change detection**
 
 For pH Sensor following states are listening for changes: 
 * "Temperature_compensation" -> Sets the temperature compensation
-
+* Calibrate_Clear -> Set to true to clear sensor calibration. Will be set to false automatically after calibration was cleared.
+* Calibrate_Low -> Set a dot separated value e.g. 4.0 to run the low calibration with desired value. Will be set to 0 when calibration is cleared.
+* Calibrate_Mid -> Set a dot separated value e.g. 7.0 to run the low calibration with desired value. Will be set to 0 when calibration is cleared.
+* Calibrate_High -> Set a a dot separated value e.g. 10.0 to run the low calibration with desired value. Will be set to 0 when calibration is cleared.
 
 ### ORP-Related funtionalities & Settings
 
@@ -130,12 +136,25 @@ For pH Sensor following states are listening for changes:
 * **"Clear Calibration"-Button** -> Delete calibration Data  
 * **"Calibrate"-Button** -> calibrate to desired value
 
+**ORP States with includes State change detection**
+
+For ORP Sensor following states are listening for changes: 
+* "Temperature_compensation" -> Sets the temperature compensation
+* Calibrate_Clear -> Set to true to clear sensor calibration. Will be set to false automatically after calibration was cleared.
+* Calibrate -> Set a dot separated value e.g. xx.x mV to run the calibration with desired value. Will be set to 0 when calibration is cleared.
+
+
 ### RTD-Related funtionalities & Settings
 
 ![Image](pictures/rtd_config.png)
 
 * **"Clear Calibration"-Button** -> Delete calibration Data  
 * **"Calibrate"-Button** -> calibrate to desired value
+
+**RTD States with includes State change detection**
+For RTD Sensor following states are listening for changes: 
+* Calibrate_Clear -> Set to true to clear sensor calibration. Will be set to false automatically after calibration was cleared.
+* Calibrate -> Set a dot separated value e.g. xx.x mV to run the calibration with desired value. Will be set to 0 when calibration is cleared.
 
 ### Pump-Related funtionalities & Settings
 
@@ -174,8 +193,9 @@ You can check other adapters for examples or ask in the developer community. Usi
 -->
 
 ### **WORK IN PROGRESS**
-- Added State including state change listeners "IsPaused" to pause measure per sensor during runtime
-
+- Feature request Feature request: add the "active" Switch to objects #10 Part I -> Added State including state change listeners "IsPaused" to pause measure per sensor during runtime
+- Feature request Feature request: add the "calibration" switches to objects #10 Part II -> Added calibration state objects
+- Adjusted Readme with Help for new Features
 
 ### 1.2.4 (2023-07-06)
 - Finished first Pump implementation (UI and Pump control) untested due to missing device

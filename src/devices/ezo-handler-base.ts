@@ -12,7 +12,7 @@ export abstract class EzoHandlerBase<T extends EzoDeviceConfig> {
     public readonly hexAddress: string;
     public sensor; 
     protected pausedState: boolean;
-
+    protected readingActive: boolean;
     protected readonly config: T;
     
     private polling?: Polling;
@@ -28,6 +28,7 @@ export abstract class EzoHandlerBase<T extends EzoDeviceConfig> {
         this.config = deviceConfig[deviceConfig.type] as T;
         this.hexAddress = toHexString(deviceConfig.address);
         this.pausedState = false;
+        this.readingActive = false;
     }
 
     // methods to override
@@ -141,6 +142,17 @@ export abstract class EzoHandlerBase<T extends EzoDeviceConfig> {
         }
         catch{
             return 'Error occured on setting paused state';
+        }
+    }
+
+    public async WaitForFinishedReading(){
+        // wait until measurement is inactive to avoid collision on i2c bus 
+        while(this.readingActive){
+            const delay = new Delay(500, this.adapter);
+            await delay.runAsnyc();
+    
+            if(!this.readingActive)
+                break;
         }
     }
 }
