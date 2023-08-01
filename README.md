@@ -11,9 +11,9 @@
 
 **Tests:** ![Test and Release](https://github.com/Buzze11/ioBroker.atlas-scientific-ezo/workflows/Test%20and%20Release/badge.svg)
 
-### If you like it, please continue reading ... and donate my efforts
+### If you like this adapter, please read this to the end and help me with donating my efforts
 
-I am happy about every single person I can help to integrate these great Atlas Scientific Sensors into their own home, and I hope you can imagine how much time and effort such an adapter development entails.. That said, I'm very thankful about your donation in Paypal if it is useful for you..
+I am happy about every single person I can help to integrate these great Atlas Scientific Sensors into their own home, and I hope you can imagine how much time and effort such an adapter development entails.. That said, I'm very thankful about your help to me with a donation in Paypal..
 
 [![Donate with PayPal](https://raw.githubusercontent.com/stefan-niedermann/paypal-donate-button/master/paypal-donate-button.png)](https://www.paypal.com/donate/?hosted_button_id=7PGJFJX8X3Y82)
 
@@ -21,7 +21,7 @@ I am happy about every single person I can help to integrate these great Atlas S
 
 This ioBroker Adapter integrates several Atlas Scientific EZO Devices https://atlas-scientific.com/ into your own ioBroker environment. The EZO devices have to be configured for I2C Bus and have to be mounted on a device (e.g. RaspberryPi..) with configured and enabled I2C Bus.
 
-Currently Supported Devices
+### Currently Supported Devices
 
 * EZO DO - Dissolved Oxygen -> https://atlas-scientific.com/dissolved-oxygen
 * EZO ORP - Oxidation-reduction potential -> https://atlas-scientific.com/orp
@@ -29,13 +29,13 @@ Currently Supported Devices
 * EZO RTD - Resistance Temperature Detector -> https://atlas-scientific.com/temperature
 * EZO PMP - Embedded Peristaltic Dosing Pump -> https://atlas-scientific.com/peristaltic/ezo-pmp/ (untested due to missing hardware)
 
-Future Support
+### Future Support
 
 * EZO EC - Electrical conductivity -> https://atlas-scientific.com/conductivity
 
 ## Getting started
 
-## Install
+### Installation
 
 Especially make sure, that you have properly configured and enabled I2C on your system (if needed):
 
@@ -43,25 +43,25 @@ Especially make sure, that you have properly configured and enabled I2C on your 
 
 ### Setup Adapter
 
-After the Adapter installation and the preconfigured RaspberryPi you will find the new Adapter in the Instaces Section where you can further configure your sensors.
+After the Adapter installation and the preconfiguration on the RaspberryPi you will find the new Adapter in the Instaces Section where you can further configure your sensors.
 
 ![Image](pictures/adapter_instance.png)
 
-With a click on the wrench icon a new settings window will appear pre selected with the "General" Settings Tab.
+With a click on the wrench icon a new settings window will appear, pre selected with the "General" Settings Tab.
 
-Here you have to insert the I2C Number into the Textfield which was configured on the Raspberry Pi (0 or 1). Afterwards you can then press the "Device Search"-Button to search for all connected EZO circuits. The found device-addresses will be listed on the left hand side.
+Here you have to insert the I2C Number into the Textfield which has been configured on the Raspberry Pi (0 or 1). Afterwards you can press the "Device Search"-Button to search for all connected EZO circuits. The detected device-addresses will be listed on the left hand side.
 
 ![Image](pictures/device_search.png)
 
-With a click on one of the found devices the unconfigured device screen appears.
+With a click on one of the detected devices the "unconfigured" device screen appears.
 
 ![Image](pictures/unconfigured_device.png)
 
-Click the dropdown menu to select the type of your selected device.
+Click the dropdown menu to select the type of your desired device.
 
 ![Image](pictures/device_selector.png)
 
-After you`ve selected the type of device the settings for the desired device appear. Repeat those steps for each device you wanna use.
+After you`ve selected the type of device the settings screen for the desired device appear. Repeat those steps for each device you want to use.
 
 ![Image](pictures/configured_device.png)
 
@@ -74,20 +74,21 @@ After you`ve selected the type of device the settings for the desired device app
 * **Active Switch:** Switch to enable or disable the use of that sensor
 * **LED Active Switch:** With this setting you can enable or disable the LED on the EZO Device
 
-## Common Functionalities (all devices)
+### Common Functionalities (all devices)
 
 * **"Find EZO Board"-Button** -> With a click on this button the LED on the EZO Board starts flashing fast.
 * **"Factory Reset"-Button** -> Execute a factory reset for that device
 * **"Change I2C Address"-Button** -> Here you can program a new I2C Address for that adapter. Please make sure you save the config afterwards.
 
-## Common States / Objects (all devices)
+### Common States / Objects (all devices)
 Some states have a state change detection mechanism running which gives the possibility that some values can be set not only by the Admin UI but additionally with changes directly to the state value from outside. (e.g. via Script or manually) This can be useful for example if you want to use comepsation values from a sensor like temperature to adjust the temperature compensation value on the PH Sensor.
 
 * **"IsPaused"** -> Switch to temporarely pause all measure readings from Device unless it is "Actice" during runtime. true = paused, false = measurements active. Value is defaultet to false (measure active) on Adapter Start/Restart.
 
-## Device related settings & functionalities
 
-### DO-Related funtionalities & Settings
+## DO-Related funtionalities & Settings
+
+### DO Admin-UI Elements
 
 ![Image](pictures/do_config.png)
 
@@ -99,7 +100,7 @@ Some states have a state change detection mechanism running which gives the poss
 * **"Set Salinity Compensation"-Button** -> set the salinity compensation with the desired value inside the textfield e.g. 50000 us  
 * **"isPpt"-Switch** -> Switch to define if Salinity value read/set in ppt instead of us
 
-**DO States with includes State change detection**
+### DO States with include State change detection
 
 For DO Sensor following states are listening for changes: 
 * **"Temperature_compensation"** -> Sets the temperature compensation
@@ -110,7 +111,9 @@ For DO Sensor following states are listening for changes:
 * **"Calibrate_Zero_DO"** -> Set to true to to run a zero dissolved oxygen sensor calibration. Will be set to false after calibration run.
 
 
-### pH-Related funtionalities & Settings
+## pH-Related funtionalities & Settings
+
+### PH Admin-UI Elements
 
 ![Image](pictures/ph_config.png)
 
@@ -120,7 +123,7 @@ For DO Sensor following states are listening for changes:
 * **"Calibrate High"-Button** -> execute the high value calibration (usually 10.0 )  
 * **"Set Temp. Compensation"-Button** -> set the temperature compensation with the desired value inside the textfield e.g. 20.4
 
-**pH States with includes State change detection**
+### pH States with include State change detection
 
 For pH Sensor following states are listening for changes: 
 * **"Temperature_compensation"** -> Sets the temperature compensation
@@ -129,14 +132,17 @@ For pH Sensor following states are listening for changes:
 * **"Calibrate_Mid"** -> Set a dot separated value e.g. 7.0 to run the low calibration with desired value. Will be cleared after calibration automatically
 * **"Calibrate_High"** -> Set a a dot separated value e.g. 10.0 to run the low calibration with desired value. Will be cleared after calibration automatically
 
-### ORP-Related funtionalities & Settings
+
+## ORP-Related funtionalities & Settings
+
+### ORP Admin-UI Elements
 
 ![Image](pictures/orp_config.png)
 
 * **"Clear Calibration"-Button** -> Delete calibration Data  
 * **"Calibrate"-Button** -> calibrate to desired value
 
-**ORP States with includes State change detection**
+### ORP States with include State change detection
 
 For ORP Sensor following states are listening for changes: 
 * **"Temperature_compensation"**"-> Sets the temperature compensation
@@ -144,19 +150,24 @@ For ORP Sensor following states are listening for changes:
 * **"Calibrate"** -> Set a dot separated value e.g. xx.x mV to run the calibration with desired value. Will be cleared after calibration automatically
 
 
-### RTD-Related funtionalities & Settings
+## RTD-Related funtionalities & Settings
+
+### RTD Admin-UI Elements
 
 ![Image](pictures/rtd_config.png)
 
 * **"Clear Calibration"-Button** -> Delete calibration Data  
 * **"Calibrate"-Button** -> calibrate to desired value
 
-**RTD States with includes State change detection**
+### RTD States with include State change detection
+
 For RTD Sensor following states are listening for changes: 
 * **"Calibrate_Clear"** -> Set to true to clear sensor calibration. Will be set to false automatically after calibration was cleared.
 * **"Calibrate"** -> Set a dot separated value e.g. xx.x mV to run the calibration with desired value. Will be cleared after calibration automatically
 
-### Pump-Related funtionalities & Settings
+## Pump-Related funtionalities & Settings
+
+### Pump Admin-UI Elements
 
 ![Image](pictures/pump_config.png)
 
@@ -174,12 +185,12 @@ For RTD Sensor following states are listening for changes:
 * **"Dispense Volume"-Button** -> Pump will dispense the given amount of ml 
 * **"Set constant Flow Rate"-Button** -> Pump will dispense the given amount of ml per minute "ml/min" for the given duration in minutes
 
+### Pump States with include State change detection
 For EZO Pumps the following states are listening for changes: 
 * **"Continous_dispense"** -> If set to true the pump will jump into continous dispense mode with 105ml/min (reverse switch considered). If set to false the pump will stop dispensing.
 * **"Dose_over_time"** -> Format: commaseparated values ml,duration in min -> Dispenses the given volume over the given minutes. ml for volume and duration in minutes. Negative amounts will run the pump in reverse
 * **"Dispense_volume"** -> Dispenses the given volume(ml). Negative amounts will run the pump in reverse
 * **"Constant_flow_rate"** -> Format: commaseparated values ml per min,duration -> Dispenses constantly the given volume/min over the given duration in minutes. ml for volume/min and duration in minutes. Negative amounts will run the pump in reverse
-
 
 
 ## Visualization example with Grafana Dashboard
@@ -2719,9 +2730,8 @@ You can check other adapters for examples or ask in the developer community. Usi
 -->
 
 ### **WORK IN PROGRESS**
-- Added example Grafana Dashboard and example picture
-- Added documantation for Grafana Dashboard to readme.md
-- Added example scripts and documentation for helpful Javascript Adapter 
+- Added example Grafana Dashboard code and documentation
+- Added example Scripts and documentation for helpful Javascript Adapter 
 
 ### 2.0.0 (2023-07-31)
 - Feature request: add the "active" Switch to objects #10 Part I -> Added State including state change listeners "IsPaused" to pause measure per sensor during runtime
