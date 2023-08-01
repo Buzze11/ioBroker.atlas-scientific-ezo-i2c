@@ -191,8 +191,7 @@ Here you can see a little example how easy it ist to visualize the adapter value
   
   ### Heading
   ### Some Code
-  ```json
-  # src/grafana_dashboard_example/dashboard_example.json
+  ```json:src/grafana_dashboard_example/dashboard_example.json
   ```
 </details>
 
