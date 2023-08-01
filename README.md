@@ -189,9 +189,9 @@ Here you can see a little example how easy it ist to visualize the adapter value
 <details>
   <summary>Example Code Grafana-Dashboard JSON</summary>
   
-  ### Heading
-  ### Some Code
+  ### JSON Export from Grafana
   ```json:src/grafana_dashboard_example/dashboard_example.json
+
   ```
 </details>
 
