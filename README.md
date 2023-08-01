@@ -180,6 +180,22 @@ For EZO Pumps the following states are listening for changes:
 * **"Dispense_volume"** -> Dispenses the given volume(ml). Negative amounts will run the pump in reverse
 * **"Constant_flow_rate"** -> Format: commaseparated values ml per min,duration -> Dispenses constantly the given volume/min over the given duration in minutes. ml for volume/min and duration in minutes. Negative amounts will run the pump in reverse
 
+### Visualization example with Grafana Dashboard
+
+Here you can see a little example how easy it ist to visualize the adapter values which are stored in an instance of an InfluxDB Database. 
+
+![Image](pictures/dashboard_example.png)
+
+<details>
+  <summary>Example Code Grafana-Dashboard JSON</summary>
+  
+  ### Heading
+  ### Some Code
+  ```json
+  # src/grafana_dashboard_example/dashboard_example.json
+  ```
+</details>
+
 ### DISCLAIMER
 
 Please make sure that you consider copyrights and trademarks when you use names or logos of a company and add a disclaimer to your README.
