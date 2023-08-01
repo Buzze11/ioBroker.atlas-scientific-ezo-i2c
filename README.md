@@ -207,6 +207,11 @@ You can check other adapters for examples or ask in the developer community. Usi
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- Added example Grafana Dashboard and example picture
+- Added documantation for Grafana Dashboard to readme.md
+
 ### 2.0.0 (2023-07-31)
 - Feature request: add the "active" Switch to objects #10 Part I -> Added State including state change listeners "IsPaused" to pause measure per sensor during runtime
 - Feature request: add the "calibration" switches to objects #10 Part II -> Added calibration state objects
