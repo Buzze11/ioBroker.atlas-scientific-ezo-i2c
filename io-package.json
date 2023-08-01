@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "atlas-scientific-ezo-i2c",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "news": {
+      "2.1.0": {
+        "en": "Added example Grafana Dashboard code and documentation\nAdded example Scripts and documentation for helpful Javascript Adapter",
+        "de": "Hinzugefügt Beispiel Grafana Dashboard Code und Dokumentation\nBeispiel Scripts und Dokumentation für hilfreiche Javascript Adapter",
+        "ru": "Добавлен пример Grafana Dashboard code и документация\nДобавлен пример скриптов и документации для полезного Javascript адаптера",
+        "pt": "Adicionado exemplo Grafana Dashboard código e documentação\nExemplo adicionado Scripts e documentação para útil Javascript Adapter",
+        "nl": "Toegevoegd voorbeeld Grafana Dashboard code en documentatie\nToegevoegd voorbeeld Script en documentatie voor behulpzaam Javascript Adapter",
+        "fr": "Exemple ajouté Code de tableau de bord de Grafana et documentation\nAjouté l'exemple Scripts et la documentation pour utiles Javascript Adapter",
+        "it": "Esempio aggiunto Grafana Dashboard codice e documentazione\nAggiunto esempio Script e documentazione per utile Javascript adattatore",
+        "es": "Ejemplo adicional Grafana Dashboard código y documentación\nEjemplo añadido Scripts y documentación para el adaptador de Javascript útil",
+        "pl": "Przykłady kodu Grafana Dashboarda i dokumentacji\nWstępny przykład skryptów i dokumentacji za pomocny Javascript Adapter",
+        "uk": "Додано приклад Grafana Dashboard код і документація\nДодано приклад сценарії та документацію для корисного Javascript адаптера",
+        "zh-cn": "添加的例子:Grafana Dash板守则和文件\n添加了帮助瓦斯·阿帕特的样品和文件"
+      },
       "2.0.0": {
         "en": "Feature request: add the \"active\" Switch to objects #10 Part I -> Added State including state change listeners \"IsPaused\" to pause measure per sensor during runtime\nFeature request: add the \"calibration\" switches to objects #10 Part II -> Added calibration state objects\nAdjusted Readme with Help for new Features\nAdded state translations for alphanumeric and boolean states to clear text",
         "de": "Featureanfrage: Fügen Sie den aktiven Switch zu Objekten #10 Teil I -> Zusätzlicher Staat einschließlich Zustandsänderungshörer IsPaused, um Maß pro Sensor während der Laufzeit zu halten\nFeatureanfrage: Fügen Sie die Kalibrierschalter zu Objekten #10 Teil II -> Hinzufügen von Kalibrierzustandsobjekten\nJusted Readme mit Hilfe für neue Features\nStaatliche Übersetzungen für alphanumerische und boolesche Staaten hinzugefügt, um Text zu löschen",
@@ -80,19 +93,6 @@
         "pl": "Kod\nStandardowa giełda Wykorzystuje się w programach / czystego czasu z adapterowymi metodami  wrapperowymi\nZamienił później funkcję w indeksach i używał Delay Class",
         "uk": "Чистка коду\nСтатус на сервери Out / clearTimeout виклики з методами обгортання адаптера\nВидалити пізніше функцію в index.ts і використовувати Delay Class замість",
         "zh-cn": "守则 清洁\n汇率标准制度 在/明确制度中,要求采用更完善的武断方法\n删除后来在指数中的功能,用Delay类取代"
-      },
-      "1.1.0": {
-        "en": "Removed Developer Info\nExtended Test Matrix to [16.x, 18.x, 20.x]\nPatched Translations\nRemoved Whitespaces for all States from Sensors and exchanged with underscores",
-        "de": "Entfernen von Entwickler-Info\nErweiterte Testmatrix auf [16.x, 18.x, 20.x]\nAufgepasste Übersetzungen\nEntfernt Whitespaces für alle Staaten von Sensors und ausgetauscht mit underscores",
-        "ru": "Удалена информация о разработчике\nРасширенная тестовая матрица до [16.x, 18.x, 20.x]\nЗапатчованные переводы\nУдаленные белые пространства для всех государств от датчиков и обмениваются с подчеркиваниями",
-        "pt": "Remover informação do desenvolvedor\nMatriz de teste estendida para [16.x, 18.x, 20.x]\nTraduções corrigidas\nEspaços brancos removidos para todos os Estados de Sensores e trocados com underscores",
-        "nl": "Verwijder Developer Info\nVerlengde Test Matrix tot [16.x, 18.x, 20\nVertaling:\nVerwijderde Whitespace voor alle staten van Sensors en wisselde met onderscores",
-        "fr": "Informations sur les développeurs supprimés\nMatrice d'essai étendue à [16.x, 18.x, 20.x]\nPatched Translations\nEnlevés blancs pour tous les États de Senseurs et échangés avec des accents",
-        "it": "Removed Sviluppatore Info\nMatrice di test estesa a [16.x, 18.x, 20.x]\nTraduzioni Patched\nSpazi bianchi rimossi per tutti gli Stati dai sensori e scambiati con underscores",
-        "es": "Removed Developer Info\nMatriz de prueba extendida a [16.x, 18.x, 20.x]\nTraducciones programadas\nEspacios blancos eliminados para todos los Estados de Sensores e intercambiados con subrayados",
-        "pl": "Przełożył program Info\nRozszerzenia macierzy testowych (16.x, 18.x, 20.x)\nPrzekład pasterski\nZamienił Whitespace dla wszystkich państw z Sensorów i wymienił się z podkreśleniami",
-        "uk": "Вилучена інформація розробника\nРозширений тест матриці [16.x, 18.x, 20.x]\nПереклади\nВилучені білі простори для всіх держав від датчиків і обмінів з низами",
-        "zh-cn": "驱离发展者信息\n[16.x、18.x、20.x]\n波 鲁\n取消对所有国家的白天空间,并交换强调"
       }
     },
     "title": "Atlas Scientific EZO",

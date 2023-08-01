@@ -2728,10 +2728,9 @@ You can check other adapters for examples or ask in the developer community. Usi
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 2.1.0 (2023-08-01)
 - Added example Grafana Dashboard code and documentation
-- Added example Scripts and documentation for helpful Javascript Adapter 
+- Added example Scripts and documentation for helpful Javascript Adapter
 
 ### 2.0.0 (2023-07-31)
 - Feature request: add the "active" Switch to objects #10 Part I -> Added State including state change listeners "IsPaused" to pause measure per sensor during runtime
