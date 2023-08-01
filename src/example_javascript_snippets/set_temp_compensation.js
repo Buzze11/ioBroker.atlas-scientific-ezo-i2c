@@ -1,7 +1,7 @@
 /* 
-Dieses Script ist zur Verwendung im Adapter "Skriptausführung" JavaScript erstellt. Die Datenpunkte müssen natürlich an das lokale Setup angepasst werden
-Es überprüft die vom RTD Sensor gelieferten Temperaturwerte, kürzt die Nachkommastellen auf 1. 
-Ist eine Änderung vom alten zum neuen Wert aufgetreten, werden die temp_compensation states der gewünschten (ziel)Sensoren mit Zeitversatz gesetzt
+This script is created for use in the "Script execution" JavaScript adapter. The data points must of course be adapted to the local setup
+It checks the temperature values supplied by the RTD sensor, truncates the decimal places to 1. 
+If a change from the old to the new value occurred, the temp_compensation states of the desired (target) sensors are set with time offset
 */  
 
  

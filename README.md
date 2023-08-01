@@ -2617,11 +2617,14 @@ Here you can see a little example how easy it ist to visualize the adapter value
 
 In some cases it is helpful to make the use of javascript code execution. I have added some examples to the repository including description.
 
+![Image](pictures/jsadapter.png)
 
-### Example 1: Get Substrings out of the DO Sensor Value related to the activated Parameters mg/l & %
+### Example 1: Get Substrings from DO Sensor Value related to active Params mg/l & %
 This script is created for use in the "Script execution" JavaScript adapter. The data points must of course be adapted to the local setup
 The script splits the value string supplied by the DO sensor, which can contain mg/L as well as % depending on the activated parameters, into two values and stores them in two 
 data points.
+
+![Image](pictures/do_Substrings.png)
 
 <details>
   <summary>Example 1 Script </summary>
@@ -2664,6 +2667,44 @@ data points.
 ```
 </details>
 
+### Example 2: Set the Temperature compensation for several Sensors
+This script is created for use in the "Script execution" JavaScript adapter. The data points must of course be adapted to the local setup
+It checks the temperature values supplied by the RTD sensor, truncates the decimal places to 1. 
+If a change from the old to the new value occurred, the temp_compensation states of the desired (target) sensors are set with time offset
+
+![Image](pictures/tempcompensation.png)
+
+<details>
+  <summary>Example 2 Script </summary>
+  
+  ```javascript
+   console.log('Start temp compensation Script');
+
+   const ph_temp_compensation = 'atlas-scientific-ezo-i2c.0.0x62.Temperature_compensation';
+   const do_temp_compensation = 'atlas-scientific-ezo-i2c.0.0x61.Temperature_compensation';
+
+   on({id: 'atlas-scientific-ezo-i2c.0.0x63.Temperature', change: "any"}, function (obj) { 
+
+   const newTemptring = obj.state.val;
+   const oldTempString = obj.oldState.val;
+   const newTempCut = parseFloat(newTemptring).toFixed(1);
+   const oldTempCut = parseFloat(oldTempString).toFixed(1);
+
+   console.log('Temp value received: Old:' + oldTempCut + ' New:' + newTempCut );
+
+   if(!(newTempCut === oldTempCut))
+   {
+      console.log('Temp changed from ' + oldTempCut + ' to' + newTempCut );
+      console.log('Setting state ph_temp_compensation: ' + newTempCut);
+      setStateDelayed(ph_temp_compensation, newTempCut, 5000);
+      console.log('Setting state do_temp_compensation: ' + newTempCut);
+      setStateDelayed(do_temp_compensation, newTempCut, 8000);
+   }
+   });
+```
+</details>
+
+
 
 ### DISCLAIMER
 
@@ -2680,6 +2721,7 @@ You can check other adapters for examples or ask in the developer community. Usi
 ### **WORK IN PROGRESS**
 - Added example Grafana Dashboard and example picture
 - Added documantation for Grafana Dashboard to readme.md
+- Added example scripts and documentation for helpful Javascript Adapter 
 
 ### 2.0.0 (2023-07-31)
 - Feature request: add the "active" Switch to objects #10 Part I -> Added State including state change listeners "IsPaused" to pause measure per sensor during runtime
