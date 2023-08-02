@@ -2729,7 +2729,7 @@ You can check other adapters for examples or ask in the developer community. Usi
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 2.2.0 (2023-08-02)
 - Several Bugfixes in Pump implementation
 - adjusted readme.md
 
