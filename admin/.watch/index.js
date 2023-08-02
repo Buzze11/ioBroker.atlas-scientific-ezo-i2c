@@ -62487,6 +62487,11 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         return false;
       }
     }
+    doHandleContinousDispense(_event) {
+      console.log("Continous Dispense Button pressed");
+      this.handleContinousDispense();
+      return false;
+    }
     handleContinousDispense() {
       var _a;
       try {
@@ -62501,6 +62506,11 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         return false;
       }
     }
+    doHandleStop(_event) {
+      console.log("Stop Dispense Button pressed");
+      this.handleStop();
+      return false;
+    }
     handleStop() {
       try {
         const txPayload = {
@@ -62512,6 +62522,11 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         console.log('Error on "stopping dispense"');
         return false;
       }
+    }
+    doHandlePause(_event) {
+      console.log("Pause Pump Button pressed");
+      this.handlePause();
+      return false;
     }
     handlePause() {
       try {
@@ -62746,7 +62761,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         import_Button5.default,
         {
           variant: "contained",
-          onClick: this.handleContinousDispense,
+          onClick: this.doHandleContinousDispense,
           fullWidth: true
         },
         import_i18n6.default.t("Continous Dispense")
@@ -62754,7 +62769,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         import_Button5.default,
         {
           variant: "contained",
-          onClick: this.handleStop,
+          onClick: this.doHandleStop,
           fullWidth: true
         },
         import_i18n6.default.t("Stop Dispense")
@@ -62762,7 +62777,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         import_Button5.default,
         {
           variant: "contained",
-          onClick: this.handlePause,
+          onClick: this.doHandlePause,
           fullWidth: true
         },
         import_i18n6.default.t("Pause Pump")
@@ -62838,6 +62853,15 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
   __decorateClass([
     boundMethod
   ], Pump.prototype, "doCalibration", 1);
+  __decorateClass([
+    boundMethod
+  ], Pump.prototype, "doHandleContinousDispense", 1);
+  __decorateClass([
+    boundMethod
+  ], Pump.prototype, "doHandleStop", 1);
+  __decorateClass([
+    boundMethod
+  ], Pump.prototype, "doHandlePause", 1);
   __decorateClass([
     boundMethod
   ], Pump.prototype, "onDoseOverTimeValueChange", 1);

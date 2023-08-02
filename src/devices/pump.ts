@@ -65,6 +65,9 @@ export default class PeristalticPump extends EzoHandlerBase<PeristalticPumpConfi
             await this.sensor.SetParameters('ATV', false);
         }
 
+        // Init state objects which are not read from sensor (config objects)
+        await this.InitNonReadStateValues();
+
         // Set all State change listeners
         await this.CreateStateChangeListeners();
 
@@ -81,27 +84,51 @@ export default class PeristalticPump extends EzoHandlerBase<PeristalticPumpConfi
 
         this.adapter.addStateChangeListener(this.hexAddress + '.Continous_dispense', async (_oldValue, _newValue) => {
             if(_newValue === true){
-                this.SetContinousDispenseMode(_newValue);
+                this.SetContinousDispenseMode(true);
+            }
+            else if(_newValue === false){
+                this.SetContinousDispenseMode(false);
+            }
+        });
+        this.adapter.addStateChangeListener(this.hexAddress + '.Pause_Pump', async (_oldValue, _newValue) => {
+            if(_newValue === true){
+                this.DoPauseDispense();
             }
         });
         this.adapter.addStateChangeListener(this.hexAddress + '.Dose_over_time', async (_oldValue, _newValue) => {
-            if(_newValue === "string"){
-                this.DoseOverTime(_newValue);
+            if(_newValue != ''){
+                this.DoseOverTime(_newValue.toString());
+                await this.setStateAckAsync('Dose_over_time', '');
             }
         });
         this.adapter.addStateChangeListener(this.hexAddress + '.Dispense_volume', async (_oldValue, _newValue) => {
-            if(_newValue === "string"){
-                this.DispenseVolume(_newValue);
+            if(_newValue != ''){
+                this.DispenseVolume(_newValue.toString());
+                await this.setStateAckAsync('Dispense_volume', '');
             }
         });
         this.adapter.addStateChangeListener(this.hexAddress + '.Constant_flow_rate', async (_oldValue, _newValue) => {
-            if(_newValue === "string"){
-                this.SetConstantFlowRate(_newValue);
+            if(_newValue != ''){
+                this.SetConstantFlowRate(_newValue.toString());
+                await this.setStateAckAsync('Constant_flow_rate', '');
             }
         });
-        
+    }
 
-        
+    async InitNonReadStateValues():Promise<string>{
+        try{
+            await this.setStateAckAsync('Constant_flow_rate', '');
+            await this.setStateAckAsync('Pause_Pump', false);
+            await this.setStateAckAsync('Continous_dispense', false);
+            await this.setStateAckAsync('Dispense_volume', '');
+            await this.setStateAckAsync('Dose_over_time', '');
+            await this.setStateAckAsync('Pause_dispense', false);
+            await this.setStateAckAsync('Stop_dispense', false);
+            return "State objects initialized successfully";
+        }
+        catch{
+            this.error('Error occured on initializing state objects');
+        }
     }
 
     async CreateObjects(): Promise<void>{
@@ -229,6 +256,16 @@ export default class PeristalticPump extends EzoHandlerBase<PeristalticPumpConfi
             },
             //native: any
         });
+        await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Pause_Pump', {
+            type: 'state',
+            common: {
+                name: this.hexAddress + ' ' + (this.config.name || 'Pump'),
+                type: 'boolean',
+                role: 'switch',
+                write: true,
+            },
+            //native: any
+        });
         await this.adapter.extendObjectAsync(this.hexAddress + '.' + 'Dose_over_time', {
             type: 'state',
             common: {
@@ -335,9 +372,11 @@ export default class PeristalticPump extends EzoHandlerBase<PeristalticPumpConfi
             this.info('Continous_dispense: ' + on_off);
             if(on_off){
                 await this.sensor.StartDispensing(this.config.reverse);
+                await this.setStateAckAsync('Pause_Pump', false);
             }
             else{
                 await this.sensor.StopDispensing();
+                await this.setStateAckAsync('Pause_Pump', false);
             }
         }
         catch{
@@ -345,27 +384,33 @@ export default class PeristalticPump extends EzoHandlerBase<PeristalticPumpConfi
         }
     }
 
-        /// Sets the continous dispense mode if it was activated
-        public async DoPauseDispense():Promise<string>{
-            try{
-                this.info('Pause Pump');
-                await this.sensor.PauseDispensing();
-            }
-            catch{
-                return 'Error occured on pausing pump';
-            }
+    /// Sets the continous dispense mode if it was activated
+    public async DoPauseDispense():Promise<string>{
+        try{
+            this.info('Pausing Pump');
+            await this.setStateAckAsync('Continous_dispense', false);
+            await this.sensor.PauseDispensing();
         }
+        catch{
+                return 'Error occured on pausing pump';
+        }
+    }
 
     /// Dispenses the given volume over the given minutes. ml Amount min Minutes
     // value -> comma separated string ml,minutes. negative ml value for reverse
     public async DoseOverTime(value:string):Promise<string>{
         try{
+            this.info('Dose_over_time: ' + value);
             const separator = ",";
             const substrings: string[] = value.trim().split(separator);
             if(substrings.length > 1){
                 const volume = parseInt(substrings[0]);
                 const duration = parseInt(substrings[1]);
-                this.info('Dose_over_time - Volume: ' + volume +' Duration: ' + duration);
+                // Set Pause and Continous Dispense states to false
+                await this.setStateAckAsync('Pause_Pump', false);
+                await this.setStateAckAsync('Continous_dispense', false);
+                // Start dispensing
+                this.info('Start dosing over time with a volume of ' + volume +' ml for a duration of ' + duration  + ' minutes');
                 await this.sensor.Dose(volume, duration);
             }
         }
@@ -378,7 +423,11 @@ export default class PeristalticPump extends EzoHandlerBase<PeristalticPumpConfi
     // value -> string ml. negative ml value for reverse
     public async DispenseVolume(value:string):Promise<string>{
         try{
-            this.info('Dispense - Volume: ' + value );
+            // Set Pause and Continous Dispense states to false
+            await this.setStateAckAsync('Pause_Pump', false);
+            await this.setStateAckAsync('Continous_dispense', false);
+            // Start dispensing
+            this.info('Start dispensing volume of ' + value + ' ml');
             await this.sensor.Dispense(value);
         }
         catch{
@@ -395,7 +444,11 @@ export default class PeristalticPump extends EzoHandlerBase<PeristalticPumpConfi
             if(substrings.length > 1){
                 const volume_per_min = parseInt(substrings[0]);
                 const duration = substrings[1];
-                this.info('Dose_over_time - Volume/minute: ' + volume_per_min +' Duration: ' + duration);
+                // Set Pause and Continous Dispense states to false
+                await this.setStateAckAsync('Pause_Pump', false);
+                await this.setStateAckAsync('Continous_dispense', false);
+                // Start Dispensing
+                this.info('Start dispensing constant rate with a volume of ' + volume_per_min + ' ml/minute for a duration of ' + duration + ' minutes');
                 await this.sensor.DispenseConstantRate(volume_per_min, duration);
             }
         }

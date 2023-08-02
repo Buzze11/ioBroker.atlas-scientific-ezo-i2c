@@ -188,9 +188,10 @@ For RTD Sensor following states are listening for changes:
 ### Pump States with include State change detection
 For EZO Pumps the following states are listening for changes: 
 * **"Continous_dispense"** -> If set to true the pump will jump into continous dispense mode with 105ml/min (reverse switch considered). If set to false the pump will stop dispensing.
-* **"Dose_over_time"** -> Format: commaseparated values ml,duration in min -> Dispenses the given volume over the given minutes. ml for volume and duration in minutes. Negative amounts will run the pump in reverse
-* **"Dispense_volume"** -> Dispenses the given volume(ml). Negative amounts will run the pump in reverse
-* **"Constant_flow_rate"** -> Format: commaseparated values ml per min,duration -> Dispenses constantly the given volume/min over the given duration in minutes. ml for volume/min and duration in minutes. Negative amounts will run the pump in reverse
+* **"Dose_over_time"** -> Format: commaseparated values ml,duration in min -> Dispenses the given volume over the given minutes. ml for volume and duration in minutes. Negative amounts will run the pump in reverse. The state will be cleared automatically after the command has been executed.
+* **"Dispense_volume"** -> Dispenses the given volume(ml). Negative amounts will run the pump in reverse. The state will be cleared automatically after the command has been executed.
+* **"Constant_flow_rate"** -> Format: commaseparated values ml per min,duration -> Dispenses constantly the given volume/min over the given duration in minutes. ml for volume/min and duration in minutes. Negative amounts will run the pump in reverse.  The state will be cleared automatically after the command has been executed.
+* **"Pause_Pump"** -> If set to true the pump will be paused. Unpause is done on next dispense action.
 
 
 ## Visualization example with Grafana Dashboard
@@ -2728,6 +2729,10 @@ You can check other adapters for examples or ask in the developer community. Usi
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- Several Bugfixes in Pump implementation
+- adjusted readme.md
+
 ### 2.1.0 (2023-08-01)
 - Added example Grafana Dashboard code and documentation
 - Added example Scripts and documentation for helpful Javascript Adapter

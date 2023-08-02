@@ -142,6 +142,13 @@ class Pump extends EzoBase<PeristalticPumpConfig> {
 
     // ******* Continous Dispense *******
 
+    @boundMethod
+    protected doHandleContinousDispense(_event: React.FormEvent<HTMLElement>): boolean {
+        console.log('Continous Dispense Button pressed');
+        this.handleContinousDispense();
+        return false;
+    }
+
     protected handleContinousDispense() : boolean {
         try{
             const txPayload : Record<string, any> = {
@@ -157,7 +164,14 @@ class Pump extends EzoBase<PeristalticPumpConfig> {
         }
     }
 
-    // ******* Continous Dispense *******
+    // ******* Stop Dispense *******
+
+    @boundMethod
+    protected doHandleStop(_event: React.FormEvent<HTMLElement>): boolean {
+        console.log('Stop Dispense Button pressed');
+        this.handleStop();
+        return false;
+    }
 
     protected handleStop() : boolean {
         try{
@@ -173,7 +187,14 @@ class Pump extends EzoBase<PeristalticPumpConfig> {
         }
     }
 
-    // ******* Continous Dispense *******
+    // ******* Pause Pump *******
+
+    @boundMethod
+    protected doHandlePause(_event: React.FormEvent<HTMLElement>): boolean {
+        console.log('Pause Pump Button pressed');
+        this.handlePause();
+        return false;
+    }
 
     protected handlePause() : boolean {
         try{
@@ -477,7 +498,7 @@ class Pump extends EzoBase<PeristalticPumpConfig> {
                         <Grid>
                             <Button
                                 variant="contained"
-                                onClick={this.handleContinousDispense}
+                                onClick={this.doHandleContinousDispense}
                                 fullWidth
                             >
                                 {I18n.t('Continous Dispense')}
@@ -488,7 +509,7 @@ class Pump extends EzoBase<PeristalticPumpConfig> {
                         <Grid>
                             <Button
                                 variant="contained"
-                                onClick={this.handleStop}
+                                onClick={this.doHandleStop}
                                 fullWidth
                             >
                                 {I18n.t('Stop Dispense')}
@@ -499,7 +520,7 @@ class Pump extends EzoBase<PeristalticPumpConfig> {
                         <Grid>
                             <Button
                                 variant="contained"
-                                onClick={this.handlePause}
+                                onClick={this.doHandlePause}
                                 fullWidth
                             >
                                 {I18n.t('Pause Pump')}
