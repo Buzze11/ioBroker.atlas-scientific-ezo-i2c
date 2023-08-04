@@ -15,6 +15,7 @@ class EC extends EzoBase<ECConfig> {
     private calibrateVal: number;
     private tempCompensationVal: number;
     private probeTypeVal: number;
+    private tdsConversionVal: number;
 
     constructor(props: DeviceProps<ECConfig>) {
         super(props); 
