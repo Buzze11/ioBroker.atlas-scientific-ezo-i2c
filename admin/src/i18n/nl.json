@@ -58,5 +58,19 @@
     "Constant flow rate value": "Formaat: 25,40 -> b.v. 25 ml/min gedurende 40 minuten",
     "Pause Pump": "Pomp pauzeren",
     "Stop Dispense": "Stop met doseren",
-    "Find Pump": "Zoek pomp"
+    "Find Pump": "Zoek pomp",
+    "EC Sensor Calibration": "EC-sensorkalibratie",
+    "Calibrate Dry": "Kalibreer droog",
+    "EC value": "EC-waarde",
+    "Set Probe Type": "Sondetype instellen",
+    "Probe Type": "sonde type",
+    "EC Probe Type Setting": "Instelling type EC-sonde",
+    "EC Parameters Configuration": "Configuratie EC-parameters",
+    "EC(uS)": "EG(VS)",
+    "TDS(ppm)": "TDS (ppm)",
+    "S(ppt)": "S(ppt)",
+    "SG": "SG",
+    "Set TDS Conversion": "TDS-conversie instellen",
+    "TDS conversion value": "TDS-conversiewaarde",
+    "Calibrate Singlepoint": "Singlepoint kalibreren"
 }

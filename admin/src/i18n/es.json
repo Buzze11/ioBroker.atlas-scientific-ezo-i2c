@@ -58,5 +58,19 @@
     "Constant flow rate value": "Formato: 25,40 -> ej. 25 ml/min durante 40 minutos",
     "Pause Pump": "bomba de pausa",
     "Stop Dispense": "Detener dosificación",
-    "Find Pump": "encontrar bomba"
+    "Find Pump": "encontrar bomba",
+    "EC Sensor Calibration": "Calibración del sensor de CE",
+    "Calibrate Dry": "Calibrar Seco",
+    "EC value": "valor CE",
+    "Set Probe Type": "Establecer tipo de sonda",
+    "Probe Type": "Tipo de sonda",
+    "EC Probe Type Setting": "Configuración del tipo de sonda EC",
+    "EC Parameters Configuration": "Configuración de parámetros EC",
+    "EC(uS)": "CE (EE. UU.)",
+    "TDS(ppm)": "TDS (ppm)",
+    "S(ppt)": "S(ppt)",
+    "SG": "SG",
+    "Set TDS Conversion": "Establecer conversión de TDS",
+    "TDS conversion value": "valor de conversión TDS",
+    "Calibrate Singlepoint": "Calibrar punto único"
 }

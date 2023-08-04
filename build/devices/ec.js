@@ -292,11 +292,11 @@ class EC extends import_ezo_handler_base.EzoHandlerBase {
           return "EC Calibration was cleared successfully";
         case "Dry":
           await this.sensor.CalibrateDry();
-          await this.setStateAckAsync("Dry", false);
+          await this.setStateAckAsync("Calibrate_Dry", false);
           return "Dry Calibration was done successfully";
         case "Singlepoint":
           await this.sensor.CalibrateSinglepoint(parseFloat(Value));
-          await this.setStateAckAsync("Singlepoint", "");
+          await this.setStateAckAsync("Calibrate_Singlepoint", "");
           return "Single point calibration was done successfully";
         case "Low":
           await this.sensor.CalibrateLow(parseFloat(Value));

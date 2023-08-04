@@ -58,5 +58,19 @@
     "Constant flow rate value": "Формат: 25,40 -> например. 25 мл/мин в течение 40 минут",
     "Pause Pump": "Пауза насоса",
     "Stop Dispense": "Остановить дозирование",
-    "Find Pump": "Найти насос"
+    "Find Pump": "Найти насос",
+    "EC Sensor Calibration": "Калибровка датчика ЕС",
+    "Calibrate Dry": "Калибровка всухую",
+    "EC value": "значение ЕС",
+    "Set Probe Type": "Установить тип зонда",
+    "Probe Type": "Тип зонда",
+    "EC Probe Type Setting": "Настройка типа датчика EC",
+    "EC Parameters Configuration": "Конфигурация параметров ЕС",
+    "EC(uS)": "ЕС (США)",
+    "TDS(ppm)": "TDS (частей на миллион)",
+    "S(ppt)": "S (ppt)",
+    "SG": "СГ",
+    "Set TDS Conversion": "Установить преобразование TDS",
+    "TDS conversion value": "Значение конверсии TDS",
+    "Calibrate Singlepoint": "Калибровка одной точки"
 }

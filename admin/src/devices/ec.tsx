@@ -96,7 +96,7 @@ class EC extends EzoBase<ECConfig> {
     @boundMethod
     protected doDryCalibration(_event: React.FormEvent<HTMLElement>): boolean {
         console.log('Dry Calibration Button pressed');
-        this.handleCalibration("Dry", this.calibrateValue);
+        this.handleCalibration("Dry", 0);
         return false;
     }
 
@@ -417,6 +417,15 @@ class EC extends EzoBase<ECConfig> {
                             </Button>
                         </Grid>
                         <Grid>
+                            <Button
+                                variant="contained"
+                                onClick={this.doSinglepointCalibration}
+                                fullWidth
+                            >
+                                {I18n.t('Calibrate Singlepoint')}
+                            </Button>
+                        </Grid>
+                        <Grid>
                             <TextField
                                 name="newCalLowValue"
                                 label={I18n.t('EC value')}
@@ -490,7 +499,7 @@ class EC extends EzoBase<ECConfig> {
                                 name="probeTypeVal"
                                 label={I18n.t('Probe Type')}
                                 value={this.probeTypeValue}
-                                type="number"
+                                type="string"
                                 onChange={this.onProbeTypeValueChange}
                                 disabled={false}
                                 fullWidth

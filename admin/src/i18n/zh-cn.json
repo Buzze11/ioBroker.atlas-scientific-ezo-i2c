@@ -58,5 +58,19 @@
     "Constant flow rate value": "格式：25,40 -> 例如25毫升/分钟 40分钟",
     "Pause Pump": "暂停泵",
     "Stop Dispense": "停止分配",
-    "Find Pump": "查找泵"
+    "Find Pump": "查找泵",
+    "EC Sensor Calibration": "EC 传感器校准",
+    "Calibrate Dry": "干燥校准",
+    "EC value": "EC值",
+    "Set Probe Type": "设置探头类型",
+    "Probe Type": "探头类型",
+    "EC Probe Type Setting": "EC 探头类型设置",
+    "EC Parameters Configuration": "EC参数配置",
+    "EC(uS)": "欧共体（美制）",
+    "TDS(ppm)": "总溶解固体(ppm)",
+    "S(ppt)": "小册子(ppt)",
+    "SG": "SG",
+    "Set TDS Conversion": "设置 TDS 转换",
+    "TDS conversion value": "TDS 转换值",
+    "Calibrate Singlepoint": "校准单点"
 }

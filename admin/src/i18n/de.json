@@ -58,5 +58,19 @@
     "Constant flow rate value": "Format: 25,40 -> z.B. 25 ml/min für 40 Minuten",
     "Pause Pump": "Pumpe anhalten",
     "Stop Dispense": "Abgabe stoppen",
-    "Find Pump": "Pumpe finden"
+    "Find Pump": "Pumpe finden",
+    "EC Sensor Calibration": "Kalibrierung des EC-Sensors",
+    "Calibrate Dry": "Trocken kalibrieren",
+    "EC value": "EC-Wert",
+    "Set Probe Type": "Stellen Sie den Sondentyp ein",
+    "Probe Type": "Sondentyp",
+    "EC Probe Type Setting": "Einstellung des EC-Sondentyps",
+    "EC Parameters Configuration": "Konfiguration der EC-Parameter",
+    "EC(uS)": "EG (USA)",
+    "TDS(ppm)": "TDS (ppm)",
+    "S(ppt)": "S(ppt)",
+    "SG": "SG",
+    "Set TDS Conversion": "Legen Sie die TDS-Konvertierung fest",
+    "TDS conversion value": "TDS-Umrechnungswert",
+    "Calibrate Singlepoint": "Singlepoint kalibrieren"
 }

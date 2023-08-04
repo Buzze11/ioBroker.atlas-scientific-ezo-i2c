@@ -150,6 +150,38 @@ For ORP Sensor following states are listening for changes:
 * **"Calibrate_Clear"** -> Set to true to clear sensor calibration. Will be set to false automatically after calibration was cleared.
 * **"Calibrate"** -> Set a dot separated value e.g. xx.x mV to run the calibration with desired value. Will be cleared after calibration automatically
 
+## EC-Related funtionalities & Settings
+
+### EC Admin-UI Elements
+
+![Image](pictures/ec_config.png)
+
+* **"Clear Calibration"-Button** -> Delete calibration Data  
+* **"Calibrate Dry"-Button** -> run a dry sensor calibration
+* **"Calibrate Low"-Button** -> calibrate device low point to desired value  
+* **"Calibrate High"-Button** -> calibrate device high point to desired value
+* **"Calibrate Singlepoint"-Button** -> calibrate device singlepoint to desired value
+
+
+* **"Set Temp. Compensation"-Button** -> set the temperature compensation with the desired value inside the textfield e.g. 20.4  
+* **"Set TDS Conversion"-Button** -> set the TDS (ppt) conversion factor with the desired value from the textfield between 0.001 to 1.00 
+* **"Set Probe Type"-Button** -> set the used probe type to the desired type from the textfield (K0.1, K1.0 or K10)  
+* **"EC(us)"-Switch** -> Switch to enable or disable "Conductivity = μS/cm" inside the reading string
+* **"TDS(ppm)"-Switch** -> Switch to enable or disable "Total dissolved solids = ppm" inside the reading string
+* **"S(ppt)"-Switch** -> Switch to enable or disable "Salinity = PSU (ppt) 0.00 – 42.00" inside the reading string
+* **"SG"-Switch** -> Switch to enable or disable "Specific gravity (sea water only) = 1.00 – 1.300" inside the reading string
+
+
+### EC States with include State change detection
+
+For EC Sensor following states are listening for changes: 
+* **"Temperature_compensation"** -> Sets the temperature compensation
+* **"Calibrate_Clear"** -> Set to true to clear sensor calibration. Will be set to false calibration was cleared.
+* **"Calibrate_Singlepoint"** -> Set to true to run a singlepoint sensor calibration. Will be set to false after calibration run.
+* **"Calibrate_Dry"** -> Set to true to run a dry sensor calibration. Will be set to false after calibration run.
+* **"Calibrate_Low"** -> Set to true to to run a low sensor calibration with the desired value. Will be cleared after calibration automatically
+* **"Calibrate_High"** -> Set to true to to run a high sensor calibration with the desired value. Will be cleared after calibration automatically
+
 
 ## RTD-Related funtionalities & Settings
 

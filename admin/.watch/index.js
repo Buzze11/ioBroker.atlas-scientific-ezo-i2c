@@ -53150,7 +53150,8 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         "S(ppt)": "S(ppt)",
         SG: "SG",
         "Set TDS Conversion": "Set TDS Conversion",
-        "TDS conversion value": "TDS conversion value"
+        "TDS conversion value": "TDS conversion value",
+        "Calibrate Singlepoint": "Calibrate Singlepoint"
       };
     }
   });
@@ -53218,7 +53219,21 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         "Constant flow rate value": "Format: 25,40 -> z.B. 25 ml/min f\xFCr 40 Minuten",
         "Pause Pump": "Pumpe anhalten",
         "Stop Dispense": "Abgabe stoppen",
-        "Find Pump": "Pumpe finden"
+        "Find Pump": "Pumpe finden",
+        "EC Sensor Calibration": "Kalibrierung des EC-Sensors",
+        "Calibrate Dry": "Trocken kalibrieren",
+        "EC value": "EC-Wert",
+        "Set Probe Type": "Stellen Sie den Sondentyp ein",
+        "Probe Type": "Sondentyp",
+        "EC Probe Type Setting": "Einstellung des EC-Sondentyps",
+        "EC Parameters Configuration": "Konfiguration der EC-Parameter",
+        "EC(uS)": "EG (USA)",
+        "TDS(ppm)": "TDS (ppm)",
+        "S(ppt)": "S(ppt)",
+        SG: "SG",
+        "Set TDS Conversion": "Legen Sie die TDS-Konvertierung fest",
+        "TDS conversion value": "TDS-Umrechnungswert",
+        "Calibrate Singlepoint": "Singlepoint kalibrieren"
       };
     }
   });
@@ -53286,7 +53301,21 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         "Constant flow rate value": "\u0424\u043E\u0440\u043C\u0430\u0442: 25,40 -> \u043D\u0430\u043F\u0440\u0438\u043C\u0435\u0440. 25 \u043C\u043B/\u043C\u0438\u043D \u0432 \u0442\u0435\u0447\u0435\u043D\u0438\u0435 40 \u043C\u0438\u043D\u0443\u0442",
         "Pause Pump": "\u041F\u0430\u0443\u0437\u0430 \u043D\u0430\u0441\u043E\u0441\u0430",
         "Stop Dispense": "\u041E\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C \u0434\u043E\u0437\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435",
-        "Find Pump": "\u041D\u0430\u0439\u0442\u0438 \u043D\u0430\u0441\u043E\u0441"
+        "Find Pump": "\u041D\u0430\u0439\u0442\u0438 \u043D\u0430\u0441\u043E\u0441",
+        "EC Sensor Calibration": "\u041A\u0430\u043B\u0438\u0431\u0440\u043E\u0432\u043A\u0430 \u0434\u0430\u0442\u0447\u0438\u043A\u0430 \u0415\u0421",
+        "Calibrate Dry": "\u041A\u0430\u043B\u0438\u0431\u0440\u043E\u0432\u043A\u0430 \u0432\u0441\u0443\u0445\u0443\u044E",
+        "EC value": "\u0437\u043D\u0430\u0447\u0435\u043D\u0438\u0435 \u0415\u0421",
+        "Set Probe Type": "\u0423\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C \u0442\u0438\u043F \u0437\u043E\u043D\u0434\u0430",
+        "Probe Type": "\u0422\u0438\u043F \u0437\u043E\u043D\u0434\u0430",
+        "EC Probe Type Setting": "\u041D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0430 \u0442\u0438\u043F\u0430 \u0434\u0430\u0442\u0447\u0438\u043A\u0430 EC",
+        "EC Parameters Configuration": "\u041A\u043E\u043D\u0444\u0438\u0433\u0443\u0440\u0430\u0446\u0438\u044F \u043F\u0430\u0440\u0430\u043C\u0435\u0442\u0440\u043E\u0432 \u0415\u0421",
+        "EC(uS)": "\u0415\u0421 (\u0421\u0428\u0410)",
+        "TDS(ppm)": "TDS (\u0447\u0430\u0441\u0442\u0435\u0439 \u043D\u0430 \u043C\u0438\u043B\u043B\u0438\u043E\u043D)",
+        "S(ppt)": "S (ppt)",
+        SG: "\u0421\u0413",
+        "Set TDS Conversion": "\u0423\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C \u043F\u0440\u0435\u043E\u0431\u0440\u0430\u0437\u043E\u0432\u0430\u043D\u0438\u0435 TDS",
+        "TDS conversion value": "\u0417\u043D\u0430\u0447\u0435\u043D\u0438\u0435 \u043A\u043E\u043D\u0432\u0435\u0440\u0441\u0438\u0438 TDS",
+        "Calibrate Singlepoint": "\u041A\u0430\u043B\u0438\u0431\u0440\u043E\u0432\u043A\u0430 \u043E\u0434\u043D\u043E\u0439 \u0442\u043E\u0447\u043A\u0438"
       };
     }
   });
@@ -53354,7 +53383,21 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         "Constant flow rate value": "Formato: 25,40 -> e. 25ml/min durante 40 minutos",
         "Pause Pump": "Pausar bomba",
         "Stop Dispense": "Parar distribui\xE7\xE3o",
-        "Find Pump": "Localizar bomba"
+        "Find Pump": "Localizar bomba",
+        "EC Sensor Calibration": "Calibra\xE7\xE3o do Sensor EC",
+        "Calibrate Dry": "Calibrar seco",
+        "EC value": "valor CE",
+        "Set Probe Type": "Definir tipo de sonda",
+        "Probe Type": "Tipo de Sonda",
+        "EC Probe Type Setting": "Configura\xE7\xE3o do tipo de sonda EC",
+        "EC Parameters Configuration": "Configura\xE7\xE3o dos Par\xE2metros EC",
+        "EC(uS)": "EC(EUA)",
+        "TDS(ppm)": "TDS (ppm)",
+        "S(ppt)": "S(ppt)",
+        SG: "SG",
+        "Set TDS Conversion": "Definir convers\xE3o de TDS",
+        "TDS conversion value": "Valor de convers\xE3o TDS",
+        "Calibrate Singlepoint": "Calibrar ponto \xFAnico"
       };
     }
   });
@@ -53422,7 +53465,21 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         "Constant flow rate value": "Formaat: 25,40 -> b.v. 25 ml/min gedurende 40 minuten",
         "Pause Pump": "Pomp pauzeren",
         "Stop Dispense": "Stop met doseren",
-        "Find Pump": "Zoek pomp"
+        "Find Pump": "Zoek pomp",
+        "EC Sensor Calibration": "EC-sensorkalibratie",
+        "Calibrate Dry": "Kalibreer droog",
+        "EC value": "EC-waarde",
+        "Set Probe Type": "Sondetype instellen",
+        "Probe Type": "sonde type",
+        "EC Probe Type Setting": "Instelling type EC-sonde",
+        "EC Parameters Configuration": "Configuratie EC-parameters",
+        "EC(uS)": "EG(VS)",
+        "TDS(ppm)": "TDS (ppm)",
+        "S(ppt)": "S(ppt)",
+        SG: "SG",
+        "Set TDS Conversion": "TDS-conversie instellen",
+        "TDS conversion value": "TDS-conversiewaarde",
+        "Calibrate Singlepoint": "Singlepoint kalibreren"
       };
     }
   });
@@ -53490,7 +53547,21 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         "Constant flow rate value": "Format : 25,40 -> par ex. 25 ml/min pendant 40 minutes",
         "Pause Pump": "Mettre la pompe en pause",
         "Stop Dispense": "Arr\xEAter la distribution",
-        "Find Pump": "Trouver la pompe"
+        "Find Pump": "Trouver la pompe",
+        "EC Sensor Calibration": "\xC9talonnage du capteur EC",
+        "Calibrate Dry": "Calibrer sec",
+        "EC value": "Valeur CE",
+        "Set Probe Type": "D\xE9finir le type de sonde",
+        "Probe Type": "Type de sonde",
+        "EC Probe Type Setting": "R\xE9glage du type de sonde EC",
+        "EC Parameters Configuration": "Configuration des param\xE8tres EC",
+        "EC(uS)": "CE (\xC9tats-Unis)",
+        "TDS(ppm)": "TDS(ppm)",
+        "S(ppt)": "S(ppt)",
+        SG: "SG",
+        "Set TDS Conversion": "D\xE9finir la conversion TDS",
+        "TDS conversion value": "Valeur de conversion TDS",
+        "Calibrate Singlepoint": "Calibrer un seul point"
       };
     }
   });
@@ -53558,7 +53629,21 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         "Constant flow rate value": "Formato: 25,40 -> es. 25ml/min per 40 minuti",
         "Pause Pump": "Pompa in pausa",
         "Stop Dispense": "Interrompere l'erogazione",
-        "Find Pump": "Trova Pompa"
+        "Find Pump": "Trova Pompa",
+        "EC Sensor Calibration": "Calibrazione del sensore EC",
+        "Calibrate Dry": "Calibrare a secco",
+        "EC value": "Valore CE",
+        "Set Probe Type": "Imposta il tipo di sonda",
+        "Probe Type": "Tipo di sonda",
+        "EC Probe Type Setting": "Impostazione del tipo di sonda EC",
+        "EC Parameters Configuration": "Configurazione parametri EC",
+        "EC(uS)": "CE(uS)",
+        "TDS(ppm)": "TDS (ppm)",
+        "S(ppt)": "S(ppt)",
+        SG: "SG",
+        "Set TDS Conversion": "Imposta conversione TDS",
+        "TDS conversion value": "Valore di conversione TDS",
+        "Calibrate Singlepoint": "Calibra punto singolo"
       };
     }
   });
@@ -53626,7 +53711,21 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         "Constant flow rate value": "Formato: 25,40 -> ej. 25 ml/min durante 40 minutos",
         "Pause Pump": "bomba de pausa",
         "Stop Dispense": "Detener dosificaci\xF3n",
-        "Find Pump": "encontrar bomba"
+        "Find Pump": "encontrar bomba",
+        "EC Sensor Calibration": "Calibraci\xF3n del sensor de CE",
+        "Calibrate Dry": "Calibrar Seco",
+        "EC value": "valor CE",
+        "Set Probe Type": "Establecer tipo de sonda",
+        "Probe Type": "Tipo de sonda",
+        "EC Probe Type Setting": "Configuraci\xF3n del tipo de sonda EC",
+        "EC Parameters Configuration": "Configuraci\xF3n de par\xE1metros EC",
+        "EC(uS)": "CE (EE. UU.)",
+        "TDS(ppm)": "TDS (ppm)",
+        "S(ppt)": "S(ppt)",
+        SG: "SG",
+        "Set TDS Conversion": "Establecer conversi\xF3n de TDS",
+        "TDS conversion value": "valor de conversi\xF3n TDS",
+        "Calibrate Singlepoint": "Calibrar punto \xFAnico"
       };
     }
   });
@@ -53694,7 +53793,21 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         "Constant flow rate value": "Format: 25,40 -> np. 25 ml/min przez 40 minut",
         "Pause Pump": "Wstrzymaj pomp\u0119",
         "Stop Dispense": "Zatrzymaj dozowanie",
-        "Find Pump": "Znajd\u017A pomp\u0119"
+        "Find Pump": "Znajd\u017A pomp\u0119",
+        "EC Sensor Calibration": "Kalibracja czujnika EC",
+        "Calibrate Dry": "Kalibruj na sucho",
+        "EC value": "warto\u015B\u0107 WE",
+        "Set Probe Type": "Ustaw typ sondy",
+        "Probe Type": "Typ sondy",
+        "EC Probe Type Setting": "Ustawienie typu sondy EC",
+        "EC Parameters Configuration": "Konfiguracja parametr\xF3w EC",
+        "EC(uS)": "EC(uS)",
+        "TDS(ppm)": "TDS(ppm)",
+        "S(ppt)": "S(ppt)",
+        SG: "SG",
+        "Set TDS Conversion": "Ustaw konwersj\u0119 TDS",
+        "TDS conversion value": "Warto\u015B\u0107 konwersji TDS",
+        "Calibrate Singlepoint": "Kalibruj pojedynczy punkt"
       };
     }
   });
@@ -53762,7 +53875,21 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         "Constant flow rate value": "\u683C\u5F0F\uFF1A25,40 -> \u4F8B\u598225\u6BEB\u5347/\u5206\u949F 40\u5206\u949F",
         "Pause Pump": "\u6682\u505C\u6CF5",
         "Stop Dispense": "\u505C\u6B62\u5206\u914D",
-        "Find Pump": "\u67E5\u627E\u6CF5"
+        "Find Pump": "\u67E5\u627E\u6CF5",
+        "EC Sensor Calibration": "EC \u4F20\u611F\u5668\u6821\u51C6",
+        "Calibrate Dry": "\u5E72\u71E5\u6821\u51C6",
+        "EC value": "EC\u503C",
+        "Set Probe Type": "\u8BBE\u7F6E\u63A2\u5934\u7C7B\u578B",
+        "Probe Type": "\u63A2\u5934\u7C7B\u578B",
+        "EC Probe Type Setting": "EC \u63A2\u5934\u7C7B\u578B\u8BBE\u7F6E",
+        "EC Parameters Configuration": "EC\u53C2\u6570\u914D\u7F6E",
+        "EC(uS)": "\u6B27\u5171\u4F53\uFF08\u7F8E\u5236\uFF09",
+        "TDS(ppm)": "\u603B\u6EB6\u89E3\u56FA\u4F53(ppm)",
+        "S(ppt)": "\u5C0F\u518C\u5B50(ppt)",
+        SG: "SG",
+        "Set TDS Conversion": "\u8BBE\u7F6E TDS \u8F6C\u6362",
+        "TDS conversion value": "TDS \u8F6C\u6362\u503C",
+        "Calibrate Singlepoint": "\u6821\u51C6\u5355\u70B9"
       };
     }
   });
@@ -62961,7 +63088,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     }
     doDryCalibration(_event) {
       console.log("Dry Calibration Button pressed");
-      this.handleCalibration("Dry", this.calibrateValue);
+      this.handleCalibration("Dry", 0);
       return false;
     }
     doSinglepointCalibration(_event) {
@@ -63209,6 +63336,14 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         },
         import_i18n7.default.t("Calibrate High")
       )), /* @__PURE__ */ import_react10.default.createElement(Grid_default, null, /* @__PURE__ */ import_react10.default.createElement(
+        import_Button6.default,
+        {
+          variant: "contained",
+          onClick: this.doSinglepointCalibration,
+          fullWidth: true
+        },
+        import_i18n7.default.t("Calibrate Singlepoint")
+      )), /* @__PURE__ */ import_react10.default.createElement(Grid_default, null, /* @__PURE__ */ import_react10.default.createElement(
         TextField_default,
         {
           name: "newCalLowValue",
@@ -63271,7 +63406,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
           name: "probeTypeVal",
           label: import_i18n7.default.t("Probe Type"),
           value: this.probeTypeValue,
-          type: "number",
+          type: "string",
           onChange: this.onProbeTypeValueChange,
           disabled: false,
           fullWidth: true
