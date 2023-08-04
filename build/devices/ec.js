@@ -57,8 +57,8 @@ class EC extends import_ezo_handler_base.EzoHandlerBase {
       this.info("Devicenamehas changed. Setting Devicename to: " + this.config.name);
       await this.sensor.SetName(this.config.name);
     }
-    await this.CreateStateChangeListeners();
     await this.InitNonReadStateValues();
+    await this.CreateStateChangeListeners();
     await this.SetLed(this.config.isLedOn);
     if (!!this.config.pollingInterval && this.config.pollingInterval > 0) {
       this.startPolling(async () => await this.GetAllReadings(), this.config.pollingInterval, 5e3);
@@ -323,6 +323,14 @@ class EC extends import_ezo_handler_base.EzoHandlerBase {
     try {
       this.info("Probetype: " + probeTypeValue);
       await this.sensor.SetProbeType(probeTypeValue);
+    } catch {
+      return "Error occured on setting Probe Type compensation";
+    }
+  }
+  async SetTdsConversion(value) {
+    try {
+      this.info("TDS conversion value: " + value);
+      await this.sensor.SetTDSConversionFactor(parseFloat(value));
     } catch {
       return "Error occured on setting Probe Type compensation";
     }

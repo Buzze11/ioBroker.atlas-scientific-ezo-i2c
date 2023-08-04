@@ -30,10 +30,9 @@ class EC extends import_ezo_device.EZODevice {
   }
   async SetProbeType(value) {
     if (!value)
-      return "failed";
+      return;
     await this.SendCommand("K," + value);
     this.waitTime = 300;
-    return "success";
   }
   async GetProbeType() {
     const cmd = "K,?";
@@ -50,12 +49,15 @@ class EC extends import_ezo_device.EZODevice {
       return r;
     } else {
       await this.SendCommand("T," + value);
+      this.waitTime = 300;
       return null;
     }
   }
   async GetTemperatureCompensation() {
     const cmd = "T,?";
-    return (await this.SendCommand(cmd)).toString("ascii", cmd.length + 1);
+    const res = (await this.SendCommand(cmd)).toString("ascii", cmd.length + 1);
+    this.waitTime = 300;
+    return res;
   }
   async SetParameter(parameter, isEnabled) {
     await this.SendCommand("O," + parameter + "," + (isEnabled ? "1" : "0"));
@@ -63,16 +65,20 @@ class EC extends import_ezo_device.EZODevice {
   }
   async GetParametersEnabled() {
     const cmd = "O,?";
+    const res = (await this.SendCommand(cmd)).toString("ascii", cmd.length + 1);
     this.waitTime = 300;
-    return (await this.SendCommand(cmd)).toString("ascii", cmd.length + 1);
+    return res;
   }
   async SetTDSConversionFactor(value) {
     value = Math.min(1, Math.max(value, 0.01));
     await this.SendCommand("TDS," + value);
+    this.waitTime = 300;
   }
   async GetTDSConversionFactor() {
     const cmd = "TDS,?";
-    return (await this.SendCommand(cmd)).toString("ascii", cmd.length + 1);
+    const res = (await this.SendCommand(cmd)).toString("ascii", cmd.length + 1);
+    this.waitTime = 300;
+    return res;
   }
   async GetReading() {
     this.waitTime = 600;
@@ -81,16 +87,16 @@ class EC extends import_ezo_device.EZODevice {
     return r;
   }
   async ClearCalibration() {
-    this.waitTime = 300;
     await this.SendCommand("Cal,clear");
+    this.waitTime = 300;
   }
   async IsCalibrated() {
-    this.waitTime = 300;
     const cmd = "Cal,?";
-    return (await this.SendCommand(cmd)).toString("ascii", cmd.length + 1).replace(/\0/g, "");
+    const res = (await this.SendCommand(cmd)).toString("ascii", cmd.length + 1).replace(/\0/g, "");
+    this.waitTime = 300;
+    return res;
   }
   async CalibrateDry() {
-    this.waitTime = 900;
     await this.SendCommand("Cal,dry,");
     this.waitTime = 600;
   }

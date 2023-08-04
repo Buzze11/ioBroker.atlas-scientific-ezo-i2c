@@ -39,11 +39,6 @@ class DO extends EzoBase<DOConfig> {
         };
     }
 
-    protected doSomething(): boolean {
-        // Do Something
-        return true;
-    }
-
     // ******* Calibration *******
 
     @boundMethod

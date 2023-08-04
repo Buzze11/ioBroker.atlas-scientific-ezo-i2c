@@ -151,7 +151,7 @@ class AtlasScientificEzoI2cAdapter extends utils.Adapter {
     await Promise.all(listeners.map((listener) => listener(oldValue, state.val)));
   }
   async onMessage(obj) {
-    var _a, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o, _p;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o, _p, _q, _r, _s, _t;
     this.log.info("onMessage: " + JSON.stringify(obj));
     try {
       if (typeof obj === "object" && obj.message) {
@@ -221,69 +221,90 @@ class AtlasScientificEzoI2cAdapter extends utils.Adapter {
                 case "PH":
                   this.result = await ((_f = this.dev) == null ? void 0 : _f.SetTemperatureCompensation(obj.message["tcValue"]));
                   break;
+                case "EC":
+                  this.result = await ((_g = this.dev) == null ? void 0 : _g.SetTemperatureCompensation(obj.message["tcValue"]));
+                  break;
               }
             }
             this.log.error("Error occured on setting temperature compensation: " + res);
             break;
           case "ORPCalibration":
             if (this.dev = await this.GetDeviceHandler(obj)) {
-              this.result = await ((_g = this.dev) == null ? void 0 : _g.DoCalibration(obj.message["calibrationtype"], obj.message["orpValue"]));
+              this.result = await ((_h = this.dev) == null ? void 0 : _h.DoCalibration(obj.message["calibrationtype"], obj.message["orpValue"]));
             }
             this.log.error("Error occured on ORP Calibration: " + res);
             break;
           case "RTDCalibration":
             if (this.dev = await this.GetDeviceHandler(obj)) {
-              this.result = await ((_h = this.dev) == null ? void 0 : _h.DoCalibration(obj.message["calibrationtype"], obj.message["tempValue"]));
+              this.result = await ((_i = this.dev) == null ? void 0 : _i.DoCalibration(obj.message["calibrationtype"], obj.message["tempValue"]));
             }
             this.log.error("Error occured on RTD Calibration: " + res);
             break;
           case "PumpCalibration":
             if (this.dev = await this.GetDeviceHandler(obj)) {
-              this.result = await ((_i = this.dev) == null ? void 0 : _i.DoCalibration(obj.message["calibrationtype"], obj.message["VolumeValue"]));
+              this.result = await ((_j = this.dev) == null ? void 0 : _j.DoCalibration(obj.message["calibrationtype"], obj.message["VolumeValue"]));
             }
             this.log.error("Error occured on Pump Calibration: " + res);
             break;
           case "PumpClearDispensedVolume":
             if (this.dev = await this.GetDeviceHandler(obj)) {
-              this.result = await ((_j = this.dev) == null ? void 0 : _j.ClearTotalDispensedVolume());
+              this.result = await ((_k = this.dev) == null ? void 0 : _k.ClearTotalDispensedVolume());
             }
             this.log.error("Error occured on clearing total dispensed volume: " + res);
             break;
           case "PumpSetContinousDispense":
             if (this.dev = await this.GetDeviceHandler(obj)) {
-              this.result = await ((_k = this.dev) == null ? void 0 : _k.SetContinousDispenseMode(true));
+              this.result = await ((_l = this.dev) == null ? void 0 : _l.SetContinousDispenseMode(true));
             }
             this.log.error("Error occured on staring continous dispense: " + res);
             break;
           case "PumpStopDispense":
             if (this.dev = await this.GetDeviceHandler(obj)) {
-              this.result = await ((_l = this.dev) == null ? void 0 : _l.SetContinousDispenseMode(false));
+              this.result = await ((_m = this.dev) == null ? void 0 : _m.SetContinousDispenseMode(false));
             }
             this.log.error("Error occured on stopping dispense: " + res);
             break;
           case "PumpPause":
             if (this.dev = await this.GetDeviceHandler(obj)) {
-              this.result = await ((_m = this.dev) == null ? void 0 : _m.DoPauseDispense());
+              this.result = await ((_n = this.dev) == null ? void 0 : _n.DoPauseDispense());
             }
             this.log.error("Error occured on pausing dispense: " + res);
             break;
           case "PumpSetDoseOverTime":
             if (this.dev = await this.GetDeviceHandler(obj)) {
-              this.result = await ((_n = this.dev) == null ? void 0 : _n.DoseOverTime(obj.message["doseOverTimeValue"]));
+              this.result = await ((_o = this.dev) == null ? void 0 : _o.DoseOverTime(obj.message["doseOverTimeValue"]));
             }
             this.log.error("Error occured on starting dose over time: " + res);
             break;
           case "PumpSetDispenseVolume":
             if (this.dev = await this.GetDeviceHandler(obj)) {
-              this.result = await ((_o = this.dev) == null ? void 0 : _o.DispenseVolume(obj.message["dispenseValue"]));
+              this.result = await ((_p = this.dev) == null ? void 0 : _p.DispenseVolume(obj.message["dispenseValue"]));
             }
             this.log.error("Error occured on starting dispense volume: " + res);
             break;
           case "PumpSetConstantFlowRate":
             if (this.dev = await this.GetDeviceHandler(obj)) {
-              this.result = await ((_p = this.dev) == null ? void 0 : _p.SetConstantFlowRate(obj.message["constantFlowRateValue"]));
+              this.result = await ((_q = this.dev) == null ? void 0 : _q.SetConstantFlowRate(obj.message["constantFlowRateValue"]));
             }
             this.log.error("Error occured on starting dispense volume: " + res);
+            break;
+          case "ECCalibration":
+            if (this.dev = await this.GetDeviceHandler(obj)) {
+              this.result = await ((_r = this.dev) == null ? void 0 : _r.DoCalibration(obj.message["calibrationtype"], obj.message["ecValue"]));
+            }
+            this.log.error("Error occured on EC Calibration: " + res);
+            break;
+          case "EcTDSConversion":
+            if (this.dev = await this.GetDeviceHandler(obj)) {
+              this.result = await ((_s = this.dev) == null ? void 0 : _s.SetTdsConversion(obj.message["tdsValue"]));
+            }
+            this.log.error("Error occured on EC Calibration: " + res);
+            break;
+          case "EcProbeType":
+            if (this.dev = await this.GetDeviceHandler(obj)) {
+              this.result = await ((_t = this.dev) == null ? void 0 : _t.SetProbeType(obj.message["probeTypeValue"]));
+            }
+            this.log.error("Error occured on setting probe type: " + res);
             break;
           default:
             this.result = "Unknown command";

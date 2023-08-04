@@ -52,11 +52,6 @@ class PH extends EzoBase<PHConfig> {
         this.tempCompensationVal = value;
     }
 
-    protected doSomething(): boolean {
-        // Do Something
-        return true;
-    }
-
     // ******* Calibration *******
 
     @boundMethod

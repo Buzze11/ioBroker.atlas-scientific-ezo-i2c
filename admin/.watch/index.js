@@ -61393,9 +61393,6 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         config
       };
     }
-    doSomething() {
-      return true;
-    }
     doClearCalibration(_event) {
       console.log("Clear Calibration Button pressed");
       this.handleCalibration("Clear");
@@ -61779,9 +61776,6 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     }
     set tempCompensationValue(value) {
       this.tempCompensationVal = value;
-    }
-    doSomething() {
-      return true;
     }
     onCalibrateValueChange(_event) {
       let minVal = 0;
@@ -62953,9 +62947,6 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     set probeTypeValue(value) {
       this.probeTypeVal = value;
     }
-    doSomething() {
-      return true;
-    }
     onCalibrateValueChange(_event) {
       const target = event.target;
       const value = this.parseChangedSetting(target);
@@ -63047,7 +63038,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
           "deviceType": "EC",
           "tdsValue": tdsValue.toString()
         };
-        this.sendCommand("SetTDSConversion", txPayload);
+        this.sendCommand("EcTDSConversion", txPayload);
         return true;
       } catch (e) {
         console.log('Error on "Setting TDS conversion value');
@@ -63070,10 +63061,9 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
       try {
         let txPayload = {
           "address": this.address.toString(),
-          "deviceType": "EC",
           "probeTypeValue": ptValue.toString()
         };
-        this.sendCommand("Probe Type Change", txPayload);
+        this.sendCommand("EcProbeType", txPayload);
         return true;
       } catch (e) {
         console.log('Error on "Setting Probe Type"');
