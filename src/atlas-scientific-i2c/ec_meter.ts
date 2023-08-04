@@ -16,17 +16,21 @@ export class EC extends EZODevice{
      * Current known probe types:  '0.1','1.0', and '10' 
      * value floating point in ASCII 
      */
-    async SetProbeType(value: string): Promise<void>{
+    async SetProbeType(value: string): Promise<string>{
+        if(!value)
+            return "failed";
         await this.SendCommand('K,'+value);
+        this.waitTime=300;
+        return "success";
     }
 
     async GetProbeType(): Promise<string>{
         const cmd='K,?';
-        this.waitTime=600;
+        this.waitTime=300;
         //returns K,n
         //strange:  normally these commands have a '?' prefixed to their return message
         const k = (await this.SendCommand(cmd)).toString('ascii',cmd.length);
-        this.waitTime=300;
+        this.waitTime=600;
         return k;
     }
 
@@ -72,6 +76,7 @@ export class EC extends EZODevice{
      */
     async SetParameter(parameter: string, isEnabled: boolean): Promise<void>{
         await this.SendCommand('O,'+parameter+','+(isEnabled?'1':'0'));
+        this.waitTime=300;
     }
 
     /**
@@ -82,6 +87,7 @@ export class EC extends EZODevice{
      */
     async GetParametersEnabled(): Promise<string>{
         const cmd = 'O,?';
+        this.waitTime=300;
         return (await this.SendCommand(cmd)).toString('ascii',cmd.length+1);
     }
 
@@ -120,6 +126,72 @@ export class EC extends EZODevice{
         const r= (await this.SendCommand('R')).toString('ascii',1);
         this.waitTime=300;
         return r;
+    }
+
+    /**
+     * Resets all calibration points to ideal.
+     */
+    async ClearCalibration(): Promise<void>{
+        this.waitTime = 300;
+        await this.SendCommand("Cal,clear");
+    }
+
+    /**
+     * Returns numbers of Calibration points (0-2)
+     * 0 = uncalibrated
+     * 1 = One Point 
+     * 2 = Two Point
+     */
+    async IsCalibrated():Promise<string>{
+        this.waitTime = 300;
+        const cmd='Cal,?';
+        return (await this.SendCommand(cmd)).toString('ascii',cmd.length+1).replace(/\0/g, '');
+    } 
+
+    /**
+     * Performs dry calibration.
+     * WARNING: This will clear any previous calibration!
+     */
+    async CalibrateDry(){
+        this.waitTime=900;
+        await this.SendCommand("Cal,dry,");
+        this.waitTime=600;
+    }
+
+    /**
+     * Performs single point calibration.
+     * val: any value
+     */
+    async CalibrateSinglepoint(val?: number){
+        if(!val)
+            return;
+        this.waitTime=900;
+        await this.SendCommand('Cal,' + val.toString());
+        this.waitTime=600;
+    }
+
+    /**
+     * Performs low end calibration.
+     * val: any value
+     */
+    async CalibrateLow(val?: number){
+        if(!val)
+            return;
+        this.waitTime=900;
+        await this.SendCommand('Cal,low,' + val.toString());
+        this.waitTime=600;
+    }
+
+    /**
+     * Performs high end calibration
+     * val: any value
+     */    
+    async CalibrateHigh(val?: number){
+        if(!val)
+            return;
+        this.waitTime=900;
+        await this.SendCommand('Cal,high,' + val.toString());
+        this.waitTime=600;
     }
 }
 
