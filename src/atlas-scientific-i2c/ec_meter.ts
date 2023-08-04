@@ -16,12 +16,11 @@ export class EC extends EZODevice{
      * Current known probe types:  '0.1','1.0', and '10' 
      * value floating point in ASCII 
      */
-    async SetProbeType(value: string): Promise<string>{
+    async SetProbeType(value: string): Promise<void>{
         if(!value)
-            return "failed";
+            return;
         await this.SendCommand('K,'+value);
         this.waitTime=300;
-        return "success";
     }
 
     async GetProbeType(): Promise<string>{
@@ -50,6 +49,7 @@ export class EC extends EZODevice{
             return r;
         }else{
             await this.SendCommand('T,'+value);
+            this.waitTime=300;
             return null;
         }
     }
@@ -60,7 +60,9 @@ export class EC extends EZODevice{
      */
     async GetTemperatureCompensation(): Promise<string>{
         const cmd='T,?';
-        return (await this.SendCommand(cmd)).toString('ascii',cmd.length+1);
+        const res = (await this.SendCommand(cmd)).toString('ascii',cmd.length+1);
+        this.waitTime=300;
+        return res;
     }
 
     /**
@@ -87,8 +89,9 @@ export class EC extends EZODevice{
      */
     async GetParametersEnabled(): Promise<string>{
         const cmd = 'O,?';
+        const res = (await this.SendCommand(cmd)).toString('ascii',cmd.length+1);
         this.waitTime=300;
-        return (await this.SendCommand(cmd)).toString('ascii',cmd.length+1);
+        return res;
     }
 
     /**
@@ -106,6 +109,7 @@ export class EC extends EZODevice{
     async SetTDSConversionFactor(value: number): Promise<void>{
         value = Math.min(1.00,Math.max(value,0.01));
         await this.SendCommand('TDS,'+value);
+        this.waitTime=300;
     }
 
     /**
@@ -114,7 +118,9 @@ export class EC extends EZODevice{
      */
     async GetTDSConversionFactor(): Promise<string>{
         const cmd='TDS,?';
-        return (await this.SendCommand(cmd)).toString('ascii',cmd.length+1);
+        const res = (await this.SendCommand(cmd)).toString('ascii',cmd.length+1);
+        this.waitTime=300;
+        return res;
     }
 
     /**
@@ -132,8 +138,8 @@ export class EC extends EZODevice{
      * Resets all calibration points to ideal.
      */
     async ClearCalibration(): Promise<void>{
-        this.waitTime = 300;
         await this.SendCommand("Cal,clear");
+        this.waitTime = 300;
     }
 
     /**
@@ -143,9 +149,10 @@ export class EC extends EZODevice{
      * 2 = Two Point
      */
     async IsCalibrated():Promise<string>{
-        this.waitTime = 300;
         const cmd='Cal,?';
-        return (await this.SendCommand(cmd)).toString('ascii',cmd.length+1).replace(/\0/g, '');
+        const res = (await this.SendCommand(cmd)).toString('ascii',cmd.length+1).replace(/\0/g, '');
+        this.waitTime=300;
+        return res;
     } 
 
     /**
@@ -153,7 +160,6 @@ export class EC extends EZODevice{
      * WARNING: This will clear any previous calibration!
      */
     async CalibrateDry(){
-        this.waitTime=900;
         await this.SendCommand("Cal,dry,");
         this.waitTime=600;
     }

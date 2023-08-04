@@ -74,11 +74,6 @@ class EC extends EzoBase<ECConfig> {
         this.probeTypeVal = value;
     }
 
-    protected doSomething(): boolean {
-        // Do Something
-        return true;
-    }
-
     // ******* Calibration *******
 
     @boundMethod
@@ -203,7 +198,7 @@ class EC extends EzoBase<ECConfig> {
                 "deviceType": "EC",
                 "tdsValue":tdsValue.toString()
             };
-            this.sendCommand("SetTDSConversion", txPayload );
+            this.sendCommand("EcTDSConversion", txPayload );
             return true;
         }
         catch{
@@ -236,10 +231,9 @@ class EC extends EzoBase<ECConfig> {
         try{
             let txPayload : Record<string, any> = {
                 "address": this.address.toString(),
-                "deviceType": "EC",
                 "probeTypeValue":ptValue.toString()
             };
-            this.sendCommand("Probe Type Change", txPayload );
+            this.sendCommand("EcProbeType", txPayload );
             return true;
         }
         catch{

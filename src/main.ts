@@ -14,6 +14,7 @@ import DO from './devices/do';
 import PH from './devices/ph';
 import ORP from './devices/orp';
 import RTD from './devices/rtd';
+import EC from './devices/ec';
 import PeristalticPump from './devices/pump';
 
 
@@ -259,6 +260,9 @@ export class AtlasScientificEzoI2cAdapter extends utils.Adapter {
                                 case 'PH':
                                     this.result = await (this.dev as PH)?.SetTemperatureCompensation(obj.message['tcValue']);
                                     break;
+                                case 'EC':
+                                    this.result = await (this.dev as EC)?.SetTemperatureCompensation(obj.message['tcValue']);
+                                    break;
                             }
                         }
                         this.log.error('Error occured on setting temperature compensation: ' + res);
@@ -322,6 +326,24 @@ export class AtlasScientificEzoI2cAdapter extends utils.Adapter {
                             this.result = await (this.dev as PeristalticPump)?.SetConstantFlowRate(obj.message['constantFlowRateValue']);
                         }
                         this.log.error('Error occured on starting dispense volume: ' + res);
+                        break;
+                    case 'ECCalibration':
+                        if((this.dev = await this.GetDeviceHandler(obj))){
+                            this.result = await (this.dev as EC)?.DoCalibration(obj.message['calibrationtype'], obj.message['ecValue']);
+                        }
+                        this.log.error('Error occured on EC Calibration: ' + res);
+                        break;
+                    case 'EcTDSConversion':
+                        if((this.dev = await this.GetDeviceHandler(obj))){
+                            this.result = await (this.dev as EC)?.SetTdsConversion(obj.message['tdsValue']);
+                        }
+                        this.log.error('Error occured on EC Calibration: ' + res);
+                        break;
+                    case 'EcProbeType':
+                        if((this.dev = await this.GetDeviceHandler(obj))){
+                            this.result = await (this.dev as EC)?.SetProbeType(obj.message['probeTypeValue']);
+                        }
+                        this.log.error('Error occured on setting probe type: ' + res);
                         break;
                     default:
                         this.result =  'Unknown command';

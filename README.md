@@ -28,10 +28,11 @@ This ioBroker Adapter integrates several Atlas Scientific EZO Devices https://at
 * EZO pH - Potential of Hydrogen -> https://atlas-scientific.com/ph
 * EZO RTD - Resistance Temperature Detector -> https://atlas-scientific.com/temperature
 * EZO PMP - Embedded Peristaltic Dosing Pump -> https://atlas-scientific.com/peristaltic/ezo-pmp/ (untested due to missing hardware)
+* EZO EC - Electrical conductivity -> https://atlas-scientific.com/conductivity
 
 ### Future Support
+* Please create a feature request issue, if you think about further implementations
 
-* EZO EC - Electrical conductivity -> https://atlas-scientific.com/conductivity
 
 ## Getting started
 
@@ -2729,6 +2730,11 @@ You can check other adapters for examples or ask in the developer community. Usi
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- Added support for EC Electrical conductivity sensors
+- Extended Help with new implementation
+
 ### 2.2.0 (2023-08-02)
 - Several Bugfixes in Pump implementation
 - adjusted readme.md

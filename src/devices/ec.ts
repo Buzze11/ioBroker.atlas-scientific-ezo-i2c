@@ -46,12 +46,11 @@ export default class EC extends EzoHandlerBase<ECConfig> {
             await this.sensor.SetName(this.config.name);
         }
 
+        // Init state objects which are not read from sensor (config objects)
+        await this.InitNonReadStateValues();
        
         // Set all State change listeners
         await this.CreateStateChangeListeners();
-
-        // Init state objects which are not read from sensor (config objects)
-        await this.InitNonReadStateValues();
 
         // Set Led usage
         await this.SetLed(this.config.isLedOn);
@@ -255,7 +254,7 @@ export default class EC extends EzoHandlerBase<ECConfig> {
             await this.setStateAckAsync('Calibrate_Clear', false);
             await this.setStateAckAsync('Calibrate_Dry', false);
             await this.setStateAckAsync('Calibrate_Singlepoint', '');
-            await this.setStateAckAsync('Calibrate_Mid', '');
+            await this.setStateAckAsync('Calibrate_Low', '');
             await this.setStateAckAsync('Calibrate_High', '');
             return "State objects initialized successfully";
         }
@@ -359,6 +358,16 @@ export default class EC extends EzoHandlerBase<ECConfig> {
         try{
             this.info('Probetype: ' + probeTypeValue);
             await this.sensor.SetProbeType(probeTypeValue);
+        }
+        catch{
+            return 'Error occured on setting Probe Type compensation';
+        }
+    }
+
+    public async SetTdsConversion(value:string):Promise<string>{
+        try{
+            this.info('TDS conversion value: ' + value);
+            await this.sensor.SetTDSConversionFactor(parseFloat(value));
         }
         catch{
             return 'Error occured on setting Probe Type compensation';

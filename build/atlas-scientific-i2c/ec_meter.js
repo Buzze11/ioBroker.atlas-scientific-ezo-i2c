@@ -29,13 +29,17 @@ class EC extends import_ezo_device.EZODevice {
     this.readBufferSize = 40;
   }
   async SetProbeType(value) {
+    if (!value)
+      return "failed";
     await this.SendCommand("K," + value);
+    this.waitTime = 300;
+    return "success";
   }
   async GetProbeType() {
     const cmd = "K,?";
-    this.waitTime = 600;
-    const k = (await this.SendCommand(cmd)).toString("ascii", cmd.length);
     this.waitTime = 300;
+    const k = (await this.SendCommand(cmd)).toString("ascii", cmd.length);
+    this.waitTime = 600;
     return k;
   }
   async SetTemperatureCompensation(value, takeReading = false) {
@@ -55,9 +59,11 @@ class EC extends import_ezo_device.EZODevice {
   }
   async SetParameter(parameter, isEnabled) {
     await this.SendCommand("O," + parameter + "," + (isEnabled ? "1" : "0"));
+    this.waitTime = 300;
   }
   async GetParametersEnabled() {
     const cmd = "O,?";
+    this.waitTime = 300;
     return (await this.SendCommand(cmd)).toString("ascii", cmd.length + 1);
   }
   async SetTDSConversionFactor(value) {
@@ -73,6 +79,41 @@ class EC extends import_ezo_device.EZODevice {
     const r = (await this.SendCommand("R")).toString("ascii", 1);
     this.waitTime = 300;
     return r;
+  }
+  async ClearCalibration() {
+    this.waitTime = 300;
+    await this.SendCommand("Cal,clear");
+  }
+  async IsCalibrated() {
+    this.waitTime = 300;
+    const cmd = "Cal,?";
+    return (await this.SendCommand(cmd)).toString("ascii", cmd.length + 1).replace(/\0/g, "");
+  }
+  async CalibrateDry() {
+    this.waitTime = 900;
+    await this.SendCommand("Cal,dry,");
+    this.waitTime = 600;
+  }
+  async CalibrateSinglepoint(val) {
+    if (!val)
+      return;
+    this.waitTime = 900;
+    await this.SendCommand("Cal," + val.toString());
+    this.waitTime = 600;
+  }
+  async CalibrateLow(val) {
+    if (!val)
+      return;
+    this.waitTime = 900;
+    await this.SendCommand("Cal,low," + val.toString());
+    this.waitTime = 600;
+  }
+  async CalibrateHigh(val) {
+    if (!val)
+      return;
+    this.waitTime = 900;
+    await this.SendCommand("Cal,high," + val.toString());
+    this.waitTime = 600;
   }
 }
 // Annotate the CommonJS export names for ESM import in node:
