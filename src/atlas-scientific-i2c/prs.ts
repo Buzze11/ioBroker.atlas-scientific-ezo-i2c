@@ -25,6 +25,7 @@ export class PRS extends EZODevice{
      *  false to remove parameter
      */
     async SetPressureUnit(unit: string, isEnabled: boolean): Promise<void>{
+        this.waitTime = 300;
         await this.SendCommand('U,'+unit);
         this.waitTime = 300;
         await this.SendCommand('U,'+(isEnabled?'1':'0'));
@@ -97,6 +98,33 @@ export class PRS extends EZODevice{
         this.waitTime = 900;
             await this.SendCommand('Cal,' + valInCurrentScale.toString());
     }
+
+    /**
+     * Enables or disables alarm
+     * is<Enabled: true = alarm pin activated, false = alarmpin deactivated
+     * The alarm pin will = 1 when pressure levels are > alarm set point. 
+     * Alarm tolerance sets how far below the set point pressure levels need to drop before the pin will = 0 again.
+     */
+    async SetAlarm(isEnabled: boolean, threshold: number, tolerance: number): Promise<void>{
+        this.waitTime = 300;
+        await this.SendCommand('Alarm,en,'+(isEnabled?'1':'0'));
+        await this.SendCommand('Alarm,' + threshold.toString());
+        await this.SendCommand('Alarm,tol,' + tolerance.toString());
+    }
+
+        /**
+     * Returns the alarm state 
+     * returns the current alarm setup parametrization
+     * [0] = alarm threshold
+     * [1] = alarm tolerance
+     * [0] = alarm active = 1 / deactive = 0
+     */
+        async GetAlarmSetupParameters():Promise<string[]>{
+            const cmd='Alarm,?';
+            this.waitTime=300;
+            const res = (await this.SendCommand(cmd)).toString('ascii', cmd.length+1).replace(/\0/g, '').split(',');
+            return res;
+        } 
 
 }
 

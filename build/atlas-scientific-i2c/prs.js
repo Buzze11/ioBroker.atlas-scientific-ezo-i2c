@@ -29,6 +29,7 @@ class PRS extends import_ezo_device.EZODevice {
     this.readBufferSize = 40;
   }
   async SetPressureUnit(unit, isEnabled) {
+    this.waitTime = 300;
     await this.SendCommand("U," + unit);
     this.waitTime = 300;
     await this.SendCommand("U," + (isEnabled ? "1" : "0"));
@@ -63,6 +64,18 @@ class PRS extends import_ezo_device.EZODevice {
       return;
     this.waitTime = 900;
     await this.SendCommand("Cal," + valInCurrentScale.toString());
+  }
+  async SetAlarm(isEnabled, threshold, tolerance) {
+    this.waitTime = 300;
+    await this.SendCommand("Alarm,en," + (isEnabled ? "1" : "0"));
+    await this.SendCommand("Alarm," + threshold.toString());
+    await this.SendCommand("Alarm,tol," + tolerance.toString());
+  }
+  async GetAlarmSetupParameters() {
+    const cmd = "Alarm,?";
+    this.waitTime = 300;
+    const res = (await this.SendCommand(cmd)).toString("ascii", cmd.length + 1).replace(/\0/g, "").split(",");
+    return res;
   }
 }
 // Annotate the CommonJS export names for ESM import in node:
