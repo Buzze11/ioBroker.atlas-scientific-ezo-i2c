@@ -43,7 +43,7 @@ export class RTD extends EZODevice{
     */
     async SetTemperatureScale(value:string):Promise<void>{
         if(value === 'c' || value === 'k' || value === 'f'){
-            let cmd = 'S,';
+            const cmd = 'S,';
             this.waitTime=300;
             await this.SendCommand(cmd+value);
         }
@@ -58,7 +58,7 @@ export class RTD extends EZODevice{
     async GetTemperatureScale():Promise<string>{
         const cmd='S,?';
         this.waitTime=300;
-        let res = (await this.SendCommand(cmd)).toString('ascii',cmd.length+1).replace(/\0/g, '');
+        const res = (await this.SendCommand(cmd)).toString('ascii',cmd.length+1).replace(/\0/g, '');
         return res;
     }
 
@@ -69,7 +69,7 @@ export class RTD extends EZODevice{
     async GetReading():Promise<string>{
         const cmd='R';
         this.waitTime=600;
-        let res = (await this.SendCommand(cmd)).toString('ascii',1).replace(/\0/g, '');
+        const res = (await this.SendCommand(cmd)).toString('ascii',1).replace(/\0/g, '');
         return res;
     }
 }

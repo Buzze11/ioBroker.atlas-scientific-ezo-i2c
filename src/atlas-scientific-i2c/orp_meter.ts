@@ -25,7 +25,6 @@ export class ORP extends EZODevice{
     async Calibrate(value: number):Promise<void>{
         this.waitTime=900;
         await this.SendCommand('Cal,'+ value);
-        this.waitTime=300;
     }
 
     /**

@@ -53,14 +53,12 @@ class pH extends import_ezo_device.EZODevice {
       ph = 4;
     this.waitTime = 900;
     await this.SendCommand("Cal,low," + ph.toString());
-    this.waitTime = 300;
   }
   async CalibrateHigh(ph) {
     if (!ph)
       ph = 10;
     this.waitTime = 900;
     await this.SendCommand("Cal,high," + ph.toString());
-    this.waitTime = 300;
   }
   async GetReading() {
     this.waitTime = 900;
@@ -76,10 +74,9 @@ class pH extends import_ezo_device.EZODevice {
     if (takeReading) {
       this.waitTime = 900;
       const r = (await this.SendCommand("RT," + value)).toString("ascii", 1).replace(/\0/g, "");
-      this.waitTime = 300;
       return r;
     } else {
-      this.waitTime = 300;
+      this.waitTime = 900;
       await this.SendCommand("T," + value);
     }
   }

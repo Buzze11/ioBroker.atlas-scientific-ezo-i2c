@@ -57,7 +57,6 @@ export class pH extends EZODevice{
             ph = 4.00;
         this.waitTime=900;
         await this.SendCommand('Cal,low,'+ph.toString());
-        this.waitTime=300;
     }
 
     /**
@@ -69,7 +68,6 @@ export class pH extends EZODevice{
             ph = 10.00;
         this.waitTime=900;
         await this.SendCommand('Cal,high,'+ph.toString());
-        this.waitTime=300;
     }
 
     /**
@@ -100,10 +98,9 @@ export class pH extends EZODevice{
         if(takeReading){
             this.waitTime=900;
             const r= (await this.SendCommand('RT,'+value)).toString('ascii',1).replace(/\0/g, '');
-            this.waitTime=300;
             return r;
         }else{
-            this.waitTime = 300;
+            this.waitTime = 900;
             await this.SendCommand('T,'+value);
         }
     }
@@ -116,10 +113,6 @@ export class pH extends EZODevice{
         const cmd = 'Slope,?';
         this.waitTime=300;
         return (await this.SendCommand(cmd)).toString('ascii', cmd.length+1).replace(/\0/g, '').split(',');
-        // return { acid:resp[0],
-        //         base:resp[1],
-        //         zeroPoint:resp[2]        
-        // }
     }
 }
 

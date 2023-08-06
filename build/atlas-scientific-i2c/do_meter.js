@@ -28,20 +28,20 @@ class DO extends import_ezo_device.EZODevice {
     this.adapter = adapter;
   }
   async ClearCalibration() {
+    this.waitTime = 300;
     await this.SendCommand("Cal,clear");
   }
   async CalibrateAtmosphericOxygen() {
     this.waitTime = 1300;
     await this.SendCommand("Cal");
-    this.waitTime = 300;
   }
   async Calibrate0DissolvedOxygen() {
     this.waitTime = 1300;
     await this.SendCommand("Cal,0");
-    this.waitTime = 300;
   }
   async IsCalibrated() {
     const cmd = "Cal,?";
+    this.waitTime = 300;
     return (await this.SendCommand(cmd)).toString("ascii", cmd.length + 1).replace(/\0/g, "");
   }
   async SetTemperatureCompensation(value, takeReading = false) {
@@ -59,34 +59,40 @@ class DO extends import_ezo_device.EZODevice {
   }
   async GetTemperatureCompensation() {
     const cmd = "T,?";
+    this.waitTime = 300;
     return (await this.SendCommand(cmd)).toString("ascii", cmd.length + 1).replace(/\0/g, "");
   }
   async SetSalinityCompensation(value, isPpt = false) {
+    this.waitTime = 300;
     await this.SendCommand("S," + value + (isPpt ? ",ppt" : ""));
   }
   async GetSalinityCompensation() {
     const cmd = "S,?";
+    this.waitTime = 300;
     const resp = (await this.SendCommand(cmd)).toString("ascii", cmd.length + 1).replace(/\0/g, "").split(",");
     return resp;
   }
   async SetPressureCompensation(value) {
+    this.waitTime = 300;
     await this.SendCommand("P," + value);
   }
   async GetPressureCompensation() {
     const cmd = "P,?";
+    this.waitTime = 300;
     return (await this.SendCommand(cmd)).toString("ascii", cmd.length + 1).replace(/\0/g, "");
   }
   async SetParameter(parameter, isEnabled) {
+    this.waitTime = 300;
     await this.SendCommand("O," + parameter + "," + (isEnabled ? "1" : "0"));
   }
   async GetParametersEnabled() {
     const cmd = "O,?";
+    this.waitTime = 300;
     return (await this.SendCommand(cmd)).toString("ascii", cmd.length + 1).replace(/\0/g, "");
   }
   async GetReading() {
     this.waitTime = 600;
     const r = (await this.SendCommand("R")).toString("ascii", 1).replace(/\0/g, "");
-    this.waitTime = 300;
     return r;
   }
 }

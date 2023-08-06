@@ -14,7 +14,8 @@ export class Pump extends EZODevice {
      * This will begin continuously dispensing liquid until Pause or Stop is given.
      */
 	async StartDispensing(reverse: boolean):Promise<void>{
-		if(reverse){
+		this.waitTime = 300;
+        if(reverse){
 			await this.SendCommand("D,-*");
 		}else{
 			await this.SendCommand("D,*");
@@ -26,6 +27,7 @@ export class Pump extends EZODevice {
      */
 	async StopDispensing():Promise<string>{
 		//_*DONE,v
+        this.waitTime = 300;
 		return (await this.SendCommand("X")).toString().split(',')[1];
 	}
 
@@ -33,6 +35,7 @@ export class Pump extends EZODevice {
      * Dispenses the given amount. Negative amounts will run the pump in reverse
      */
 	async Dispense(ml: string):Promise<void>{
+        this.waitTime = 300;
 		await this.SendCommand("D," + ml);	
 	}
 
@@ -42,6 +45,7 @@ export class Pump extends EZODevice {
      * min Minutes
      */
 	async Dose(ml:number ,min:number):Promise<void>{
+        this.waitTime = 300;
 		await this.SendCommand(`D,${ml},${min}`);
 	}
 
@@ -51,6 +55,7 @@ export class Pump extends EZODevice {
      * min Minutes to maintain this rate. Use '*' for indefinite time.
      */
 	async DispenseConstantRate(rate:number, min:string):Promise<void>{
+        this.waitTime = 300;
 		await this.SendCommand(`DC,${rate},${min}`);
 	}
 	
@@ -58,6 +63,7 @@ export class Pump extends EZODevice {
      * Pauses Dispensing.
      */
 	async PauseDispensing():Promise<void>{
+        this.waitTime = 300;
 		await this.SendCommand('P');
 	}
 
@@ -75,6 +81,7 @@ export class Pump extends EZODevice {
      */
 	async GetPumpVoltage():Promise<string>{
         const cmd='PV,?';
+        this.waitTime = 300;
 		return (await this.SendCommand(cmd)).toString('ascii',cmd.length+1);
 	}
 	
@@ -82,6 +89,7 @@ export class Pump extends EZODevice {
      * Gets a single value showing dispensed volume.
      */
     async GetReading():Promise<number>{
+        this.waitTime = 300;
        return Number.parseFloat((await this.SendCommand('R')).toString('ascii',1));
     }
 
@@ -93,6 +101,7 @@ export class Pump extends EZODevice {
      * returns  ml
      */
 	async GetTotalDispensedVolume(absolute: boolean):Promise<string>{
+        this.waitTime = 300;
         let cmd='TV,?';
 		if(absolute){
             cmd = 'ATV,?';
@@ -104,6 +113,7 @@ export class Pump extends EZODevice {
      * Clears the total dispensed volume. 
      */
 	async ClearTotalDispensedVolume():Promise<void>{
+        this.waitTime = 300;
 		await this.SendCommand('clear');
 	}
 
@@ -118,14 +128,17 @@ export class Pump extends EZODevice {
 	async isCalibrated():Promise<string>{
 		//returns _?Cal,n
         const cmd ='Cal,?';
+        this.waitTime = 300;
 		return (await this.SendCommand(cmd))[cmd.length+1].toString();
 	}
 
 	async Calibrate(volume:string):Promise<void>{
+        this.waitTime = 300;
 		await this.SendCommand('Cal,'+volume);
 	}
 
 	async ClearCalibration():Promise<void>{
+        this.waitTime = 300;
 		await this.SendCommand('Cal,clear');
 	}
 
@@ -137,6 +150,7 @@ export class Pump extends EZODevice {
      * 'ATV' - absolute total volume being pumped
      */
     async SetParameters(parameter:string, isEnabled:boolean):Promise<void>{
+        this.waitTime = 300;
         await this.SendCommand(`O,${parameter},${(isEnabled?1:0)}`);
     }
 
@@ -145,6 +159,7 @@ export class Pump extends EZODevice {
      */
     async GetParametersEnabled():Promise<string>{
         const cmd = 'O,?';
+        this.waitTime = 300;
         return (await this.SendCommand(cmd)).toString('ascii',cmd.length+1);
     }
 

@@ -34,7 +34,6 @@ class ORP extends import_ezo_device.EZODevice {
   async Calibrate(value) {
     this.waitTime = 900;
     await this.SendCommand("Cal," + value);
-    this.waitTime = 300;
   }
   async IsCalibrated() {
     this.waitTime = 300;

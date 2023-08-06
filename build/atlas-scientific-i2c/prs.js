@@ -32,32 +32,31 @@ class PRS extends import_ezo_device.EZODevice {
     await this.SendCommand("U," + unit);
     this.waitTime = 300;
     await this.SendCommand("U," + (isEnabled ? "1" : "0"));
-    this.waitTime = 300;
   }
   async ReadPressureUnits() {
     const cmd = "U,?";
-    const res = (await this.SendCommand(cmd)).toString("ascii", cmd.length + 1);
     this.waitTime = 300;
+    const res = (await this.SendCommand(cmd)).toString("ascii", cmd.length + 1);
     return res;
   }
   async GetReading() {
-    const res = (await this.SendCommand("R")).toString("ascii", 1);
     this.waitTime = 900;
+    const res = (await this.SendCommand("R")).toString("ascii", 1);
     return res;
   }
   async ClearCalibration() {
-    await this.SendCommand("Cal,clear");
     this.waitTime = 300;
+    await this.SendCommand("Cal,clear");
   }
   async IsCalibrated() {
     const cmd = "Cal,?";
-    const res = (await this.SendCommand(cmd)).toString("ascii", cmd.length + 1).replace(/\0/g, "");
     this.waitTime = 300;
+    const res = (await this.SendCommand(cmd)).toString("ascii", cmd.length + 1).replace(/\0/g, "");
     return res;
   }
   async CalibrateZeroPoint() {
-    await this.SendCommand("Cal,0");
     this.waitTime = 900;
+    await this.SendCommand("Cal,0");
   }
   async CalibrateHigh(valInCurrentScale) {
     if (!valInCurrentScale)

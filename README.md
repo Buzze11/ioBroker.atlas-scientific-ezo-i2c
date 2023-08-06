@@ -2763,7 +2763,8 @@ You can check other adapters for examples or ask in the developer community. Usi
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-- Bugfix: Wrong order of delay initialization in EC driver
+- Bugfixings: Fixed wrong order of delay initialization and delay values for some drivers
+- Added hardware driver for EZO PRS
 
 ### 2.2.1 (2023-08-04)
 - Added support for EC Electrical conductivity sensors

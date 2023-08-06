@@ -15,6 +15,7 @@ export class DO extends EZODevice{
      * Resets calibration settings
      */
     async ClearCalibration(){
+        this.waitTime = 300;
         await this.SendCommand('Cal,clear');
     }
 
@@ -24,7 +25,6 @@ export class DO extends EZODevice{
     async CalibrateAtmosphericOxygen(){
         this.waitTime=1300;
         await this.SendCommand('Cal');
-        this.waitTime=300;
     }
 
     /**
@@ -33,7 +33,6 @@ export class DO extends EZODevice{
     async Calibrate0DissolvedOxygen(){
         this.waitTime=1300;
         await this.SendCommand('Cal,0');
-        this.waitTime=300;
     }
 
     /**
@@ -44,6 +43,7 @@ export class DO extends EZODevice{
      */
     async IsCalibrated():Promise<string>{
         const cmd='Cal,?';
+        this.waitTime = 300;
         return (await this.SendCommand(cmd)).toString('ascii',cmd.length+1).replace(/\0/g, '');
     }
 
@@ -71,6 +71,7 @@ export class DO extends EZODevice{
      */
     async GetTemperatureCompensation():Promise<string>{
         const cmd='T,?';
+        this.waitTime = 300;
         return (await this.SendCommand(cmd)).toString('ascii',cmd.length+1).replace(/\0/g, '');
     }
 
@@ -82,6 +83,7 @@ export class DO extends EZODevice{
      * isPpt Defaults to false. 
      */
     async SetSalinityCompensation(value:number, isPpt=false):Promise<void>{
+        this.waitTime = 300;
         await this.SendCommand('S,'+value+(isPpt?',ppt':''));
     }
 
@@ -91,10 +93,9 @@ export class DO extends EZODevice{
      */
     async GetSalinityCompensation():Promise<string[]>{
         const cmd = 'S,?';
+        this.waitTime = 300;
         const resp=(await this.SendCommand(cmd)).toString('ascii',cmd.length+1).replace(/\0/g, '').split(',');
         return resp;
-        // return {value:resp[0],
-        //         isPpt:(resp[1]=='ppt')}
     }
 
     /**
@@ -103,6 +104,7 @@ export class DO extends EZODevice{
      * This parameter can be omitted if the water is less than 10 meters deep
      */
     async SetPressureCompensation(value:string):Promise<void>{
+        this.waitTime = 300;
         await this.SendCommand('P,'+value);
     }
 
@@ -111,6 +113,7 @@ export class DO extends EZODevice{
      */
     async GetPressureCompensation():Promise<string>{
         const cmd='P,?';
+        this.waitTime = 300;
         return (await this.SendCommand(cmd)).toString('ascii',cmd.length+1).replace(/\0/g, '');
     }
 
@@ -120,6 +123,7 @@ export class DO extends EZODevice{
      * '%' - percent saturation : disabled by default
      */
     async SetParameter(parameter:string,isEnabled:boolean):Promise<void>{
+        this.waitTime = 300;
         await this.SendCommand('O,'+parameter+','+(isEnabled?'1':'0'));
     }
 
@@ -128,6 +132,7 @@ export class DO extends EZODevice{
      */
     async GetParametersEnabled():Promise<string>{
         const cmd='O,?';
+        this.waitTime = 300;
         return (await this.SendCommand(cmd)).toString('ascii',cmd.length+1).replace(/\0/g, '');
     }
 
@@ -138,7 +143,6 @@ export class DO extends EZODevice{
     async GetReading():Promise<string>{
         this.waitTime=600;
         const r =(await this.SendCommand('R')).toString('ascii',1).replace(/\0/g, '');
-        this.waitTime=300;
         return r;
     }
 }

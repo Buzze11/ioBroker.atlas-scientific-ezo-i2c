@@ -29,6 +29,7 @@ class Pump extends import_ezo_device.EZODevice {
     this.readBufferSize = 16;
   }
   async StartDispensing(reverse) {
+    this.waitTime = 300;
     if (reverse) {
       await this.SendCommand("D,-*");
     } else {
@@ -36,18 +37,23 @@ class Pump extends import_ezo_device.EZODevice {
     }
   }
   async StopDispensing() {
+    this.waitTime = 300;
     return (await this.SendCommand("X")).toString().split(",")[1];
   }
   async Dispense(ml) {
+    this.waitTime = 300;
     await this.SendCommand("D," + ml);
   }
   async Dose(ml, min) {
+    this.waitTime = 300;
     await this.SendCommand(`D,${ml},${min}`);
   }
   async DispenseConstantRate(rate, min) {
+    this.waitTime = 300;
     await this.SendCommand(`DC,${rate},${min}`);
   }
   async PauseDispensing() {
+    this.waitTime = 300;
     await this.SendCommand("P");
   }
   async IsPaused() {
@@ -56,12 +62,15 @@ class Pump extends import_ezo_device.EZODevice {
   }
   async GetPumpVoltage() {
     const cmd = "PV,?";
+    this.waitTime = 300;
     return (await this.SendCommand(cmd)).toString("ascii", cmd.length + 1);
   }
   async GetReading() {
+    this.waitTime = 300;
     return Number.parseFloat((await this.SendCommand("R")).toString("ascii", 1));
   }
   async GetTotalDispensedVolume(absolute) {
+    this.waitTime = 300;
     let cmd = "TV,?";
     if (absolute) {
       cmd = "ATV,?";
@@ -69,23 +78,29 @@ class Pump extends import_ezo_device.EZODevice {
     return (await this.SendCommand(cmd)).toString("ascii", cmd.length + 1);
   }
   async ClearTotalDispensedVolume() {
+    this.waitTime = 300;
     await this.SendCommand("clear");
   }
   async isCalibrated() {
     const cmd = "Cal,?";
+    this.waitTime = 300;
     return (await this.SendCommand(cmd))[cmd.length + 1].toString();
   }
   async Calibrate(volume) {
+    this.waitTime = 300;
     await this.SendCommand("Cal," + volume);
   }
   async ClearCalibration() {
+    this.waitTime = 300;
     await this.SendCommand("Cal,clear");
   }
   async SetParameters(parameter, isEnabled) {
+    this.waitTime = 300;
     await this.SendCommand(`O,${parameter},${isEnabled ? 1 : 0}`);
   }
   async GetParametersEnabled() {
     const cmd = "O,?";
+    this.waitTime = 300;
     return (await this.SendCommand(cmd)).toString("ascii", cmd.length + 1);
   }
   SetPumpName(name) {

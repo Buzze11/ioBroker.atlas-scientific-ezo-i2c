@@ -147,8 +147,8 @@ export class EC extends EZODevice{
      */
     async IsCalibrated():Promise<string>{
         const cmd='Cal,?';
-        const res = (await this.SendCommand(cmd)).toString('ascii',cmd.length+1).replace(/\0/g, '');
         this.waitTime=300;
+        const res = (await this.SendCommand(cmd)).toString('ascii',cmd.length+1).replace(/\0/g, '');
         return res;
     } 
 

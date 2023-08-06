@@ -42,7 +42,7 @@ class RTD extends import_ezo_device.EZODevice {
   }
   async SetTemperatureScale(value) {
     if (value === "c" || value === "k" || value === "f") {
-      let cmd = "S,";
+      const cmd = "S,";
       this.waitTime = 300;
       await this.SendCommand(cmd + value);
     }
@@ -50,13 +50,13 @@ class RTD extends import_ezo_device.EZODevice {
   async GetTemperatureScale() {
     const cmd = "S,?";
     this.waitTime = 300;
-    let res = (await this.SendCommand(cmd)).toString("ascii", cmd.length + 1).replace(/\0/g, "");
+    const res = (await this.SendCommand(cmd)).toString("ascii", cmd.length + 1).replace(/\0/g, "");
     return res;
   }
   async GetReading() {
     const cmd = "R";
     this.waitTime = 600;
-    let res = (await this.SendCommand(cmd)).toString("ascii", 1).replace(/\0/g, "");
+    const res = (await this.SendCommand(cmd)).toString("ascii", 1).replace(/\0/g, "");
     return res;
   }
 }
