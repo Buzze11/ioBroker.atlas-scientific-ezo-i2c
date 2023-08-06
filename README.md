@@ -2762,7 +2762,7 @@ You can check other adapters for examples or ask in the developer community. Usi
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 2.2.2 (2023-08-06)
 - Bugfixings: Fixed wrong order of delay initialization and delay values for some drivers
 - Added backend hardware driver for embedded EZO PRS (not functional right now)
 

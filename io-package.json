@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "atlas-scientific-ezo-i2c",
-    "version": "2.2.1",
+    "version": "2.2.2",
     "news": {
+      "2.2.2": {
+        "en": "Bugfixings: Fixed wrong order of delay initialization and delay values for some drivers\nAdded backend hardware driver for embedded EZO PRS (not functional right now)",
+        "de": "Fehlerbehebungen: Fehlerhafte Reihenfolge der Verzögerungs-Initialisierung und Verzögerungswerte für einige Fahrer behoben\nHinzugefügt Backend Hardware Treiber für Embedded EZO PRS (nicht funktionsfähig jetzt)",
+        "ru": "Исправления: Исправлен неправильный порядок инициализации задержки и задержки значения для некоторых водителей\nДобавлен резервный аппаратный драйвер для встроенных EZO PRS (не работает прямо сейчас)",
+        "pt": "Bugfixings: Ordem errada fixa de inicialização de atraso e valores de atraso para alguns drivers\nAdicionado driver de hardware backend para EZO PRS incorporado (não funcional agora)",
+        "nl": "Bugfixings: Verschillende orde van vertraging en vertragingswaarden voor wat chauffeurs\nVoegde backend hardwarechauffeur toe voor ingesloten EZO PRS ( niet functioneel nu)",
+        "fr": "Bugfixings: Correction de l ' ordre erroné d ' initialisation et de retard pour certains conducteurs\nAjout du pilote matériel de backend pour EZO PRS intégré (non fonctionnel en ce moment)",
+        "it": "Bugfixings: Corretto ordine sbagliato di inizializzazione del ritardo e dei valori di ritardo per alcuni driver\nAggiunto driver hardware backend per EZO PRS incorporato (non funzionale in questo momento)",
+        "es": "Errores: Orden incorrecto fijo de inicialización de demoras y valores de demora para algunos conductores\nAgregado controlador de hardware de backend para EZO PRS incrustado (no funcional ahora)",
+        "pl": "Uszkodzenia: Fixed incorrect order inicjacji opóźnień i opóźnień dla niektórych kierowców\nWspółzałożyciel sprzężenia dla wbudowanych EZO PRS (nie funkcjonuje obecnie)",
+        "uk": "Виправлення помилок: Виправлено неправильне замовлення визначення затримки та значення затримки для деяких драйверів\nДодано задній апаратний драйвер для вбудованих EZO PRS (не функціональний прямо зараз)",
+        "zh-cn": "确定: 对某些司机的延迟初始化和延迟价值的错误命令\n增加含内在地表(目前没有功能权)的辅助硬件司机"
+      },
       "2.2.1": {
         "en": "Added support for EC Electrical conductivity sensors\nExtended Help with new implementation",
         "de": "Unterstützung für elektrische Leitfähigkeitssensoren der EG\nErweiterte Hilfe mit neuer Implementierung",
@@ -80,19 +93,6 @@
         "pl": "zaimplementowane opóźnienie po każdym cyklu zanieczyszczeń dotyczących typów pamięci dla I2C\nPierwsze kroki w implementacji pompy perystalicznej\ndodano tłumaczenia dla nowych wartości",
         "uk": "впроваджено затримку після кожного циклу опитування для декупації умов забігу пам'яті на пристрої I2C\nПерші кроки в базовій реалізації перистальтичного насоса\nдодано переклади для нових значень",
         "zh-cn": "在每个投票周期之后立即执行,以纪念I2C设施的种族状况。\n三. 用于静止水泵的地下执行的第一步\n增加新价值观的翻译"
-      },
-      "1.2.2": {
-        "en": "Removed forbidden characters from sensor state objects\nadded state roles where possible \nadded state units where senseful\nadjusted Readme according changes",
-        "de": "Entfernte verbotene Zeichen von Sensorzustandsobjekten\nzusätzliche staatliche rollen, soweit möglich\nzustandseinheiten hinzugefügt, wo sinnvoll\nangepasste Readme nach Änderungen",
-        "ru": "Удалены запрещенные символы от объектов состояния датчика\nдобавлены государственные роли, где это возможно\nдобавлены государственные подразделения, где чувствительные\nотрегулированный Readme в соответствии с изменениями",
-        "pt": "Personagens proibidos removidos de objetos do estado do sensor\npapéis estaduais adicionados quando possível\nacrescentou unidades de estado onde sensível\najustada de acordo com as alterações",
-        "nl": "Verboden personages van zintuiglijke objecten\nvertaling:\nvertaling:\nveranderde Readme volgens veranderingen",
-        "fr": "Supprimer les caractères interdits des objets de l'état du capteur\nles rôles de l'état ajoutés\ndes unités d'état où logique\najusté Readme selon les changements",
-        "it": "Caratteri vietati rimossi da oggetti di stato del sensore\nruoli di stato aggiunti dove possibile\nunità di stato aggiunte dove sensato\nleggime regolato secondo le modifiche",
-        "es": "Eliminar caracteres prohibidos de objetos del estado sensor\nañadir funciones estatales cuando sea posible\nunidades estatales agregadas donde sensible\najustado Leerme según cambios",
-        "pl": "Zabronione postaci z obiektów stanowych\npełnić funkcje państwowe, w których możliwe jest możliwa jest rola państwowa\ndostarczałe jednostki państwowe, gdzie rozsądny\nczytanie czytania zgodnie z zmianami",
-        "uk": "Вилучені заборонені символи з сенсорних об'єктів\nдодані державні ролі, де можливо\nдодані державні блоки, де сенс\nрегульований контроль за змінами",
-        "zh-cn": "驱离传传感器的易燃性\n尽可能增加国家的作用\n增加国家单位,有感知\n根据变化调整的阅读摘要"
       }
     },
     "title": "Atlas Scientific EZO",
