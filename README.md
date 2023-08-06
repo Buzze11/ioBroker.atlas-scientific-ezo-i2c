@@ -2764,7 +2764,7 @@ You can check other adapters for examples or ask in the developer community. Usi
 -->
 ### **WORK IN PROGRESS**
 - Bugfixings: Fixed wrong order of delay initialization and delay values for some drivers
-- Added hardware driver for EZO PRS
+- Added backend hardware driver for embedded EZO PRS (not functional right now)
 
 ### 2.2.1 (2023-08-04)
 - Added support for EC Electrical conductivity sensors
