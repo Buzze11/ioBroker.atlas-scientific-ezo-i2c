@@ -19,17 +19,16 @@ export class EC extends EZODevice{
     async SetProbeType(value: string): Promise<void>{
         if(!value)
             return;
-        await this.SendCommand('K,'+value);
         this.waitTime=300;
+        await this.SendCommand('K,'+value);
     }
 
     async GetProbeType(): Promise<string>{
         const cmd='K,?';
-        this.waitTime=300;
+        this.waitTime=600;
         //returns K,n
         //strange:  normally these commands have a '?' prefixed to their return message
         const k = (await this.SendCommand(cmd)).toString('ascii',cmd.length);
-        this.waitTime=600;
         return k;
     }
 
@@ -45,11 +44,10 @@ export class EC extends EZODevice{
         if(takeReading){
             this.waitTime=900;
             const r = (await this.SendCommand('RT,'+value)).toString('ascii',1);
-            this.waitTime=300;
             return r;
         }else{
-            await this.SendCommand('T,'+value);
             this.waitTime=300;
+            await this.SendCommand('T,'+value);
             return null;
         }
     }
@@ -60,8 +58,8 @@ export class EC extends EZODevice{
      */
     async GetTemperatureCompensation(): Promise<string>{
         const cmd='T,?';
-        const res = (await this.SendCommand(cmd)).toString('ascii',cmd.length+1);
         this.waitTime=300;
+        const res = (await this.SendCommand(cmd)).toString('ascii',cmd.length+1);
         return res;
     }
 
@@ -77,8 +75,8 @@ export class EC extends EZODevice{
      * 'SG' - specific gravity
      */
     async SetParameter(parameter: string, isEnabled: boolean): Promise<void>{
-        await this.SendCommand('O,'+parameter+','+(isEnabled?'1':'0'));
         this.waitTime=300;
+        await this.SendCommand('O,'+parameter+','+(isEnabled?'1':'0'));
     }
 
     /**
@@ -89,8 +87,8 @@ export class EC extends EZODevice{
      */
     async GetParametersEnabled(): Promise<string>{
         const cmd = 'O,?';
-        const res = (await this.SendCommand(cmd)).toString('ascii',cmd.length+1);
         this.waitTime=300;
+        const res = (await this.SendCommand(cmd)).toString('ascii',cmd.length+1);
         return res;
     }
 
@@ -108,8 +106,8 @@ export class EC extends EZODevice{
      */
     async SetTDSConversionFactor(value: number): Promise<void>{
         value = Math.min(1.00,Math.max(value,0.01));
-        await this.SendCommand('TDS,'+value);
         this.waitTime=300;
+        await this.SendCommand('TDS,'+value);
     }
 
     /**
@@ -118,8 +116,8 @@ export class EC extends EZODevice{
      */
     async GetTDSConversionFactor(): Promise<string>{
         const cmd='TDS,?';
-        const res = (await this.SendCommand(cmd)).toString('ascii',cmd.length+1);
         this.waitTime=300;
+        const res = (await this.SendCommand(cmd)).toString('ascii',cmd.length+1);
         return res;
     }
 
@@ -130,7 +128,6 @@ export class EC extends EZODevice{
     async GetReading(): Promise<string>{
         this.waitTime=600;
         const r= (await this.SendCommand('R')).toString('ascii',1);
-        this.waitTime=300;
         return r;
     }
 
@@ -138,8 +135,8 @@ export class EC extends EZODevice{
      * Resets all calibration points to ideal.
      */
     async ClearCalibration(): Promise<void>{
-        await this.SendCommand("Cal,clear");
         this.waitTime = 300;
+        await this.SendCommand("Cal,clear");
     }
 
     /**
@@ -160,8 +157,8 @@ export class EC extends EZODevice{
      * WARNING: This will clear any previous calibration!
      */
     async CalibrateDry(){
-        await this.SendCommand("Cal,dry,");
         this.waitTime=600;
+        await this.SendCommand("Cal,dry,");
     }
 
     /**
@@ -171,9 +168,8 @@ export class EC extends EZODevice{
     async CalibrateSinglepoint(val?: number){
         if(!val)
             return;
-        this.waitTime=900;
-        await this.SendCommand('Cal,' + val.toString());
         this.waitTime=600;
+        await this.SendCommand('Cal,' + val.toString());
     }
 
     /**
@@ -183,9 +179,8 @@ export class EC extends EZODevice{
     async CalibrateLow(val?: number){
         if(!val)
             return;
-        this.waitTime=900;
-        await this.SendCommand('Cal,low,' + val.toString());
         this.waitTime=600;
+        await this.SendCommand('Cal,low,' + val.toString());
     }
 
     /**
@@ -195,9 +190,8 @@ export class EC extends EZODevice{
     async CalibrateHigh(val?: number){
         if(!val)
             return;
-        this.waitTime=900;
-        await this.SendCommand('Cal,high,' + val.toString());
         this.waitTime=600;
+        await this.SendCommand('Cal,high,' + val.toString());
     }
 }
 
