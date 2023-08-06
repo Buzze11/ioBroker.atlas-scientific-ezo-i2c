@@ -2762,6 +2762,9 @@ You can check other adapters for examples or ask in the developer community. Usi
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- Bugfix: Wrong order of delay initialization in EC driver
+
 ### 2.2.1 (2023-08-04)
 - Added support for EC Electrical conductivity sensors
 - Extended Help with new implementation

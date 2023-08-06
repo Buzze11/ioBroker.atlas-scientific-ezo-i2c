@@ -31,64 +31,61 @@ class EC extends import_ezo_device.EZODevice {
   async SetProbeType(value) {
     if (!value)
       return;
-    await this.SendCommand("K," + value);
     this.waitTime = 300;
+    await this.SendCommand("K," + value);
   }
   async GetProbeType() {
     const cmd = "K,?";
-    this.waitTime = 300;
-    const k = (await this.SendCommand(cmd)).toString("ascii", cmd.length);
     this.waitTime = 600;
+    const k = (await this.SendCommand(cmd)).toString("ascii", cmd.length);
     return k;
   }
   async SetTemperatureCompensation(value, takeReading = false) {
     if (takeReading) {
       this.waitTime = 900;
       const r = (await this.SendCommand("RT," + value)).toString("ascii", 1);
-      this.waitTime = 300;
       return r;
     } else {
-      await this.SendCommand("T," + value);
       this.waitTime = 300;
+      await this.SendCommand("T," + value);
       return null;
     }
   }
   async GetTemperatureCompensation() {
     const cmd = "T,?";
-    const res = (await this.SendCommand(cmd)).toString("ascii", cmd.length + 1);
     this.waitTime = 300;
+    const res = (await this.SendCommand(cmd)).toString("ascii", cmd.length + 1);
     return res;
   }
   async SetParameter(parameter, isEnabled) {
-    await this.SendCommand("O," + parameter + "," + (isEnabled ? "1" : "0"));
     this.waitTime = 300;
+    await this.SendCommand("O," + parameter + "," + (isEnabled ? "1" : "0"));
   }
   async GetParametersEnabled() {
     const cmd = "O,?";
-    const res = (await this.SendCommand(cmd)).toString("ascii", cmd.length + 1);
     this.waitTime = 300;
+    const res = (await this.SendCommand(cmd)).toString("ascii", cmd.length + 1);
     return res;
   }
   async SetTDSConversionFactor(value) {
     value = Math.min(1, Math.max(value, 0.01));
-    await this.SendCommand("TDS," + value);
     this.waitTime = 300;
+    await this.SendCommand("TDS," + value);
   }
   async GetTDSConversionFactor() {
     const cmd = "TDS,?";
-    const res = (await this.SendCommand(cmd)).toString("ascii", cmd.length + 1);
     this.waitTime = 300;
+    const res = (await this.SendCommand(cmd)).toString("ascii", cmd.length + 1);
     return res;
   }
   async GetReading() {
     this.waitTime = 600;
     const r = (await this.SendCommand("R")).toString("ascii", 1);
-    this.waitTime = 300;
     return r;
   }
   async ClearCalibration() {
-    await this.SendCommand("Cal,clear");
     this.waitTime = 300;
+    await this.SendCommand("Cal,clear");
   }
   async IsCalibrated() {
     const cmd = "Cal,?";
@@ -97,29 +94,26 @@ class EC extends import_ezo_device.EZODevice {
     return res;
   }
   async CalibrateDry() {
-    await this.SendCommand("Cal,dry,");
     this.waitTime = 600;
+    await this.SendCommand("Cal,dry,");
   }
   async CalibrateSinglepoint(val) {
     if (!val)
       return;
-    this.waitTime = 900;
-    await this.SendCommand("Cal," + val.toString());
     this.waitTime = 600;
+    await this.SendCommand("Cal," + val.toString());
   }
   async CalibrateLow(val) {
     if (!val)
       return;
-    this.waitTime = 900;
-    await this.SendCommand("Cal,low," + val.toString());
     this.waitTime = 600;
+    await this.SendCommand("Cal,low," + val.toString());
   }
   async CalibrateHigh(val) {
     if (!val)
       return;
-    this.waitTime = 900;
-    await this.SendCommand("Cal,high," + val.toString());
     this.waitTime = 600;
+    await this.SendCommand("Cal,high," + val.toString());
   }
 }
 // Annotate the CommonJS export names for ESM import in node:
