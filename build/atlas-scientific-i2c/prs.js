@@ -1,0 +1,73 @@
+var __defProp = Object.defineProperty;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __getOwnPropNames = Object.getOwnPropertyNames;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __export = (target, all) => {
+  for (var name in all)
+    __defProp(target, name, { get: all[name], enumerable: true });
+};
+var __copyProps = (to, from, except, desc) => {
+  if (from && typeof from === "object" || typeof from === "function") {
+    for (let key of __getOwnPropNames(from))
+      if (!__hasOwnProp.call(to, key) && key !== except)
+        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
+  }
+  return to;
+};
+var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
+var prs_exports = {};
+__export(prs_exports, {
+  PRS: () => PRS,
+  default: () => PRS
+});
+module.exports = __toCommonJS(prs_exports);
+var import_ezo_device = require("./ezo_device");
+class PRS extends import_ezo_device.EZODevice {
+  constructor(i2c_bus, address, info, adapter) {
+    super(i2c_bus, address, info, adapter);
+    this.adapter = adapter;
+    this.readBufferSize = 40;
+  }
+  async SetPressureUnit(unit, isEnabled) {
+    await this.SendCommand("U," + unit);
+    this.waitTime = 300;
+    await this.SendCommand("U," + (isEnabled ? "1" : "0"));
+    this.waitTime = 300;
+  }
+  async ReadPressureUnits() {
+    const cmd = "U,?";
+    const res = (await this.SendCommand(cmd)).toString("ascii", cmd.length + 1);
+    this.waitTime = 300;
+    return res;
+  }
+  async GetReading() {
+    const res = (await this.SendCommand("R")).toString("ascii", 1);
+    this.waitTime = 900;
+    return res;
+  }
+  async ClearCalibration() {
+    await this.SendCommand("Cal,clear");
+    this.waitTime = 300;
+  }
+  async IsCalibrated() {
+    const cmd = "Cal,?";
+    const res = (await this.SendCommand(cmd)).toString("ascii", cmd.length + 1).replace(/\0/g, "");
+    this.waitTime = 300;
+    return res;
+  }
+  async CalibrateZeroPoint() {
+    await this.SendCommand("Cal,0");
+    this.waitTime = 900;
+  }
+  async CalibrateHigh(valInCurrentScale) {
+    if (!valInCurrentScale)
+      return;
+    this.waitTime = 900;
+    await this.SendCommand("Cal," + valInCurrentScale.toString());
+  }
+}
+// Annotate the CommonJS export names for ESM import in node:
+0 && (module.exports = {
+  PRS
+});
+//# sourceMappingURL=prs.js.map
