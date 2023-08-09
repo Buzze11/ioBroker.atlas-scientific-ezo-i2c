@@ -72,5 +72,14 @@
     "SG": "SG",
     "Set TDS Conversion": "TDS-conversie instellen",
     "TDS conversion value": "TDS-conversiewaarde",
-    "Calibrate Singlepoint": "Singlepoint kalibreren"
+    "Calibrate Singlepoint": "Singlepoint kalibreren",
+    "PRS Parameters Configuration": "Configuratie PRS-parameters",
+    "PRS value": "PRS-waarde",
+    "PRS Alarm Settings": "PRS-alarminstellingen",
+    "PRS Sensor Calibration": "PRS-sensorkalibratie",
+    "Calibrate Zeropoint": "Nulpunt kalibreren",
+    "Set Alarm config": "Alarmconfiguratie instellen",
+    "Alarm Threshold": "Alarmdrempel",
+    "Alarm Tolerance": "Alarmtolerantie",
+    "Alarm active": "Wekker actief"
 }

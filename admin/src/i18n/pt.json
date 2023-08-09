@@ -72,5 +72,14 @@
     "SG": "SG",
     "Set TDS Conversion": "Definir conversão de TDS",
     "TDS conversion value": "Valor de conversão TDS",
-    "Calibrate Singlepoint": "Calibrar ponto único"
+    "Calibrate Singlepoint": "Calibrar ponto único",
+    "PRS Parameters Configuration": "Configuração dos Parâmetros PRS",
+    "PRS value": "valor PRS",
+    "PRS Alarm Settings": "Configurações de Alarme PRS",
+    "PRS Sensor Calibration": "Calibração do Sensor PRS",
+    "Calibrate Zeropoint": "Calibrar ponto zero",
+    "Set Alarm config": "Definir configuração de alarme",
+    "Alarm Threshold": "Limite de Alarme",
+    "Alarm Tolerance": "Tolerância de Alarme",
+    "Alarm active": "Alarme ativo"
 }

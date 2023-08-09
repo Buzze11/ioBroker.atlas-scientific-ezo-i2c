@@ -72,5 +72,14 @@
     "SG": "СГ",
     "Set TDS Conversion": "Установить преобразование TDS",
     "TDS conversion value": "Значение конверсии TDS",
-    "Calibrate Singlepoint": "Калибровка одной точки"
+    "Calibrate Singlepoint": "Калибровка одной точки",
+    "PRS Parameters Configuration": "Конфигурация параметров PRS",
+    "PRS value": "значение PRS",
+    "PRS Alarm Settings": "Настройки тревоги PRS",
+    "PRS Sensor Calibration": "Калибровка датчика PRS",
+    "Calibrate Zeropoint": "Калибровка нулевой точки",
+    "Set Alarm config": "Установить конфигурацию будильника",
+    "Alarm Threshold": "Порог тревоги",
+    "Alarm Tolerance": "Тревожный допуск",
+    "Alarm active": "Тревога активна"
 }

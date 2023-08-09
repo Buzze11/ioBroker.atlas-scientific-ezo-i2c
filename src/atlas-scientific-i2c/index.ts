@@ -6,6 +6,7 @@ import { ORP } from "./orp_meter";
 import { EC } from "./ec_meter";
 import { DO } from "./do_meter";
 import { RTD } from "./rtd-meter";
+import { PRS } from "./prs";
 import * as i2c from 'i2c-bus';
 import { AtlasScientificEzoI2cAdapter } from "../main";
 import { Delay } from "../lib/async";
@@ -60,6 +61,6 @@ import { Delay } from "../lib/async";
 	return devices;
 }
 
-export { EZODevice, Pump, pH, DO, ORP, EC, RTD };
+export { EZODevice, Pump, pH, DO, ORP, EC, RTD, PRS};
 
 

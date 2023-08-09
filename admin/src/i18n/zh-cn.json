@@ -72,5 +72,14 @@
     "SG": "SG",
     "Set TDS Conversion": "设置 TDS 转换",
     "TDS conversion value": "TDS 转换值",
-    "Calibrate Singlepoint": "校准单点"
+    "Calibrate Singlepoint": "校准单点",
+    "PRS Parameters Configuration": "PRS参数配置",
+    "PRS value": "PRS值",
+    "PRS Alarm Settings": "PRS 警报设置",
+    "PRS Sensor Calibration": "PRS 传感器校准",
+    "Calibrate Zeropoint": "校准零点",
+    "Set Alarm config": "设置警报配置",
+    "Alarm Threshold": "报警阈值",
+    "Alarm Tolerance": "报警容差",
+    "Alarm active": "警报激活"
 }
