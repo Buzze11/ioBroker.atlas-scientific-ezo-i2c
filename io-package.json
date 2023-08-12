@@ -1,191 +1,191 @@
 {
-    "common": {
-        "name": "atlas-scientific-ezo-i2c",
-        "version": "2.2.2",
-        "news": {
-            "2.2.2": {
-                "en": "Bugfixings: Fixed wrong order of delay initialization and delay values for some drivers\nAdded backend hardware driver for embedded EZO PRS (not functional right now)",
-                "de": "Fehlerbehebungen: Fehlerhafte Reihenfolge der Verzögerungs-Initialisierung und Verzögerungswerte für einige Fahrer behoben\nHinzugefügt Backend Hardware Treiber für Embedded EZO PRS (nicht funktionsfähig jetzt)",
-                "ru": "Исправления: Исправлен неправильный порядок инициализации задержки и задержки значения для некоторых водителей\nДобавлен резервный аппаратный драйвер для встроенных EZO PRS (не работает прямо сейчас)",
-                "pt": "Bugfixings: Ordem errada fixa de inicialização de atraso e valores de atraso para alguns drivers\nAdicionado driver de hardware backend para EZO PRS incorporado (não funcional agora)",
-                "nl": "Bugfixings: Verschillende orde van vertraging en vertragingswaarden voor wat chauffeurs\nVoegde backend hardwarechauffeur toe voor ingesloten EZO PRS ( niet functioneel nu)",
-                "fr": "Bugfixings: Correction de l ' ordre erroné d ' initialisation et de retard pour certains conducteurs\nAjout du pilote matériel de backend pour EZO PRS intégré (non fonctionnel en ce moment)",
-                "it": "Bugfixings: Corretto ordine sbagliato di inizializzazione del ritardo e dei valori di ritardo per alcuni driver\nAggiunto driver hardware backend per EZO PRS incorporato (non funzionale in questo momento)",
-                "es": "Errores: Orden incorrecto fijo de inicialización de demoras y valores de demora para algunos conductores\nAgregado controlador de hardware de backend para EZO PRS incrustado (no funcional ahora)",
-                "pl": "Uszkodzenia: Fixed incorrect order inicjacji opóźnień i opóźnień dla niektórych kierowców\nWspółzałożyciel sprzężenia dla wbudowanych EZO PRS (nie funkcjonuje obecnie)",
-                "uk": "Виправлення помилок: Виправлено неправильне замовлення визначення затримки та значення затримки для деяких драйверів\nДодано задній апаратний драйвер для вбудованих EZO PRS (не функціональний прямо зараз)",
-                "zh-cn": "确定: 对某些司机的延迟初始化和延迟价值的错误命令\n增加含内在地表(目前没有功能权)的辅助硬件司机"
-            },
-            "2.2.1": {
-                "en": "Added support for EC Electrical conductivity sensors\nExtended Help with new implementation",
-                "de": "Unterstützung für elektrische Leitfähigkeitssensoren der EG\nErweiterte Hilfe mit neuer Implementierung",
-                "ru": "Добавлена поддержка датчиков электропроводности EC\nРасширенная помощь с новой реализацией",
-                "pt": "Adicionado suporte para sensores de condutividade elétrica EC\nAjuda estendida com nova implementação",
-                "nl": "Vervoegde ondersteuning voor EC Electrische gedragssensoren\nVerlengde hulp met nieuwe implementatie",
-                "fr": "Support supplémentaire pour les capteurs de conductivité électrique EC\nAide prolongée pour une nouvelle mise en œuvre",
-                "it": "Aggiunto supporto per i sensori di conducibilità elettrica EC\nAiuto esteso con nuova implementazione",
-                "es": "Apoyo adicional para sensores de conductividad eléctrica CE\nExtended Help with new implementation",
-                "pl": "Wsparcie dla EC Electrical conductivity sensors\nPomagać się z nową implementacją",
-                "uk": "Додано підтримку датчиків електропровідності EC\nРозширена допомога з новим впровадженням",
-                "zh-cn": "增加对电传感器的支助\n往往有助于新的执行"
-            },
-            "2.2.0": {
-                "en": "Several Bugfixes in Pump implementation\nadjusted readme.md",
-                "de": "Mehrere Bugfixes in der Pumpendurchführung\nbereinigtes readme.md",
-                "ru": "Несколько багфиксов в реализации насоса\nскорректирована readme.md",
-                "pt": "Vários Bugfixs na implementação da bomba\najustado readme.md",
-                "nl": "Vertaling:\naangepaste lezing",
-                "fr": "Plusieurs Bugfixes dans la mise en œuvre de la pompe\nreadme.md",
-                "it": "Diversi bugfix nell'implementazione della pompa\nregolato readme.md",
-                "es": "Varios bugfixes en la implementación de bombas\nreadme.md ajustado",
-                "pl": "Kilka Bugfixów w implementacji Pumpa\nreadme.md",
-                "uk": "Кілька Виправлень помилок у впровадженні насоса\njavascript licenses api веб-сайт go1.13.8",
-                "zh-cn": "B. 在实施倾销过程中的好几个布格\n改为:md"
-            },
-            "2.1.0": {
-                "en": "Added example Grafana Dashboard code and documentation\nAdded example Scripts and documentation for helpful Javascript Adapter",
-                "de": "Hinzugefügt Beispiel Grafana Dashboard Code und Dokumentation\nBeispiel Scripts und Dokumentation für hilfreiche Javascript Adapter",
-                "ru": "Добавлен пример Grafana Dashboard code и документация\nДобавлен пример скриптов и документации для полезного Javascript адаптера",
-                "pt": "Adicionado exemplo Grafana Dashboard código e documentação\nExemplo adicionado Scripts e documentação para útil Javascript Adapter",
-                "nl": "Toegevoegd voorbeeld Grafana Dashboard code en documentatie\nToegevoegd voorbeeld Script en documentatie voor behulpzaam Javascript Adapter",
-                "fr": "Exemple ajouté Code de tableau de bord de Grafana et documentation\nAjouté l'exemple Scripts et la documentation pour utiles Javascript Adapter",
-                "it": "Esempio aggiunto Grafana Dashboard codice e documentazione\nAggiunto esempio Script e documentazione per utile Javascript adattatore",
-                "es": "Ejemplo adicional Grafana Dashboard código y documentación\nEjemplo añadido Scripts y documentación para el adaptador de Javascript útil",
-                "pl": "Przykłady kodu Grafana Dashboarda i dokumentacji\nWstępny przykład skryptów i dokumentacji za pomocny Javascript Adapter",
-                "uk": "Додано приклад Grafana Dashboard код і документація\nДодано приклад сценарії та документацію для корисного Javascript адаптера",
-                "zh-cn": "添加的例子:Grafana Dash板守则和文件\n添加了帮助瓦斯·阿帕特的样品和文件"
-            },
-            "2.0.0": {
-                "en": "Feature request: add the \"active\" Switch to objects #10 Part I -> Added State including state change listeners \"IsPaused\" to pause measure per sensor during runtime\nFeature request: add the \"calibration\" switches to objects #10 Part II -> Added calibration state objects\nAdjusted Readme with Help for new Features\nAdded state translations for alphanumeric and boolean states to clear text",
-                "de": "Featureanfrage: Fügen Sie den aktiven Switch zu Objekten #10 Teil I -> Zusätzlicher Staat einschließlich Zustandsänderungshörer IsPaused, um Maß pro Sensor während der Laufzeit zu halten\nFeatureanfrage: Fügen Sie die Kalibrierschalter zu Objekten #10 Teil II -> Hinzufügen von Kalibrierzustandsobjekten\nJusted Readme mit Hilfe für neue Features\nStaatliche Übersetzungen für alphanumerische und boolesche Staaten hinzugefügt, um Text zu löschen",
-                "ru": "Запрос функции: добавьте активный Switch в объекты #10 Part I -> Добавили государство, включая слушатели изменения штата, предназначено для паузы измерения в течение датчика во время рабочего времени\nЗапрос функции: добавьте калибровочные переключатели на объекты #10 Part II -> Добавлены калибровочные государственные объекты\nНастройка Readme с помощью для новых функций\nДобавлены государственные переводы для альфаномерных и болевых государств для ясного текста",
-                "pt": "Requisito de recurso: adicione o interruptor ativo aos objetos #10 Parte I -> Estado adicionado incluindo os ouvintes de mudança de estado IsPaused para pausar medida por sensor durante o tempo de execução\nPedido do recurso: adicione os interruptores de calibração aos objetos #10 Parte II -> Objetos de estado de calibração adicionados\nReadme ajustado com ajuda para novos recursos\nAdicionadas traduções estaduais para estados alfanuméricos e booleanos para texto claro",
-                "nl": "Feature verzoek: voeg de actieve Switch toe aan objecten Inclusief staatswijziging luisteraars isPaus om de sensor te pauzeren tijdens de looptijd\nFeature verzoek: voeg de kalibratie aan objecten toe. Toegevoegd kalibratie voorwerpen\nAangepaste Readme voor nieuwe Features\nVertaling:",
-                "fr": "Demande de caractéristique: ajouter l'interrupteur actif aux objets #10 Partie I - Cancer État ajouté, y compris les auditeurs de changement d'état IsPaused pour faire une pause mesure par capteur pendant la course\nDemande de caractéristique: ajouter les interrupteurs d'étalonnage aux objets #10 Partie II - Cancer Ajout d ' objets d ' état d ' étalonnage\nAjusté Readme avec Aide pour les nouvelles fonctionnalités\nAjout de traductions d'état pour les États alphanumériques et booléens au texte clair",
-                "it": "Richiesta caratteristica: aggiungere l'interruttore attivo agli oggetti #10 Parte I -> Aggiunto Stato compresi gli ascoltatori di cambiamento di stato IsPaused a pausa misura per sensore durante il runtime\nRichiesta caratteristica: aggiungere gli interruttori di calibrazione agli oggetti #10 Parte II -> Oggetti di stato di calibrazione aggiunti\nReadme regolato con aiuto per nuove funzionalità\nAggiunte traduzioni di stato per gli stati alfanumerici e booleani a testo chiaro",
-                "es": "Solicitud de alimentación: añadir el interruptor activo a los objetos #10 Part I - Conf Estado añadido incluyendo los oyentes del cambio de estado sePausa para detener la medida por sensor durante el tiempo de funcionamiento\nSolicitud de alimentación: agregue los interruptores de calibración a los objetos #10 Parte II - título Objetos del estado de calibración\nReadme ajustado con ayuda para nuevas características\nTraducciones estatales agregadas para estados alfanuméricos y booleanos a texto claro",
-                "pl": "Wykorzystywanie: dodanie aktywnego Switch do obiektów #10 części I ->>. Dodany stan, włączając słuchaczy IsPauseda do przerwania pomiaru na czujnik w czasie wykonywania programu\nZapytanie: dodanie kalibracji przełącza się do obiektów #10 części II ->>. Zamknięta kalibracja obiektów państwowych\nAdjusted Readme with Help for New Features (ang.)\nTłumaczenia państwowe dla państw alfanumerycznych i booleańskich w celu oczyszczania tekstu",
-                "uk": "Запит на функцію: додати активний перемикач на об'єкти #10 Частина I -> Додано стан, в тому числі слухачі змінного стану, які використовуються для вимірювання пауза в режимі runtime\nЗапит на використання: додати перемикачі калібрування на об'єкти #10 Частина II -> Додано калібрувальні об'єкти\nРегульований Readme з доповіддю для нових функцій\nДодано державні переклади для альфа-нумерних і булевих держав для чіткого тексту",
-                "zh-cn": "资格要求:将积极的巫术添加到第10部分第一部分—— > 加入国,包括国家变化倾听者IPaus在经营期间对每个传感器采取零用措施\n资格要求:增加对编号为II- 的物体的校舍。 增加国家目标\nA. 改正读书,帮助新名称\n添加国邮寄和声音州的翻译,以明确案文"
-            },
-            "1.2.4": {
-                "en": "Finished first Pump implementation (UI and Pump control) untested due to missing device\nextended README.md\nFurther translations",
-                "de": "Fertige erste Pumpen-Implementierung (UI und Pumpensteuerung) durch fehlendes Gerät nicht getestet\nerweiterte README.md\nWeitere Übersetzungen",
-                "ru": "Завершенная первая реализация насоса (UI и управление насосом) не проверена из-за отсутствующего устройства\nрасширенный README.md\nДополнительные переводы",
-                "pt": "Implementação da primeira bomba concluída (UI e controle da bomba) não testado devido ao dispositivo ausente\nrEADME estendida.md\nMais traduções",
-                "nl": "Eindigde eerste pomp implementatie (UI en Pump controle) ontworpen door ontbrekend apparaat\nverlengde formulieren\nVerder vertaling",
-                "fr": "Première mise en œuvre de la pompe (UI et contrôle de la pompe) non testée en raison de l'appareil manquant\nprolongé README.md\nAutres traductions",
-                "it": "Prima applicazione pompa finita (UI e controllo pompa) non testato a causa del dispositivo mancante\nesteso README.md\nAltre traduzioni",
-                "es": "Terminado la primera implementación de bomba (control de interfaz de usuario y bomba) sin probar debido al dispositivo perdido\nextendida README.md\nOtras traducciones",
-                "pl": "Zakończona pierwsza implementacja Pumpa (UI i Pump Control) nie została zrealizowana ze względu na brak urządzenia\nrEADME.md\nKolejne tłumaczenia",
-                "uk": "Завершено впровадження першого насоса (УІ і контроль насоса) не перевірено через відсутній пристрій\nрозширення README.md\nДодаткові переклади",
-                "zh-cn": "由于失踪的装置,未证明先行的Pump执行(UI和Pump控制)\n推广中小企业\n进一步翻译"
-            },
-            "1.2.3": {
-                "en": "implemented delay after each polling cycle to decouple memory race conditions on device for I2C\nFirst steps in base implementation for peristaltic pump\nadded translations for new values",
-                "de": "implementierte Verzögerung nach jedem Abfragezyklus zum Entkoppeln von Speicherlaufbedingungen auf Gerät für I2C\nErste Schritte in der Basis-Umsetzung für peristaltische Pumpe\nübersetzungen für neue werte hinzugefügt",
-                "ru": "внедрили задержку после каждого цикла загрязнения для того чтобы decouple условия гонки памяти на приборе для I2C\nПервые шаги в базовой реализации для перистальического насоса\nдобавлены переводы для новых ценностей",
-                "pt": "atraso implementado após cada ciclo de votação para desconectar as condições de corrida de memória no dispositivo para I2C\nPrimeiros passos na implementação de base para bomba peristáltica\ntraduções adicionadas para novos valores",
-                "nl": "vertraging na elke cyclus om geheugen racecondities te ontcijferen voor I2C\nEerste stap in de basis voor peristalische pomp\nvertaling:",
-                "fr": "retard mis en œuvre après chaque cycle de scrutin pour découpler les conditions de course de mémoire sur le dispositif I2C\nPremiers pas dans la mise en œuvre de base pour la pompe péristaltique\ntraductions ajoutées pour les nouvelles valeurs",
-                "it": "ritardo implementato dopo ogni ciclo di inquinamento per decouple condizioni di gara di memoria su dispositivo per I2C\nPrimi passi nell'implementazione base per pompa peristaltica\ntraduzioni aggiunte per nuovi valori",
-                "es": "retraso implementado después de cada ciclo de encuestas para decodificar las condiciones de la carrera de memoria en el dispositivo para I2C\nPrimeros pasos en la implementación base para bomba peristáltica\ntraducciones adicionales para nuevos valores",
-                "pl": "zaimplementowane opóźnienie po każdym cyklu zanieczyszczeń dotyczących typów pamięci dla I2C\nPierwsze kroki w implementacji pompy perystalicznej\ndodano tłumaczenia dla nowych wartości",
-                "uk": "впроваджено затримку після кожного циклу опитування для декупації умов забігу пам'яті на пристрої I2C\nПерші кроки в базовій реалізації перистальтичного насоса\nдодано переклади для нових значень",
-                "zh-cn": "在每个投票周期之后立即执行,以纪念I2C设施的种族状况。\n三. 用于静止水泵的地下执行的第一步\n增加新价值观的翻译"
-            }
-        },
-        "title": "Atlas Scientific EZO",
-        "titleLang": {
-            "en": "Atlas Scientific EZO",
-            "de": "Atlas Scientific EZO",
-            "ru": "Атлас Научная ЭЗО",
-            "pt": "Atlas Científico EZO",
-            "nl": "Atlas Wetenschappelijke EZO",
-            "fr": "Atlas Scientifique EZO",
-            "it": "Atlante scientifico EZO",
-            "es": "EZO científico de Atlas",
-            "pl": "Atlas Scientific EZO",
-            "zh-cn": "阿特拉斯科学 EZO",
-            "uk": "Atlas Scientific EZO"
-        },
-        "desc": {
-            "en": "atlas-scientific-ezo-i2c",
-            "de": "atlas-scientific-ezo-i2c",
-            "ru": "атлас-научный-ezo-i2c",
-            "pt": "atlas-científico-ezo-i2c",
-            "nl": "atlas-wetenschappelijk-ezo-i2c",
-            "fr": "atlas-scientifique-ezo-i2c",
-            "it": "atlas-scientifico-ezo-i2c",
-            "es": "atlas-cientifico-ezo-i2c",
-            "pl": "atlas-naukowy-ezo-i2c",
-            "zh-cn": "地图集-科学-ezo-i2c",
-            "uk": "atlas-scientific-ezo-i2c"
-        },
-        "authors": [
-            "Buzze11 <github@buchholz.cloud>"
-        ],
-        "keywords": [
-            "ioBroker",
-            "template",
-            "Smart Home",
-            "home automation"
-        ],
-        "license": "Apache-2.0",
-        "platform": "Javascript/Node.js",
-        "main": "build/main.js",
-        "icon": "atlas-scientific-ezo-i2c.png",
-        "enabled": true,
-        "extIcon": "https://raw.githubusercontent.com/Buzze11/ioBroker.atlas-scientific-ezo-i2c/master/admin/atlas-scientific-ezo-i2c.png",
-        "readme": "https://github.com/Buzze11/ioBroker.atlas-scientific-ezo-i2c/blob/master/README.md",
-        "loglevel": "info",
-        "messagebox": true,
-        "mode": "daemon",
-        "type": "hardware",
-        "compact": true,
-        "connectionType": "local",
-        "dataSource": "poll",
-        "adminUI": {
-            "config": "materialize"
-        },
-        "eraseOnUpload": true,
-        "dependencies": [
-            {
-                "js-controller": ">=3.3.22"
-            }
-        ],
-        "globalDependencies": [
-            {
-                "admin": ">=5.0.0"
-            }
-        ]
+  "common": {
+    "name": "atlas-scientific-ezo-i2c",
+    "version": "2.2.3",
+    "news": {
+      "2.2.3": {
+        "en": "Added support for EZO PRS Sensor\nAdded help for PRS in readme.md",
+        "de": "Unterstützung für EZO PRS Sensor\nUnterstützung für PRS in Readme. md",
+        "ru": "Добавлена поддержка EZO PRS Sensor\nДобавлена помощь для PRS в readme. мд",
+        "pt": "Adicionado suporte para EZO PRS Sensor\nAdicionado ajuda para PRS em readme. Md",
+        "nl": "Verleende steun voor EZO PRS Sensor\nHulp toegevoegd voor PRS. _",
+        "fr": "Ajout du support pour EZO PRS Sensor\nAjout de l'aide pour PRS dans readme. md",
+        "it": "Aggiunto supporto per sensore EZO PRS\nAggiunto aiuto per PRS in readme. M",
+        "es": "Soporte añadido para el sensor PRS EZO\nAyuda adicional para PRS en readme. md",
+        "pl": "Wsparcie EZO PRS Sensor\nDodany pomoc dla PRS w przeczytaniu. md",
+        "uk": "Додано підтримку Датчика PRS EZO\nДодана допомога PRS у чителю. мд",
+        "zh-cn": "增加对《减贫战略文件》的支持\n读本的《减贫战略文件》也得到了帮助。 百万"
+      },
+      "2.2.2": {
+        "en": "Bugfixings: Fixed wrong order of delay initialization and delay values for some drivers\nAdded backend hardware driver for embedded EZO PRS (not functional right now)",
+        "de": "Fehlerbehebungen: Fehlerhafte Reihenfolge der Verzögerungs-Initialisierung und Verzögerungswerte für einige Fahrer behoben\nHinzugefügt Backend Hardware Treiber für Embedded EZO PRS (nicht funktionsfähig jetzt)",
+        "ru": "Исправления: Исправлен неправильный порядок инициализации задержки и задержки значения для некоторых водителей\nДобавлен резервный аппаратный драйвер для встроенных EZO PRS (не работает прямо сейчас)",
+        "pt": "Bugfixings: Ordem errada fixa de inicialização de atraso e valores de atraso para alguns drivers\nAdicionado driver de hardware backend para EZO PRS incorporado (não funcional agora)",
+        "nl": "Bugfixings: Verschillende orde van vertraging en vertragingswaarden voor wat chauffeurs\nVoegde backend hardwarechauffeur toe voor ingesloten EZO PRS ( niet functioneel nu)",
+        "fr": "Bugfixings: Correction de l ' ordre erroné d ' initialisation et de retard pour certains conducteurs\nAjout du pilote matériel de backend pour EZO PRS intégré (non fonctionnel en ce moment)",
+        "it": "Bugfixings: Corretto ordine sbagliato di inizializzazione del ritardo e dei valori di ritardo per alcuni driver\nAggiunto driver hardware backend per EZO PRS incorporato (non funzionale in questo momento)",
+        "es": "Errores: Orden incorrecto fijo de inicialización de demoras y valores de demora para algunos conductores\nAgregado controlador de hardware de backend para EZO PRS incrustado (no funcional ahora)",
+        "pl": "Uszkodzenia: Fixed incorrect order inicjacji opóźnień i opóźnień dla niektórych kierowców\nWspółzałożyciel sprzężenia dla wbudowanych EZO PRS (nie funkcjonuje obecnie)",
+        "uk": "Виправлення помилок: Виправлено неправильне замовлення визначення затримки та значення затримки для деяких драйверів\nДодано задній апаратний драйвер для вбудованих EZO PRS (не функціональний прямо зараз)",
+        "zh-cn": "确定: 对某些司机的延迟初始化和延迟价值的错误命令\n增加含内在地表(目前没有功能权)的辅助硬件司机"
+      },
+      "2.2.1": {
+        "en": "Added support for EC Electrical conductivity sensors\nExtended Help with new implementation",
+        "de": "Unterstützung für elektrische Leitfähigkeitssensoren der EG\nErweiterte Hilfe mit neuer Implementierung",
+        "ru": "Добавлена поддержка датчиков электропроводности EC\nРасширенная помощь с новой реализацией",
+        "pt": "Adicionado suporte para sensores de condutividade elétrica EC\nAjuda estendida com nova implementação",
+        "nl": "Vervoegde ondersteuning voor EC Electrische gedragssensoren\nVerlengde hulp met nieuwe implementatie",
+        "fr": "Support supplémentaire pour les capteurs de conductivité électrique EC\nAide prolongée pour une nouvelle mise en œuvre",
+        "it": "Aggiunto supporto per i sensori di conducibilità elettrica EC\nAiuto esteso con nuova implementazione",
+        "es": "Apoyo adicional para sensores de conductividad eléctrica CE\nExtended Help with new implementation",
+        "pl": "Wsparcie dla EC Electrical conductivity sensors\nPomagać się z nową implementacją",
+        "uk": "Додано підтримку датчиків електропровідності EC\nРозширена допомога з новим впровадженням",
+        "zh-cn": "增加对电传感器的支助\n往往有助于新的执行"
+      },
+      "2.2.0": {
+        "en": "Several Bugfixes in Pump implementation\nadjusted readme.md",
+        "de": "Mehrere Bugfixes in der Pumpendurchführung\nbereinigtes readme.md",
+        "ru": "Несколько багфиксов в реализации насоса\nскорректирована readme.md",
+        "pt": "Vários Bugfixs na implementação da bomba\najustado readme.md",
+        "nl": "Vertaling:\naangepaste lezing",
+        "fr": "Plusieurs Bugfixes dans la mise en œuvre de la pompe\nreadme.md",
+        "it": "Diversi bugfix nell'implementazione della pompa\nregolato readme.md",
+        "es": "Varios bugfixes en la implementación de bombas\nreadme.md ajustado",
+        "pl": "Kilka Bugfixów w implementacji Pumpa\nreadme.md",
+        "uk": "Кілька Виправлень помилок у впровадженні насоса\njavascript licenses api веб-сайт go1.13.8",
+        "zh-cn": "B. 在实施倾销过程中的好几个布格\n改为:md"
+      },
+      "2.1.0": {
+        "en": "Added example Grafana Dashboard code and documentation\nAdded example Scripts and documentation for helpful Javascript Adapter",
+        "de": "Hinzugefügt Beispiel Grafana Dashboard Code und Dokumentation\nBeispiel Scripts und Dokumentation für hilfreiche Javascript Adapter",
+        "ru": "Добавлен пример Grafana Dashboard code и документация\nДобавлен пример скриптов и документации для полезного Javascript адаптера",
+        "pt": "Adicionado exemplo Grafana Dashboard código e documentação\nExemplo adicionado Scripts e documentação para útil Javascript Adapter",
+        "nl": "Toegevoegd voorbeeld Grafana Dashboard code en documentatie\nToegevoegd voorbeeld Script en documentatie voor behulpzaam Javascript Adapter",
+        "fr": "Exemple ajouté Code de tableau de bord de Grafana et documentation\nAjouté l'exemple Scripts et la documentation pour utiles Javascript Adapter",
+        "it": "Esempio aggiunto Grafana Dashboard codice e documentazione\nAggiunto esempio Script e documentazione per utile Javascript adattatore",
+        "es": "Ejemplo adicional Grafana Dashboard código y documentación\nEjemplo añadido Scripts y documentación para el adaptador de Javascript útil",
+        "pl": "Przykłady kodu Grafana Dashboarda i dokumentacji\nWstępny przykład skryptów i dokumentacji za pomocny Javascript Adapter",
+        "uk": "Додано приклад Grafana Dashboard код і документація\nДодано приклад сценарії та документацію для корисного Javascript адаптера",
+        "zh-cn": "添加的例子:Grafana Dash板守则和文件\n添加了帮助瓦斯·阿帕特的样品和文件"
+      },
+      "2.0.0": {
+        "en": "Feature request: add the \"active\" Switch to objects #10 Part I -> Added State including state change listeners \"IsPaused\" to pause measure per sensor during runtime\nFeature request: add the \"calibration\" switches to objects #10 Part II -> Added calibration state objects\nAdjusted Readme with Help for new Features\nAdded state translations for alphanumeric and boolean states to clear text",
+        "de": "Featureanfrage: Fügen Sie den aktiven Switch zu Objekten #10 Teil I -> Zusätzlicher Staat einschließlich Zustandsänderungshörer IsPaused, um Maß pro Sensor während der Laufzeit zu halten\nFeatureanfrage: Fügen Sie die Kalibrierschalter zu Objekten #10 Teil II -> Hinzufügen von Kalibrierzustandsobjekten\nJusted Readme mit Hilfe für neue Features\nStaatliche Übersetzungen für alphanumerische und boolesche Staaten hinzugefügt, um Text zu löschen",
+        "ru": "Запрос функции: добавьте активный Switch в объекты #10 Part I -> Добавили государство, включая слушатели изменения штата, предназначено для паузы измерения в течение датчика во время рабочего времени\nЗапрос функции: добавьте калибровочные переключатели на объекты #10 Part II -> Добавлены калибровочные государственные объекты\nНастройка Readme с помощью для новых функций\nДобавлены государственные переводы для альфаномерных и болевых государств для ясного текста",
+        "pt": "Requisito de recurso: adicione o interruptor ativo aos objetos #10 Parte I -> Estado adicionado incluindo os ouvintes de mudança de estado IsPaused para pausar medida por sensor durante o tempo de execução\nPedido do recurso: adicione os interruptores de calibração aos objetos #10 Parte II -> Objetos de estado de calibração adicionados\nReadme ajustado com ajuda para novos recursos\nAdicionadas traduções estaduais para estados alfanuméricos e booleanos para texto claro",
+        "nl": "Feature verzoek: voeg de actieve Switch toe aan objecten Inclusief staatswijziging luisteraars isPaus om de sensor te pauzeren tijdens de looptijd\nFeature verzoek: voeg de kalibratie aan objecten toe. Toegevoegd kalibratie voorwerpen\nAangepaste Readme voor nieuwe Features\nVertaling:",
+        "fr": "Demande de caractéristique: ajouter l'interrupteur actif aux objets #10 Partie I - Cancer État ajouté, y compris les auditeurs de changement d'état IsPaused pour faire une pause mesure par capteur pendant la course\nDemande de caractéristique: ajouter les interrupteurs d'étalonnage aux objets #10 Partie II - Cancer Ajout d ' objets d ' état d ' étalonnage\nAjusté Readme avec Aide pour les nouvelles fonctionnalités\nAjout de traductions d'état pour les États alphanumériques et booléens au texte clair",
+        "it": "Richiesta caratteristica: aggiungere l'interruttore attivo agli oggetti #10 Parte I -> Aggiunto Stato compresi gli ascoltatori di cambiamento di stato IsPaused a pausa misura per sensore durante il runtime\nRichiesta caratteristica: aggiungere gli interruttori di calibrazione agli oggetti #10 Parte II -> Oggetti di stato di calibrazione aggiunti\nReadme regolato con aiuto per nuove funzionalità\nAggiunte traduzioni di stato per gli stati alfanumerici e booleani a testo chiaro",
+        "es": "Solicitud de alimentación: añadir el interruptor activo a los objetos #10 Part I - Conf Estado añadido incluyendo los oyentes del cambio de estado sePausa para detener la medida por sensor durante el tiempo de funcionamiento\nSolicitud de alimentación: agregue los interruptores de calibración a los objetos #10 Parte II - título Objetos del estado de calibración\nReadme ajustado con ayuda para nuevas características\nTraducciones estatales agregadas para estados alfanuméricos y booleanos a texto claro",
+        "pl": "Wykorzystywanie: dodanie aktywnego Switch do obiektów #10 części I ->>. Dodany stan, włączając słuchaczy IsPauseda do przerwania pomiaru na czujnik w czasie wykonywania programu\nZapytanie: dodanie kalibracji przełącza się do obiektów #10 części II ->>. Zamknięta kalibracja obiektów państwowych\nAdjusted Readme with Help for New Features (ang.)\nTłumaczenia państwowe dla państw alfanumerycznych i booleańskich w celu oczyszczania tekstu",
+        "uk": "Запит на функцію: додати активний перемикач на об'єкти #10 Частина I -> Додано стан, в тому числі слухачі змінного стану, які використовуються для вимірювання пауза в режимі runtime\nЗапит на використання: додати перемикачі калібрування на об'єкти #10 Частина II -> Додано калібрувальні об'єкти\nРегульований Readme з доповіддю для нових функцій\nДодано державні переклади для альфа-нумерних і булевих держав для чіткого тексту",
+        "zh-cn": "资格要求:将积极的巫术添加到第10部分第一部分—— > 加入国,包括国家变化倾听者IPaus在经营期间对每个传感器采取零用措施\n资格要求:增加对编号为II- 的物体的校舍。 增加国家目标\nA. 改正读书,帮助新名称\n添加国邮寄和声音州的翻译,以明确案文"
+      },
+      "1.2.4": {
+        "en": "Finished first Pump implementation (UI and Pump control) untested due to missing device\nextended README.md\nFurther translations",
+        "de": "Fertige erste Pumpen-Implementierung (UI und Pumpensteuerung) durch fehlendes Gerät nicht getestet\nerweiterte README.md\nWeitere Übersetzungen",
+        "ru": "Завершенная первая реализация насоса (UI и управление насосом) не проверена из-за отсутствующего устройства\nрасширенный README.md\nДополнительные переводы",
+        "pt": "Implementação da primeira bomba concluída (UI e controle da bomba) não testado devido ao dispositivo ausente\nrEADME estendida.md\nMais traduções",
+        "nl": "Eindigde eerste pomp implementatie (UI en Pump controle) ontworpen door ontbrekend apparaat\nverlengde formulieren\nVerder vertaling",
+        "fr": "Première mise en œuvre de la pompe (UI et contrôle de la pompe) non testée en raison de l'appareil manquant\nprolongé README.md\nAutres traductions",
+        "it": "Prima applicazione pompa finita (UI e controllo pompa) non testato a causa del dispositivo mancante\nesteso README.md\nAltre traduzioni",
+        "es": "Terminado la primera implementación de bomba (control de interfaz de usuario y bomba) sin probar debido al dispositivo perdido\nextendida README.md\nOtras traducciones",
+        "pl": "Zakończona pierwsza implementacja Pumpa (UI i Pump Control) nie została zrealizowana ze względu na brak urządzenia\nrEADME.md\nKolejne tłumaczenia",
+        "uk": "Завершено впровадження першого насоса (УІ і контроль насоса) не перевірено через відсутній пристрій\nрозширення README.md\nДодаткові переклади",
+        "zh-cn": "由于失踪的装置,未证明先行的Pump执行(UI和Pump控制)\n推广中小企业\n进一步翻译"
+      }
     },
-    "native": {
-        "busNumber": 1,
-        "devices": []
+    "title": "Atlas Scientific EZO",
+    "titleLang": {
+      "en": "Atlas Scientific EZO",
+      "de": "Atlas Scientific EZO",
+      "ru": "Атлас Научная ЭЗО",
+      "pt": "Atlas Científico EZO",
+      "nl": "Atlas Wetenschappelijke EZO",
+      "fr": "Atlas Scientifique EZO",
+      "it": "Atlante scientifico EZO",
+      "es": "EZO científico de Atlas",
+      "pl": "Atlas Scientific EZO",
+      "zh-cn": "阿特拉斯科学 EZO",
+      "uk": "Atlas Scientific EZO"
     },
-    "objects": [],
-    "instanceObjects": [
-        {
-            "_id": "info",
-            "type": "channel",
-            "common": {
-                "name": "Information"
-            },
-            "native": {}
-        },
-        {
-            "_id": "info.connection",
-            "type": "state",
-            "common": {
-                "role": "indicator.connected",
-                "name": "Device or service connected",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        }
+    "desc": {
+      "en": "atlas-scientific-ezo-i2c",
+      "de": "atlas-scientific-ezo-i2c",
+      "ru": "атлас-научный-ezo-i2c",
+      "pt": "atlas-científico-ezo-i2c",
+      "nl": "atlas-wetenschappelijk-ezo-i2c",
+      "fr": "atlas-scientifique-ezo-i2c",
+      "it": "atlas-scientifico-ezo-i2c",
+      "es": "atlas-cientifico-ezo-i2c",
+      "pl": "atlas-naukowy-ezo-i2c",
+      "zh-cn": "地图集-科学-ezo-i2c",
+      "uk": "atlas-scientific-ezo-i2c"
+    },
+    "authors": [
+      "Buzze11 <github@buchholz.cloud>"
+    ],
+    "keywords": [
+      "ioBroker",
+      "template",
+      "Smart Home",
+      "home automation"
+    ],
+    "license": "Apache-2.0",
+    "platform": "Javascript/Node.js",
+    "main": "build/main.js",
+    "icon": "atlas-scientific-ezo-i2c.png",
+    "enabled": true,
+    "extIcon": "https://raw.githubusercontent.com/Buzze11/ioBroker.atlas-scientific-ezo-i2c/master/admin/atlas-scientific-ezo-i2c.png",
+    "readme": "https://github.com/Buzze11/ioBroker.atlas-scientific-ezo-i2c/blob/master/README.md",
+    "loglevel": "info",
+    "messagebox": true,
+    "mode": "daemon",
+    "type": "hardware",
+    "compact": true,
+    "connectionType": "local",
+    "dataSource": "poll",
+    "adminUI": {
+      "config": "materialize"
+    },
+    "eraseOnUpload": true,
+    "dependencies": [
+      {
+        "js-controller": ">=3.3.22"
+      }
+    ],
+    "globalDependencies": [
+      {
+        "admin": ">=5.0.0"
+      }
     ]
+  },
+  "native": {
+    "busNumber": 1,
+    "devices": []
+  },
+  "objects": [],
+  "instanceObjects": [
+    {
+      "_id": "info",
+      "type": "channel",
+      "common": {
+        "name": "Information"
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.connection",
+      "type": "state",
+      "common": {
+        "role": "indicator.connected",
+        "name": "Device or service connected",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    }
+  ]
 }
