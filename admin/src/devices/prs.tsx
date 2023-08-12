@@ -74,7 +74,7 @@ class PRS extends EzoBase<PRSConfig> {
     @boundMethod
     protected doZeropointCalibration(_event: React.FormEvent<HTMLElement>): boolean {
         console.log('Zeropoint Calibration Button pressed');
-        this.handleCalibration("PRSZeropoint", this.calibrateValue);
+        this.handleCalibration("Zeropoint", this.calibrateValue);
         return false;
     }
 
@@ -102,26 +102,6 @@ class PRS extends EzoBase<PRSConfig> {
     }
 
     // ***************************************************
-
-    // ******* Alarm configuration *******
-
-    // @boundMethod
-    // protected onAlarmThresholdValueChange(_event: React.FormEvent<HTMLElement>): boolean {
-    //     const target = event.target as HTMLInputElement | HTMLSelectElement;
-    //     const value = this.parseChangedSetting(target);
-    //     this.calibrateValue = value.toString();
-    //     console.log('new alarm threshold value: ' + this.alarmThresholdValue);
-    //     return false;
-    // }
-
-    // @boundMethod
-    // protected onAlarmToleranceValueChange(_event: React.FormEvent<HTMLElement>): boolean {
-    //     const target = event.target as HTMLInputElement | HTMLSelectElement;
-    //     const value = this.parseChangedSetting(target);
-    //     this.calibrateValue = value.toString();
-    //     console.log('new alarm tolerance value: ' + this.alarmToleranceValue);
-    //     return false;
-    // }
 
     @boundMethod
     protected setAlarmConfig(_event: React.FormEvent<HTMLElement>): boolean {
@@ -248,7 +228,7 @@ class PRS extends EzoBase<PRSConfig> {
                     <Grid item xs={12} sm={12} md={12}>
                         <label >{I18n.t('PRS Parameters Configuration')}</label>
                     </Grid>
-                    <Grid item xs={7} sm={5} md={3}>
+                    <Grid item xs={7} sm={6} md={6}>
                         <label>
                             <Switch
                                 checked={this.state.config.psiParamActive}

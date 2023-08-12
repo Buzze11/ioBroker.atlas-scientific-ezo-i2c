@@ -226,6 +226,34 @@ For EZO Pumps the following states are listening for changes:
 * **"Constant_flow_rate"** -> Format: commaseparated values ml per min,duration -> Dispenses constantly the given volume/min over the given duration in minutes. ml for volume/min and duration in minutes. Negative amounts will run the pump in reverse.  The state will be cleared automatically after the command has been executed.
 * **"Pause_Pump"** -> If set to true the pump will be paused. Unpause is done on next dispense action.
 
+## PRS-Related funtionalities & Settings
+
+### PRS Admin-UI Elements
+
+![Image](pictures/prs_config.png)
+
+* **"Clear Calibration"-Button** -> Delete calibration Data  
+* **"Calibrate Zeropoint"-Button** -> calibrate device zeropoint 
+* **"Calibrate High"-Button** -> calibrate device high point to desired value
+
+* **"psi"-Switch** -> Switch to enable or disable "output will be in psi" inside the reading string
+* **"atm"-Switch** -> Switch to enable or disable "output will be in atm" inside the reading string
+* **"bar"-Switch** -> Switch to enable or disable "output will be in bar" inside the reading string
+* **"kPa"-Switch** -> Switch to enable or disable "output will be in kPa" inside the reading string
+* **"inh2o"-Switch** -> Switch to enable or disable "output will be in inches of water" inside the reading string
+* **"cmh2o"-Switch** -> Switch to enable or disable "output will be in cm of water" inside the reading string
+
+
+### PRS States with include State change detection
+
+For PRS Sensor following states are listening for changes: 
+* **"Calibrate_Clear"** -> Set to true to clear sensor calibration. Will be set to false calibration was cleared.
+* **"Calibrate_Zeropoint"** -> Set to true to run a zeropoint sensor calibration. Will be set to false after calibration run.
+* **"Calibrate_High"** -> Set to true to to run a high sensor calibration with the desired value. Will be cleared after calibration automatically
+* **"Alarm_enabled"** -> Set to true to to enable Alarm pin from sensor, false to disable
+* **"Alarm_Threshold"** -> Set the desired value for alarm threshold. After change value will be written to sensor
+* **"Alarm_Tolerance"** -> Set the desired value for alarm threshold. After change value will be written to sensor
+
 
 ## Visualization example with Grafana Dashboard
 
@@ -2762,6 +2790,10 @@ You can check other adapters for examples or ask in the developer community. Usi
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- Added support for EZO PRS Sensor
+- Added help for PRS in readme.md
+
 ### 2.2.2 (2023-08-06)
 - Bugfixings: Fixed wrong order of delay initialization and delay values for some drivers
 - Added backend hardware driver for embedded EZO PRS (not functional right now)

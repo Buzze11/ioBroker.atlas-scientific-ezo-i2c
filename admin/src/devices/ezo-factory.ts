@@ -6,6 +6,7 @@ import * as ScientificEzoORP from './orp';
 import * as ScientificEzoRTD from './rtd';
 import * as ScientificEzoPump from './pmp';
 import * as ScientificEzoEC from './ec';
+import * as ScientificEzoPRS from './prs';
 
 export interface DeviceInfo {
     readonly name: string;
@@ -22,6 +23,8 @@ export class EzoFactory {
         ...ScientificEzoRTD.Infos,
         ...ScientificEzoPump.Infos,
         ...ScientificEzoEC.Infos,
+        ...ScientificEzoPRS.Infos,
+        
     ];
 
     static getSupportedDevices(address: number): DeviceInfo[] {

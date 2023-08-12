@@ -151,7 +151,7 @@ class AtlasScientificEzoI2cAdapter extends utils.Adapter {
     await Promise.all(listeners.map((listener) => listener(oldValue, state.val)));
   }
   async onMessage(obj) {
-    var _a, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o, _p, _q, _r, _s, _t;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o, _p, _q, _r, _s, _t, _u, _v, _w;
     this.log.info("onMessage: " + JSON.stringify(obj));
     try {
       if (typeof obj === "object" && obj.message) {
@@ -305,6 +305,21 @@ class AtlasScientificEzoI2cAdapter extends utils.Adapter {
               this.result = await ((_t = this.dev) == null ? void 0 : _t.SetProbeType(obj.message["probeTypeValue"]));
             }
             this.log.error("Error occured on setting probe type: " + res);
+            break;
+          case "PRSCalibration":
+            if (this.dev = await this.GetDeviceHandler(obj)) {
+              this.result = await ((_u = this.dev) == null ? void 0 : _u.DoCalibration(obj.message["calibrationtype"], obj.message["prsValue"]));
+            }
+            this.log.error("Error occured on PRS Calibration: " + res);
+            break;
+          case "PRSSetAlarmConfig":
+            if (this.dev = await this.GetDeviceHandler(obj)) {
+              if (obj.message["enabled"] === "true")
+                this.result = await ((_v = this.dev) == null ? void 0 : _v.SetAlarmConfig(true, obj.message["alarmThresholdVal"], obj.message["alarmToleranceVal"]));
+              else if (obj.message["enabled"] === "false")
+                this.result = await ((_w = this.dev) == null ? void 0 : _w.SetAlarmConfig(false, obj.message["alarmThresholdVal"], obj.message["alarmToleranceVal"]));
+            }
+            this.log.error("Error occured on setting PRS Alarm configuration: " + res);
             break;
           default:
             this.result = "Unknown command";

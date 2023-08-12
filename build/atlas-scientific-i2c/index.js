@@ -22,6 +22,7 @@ __export(atlas_scientific_i2c_exports, {
   EZODevice: () => import_ezo_device.EZODevice,
   FindAllDevices: () => FindAllDevices,
   ORP: () => import_orp_meter.ORP,
+  PRS: () => import_prs.PRS,
   Pump: () => import_pump.Pump,
   RTD: () => import_rtd_meter.RTD,
   pH: () => import_ph_meter.pH
@@ -34,6 +35,7 @@ var import_orp_meter = require("./orp_meter");
 var import_ec_meter = require("./ec_meter");
 var import_do_meter = require("./do_meter");
 var import_rtd_meter = require("./rtd-meter");
+var import_prs = require("./prs");
 var import_async = require("../lib/async");
 async function FindAllDevices(i2c_bus, adapter) {
   const info = Buffer.from("I");
@@ -80,6 +82,7 @@ async function FindAllDevices(i2c_bus, adapter) {
   EZODevice,
   FindAllDevices,
   ORP,
+  PRS,
   Pump,
   RTD,
   pH

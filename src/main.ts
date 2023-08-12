@@ -16,6 +16,7 @@ import ORP from './devices/orp';
 import RTD from './devices/rtd';
 import EC from './devices/ec';
 import PeristalticPump from './devices/pump';
+import PRS from './devices/prs';
 
 
 export class AtlasScientificEzoI2cAdapter extends utils.Adapter {
@@ -286,11 +287,11 @@ export class AtlasScientificEzoI2cAdapter extends utils.Adapter {
                         this.log.error('Error occured on Pump Calibration: ' + res);
                         break;
                     case 'PumpClearDispensedVolume':
-                            if((this.dev = await this.GetDeviceHandler(obj))){
-                                this.result = await (this.dev as PeristalticPump)?.ClearTotalDispensedVolume();
-                            }
-                            this.log.error('Error occured on clearing total dispensed volume: ' + res);
-                            break;
+                        if((this.dev = await this.GetDeviceHandler(obj))){
+                            this.result = await (this.dev as PeristalticPump)?.ClearTotalDispensedVolume();
+                        }
+                        this.log.error('Error occured on clearing total dispensed volume: ' + res);
+                        break;
                     case 'PumpSetContinousDispense': //******* */
                         if((this.dev = await this.GetDeviceHandler(obj))){
                             this.result = await (this.dev as PeristalticPump)?.SetContinousDispenseMode(true);
@@ -344,6 +345,21 @@ export class AtlasScientificEzoI2cAdapter extends utils.Adapter {
                             this.result = await (this.dev as EC)?.SetProbeType(obj.message['probeTypeValue']);
                         }
                         this.log.error('Error occured on setting probe type: ' + res);
+                        break;
+                    case 'PRSCalibration':
+                        if((this.dev = await this.GetDeviceHandler(obj))){
+                            this.result = await (this.dev as PRS)?.DoCalibration(obj.message['calibrationtype'], obj.message['prsValue']);
+                        }
+                        this.log.error('Error occured on PRS Calibration: ' + res);
+                        break;
+                    case 'PRSSetAlarmConfig':
+                        if((this.dev = await this.GetDeviceHandler(obj))){
+                            if(obj.message['enabled']==='true')
+                                this.result = await (this.dev as PRS)?.SetAlarmConfig(true, obj.message['alarmThresholdVal'],obj.message['alarmToleranceVal']);
+                            else if(obj.message['enabled']==='false')
+                                this.result = await (this.dev as PRS)?.SetAlarmConfig(false, obj.message['alarmThresholdVal'],obj.message['alarmToleranceVal']);
+                        }
+                        this.log.error('Error occured on setting PRS Alarm configuration: ' + res);
                         break;
                     default:
                         this.result =  'Unknown command';
