@@ -2790,7 +2790,7 @@ You can check other adapters for examples or ask in the developer community. Usi
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 2.3.0 (2023-08-14)
 - NPM Package updates
 
 ### 2.2.3 (2023-08-12)

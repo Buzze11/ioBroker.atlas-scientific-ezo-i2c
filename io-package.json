@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "atlas-scientific-ezo-i2c",
-    "version": "2.2.3",
+    "version": "2.3.0",
     "news": {
+      "2.3.0": {
+        "en": "NPM Package updates",
+        "de": "NPM Paket-Updates",
+        "ru": "НПМ Обновления пакета",
+        "pt": "NPM Atualizações do pacote",
+        "nl": "NPM Package updates",
+        "fr": "NPM Mises à jour du paquet",
+        "it": "NPM Aggiornamenti del pacchetto",
+        "es": "NPM Actualizaciones de paquetes",
+        "pl": "NPM aktualizacja pakietów",
+        "uk": "ПМ Оновлення пакету",
+        "zh-cn": "NPM 包装更新"
+      },
       "2.2.3": {
         "en": "Added support for EZO PRS Sensor\nAdded help for PRS in readme.md",
         "de": "Unterstützung für EZO PRS Sensor\nUnterstützung für PRS in Readme. md",
@@ -80,19 +93,6 @@
         "pl": "Wykorzystywanie: dodanie aktywnego Switch do obiektów #10 części I ->>. Dodany stan, włączając słuchaczy IsPauseda do przerwania pomiaru na czujnik w czasie wykonywania programu\nZapytanie: dodanie kalibracji przełącza się do obiektów #10 części II ->>. Zamknięta kalibracja obiektów państwowych\nAdjusted Readme with Help for New Features (ang.)\nTłumaczenia państwowe dla państw alfanumerycznych i booleańskich w celu oczyszczania tekstu",
         "uk": "Запит на функцію: додати активний перемикач на об'єкти #10 Частина I -> Додано стан, в тому числі слухачі змінного стану, які використовуються для вимірювання пауза в режимі runtime\nЗапит на використання: додати перемикачі калібрування на об'єкти #10 Частина II -> Додано калібрувальні об'єкти\nРегульований Readme з доповіддю для нових функцій\nДодано державні переклади для альфа-нумерних і булевих держав для чіткого тексту",
         "zh-cn": "资格要求:将积极的巫术添加到第10部分第一部分—— > 加入国,包括国家变化倾听者IPaus在经营期间对每个传感器采取零用措施\n资格要求:增加对编号为II- 的物体的校舍。 增加国家目标\nA. 改正读书,帮助新名称\n添加国邮寄和声音州的翻译,以明确案文"
-      },
-      "1.2.4": {
-        "en": "Finished first Pump implementation (UI and Pump control) untested due to missing device\nextended README.md\nFurther translations",
-        "de": "Fertige erste Pumpen-Implementierung (UI und Pumpensteuerung) durch fehlendes Gerät nicht getestet\nerweiterte README.md\nWeitere Übersetzungen",
-        "ru": "Завершенная первая реализация насоса (UI и управление насосом) не проверена из-за отсутствующего устройства\nрасширенный README.md\nДополнительные переводы",
-        "pt": "Implementação da primeira bomba concluída (UI e controle da bomba) não testado devido ao dispositivo ausente\nrEADME estendida.md\nMais traduções",
-        "nl": "Eindigde eerste pomp implementatie (UI en Pump controle) ontworpen door ontbrekend apparaat\nverlengde formulieren\nVerder vertaling",
-        "fr": "Première mise en œuvre de la pompe (UI et contrôle de la pompe) non testée en raison de l'appareil manquant\nprolongé README.md\nAutres traductions",
-        "it": "Prima applicazione pompa finita (UI e controllo pompa) non testato a causa del dispositivo mancante\nesteso README.md\nAltre traduzioni",
-        "es": "Terminado la primera implementación de bomba (control de interfaz de usuario y bomba) sin probar debido al dispositivo perdido\nextendida README.md\nOtras traducciones",
-        "pl": "Zakończona pierwsza implementacja Pumpa (UI i Pump Control) nie została zrealizowana ze względu na brak urządzenia\nrEADME.md\nKolejne tłumaczenia",
-        "uk": "Завершено впровадження першого насоса (УІ і контроль насоса) не перевірено через відсутній пристрій\nрозширення README.md\nДодаткові переклади",
-        "zh-cn": "由于失踪的装置,未证明先行的Pump执行(UI和Pump控制)\n推广中小企业\n进一步翻译"
       }
     },
     "title": "Atlas Scientific EZO",
