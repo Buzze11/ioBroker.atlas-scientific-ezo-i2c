@@ -139,6 +139,7 @@
     "extIcon": "https://raw.githubusercontent.com/Buzze11/ioBroker.atlas-scientific-ezo-i2c/master/admin/atlas-scientific-ezo-i2c.png",
     "readme": "https://github.com/Buzze11/ioBroker.atlas-scientific-ezo-i2c/blob/master/README.md",
     "loglevel": "info",
+    "tier": 2,
     "messagebox": true,
     "mode": "daemon",
     "type": "hardware",
