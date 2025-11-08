@@ -131,7 +131,10 @@
       "Smart Home",
       "home automation"
     ],
-    "license": "Apache-2.0",
+    "licenseInformation": {
+      "type": "free",
+      "license": "Apache-2.0"
+    },
     "platform": "Javascript/Node.js",
     "main": "build/main.js",
     "icon": "atlas-scientific-ezo-i2c.png",
