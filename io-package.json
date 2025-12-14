@@ -133,7 +133,6 @@
     ],
     "license": "Apache-2.0",
     "platform": "Javascript/Node.js",
-    "main": "build/main.js",
     "icon": "atlas-scientific-ezo-i2c.png",
     "enabled": true,
     "extIcon": "https://raw.githubusercontent.com/Buzze11/ioBroker.atlas-scientific-ezo-i2c/master/admin/atlas-scientific-ezo-i2c.png",
