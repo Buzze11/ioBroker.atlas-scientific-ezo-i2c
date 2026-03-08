@@ -44,7 +44,7 @@
     "url": "git@github.com:Buzze11/ioBroker.atlas-scientific-ezo-i2c.git"
   },
   "engines": {
-    "node": ">= 16"
+    "node": ">= 20"
   },
   "dependencies": {
     "@iobroker/adapter-core": "^2.6.8",
